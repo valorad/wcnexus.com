@@ -1,0 +1,92 @@
+#divnavbarTop {
+	position: fixed;
+	z-index: 100;
+	background-color:rgba(96, 125, 139, 1); /* Blue Grey */
+}
+
+#divnavheader > a > img {
+	height: 30px;
+}
+
+#divHeadBox {
+	margin: 0px -15px 0px -15px;
+/* Light Grey rgba(236, 236, 236, 1)*/
+	background-color:rgba(158, 158, 158, 1); /* Grey */
+}
+
+#divWCAvatar {
+	text-align: center;
+	z-index: 200;
+}
+
+#divWCAvatar > img {
+	box-shadow: 2px 6px 2px -5px #ccc;
+    margin-bottom: 4px;	
+	height: 300px;
+	margin: 0px auto; 
+}
+
+#divTitle {
+	text-align: center;
+
+}
+
+#divTitle > img {
+	height: 160px;
+	display: inline;
+}
+
+#divTitle > h1{
+	display: inline;
+	position: relative;
+	top: 10px;
+	font-size: 55px;
+	font-weight: bolder;
+}
+
+
+/* Responsive Settings Start*/
+
+/* Extra small devices (phones, less than 768px) */
+@media only screen and (max-width: 768px) {	
+	#divWCAvatar {
+		margin: 0px 80px 0px 40px;
+	}
+
+	#divnavheader > a > span.title {
+		margin-left: -25px;
+	}
+
+	.hideInXS {
+		display: none;
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	#divTitle {
+		position: relative;
+		top: 63px;
+	}
+}
+
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	#divHeadBox {
+		height: 300px;
+	}
+
+	#divTitle {
+		position: relative;
+		top: 63px;
+	}	
+}
+
+/* Responsive Settings End*/
