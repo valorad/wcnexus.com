@@ -9,9 +9,14 @@
 }
 
 #divHeadBox {
-	margin: 0px 2px 0px -15px;
+	margin: 0px -15px 0px -15px;
 /* Light Grey rgba(236, 236, 236, 1)*/
 	background-color:rgba(158, 158, 158, 1); /* Grey */
+}
+
+#divHeadBox > div.row {
+	margin-left:0px;
+	margin-right:0px;
 }
 
 #divWCAvatar {
