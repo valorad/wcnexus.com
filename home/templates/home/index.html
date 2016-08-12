@@ -86,9 +86,6 @@
 		  </div>
 		</div>		
 	</nav>
-	<div class="" id="ttttt" style="display:none">
-		123
-	</div>
 	<header>	
 		<div class="container-fluid">
 			<div class="panel" id="divHeadBox">
@@ -106,9 +103,70 @@
 		</div>
 	</header>
 	<main>
-		main
+		<header>
+			<div class="container">
+				<div class="jumbotron" id="divAboutSite">
+					<h1>About this site</h1>
+					<p>wc's personal blog-like site.</p>
+					<p>powered by Django 1.10.</p>
+					<footer><a class="btn btn-primary btn-lg" href="https://docs.djangoproject.com/en/1.10/" target="_blank">Learn more</a></footer>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="wcSlider" class="carousel slide" data-ride="carousel">
+						<!-- Indicators dot nav -->
+						<ol class="carousel-indicators">
+							<li data-target="#wcSlider" data-slide-to="0" class="active"></li>
+							<li data-target="#wcSlider" data-slide-to="1"></li>
+							<li data-target="#wcSlider" data-slide-to="2"></li>
+						</ol>
+						<!-- Wrappers for slides -->
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<a href="http://www.linruotian.com" target="_blank">
+									<img src="{% static 'home/images/protoss.jpg' %}" alt="Also check out linruotian.com!">
+								</a>
+								<div class="carousel-caption">
+									<h1 class="">Also check out linruotian.com</h1>
+								</div>
+							</div>
+							<div class="item">
+								<a href="https://github.com/wcxaaa/wcnexus.com" target="_blank">
+									<img src="{% static 'home/images/forkwcnonG.jpg' %}" alt="Fork me on Github">
+								</a>
+								<div class="carousel-caption">
+									<h1 class="">Fork me on Github!</h1>
+								</div>
+							</div>
+							<div class="item">
+								<a href="http://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=index&fr=&sf=1&fmq=&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&oq=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&rsp=-1" target="_blank">
+									<img src="{% static 'home/images/kittyfun.png' %}" alt="Fork me on Github">
+								</a>
+								<div class="carousel-caption">
+									<h1 class="">Also a fan of cats?</h1>
+								</div>
+							</div>
+						</div>
+
+						<!-- controls or next&prev buttons -->
+						<a class="left carousel-control" href="#wcSlider" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#wcSlider" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>					
+					</div>
+				</div>			
+			</div>			
+		</div>
 	</main>
 	<script type="text/javascript">
+		//function handling VisibilityChange
 		function onVisibilityChange(el, callback) {
 		    var old_visible;
 		    return function () {
@@ -125,7 +183,6 @@
 		var handler = onVisibilityChange($("#divTitle"), function(visible) {
 			visible?($("#divnavheader .navbar-brand").addClass("hideInXS")):($("#divnavheader .navbar-brand").removeClass("hideInXS"));
 		});
-
 
 		//jQuery
 		$(window).on('DOMContentLoaded load resize scroll', handler);		

@@ -9,7 +9,7 @@
 }
 
 #divHeadBox {
-	margin: 0px -15px 0px -15px;
+	margin: 0px 2px 0px -15px;
 /* Light Grey rgba(236, 236, 236, 1)*/
 	background-color:rgba(158, 158, 158, 1); /* Grey */
 }
@@ -28,7 +28,7 @@
 
 #divTitle {
 	text-align: center;
-
+	z-index: 201;
 }
 
 #divTitle > img {
@@ -42,6 +42,31 @@
 	top: 10px;
 	font-size: 55px;
 	font-weight: bolder;
+}
+
+#divTitle > p {
+	font-size:27px;
+}
+
+#divAboutSite {
+	margin-top: 20px;
+}    
+
+#divAboutSite > h1 {
+	margin-bottom: 0.5em;
+}
+
+#divAboutSite > p {
+	margin-left: 2em;
+}
+
+#divAboutSite > footer {
+	text-align: right;
+}
+
+#wcSlider h1 {
+	background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 30px;
 }
 
 
