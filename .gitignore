@@ -221,3 +221,4 @@ __pycache__
 *.sqlite3
 migrations
 manage.py
+.sass-cache
