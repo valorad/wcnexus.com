@@ -1,6 +1,5 @@
 @import "../../Globalsite/scss/_colors.scss";
 
-
 $theme: (
 	tDefault: (
 		cPanels: $blue-grey,
@@ -16,6 +15,7 @@ $currentCLargeBG: map-get($currentTheme, cLargeBG);
 
 
 $LOfluid: 0px -15px 0px -15px;
+$CpnGapBottom: 20px; //bottom gap between 2 components
 
 #divnavbarTop {
 	position: fixed;
@@ -30,23 +30,21 @@ $LOfluid: 0px -15px 0px -15px;
 #divHeadBox {
 	margin: $LOfluid;
 	background-color: $currentCLargeBG;
-}
-
-#divHeadBox > div.row {
-	margin-left:0px;
-	margin-right:0px;
+	> div.row {
+		margin-left:0px;
+		margin-right:0px;
+	}
 }
 
 #divWCAvatar {
 	text-align: center;
 	z-index: 200;
-}
-
-#divWCAvatar > img {
-	box-shadow: 2px 6px 2px -5px #ccc;
-    margin-bottom: 4px;	
-	height: 300px;
-	margin: 0px auto; 
+	> img {
+		box-shadow: 2px 6px 2px -5px #ccc;
+    	margin-bottom: 4px;	
+		height: 300px;
+		margin: 0px auto; 
+	}
 }
 
 %titleWithLogo {
@@ -74,25 +72,24 @@ $LOfluid: 0px -15px 0px -15px;
 
 #divAboutSite {
 	margin-top: 20px;
+	> h1 {
+		margin-bottom: 0.5em;
+	}
+	> p {
+		margin-left: 2em;
+	}
+	> footer {
+		text-align: right;
+	}
 }    
 
-#divAboutSite > h1 {
-	margin-bottom: 0.5em;
+#wcSlider {
+	margin-bottom: $CpnGapBottom;
+	h1 {
+		background-color: rgba(0, 0, 0, 0.6);
+		border-radius: 30px;
+	}	
 }
-
-#divAboutSite > p {
-	margin-left: 2em;
-}
-
-#divAboutSite > footer {
-	text-align: right;
-}
-
-#wcSlider h1 {
-	background-color: rgba(0, 0, 0, 0.6);
-	border-radius: 30px;
-}
-
 
 /* Responsive Settings Start*/
 
