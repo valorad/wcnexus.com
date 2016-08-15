@@ -29,6 +29,7 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 
 #divHeadBox {
 	margin: $LOfluid;
+	margin-bottom: $CpnGapBottom;
 	background-color: $currentCLargeBG;
 	> div.row {
 		margin-left:0px;
@@ -70,8 +71,16 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 	@extend %titleWithLogo;
 }
 
+#secSiteShowcase {
+	p {
+		text-align: center;
+		position: relative;
+		bottom: 5px;
+		font-weight: bold;
+	}
+}
+
 #divAboutSite {
-	margin-top: 20px;
 	> h1 {
 		margin-bottom: 0.5em;
 	}
@@ -106,6 +115,14 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 	.hideInXS {
 		display: none;
 	}
+	#secSiteShowcase {
+		p {
+			text-align: center;
+			position: relative;
+			bottom: 5px;
+			font-weight: bold;
+		}
+	}	
 }
 
 /* Small devices (tablets, 768px and up) */
