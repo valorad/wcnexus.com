@@ -17,9 +17,13 @@ $currentCLargeBG: map-get($currentTheme, cLargeBG);
 $LOfluid: 0px -15px 0px -15px;
 $CpnGapBottom: 20px; //bottom gap between 2 components
 
+.navOpacified{
+	background-color: rgba($currentCPanels, 0.01) !important;
+}
+
 #divnavbarTop {
 	position: fixed;
-	z-index: 100;
+	z-index: 10;
 	background-color: $currentCPanels;
 }
 
@@ -39,18 +43,16 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 
 #divWCAvatar {
 	text-align: center;
-	z-index: 200;
 	> img {
 		box-shadow: 2px 6px 2px -5px #ccc;
     	margin-bottom: 4px;	
 		height: 300px;
-		margin: 0px auto; 
+		margin: 0px auto;
 	}
 }
 
 %titleWithLogo {
 	text-align: center;
-	z-index: 201;
 	> img {
 		height: 160px;
 		display: inline;
@@ -98,6 +100,37 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 		background-color: rgba(0, 0, 0, 0.6);
 		border-radius: 30px;
 	}	
+}
+
+%underNavBtn {
+    top:40px;
+    right:0px;
+}
+
+#formLoginBox {
+	footer {
+		text-align: right;
+	}
+}
+
+#formGPswd {
+	margin-top: 0px;
+}
+
+#secMenu {
+	// display: none;
+	@extend %underNavBtn;
+	position: absolute;		
+	background-color: transparent;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 9px 10px;
+}
+
+#divUserPanel {
+	// display: none;
+
 }
 
 /* Responsive Settings Start*/
