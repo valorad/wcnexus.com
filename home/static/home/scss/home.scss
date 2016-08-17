@@ -108,17 +108,27 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 }
 
 #formLoginBox {
-	footer {
-		text-align: right;
-	}
+
 }
 
-#formGPswd {
+
+
+#divLoginBox div.form-group {
 	margin-top: 0px;
 }
 
+#divLoginBox {
+	position: fixed;
+	z-index: 100;
+	top: 40%;
+	right: 40%;
+	footer {
+		text-align: right;
+	}	
+}
+
 #secMenu {
-	// display: none;
+	display: none;
 	@extend %underNavBtn;
 	position: absolute;		
 	background-color: transparent;

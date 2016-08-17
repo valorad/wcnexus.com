@@ -3,359 +3,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="initial-scale=1.0 width=device-width height = device-height user-scalable = no"  />	
-	<title>wcNexus Awaits!</title>
-	<!-- /////////////// -->
-	<!-- /// Styles /// -->
-	<!-- /////////////// -->
-	<link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}" />
-	<!-- Google Material Design Files Relay -->
-	<link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdFonts.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdIcons.css' %}" />	
-	<!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap.min.css' %}" />
-	<!-- Bootstrap MD Theme css-->
-	<link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap-material-design.min.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/ripples.min.css' %}" />
-	<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0 width=device-width height = device-height user-scalable = no"  />  
+  <title>wcNexus Awaits!</title>
+  <!-- /////////////// -->
+  <!-- /// Styles /// -->
+  <!-- /////////////// -->
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}" />
+  <!-- Google Material Design Files Relay -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdFonts.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdIcons.css' %}" />  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap.min.css' %}" />
+  <!-- Bootstrap MD Theme css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap-material-design.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/ripples.min.css' %}" />
+  <style>
 
-	</style>
-	<!-- /////////////// -->
-	<!-- /// Scripts /// -->
-	<!-- /////////////// -->
-	<!-- JQuery -->
-	<script src="{% static 'Globalsite/js/jquery-3.1.0.min.js' %}"></script>
-	<!-- Bootstrap -->
-	<script src="{% static 'Globalsite/js/bootstrap.min.js' %}"></script>
-	<!-- Bootstrap MD Theme js-->
-	<script src="{% static 'Globalsite/js/material.min.js' %}"></script>
-	<script src="{% static 'Globalsite/js/ripples.min.js' %}"></script>
-	<!-- Homepage script js-->
-	<script type="text/javascript">
-		function isElementInViewport (el) {
-		    //special bonus for those using jQuery
-		    if (typeof jQuery === "function" && el instanceof jQuery) {
-		        el = el[0];
-		    }
-		    var rect = el.getBoundingClientRect();
-		// B >= H && T >= 0 ------------完全显示
-		// 0 < B < H || 0 < T < -H ------------没显示完
-		// B <= 0 && T <= -H  ------------完全没显示			    
-		    //底下的这一个return是针对只要有一点没显示完就触发
-		    return (
-		        rect.top >= 0 &&
-		        rect.left >= 0 &&
-		        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-		        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-		    );
-		    
-		}		
-		function isElementDisappeared (el) {
-		    //special bonus for those using jQuery
-		    if (typeof jQuery === "function" && el instanceof jQuery) {
-		        el = el[0];
-		    }
-		    var rect = el.getBoundingClientRect();
-		// B >= H && T >= 0 ------------完全显示
-		// 0 < B < H || 0 < T < -H ------------没显示完
-		// B <= 0 && T <= -H  ------------完全没显示			    
+  </style>
+  <!-- /////////////// -->
+  <!-- /// Scripts /// -->
+  <!-- /////////////// -->
+  <!-- JQuery -->
+  <script src="{% static 'Globalsite/js/jquery-3.1.0.min.js' %}"></script>
+  <!-- Homepage script js-->
+  <script type="text/javascript">
+    function isElementInViewport (el) {
+        //special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+    // B >= H && T >= 0 ------------完全显示
+    // 0 < B < H || 0 < T < -H ------------没显示完
+    // B <= 0 && T <= -H  ------------完全没显示         
+        //底下的这一个return是针对只要有一点没显示完就触发
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+        
+    }   
+    function isElementDisappeared (el) {
+        //special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+    // B >= H && T >= 0 ------------完全显示
+    // 0 < B < H || 0 < T < -H ------------没显示完
+    // B <= 0 && T <= -H  ------------完全没显示         
 
-		    //针对完全不见了才触发（没考虑左右）
-		    return (
-		        rect.top <= -rect.height &&
-		        rect.bottom <= 0
-		    );
-		}
+        //针对完全不见了才触发（没考虑左右）
+        return (
+            rect.top <= -rect.height &&
+            rect.bottom <= 0
+        );
+    }
 
-		/*	CSRF-config	Start */
-		// using jQuery
-		function getCookie(name) {
-		    var cookieValue = null;
-		    if (document.cookie && document.cookie !== '') {
-		        var cookies = document.cookie.split(';');
-		        for (var i = 0; i < cookies.length; i++) {
-		            var cookie = jQuery.trim(cookies[i]);
-		            // Does this cookie string begin with the name we want?
-		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-		                break;
-		            }
-		        }
-		    }
-		    return cookieValue;
-		}
-		var csrftoken = getCookie('csrftoken');
+    /*  CSRF-config Start */
+    // using jQuery
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
 
-		function csrfSafeMethod(method) {
-		    // these HTTP methods do not require CSRF protection
-		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-		}
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
 
-		$.ajaxSetup({
-		    beforeSend: function(xhr, settings) {
-		        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-		        }
-		    }
-		});
-		/*	CSRF-config End	*/
-		function login(credential) {
-			$.post("login/", credential, function(res) {
-				if(res["status"] == "success") {
-					alert("Successfully logged in. Welcome, " + res['name']);
-				}
-				else {
-					alert("Sorry but your username/password was invalid");
-				}
-			});
-		}
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+    /*  CSRF-config End */
+    function login(credential) {
+      $.post("login/", credential, function(res) {
+        if(res["status"] == "success") {
+          alert("Successfully logged in. Welcome, " + res['name']);
+        }
+        else {
+          alert("Sorry but your username/password was invalid");
+        }
+      });
+    }
 
-		function logout() {
-			$.get("logout/", function(res) {
-				if(res["status"]) {
-					alert("Successfully logged out. Bye.");
-				}
-				else {
-					alert("Something went wrong during your log-out process");
-				}
-			});
-		}
+    function logout() {
+      $.get("logout/", function(res) {
+        if(res["status"]) {
+          alert("Successfully logged out. Bye.");
+        }
+        else {
+          alert("Something went wrong during your log-out process");
+        }
+      });
+    }
 
-		$(function() {
-			$("#btnSignIn").click(function() {
-				var credential = {
-					"username": $("#inputUsername").val(),
-					"password": $("#inputPassword").val()
-				};
-				login(credential);
-			});
-			$("#testLogout").click(function() {
-				logout();
-			});			
-		});
-		
-	</script>
+    $(function() {
+      $("#btnSignIn").click(function() {
+        var credential = {
+          "username": $("#inputUsername").val(),
+          "password": $("#inputPassword").val()
+        };
+        login(credential);
+      });
+      $("#testLogout").click(function() {
+        logout();
+      });     
+    });
+    
+  </script>
 </head>
 <body>
-	<nav>
-		<div class="navbar navbar-default col-xs-12" id="divnavbarTop">
-		  <div class="container-fluid">
-				<div class="navbar-header" id="divnavheader">
-					<button id="testLogout">logout</button>
-					<a class="navbar-brand" href="#">
-						<img src="{% static 'home/images/wcNexusLogo.png' %}" class="img img-responsive">
-					</a>					
-					<a class="navbar-brand" href="#">
-						<span class="title">wcNexus</span>
-					</a>
-					<button type="button" class="navbar-toggle" data-toggle="collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					</button>
-				</div>
-		  </div>
-		</div>		
-	</nav>
-	<header>	
-		<div class="container-fluid">
-			<div class="panel" id="divHeadBox">
-				<div class="row">
-					<div class="col-md-6" id="divWCAvatar">
-						<img class="img img-responsive" src="{% static 'home/images/Skyrim-dragonborn.png' %}" alt="wcAvatar">
-					</div>
-					<div class="col-md-6" id="divTitle">
-						<img class="img img-responsive" src="{% static 'home/images/wcNexusLogo.png' %}" alt="wcnexus">
-						<h1 class="display-3">wcNexus</h1>
-						<p>Harbor. Shelter. WC. SDK.</p>
-					</div>					
-				</div>
-			</div>
-		</div>
-	</header>
-	<main>
-		<section id="secSiteShowcase">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-3">
-						<div class="panel">
-							<a href="#">
-								<img class="img img-responsive" src="{% static 'home/images/Shelter.png' %}" alt="Shelter" />
-								<p>Shelter</p>								
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-3">
-						<div class="panel">
-							<a href="#">
-								<img class="img img-responsive" src="{% static 'home/images/moderator-512.png' %}" alt="WC">
-								<p>WC</p>								
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-3">
-						<div class="panel">
-							<a href="#">
-								<img class="img img-responsive" src="{% static 'home/images/SdkMain.png' %}" alt="SDK">
-								<p>SDK</p>								
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-3">
-						<div class="panel">
-							<a href="#">
-								<img class="img img-responsive" src="{% static 'home/images/UIplus.png' %}" alt="More">
-								<p>more...</p>								
-							</a>
-						</div>
-					</div>					
-				</div>
-			</div>
-		</section>
-		<header>
-			<div class="container">
-				<div class="jumbotron" id="divAboutSite">
-					<h1>About this site</h1>
-					<p>wc's personal blog-like site.</p>
-					<p>powered by Django 1.10.</p>
-					<footer><a class="btn btn-primary btn-lg" href="https://docs.djangoproject.com/en/1.10/" target="_blank">Learn more</a></footer>
-				</div>
-			</div>
-		</header>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="wcSlider" class="carousel slide" data-ride="carousel">
-						<!-- Indicators dot nav -->
-						<ol class="carousel-indicators">
-							<li data-target="#wcSlider" data-slide-to="0" class="active"></li>
-							<li data-target="#wcSlider" data-slide-to="1"></li>
-							<li data-target="#wcSlider" data-slide-to="2"></li>
-						</ol>
-						<!-- Wrappers for slides -->
-						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<a href="http://www.linruotian.com" target="_blank">
-									<img src="{% static 'home/images/protoss.jpg' %}" alt="Also check out linruotian.com!">
-								</a>
-								<div class="carousel-caption">
-									<h1 class="">Also check out linruotian.com</h1>
-								</div>
-							</div>
-							<div class="item">
-								<a href="https://github.com/wcxaaa/wcnexus.com" target="_blank">
-									<img src="{% static 'home/images/forkwcnonG.jpg' %}" alt="Fork me on Github">
-								</a>
-								<div class="carousel-caption">
-									<h1 class="">Fork me on Github!</h1>
-								</div>
-							</div>
-							<div class="item">
-								<a href="http://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=index&fr=&sf=1&fmq=&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&oq=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&rsp=-1" target="_blank">
-									<img src="{% static 'home/images/kittyfun.png' %}" alt="Fork me on Github">
-								</a>
-								<div class="carousel-caption">
-									<h1 class="">Also a fan of cats?</h1>
-								</div>
-							</div>
-						</div>
+  <nav>
+    <div class="navbar navbar-default col-xs-12" id="divnavbarTop">
+      <div class="container-fluid">
+        <div class="navbar-header" id="divnavheader">
+          <button id="testLogout">logout</button>
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'home/images/wcNexusLogo.png' %}" class="img img-responsive">
+          </a>          
+          <a class="navbar-brand" href="#">
+            <span class="title">wcNexus</span>
+          </a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+      </div>
+    </div>    
+  </nav>
+  <header>  
+    <div class="container-fluid">
+      <div class="panel" id="divHeadBox">
+        <div class="row">
+          <div class="col-md-6" id="divWCAvatar">
+            <img class="img img-responsive" src="{% static 'home/images/Skyrim-dragonborn.png' %}" alt="wcAvatar">
+          </div>
+          <div class="col-md-6" id="divTitle">
+            <img class="img img-responsive" src="{% static 'home/images/wcNexusLogo.png' %}" alt="wcnexus">
+            <h1 class="display-3">wcNexus</h1>
+            <p>Harbor. Shelter. WC. SDK.</p>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section id="secSiteShowcase">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="panel">
+              <a href="#">
+                <img class="img img-responsive" src="{% static 'home/images/Shelter.png' %}" alt="Shelter" />
+                <p>Shelter</p>                
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel">
+              <a href="#">
+                <img class="img img-responsive" src="{% static 'home/images/moderator-512.png' %}" alt="WC">
+                <p>WC</p>               
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel">
+              <a href="#">
+                <img class="img img-responsive" src="{% static 'home/images/SdkMain.png' %}" alt="SDK">
+                <p>SDK</p>                
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel">
+              <a href="#">
+                <img class="img img-responsive" src="{% static 'home/images/UIplus.png' %}" alt="More">
+                <p>more...</p>                
+              </a>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </section>
+    <header>
+      <div class="container">
+        <div class="jumbotron" id="divAboutSite">
+          <h1>About this site</h1>
+          <p>wc's personal blog-like site.</p>
+          <p>powered by Django 1.10.</p>
+          <footer><a class="btn btn-primary btn-lg" href="https://docs.djangoproject.com/en/1.10/" target="_blank">Learn more</a></footer>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="wcSlider" class="carousel slide" data-ride="carousel">
+            <!-- Indicators dot nav -->
+            <ol class="carousel-indicators">
+              <li data-target="#wcSlider" data-slide-to="0" class="active"></li>
+              <li data-target="#wcSlider" data-slide-to="1"></li>
+              <li data-target="#wcSlider" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrappers for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <a href="http://www.linruotian.com" target="_blank">
+                  <img src="{% static 'home/images/protoss.jpg' %}" alt="Also check out linruotian.com!">
+                </a>
+                <div class="carousel-caption">
+                  <h1 class="">Also check out linruotian.com</h1>
+                </div>
+              </div>
+              <div class="item">
+                <a href="https://github.com/wcxaaa/wcnexus.com" target="_blank">
+                  <img src="{% static 'home/images/forkwcnonG.jpg' %}" alt="Fork me on Github">
+                </a>
+                <div class="carousel-caption">
+                  <h1 class="">Fork me on Github!</h1>
+                </div>
+              </div>
+              <div class="item">
+                <a href="http://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=index&fr=&sf=1&fmq=&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&oq=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&rsp=-1" target="_blank">
+                  <img src="{% static 'home/images/kittyfun.png' %}" alt="Fork me on Github">
+                </a>
+                <div class="carousel-caption">
+                  <h1 class="">Also a fan of cats?</h1>
+                </div>
+              </div>
+            </div>
 
-						<!-- controls or next&prev buttons -->
-						<a class="left carousel-control" href="#wcSlider" role="button" data-slide="prev">
-							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="right carousel-control" href="#wcSlider" role="button" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>					
-					</div>
-				</div>			
-			</div>			
-		</div>
-	</main>
-	<section id="secMenu" class="col-xs-8">
-		<div class="container">
-		<div class="row panel">
-			<div class="col-xs-12">
-				<form class="form-horizontal" id="formLoginBox">			
-				  <fieldset>
-				    <div class="form-group" id="formGEmail">
-				      <label for="inputUsername" class="col-md-2 control-label">username</label>
-				      <div class="col-md-10">
-				        <input type="text" class="form-control" id="inputUsername" placeholder="username">
-				      </div>
-				    </div>
-				    <div class="form-group" id="formGPswd">
-				      <label for="inputPassword" class="col-md-2 control-label">Password</label>
-				      <div class="col-md-10">
-				        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-				      </div>				      
-				    </div>
-				    <div class="form-group" style="margin-top: 0;"> <!-- inline style is just to demo custom css to put checkbox below input above -->
-				      <div class="col-md-offset-2 col-md-10">
-				        <div class="checkbox">
-				          <label>
-				            <input type="checkbox">
-				            <span class="checkbox-material">
-				            	<span class="check"></span>
-				            </span>
-				             Remember Me
-				          </label>
-				        </div>
-				      </div>
-				    </div>
-				  </fieldset>
-				  <footer>
-				  <button class="btn btn-primary btn-lg">Forgot Password</button>
-				  <button class="btn btn-primary btn-lg" id="btnSignIn">Sign in</button></footer>
-				</form>
-			</div>
-				<div class="" id="divUserPanel">
-					<div id="divMenuAvatar">
-						avatar
-					</div>
-					<div id="divMenuUserInfo">
-						info
-					</div>
-					<ul>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-	<script type="text/javascript">
-		//function handling VisibilityChange
-		function onVisibilityChange(el, callback) {
-		    var old_visible;
-		    return function () {
-		        var visible = !isElementDisappeared(el);
-		        if (visible != old_visible) {
-		            old_visible = visible;
-		            if (typeof callback == 'function') {
-		                callback(visible);
-		            }
-		        }
-		    }
-		}
+            <!-- controls or next&prev buttons -->
+            <a class="left carousel-control" href="#wcSlider" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#wcSlider" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>          
+          </div>
+        </div>      
+      </div>      
+    </div>
+  </main>
+  <div id="divLoginBox" class="col-xs-8 col-md-8 col-lg-8">
+    <div class="container">
+      <div class="row panel">
+      <div class="col-xs-12 col-md-12 col-lg-12">
+        <form class="form-horizontal" id="formLoginBox">      
+          <fieldset>
+            <legend>Sign in/out</legend>
+            <div class="form-group label-floating" id="formGName">
+              <label for="inputUsername" class="col-md-2 control-label">Name</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="inputUsername" placeholder="">
+              </div>
+            </div>
+            <div class="form-group label-floating" id="formGPswd">
+              <label for="inputPassword" class="col-md-2 control-label">Password</label>
+              <div class="col-md-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="">
+              </div>              
+            </div>
+            <div class="form-group" style="margin-top: 0;"> <!-- inline style is just to demo custom css to put checkbox below input above -->
+              <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox">
+                     Remember Me
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <footer>
+            <button class="btn btn-primary btn-lg">Forgot</button>
+            <button class="btn btn-primary btn-lg" id="btnSignIn">Sign in</button></footer>
+        </form>
+        </div>
+      </div>
+    </div>    
+  </div>
+  <section id="secMenu" class="col-xs-8">
+    <div class="container">
+      
+    </div>
+  </section>
+  <!-- Bootstrap -->
+  <script src="{% static 'Globalsite/js/bootstrap.min.js' %}"></script>
+  <!-- Bootstrap MD Theme js-->
+  <script src="{% static 'Globalsite/js/material.min.js' %}"></script>
+  <script src="{% static 'Globalsite/js/ripples.min.js' %}"></script>
+  <script type="text/javascript">
+    $.material.init();
+    //function handling VisibilityChange
+    function onVisibilityChange(el, callback) {
+        var old_visible;
+        return function () {
+            var visible = !isElementDisappeared(el);
+            if (visible != old_visible) {
+                old_visible = visible;
+                if (typeof callback == 'function') {
+                    callback(visible);
+                }
+            }
+        }
+    }
 
-		var handlerLogo = onVisibilityChange($("#divTitle"), function(visible) {
-			visible?($("#divnavheader .navbar-brand").addClass("hideInXS")):($("#divnavheader .navbar-brand").removeClass("hideInXS"));
-		});
+    var handlerLogo = onVisibilityChange($("#divTitle"), function(visible) {
+      visible?($("#divnavheader .navbar-brand").addClass("hideInXS")):($("#divnavheader .navbar-brand").removeClass("hideInXS"));
+    });
 
-		var handlerNavOpa = onVisibilityChange($("#divWCAvatar"), function(visible) {
-			visible?($("#divnavbarTop").addClass("navOpacified")):($("#divnavbarTop").removeClass("navOpacified"));
-		});		
+    var handlerNavOpa = onVisibilityChange($("#divWCAvatar"), function(visible) {
+      visible?($("#divnavbarTop").addClass("navOpacified")):($("#divnavbarTop").removeClass("navOpacified"));
+    });   
 
-		//jQuery
-		$(window).on('DOMContentLoaded load resize scroll', handlerLogo);
-		$(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);		
-	</script>
+    //jQuery
+    $(window).on('DOMContentLoaded load resize scroll', handlerLogo);
+    $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);   
+  </script>
 </body>
 </html>
