@@ -118,10 +118,13 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 }
 
 #divLoginBox {
-	position: fixed;
-	z-index: 100;
-	top: 40%;
-	right: 40%;
+	// position: fixed;
+	// z-index: 100;
+	// top: 40%;
+	// right: 40%;
+	// div.container {
+	// 	width: initial;
+	// }
 	footer {
 		text-align: right;
 	}	
@@ -192,7 +195,13 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 	#divTitle {
 		position: relative;
 		top: 63px;
-	}	
+	}
+
+	#divLoginBox {
+		div.modal-content {
+			height: 300px;
+		}
+	}
 }
 
 /* Responsive Settings End*/

@@ -127,7 +127,10 @@
       });
       $("#testLogout").click(function() {
         logout();
-      });     
+      });
+      $("#testLoginn").click(function() {
+        $("#divLoginBox").modal();
+      });         
     });
     
   </script>
@@ -137,6 +140,7 @@
     <div class="navbar navbar-default col-xs-12" id="divnavbarTop">
       <div class="container-fluid">
         <div class="navbar-header" id="divnavheader">
+          <button id="testLoginn">login</button>
           <button id="testLogout">logout</button>
           <a class="navbar-brand" href="#">
             <img src="{% static 'home/images/wcNexusLogo.png' %}" class="img img-responsive">
@@ -270,44 +274,50 @@
       </div>      
     </div>
   </main>
-  <div id="divLoginBox" class="col-xs-8 col-md-8 col-lg-8">
+  <div class="modal" id="divLoginBox">
     <div class="container">
-      <div class="row panel">
-      <div class="col-xs-12 col-md-12 col-lg-12">
-        <form class="form-horizontal" id="formLoginBox">      
-          <fieldset>
-            <legend>Sign in/out</legend>
-            <div class="form-group label-floating" id="formGName">
-              <label for="inputUsername" class="col-md-2 control-label">Name</label>
-              <div class="col-md-10">
-                <input type="text" class="form-control" id="inputUsername" placeholder="">
-              </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Sign in/out</h4>
+          </div>
+          <div class="modal-body">
+            <div class="col-lg-12">
+              <form class="form-horizontal" id="formLoginBox">      
+                <fieldset>
+                  <div class="form-group label-floating" id="formGName">
+                    <label for="inputUsername" class="col-md-2 control-label">Name</label>
+                    <div class="col-md-10">
+                     <input type="text" class="form-control" id="inputUsername" placeholder="">
+                    </div>
+                  </div>
+                  <div class="form-group label-floating" id="formGPswd">
+                    <label for="inputPassword" class="col-md-2 control-label">Password</label>
+                    <div class="col-md-10">
+                      <input type="password" class="form-control" id="inputPassword" placeholder="">
+                    </div>              
+                  </div>
+                  <div class="form-group" style="margin-top: 0;"> <!-- inline style is just to demo custom css to put checkbox below input above -->
+                    <div class="col-md-offset-2 col-md-10">
+                      <div class="checkbox">
+                        <label><input type="checkbox">Remember Me</label>
+                      </div>
+                    </div>
+                 </div>
+                </fieldset>
+                <footer>
+                  <button class="btn btn-primary btn-lg">Forgot</button>
+                  <button class="btn btn-primary btn-lg" id="btnSignIn">Sign in</button>
+                </footer>
+              </form>
             </div>
-            <div class="form-group label-floating" id="formGPswd">
-              <label for="inputPassword" class="col-md-2 control-label">Password</label>
-              <div class="col-md-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="">
-              </div>              
-            </div>
-            <div class="form-group" style="margin-top: 0;"> <!-- inline style is just to demo custom css to put checkbox below input above -->
-              <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox">
-                     Remember Me
-                  </label>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-          <footer>
-            <button class="btn btn-primary btn-lg">Forgot</button>
-            <button class="btn btn-primary btn-lg" id="btnSignIn">Sign in</button></footer>
-        </form>
+          </div>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
+
   <section id="secMenu" class="col-xs-8">
     <div class="container">
       
