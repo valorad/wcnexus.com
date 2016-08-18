@@ -64,6 +64,7 @@
     }
 
     /*  CSRF-config Start */
+    /*
     // using jQuery
     function getCookie(name) {
         var cookieValue = null;
@@ -94,11 +95,63 @@
             }
         }
     });
+    */
+$.ajaxSetup({ 
+     beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                     if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                         break;
+                     }
+                 }
+             }
+             return cookieValue;
+         }
+         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         }
+     } 
+});
+$( document ).ajaxSend(function( event, xhr, settings ) {
+    if (settings.type == 'POST' || settings.type == 'PUT' || settings.type == 'DELETE') {
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+        }
+    }
+});
     /*  CSRF-config End */
     function login(credential) {
       $.post("login/", credential, function(res) {
         if(res["status"] == "success") {
-          alert("Successfully logged in. Welcome, " + res['name']);
+          // alert("Successfully logged in. Welcome, " + res['name']);
+          $("#divLoginBox").modal("hide");
+          $("#ALogIn").hide();
+          
+          loginSuccess(res["name"]);
+          $("#secMenu").toggle();
         }
         else {
           alert("Sorry but your username/password was invalid");
@@ -110,6 +163,8 @@
       $.get("logout/", function(res) {
         if(res["status"]) {
           alert("Successfully logged out. Bye.");
+          logoutSuccess();
+          $("#secMenu").toggle();
         }
         else {
           alert("Something went wrong during your log-out process");
@@ -118,6 +173,9 @@
     }
 
     $(function() {
+      $("#btnShowMenu").click(function() {
+        $("#secMenu").toggle();
+      });
       $("#btnSignIn").click(function() {
         var credential = {
           "username": $("#inputUsername").val(),
@@ -125,35 +183,47 @@
         };
         login(credential);
       });
-      $("#testLogout").click(function() {
+      $("#ALogOut").click(function() {
         logout();
       });
-      $("#testLoginn").click(function() {
+      $("#ALogIn").click(function() {
         $("#divLoginBox").modal();
-      });         
+      });
     });
+
+    function loginSuccess(username) {     
+      $("#ALogOut").show();
+      $("#ALogIn").hide();
+      $("#spUserName").html(username);
+      $("#spUserType").html("Admin");
+    }
+
+    function logoutSuccess() {
+      $("#ALogIn").show();
+      $("#ALogOut").hide();
+      $("#spUserName").html("Not Logged");
+      $("#spUserType").html("Qunzhong");
+    }
     
   </script>
 </head>
 <body>
   <nav>
-    <div class="navbar navbar-default col-xs-12" id="divnavbarTop">
+    <div class="navbar navbar-default col-xs-12 navOpacified" id="divnavbarTop">
       <div class="container-fluid">
         <div class="navbar-header" id="divnavheader">
-          <button id="testLoginn">login</button>
-          <button id="testLogout">logout</button>
           <a class="navbar-brand" href="#">
             <img src="{% static 'home/images/wcNexusLogo.png' %}" class="img img-responsive">
           </a>          
           <a class="navbar-brand" href="#">
             <span class="title">wcNexus</span>
           </a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          </button>
         </div>
+          <button type="button" class="wcNavBtn" id="btnShowMenu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
       </div>
     </div>    
   </nav>
@@ -307,8 +377,10 @@
                  </div>
                 </fieldset>
                 <footer>
-                  <button class="btn btn-primary btn-lg">Forgot</button>
-                  <button class="btn btn-primary btn-lg" id="btnSignIn">Sign in</button>
+                  <a class="btn btn-primary btn-lg">Forgot</a>
+                  <a class="btn btn-primary btn-lg" id="btnSignIn">Sign in</a>
+<!--                   <button class="btn btn-primary btn-lg">Forgot</button>
+                  <button class="btn btn-primary btn-lg" id="btnSignIn">Sign in</button> -->
                 </footer>
               </form>
             </div>
@@ -318,9 +390,29 @@
     </div>
   </div>
 
-  <section id="secMenu" class="col-xs-8">
+  <section id="secMenu">
     <div class="container">
-      
+      <div class="row panel">
+        <div class="list-group">
+          <div class="list-group-item" id="divUserInfo">
+            <div class="row-content">
+              <div>
+               <img class="img img-responsive img-circle" src="{% static 'home/images/Skyrim-dragonborn.png' %}" alt="Avatar">
+              </div>
+              <div>
+                <span id="spUserName">Not logged</span>
+                <span id="spUserType" class="label label-warning">Qunzhong</span>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row-content">
+              <h3 class="list-group-item-heading"><a href="#" id="ALogOut">Sign Out</a></h3>
+              <h3 class="list-group-item-heading"><a href="#" id="ALogIn">Sign In/Up</a></h3>              
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <!-- Bootstrap -->
@@ -356,5 +448,14 @@
     $(window).on('DOMContentLoaded load resize scroll', handlerLogo);
     $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);   
   </script>
+  {% if request.user.is_authenticated %}
+  <script>
+    loginSuccess("{{ request.user }}");
+  </script>
+  {% else %}
+  <script>
+    logoutSuccess();
+  </script>
+  {% endif %}  
 </body>
 </html>

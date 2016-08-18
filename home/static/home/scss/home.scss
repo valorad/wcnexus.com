@@ -25,11 +25,45 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 	position: fixed;
 	z-index: 10;
 	background-color: $currentCPanels;
+	button.wcNavBtn {
+		display: block;
+		float: right;
+		border: 0px;
+	}
 }
 
-#divnavheader > a > img {
-	height: 30px;
+.wcNavBtn {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;	
+	span.icon-bar {
+   		background-color: inherit;
+    	border: 1px solid;		
+	    display: block;
+	    width: 22px;
+	    height: 2px;
+	    border-radius: 1px;
+	    box-sizing: border-box;
+	    margin-top: 3px;
+	    margin-bottom: 3px;	  
+	}
 }
+
+#divnavheader {
+	float: left;
+		> a > img {
+		height: 30px;
+	}
+}
+
+ 
 
 #divHeadBox {
 	margin: $LOfluid;
@@ -104,46 +138,73 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 
 %underNavBtn {
     top:40px;
-    right:0px;
+    right:20px;
 }
-
-#formLoginBox {
-
-}
-
-
 
 #divLoginBox div.form-group {
 	margin-top: 0px;
 }
 
 #divLoginBox {
-	// position: fixed;
-	// z-index: 100;
-	// top: 40%;
-	// right: 40%;
-	// div.container {
-	// 	width: initial;
-	// }
 	footer {
 		text-align: right;
 	}	
 }
 
+%modernizedA {
+	color: white;
+	text-decoration: none;
+}
+
 #secMenu {
+	// $itemNum: 3;
 	display: none;
 	@extend %underNavBtn;
-	position: absolute;		
+	position: fixed;		
 	background-color: transparent;
 	background-image: none;
 	border: 1px solid transparent;
 	border-radius: 4px;
 	padding: 9px 10px;
-}
+	z-index: 15;
+	div.container {
+		width: inherit;
+	}
+	div.row {
+	    // height: ($itemNum * 30 + 10)px;
+	    width: 263px;
+	}
+	div.list-group {
+		margin: 2px 2px;
+		text-align: center;
+		background: $currentCPanels;		
+	}
+	div.list-group-item {
+		border-bottom: solid 2px $currentCLargeBG;
+	}	
+	div.row-content {
+		min-height: 0px;
+	}
 
-#divUserPanel {
-	// display: none;
+	a {
+		:link{
+			@extend %modernizedA;
+		}
+		:visited{
+			@extend %modernizedA;
+		}
+		:hover{
+			@extend %modernizedA;
+		}	
+		:active {
+			@extend %modernizedA;
+		}
+		@extend %modernizedA;
+	}
 
+	#divUserInfo {
+		//display: none;
+	}
 }
 
 /* Responsive Settings Start*/
