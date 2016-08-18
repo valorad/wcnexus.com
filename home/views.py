@@ -1,4 +1,5 @@
-from django.shortcuts import render_to_response
+# from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
@@ -6,7 +7,8 @@ from django.http import JsonResponse
 # Create your views here.
 def home(request):
 	# return render_to_response("home/index.html", locals(), context_instance=RequestContext(request))
-	return render_to_response("home/index.html")
+	# return render_to_response("home/index.html")
+	return render(request, "home/index.html", locals())
 
 def log_me_in(request):
 	name = request.POST.get('username')
