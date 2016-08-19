@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>wcNexus Authentication</title>
+  <!-- /////////////// -->
+  <!-- /// Styles /// -->
+  <!-- /////////////// -->
+  <!-- Google Material Design Files Relay -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdFonts.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdIcons.css' %}" />  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap.min.css' %}" />
+  <!-- Bootstrap MD Theme css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap-material-design.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/ripples.min.css' %}" />
+  <!-- /////////////// -->
+  <!-- /// Scripts /// -->
+  <!-- /////////////// -->
+  <!-- JQuery -->
+  <script src="{% static 'Globalsite/js/jquery-3.1.0.min.js' %}"></script>
+  <script src="{% static 'Globalsite/js/wcNexusUtil.js' %}"></script>  
+</head>
+<body>
+{% if request.user.is_authenticated %}
+<h2>You've already logged in, please go back.</h2>
+{% else %}
+<div id="divTitle">
+    {% if userbkinfo.status == "failure" %}  
+        <p>Your username and password didn't match. Please try again.</p>  
+    {% endif %}
+    You have to log in to do this.
+</div>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        blah
+      </div>
+      <div class="col-md-4">
+  <form class="form-horizontal" method="post" action="{% url 'home:login_Form' %}">
+  {% csrf_token %}
+    <fieldset>
+      <legend>Legend</legend>
+      <div class="form-group">
+        <label for="inputEmail" class="col-md-2 control-label">UserName</label>
+
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="inputEmail" placeholder="UserName" name="username">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="col-md-2 control-label">Password</label>
+
+        <div class="col-md-10">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+        </div>
+      </div>
+      <div class="form-group"">
+        <div class="col-md-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="hidden" name="next" value="{{ next }}" /> 
+        </div>
+      </div>
+    </fieldset>
+  </form>        
+      </div>
+    </div>
+  </div>
+</main>
+  
+{% endif %} 
+  <!-- Bootstrap -->
+  <script src="{% static 'Globalsite/js/bootstrap.min.js' %}"></script>
+  <!-- Bootstrap MD Theme js-->
+  <script src="{% static 'Globalsite/js/material.min.js' %}"></script>
+  <script src="{% static 'Globalsite/js/ripples.min.js' %}"></script>
+ 
+</body>
+</html>
