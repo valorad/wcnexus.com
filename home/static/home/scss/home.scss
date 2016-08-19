@@ -18,7 +18,7 @@ $LOfluid: 0px -15px 0px -15px;
 $CpnGapBottom: 20px; //bottom gap between 2 components
 
 .navOpacified{
-	background-color: rgba($currentCPanels, 0.01) !important;
+	background-color: rgba($currentCPanels, 0.25) !important;
 }
 
 #divnavbarTop {
@@ -141,14 +141,18 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
     right:20px;
 }
 
-#divLoginBox div.form-group {
-	margin-top: 0px;
-}
-
 #divLoginBox {
+	div.form-group {
+		// margin-top: 0px;
+	}
 	footer {
 		text-align: right;
-	}	
+	}
+	#formGName {
+		label.control-label {
+			// top: -15px;
+		}
+	}
 }
 
 %modernizedA {
@@ -204,6 +208,13 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 
 	#divUserInfo {
 		//display: none;
+	}
+}
+
+#snackbar-container {
+	text-align: center;
+	.snackbar {
+		background-color: #5a595b;
 	}
 }
 
