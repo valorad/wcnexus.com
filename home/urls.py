@@ -5,6 +5,10 @@ app_name = "home"
 urlpatterns = [
 	#list
 	url(r'^$', views.home, name='HomePage'),
+	# url(r'^login/(?P<isAjax>.+)/$', views.log_me_in, name='Login'),
 	url(r'^login/$', views.log_me_in, name='Login'),
 	url(r'^logout/$', views.log_me_out, name='Logout'),
+	url(r'^loginFull/$', views.log_Page, name='Full_Login'),
+	url(r'^loginForm/$', views.loginFull, name='login_Form'),
+	# url(r'^pertest$', views.pertest, name='pertest'),
 ]
