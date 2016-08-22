@@ -1,69 +1,4 @@
-@import "../../Globalsite/scss/_colors.scss";
-
-$theme: (
-	tDefault: (
-		cPanels: $blue-grey,
-		cBtns: $blue-grey,
-		cLargeBG: $grey
-	)
-);
-
-$currentTheme: map-get($theme, tDefault);
-$currentCPanels: map-get($currentTheme, cPanels);
-$currentCBtns: map-get($currentTheme, cBtns);
-$currentCLargeBG: map-get($currentTheme, cLargeBG);
-
-
-$LOfluid: 0px -15px 0px -15px;
-$CpnGapBottom: 20px; //bottom gap between 2 components
-
-.navOpacified{
-	background-color: rgba($currentCPanels, 0.25) !important;
-}
-
-#divnavbarTop {
-	position: fixed;
-	z-index: 10;
-	background-color: $currentCPanels;
-	button.wcNavBtn {
-		display: block;
-		float: right;
-		border: 0px;
-	}
-}
-
-.wcNavBtn {
-    position: relative;
-    float: right;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-right: 15px;
-    margin-bottom: 8px;
-    background-color: transparent;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;	
-	span.icon-bar {
-   		background-color: inherit;
-    	border: 1px solid;		
-	    display: block;
-	    width: 22px;
-	    height: 2px;
-	    border-radius: 1px;
-	    box-sizing: border-box;
-	    margin-top: 3px;
-	    margin-bottom: 3px;	  
-	}
-}
-
-#divnavheader {
-	float: left;
-		> a > img {
-		height: 30px;
-	}
-}
-
- 
+@import "../../Globalsite/scss/base.scss";
 
 #divHeadBox {
 	margin: $LOfluid;
@@ -136,88 +71,6 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 	}	
 }
 
-%underNavBtn {
-    top:40px;
-    right:20px;
-}
-
-#divLoginBox {
-	div.form-group {
-		// margin-top: 0px;
-	}
-	footer {
-		text-align: right;
-	}
-	#formGName {
-		label.control-label {
-			// top: -15px;
-		}
-	}
-}
-
-%modernizedA {
-	color: white;
-	text-decoration: none;
-}
-
-#secMenu {
-	// $itemNum: 3;
-	display: none;
-	@extend %underNavBtn;
-	position: fixed;		
-	background-color: transparent;
-	background-image: none;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	padding: 9px 10px;
-	z-index: 15;
-	div.container {
-		width: inherit;
-	}
-	div.row {
-	    // height: ($itemNum * 30 + 10)px;
-	    width: 263px;
-	}
-	div.list-group {
-		margin: 2px 2px;
-		text-align: center;
-		background: $currentCPanels;		
-	}
-	div.list-group-item {
-		border-bottom: solid 2px $currentCLargeBG;
-	}	
-	div.row-content {
-		min-height: 0px;
-	}
-
-	a {
-		:link{
-			@extend %modernizedA;
-		}
-		:visited{
-			@extend %modernizedA;
-		}
-		:hover{
-			@extend %modernizedA;
-		}	
-		:active {
-			@extend %modernizedA;
-		}
-		@extend %modernizedA;
-	}
-
-	#divUserInfo {
-		//display: none;
-	}
-}
-
-#snackbar-container {
-	text-align: center;
-	.snackbar {
-		background-color: #5a595b;
-	}
-}
-
 /* Responsive Settings Start*/
 
 /* Extra small devices (phones, less than 768px) */
@@ -226,13 +79,6 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 		margin: 0px 80px 0px 40px;
 	}
 
-	#divnavheader > a > span.title {
-		margin-left: -25px;
-	}
-
-	.hideInXS {
-		display: none;
-	}
 	#secSiteShowcase {
 		p {
 			text-align: center;
@@ -267,12 +113,6 @@ $CpnGapBottom: 20px; //bottom gap between 2 components
 	#divTitle {
 		position: relative;
 		top: 63px;
-	}
-
-	#divLoginBox {
-		div.modal-content {
-			height: 300px;
-		}
 	}
 }
 
