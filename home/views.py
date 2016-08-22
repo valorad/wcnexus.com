@@ -5,6 +5,8 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+# from django.http import HttpResponseRedirect
+# from django.urls import reverse
 
 
 # Create your views here.
@@ -41,6 +43,7 @@ def log_Page(request):
 def loginFull(request):
 	userbkinfo = authnow(request)
 	return render(request, "home/login.html", locals())
+	# return HttpResponseRedirect(reverse('home:login_Form', args=(userbkinfo,)))
 
 # @login_required
 # def pertest(request):
