@@ -1,144 +1,12 @@
+{% extends "Globalsite/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1.0 width=device-width height = device-height user-scalable = no"  />  
-  <title>wcNexus Awaits!</title>
-  <!-- /////////////// -->
-  <!-- /// Styles /// -->
-  <!-- /////////////// -->
+  {% block Title %}wcNexus Awaits!{% endblock %}
+  {% block Customcss %}
   <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}" />
-  <!-- Google Material Design Files Relay -->
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdFonts.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdIcons.css' %}" />  
-  <!-- Bootstrap -->
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap.min.css' %}" />
-  <!-- Bootstrap MD Theme css-->
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap-material-design.min.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/ripples.min.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/snackbar.min.css' %}" />  
+  {% endblock %}
 
-  <!-- /////////////// -->
-  <!-- /// Scripts /// -->
-  <!-- /////////////// -->
-  <!-- JQuery -->
-  <script src="{% static 'Globalsite/js/jquery-3.1.0.min.js' %}"></script>
-  <script src="{% static 'Globalsite/js/wcNexusUtil.js' %}"></script>
-  <script src="{% static 'Globalsite/js/snackbar.min.js' %}"></script>
-  <!-- Homepage script js-->
-  <script type="text/javascript">
-    function login(credential) {
-      $.post("{% url 'home:Login' %}", credential, function(res) {
-        if(res["status"] == "success") {
-          $("#divLoginBox").modal("hide");
-          $("#ALogIn").hide();
-          $.snackbar({
-            content: "Great! Welcome back, " + res['name'] + " !",
-            timeout: 5000,
-            style: "toast",
-          });
-          loginSuccess(res["name"]);
-          $("#secMenu").toggle();
-        }
-        else {
-          $.snackbar({
-            content: "Opps! Seems your username/password was invalid",
-            timeout: 5000,
-            style: "toast",
-          }); 
-          $("#formGName").addClass("has-error");
-          $("#formGPswd").addClass("has-error");
-        }
-      });
-    }
-
-    function logout() {
-      $.get("{% url 'home:Logout' %}", function(res) {
-        if(res["status"]) {
-          $.snackbar({
-            content: "You have signed out successfully. Bye~",
-            timeout: 5000,
-            style: "toast",
-          });
-          logoutSuccess();
-          $("#secMenu").toggle();
-        }
-        else {
-          $.snackbar({
-            content: "Something went wrong during your log-out process",
-            timeout: 5000,
-            style: "toast",
-          }); 
-        }
-      });
-    }
-
-    function loginSuccess(username) {     
-      $("#ALogOut").show();
-      $("#ALogIn").hide();
-      $("#spUserName").html(username);
-      $("#spUserType").html("Admin");
-    }
-
-    function logoutSuccess() {
-      $("#ALogIn").show();
-      $("#ALogOut").hide();
-      $("#spUserName").html("Not Logged");
-      $("#spUserType").html("Qunzhong");
-    }
-
-    //Initiate binding events
-    $(function() {
-      $("#btnShowMenu").click(function() {
-        $("#secMenu").toggle();
-      });
-      $("#btnSignIn").click(function() {
-        var credential = {
-          "username": $("#inputUsername").val(),
-          "password": $("#inputPassword").val()
-        };
-        login(credential);
-      });
-      $("#ALogOut").click(function() {
-        logout();
-      });
-      $("#ALogIn").click(function() {
-        $("#divLoginBox").modal();
-        $("#formGName").removeClass("has-error");
-        $("#formGPswd").removeClass("has-error");
-      });
-      $("#btnForgotPswd").click(function() {
-        $.snackbar({
-          content: "Gai Bei Shi! Nobody can save you now!",
-          timeout: 5000,
-          style: "toast",
-        });
-      });    
-    });
-  </script>
-</head>
-<body>
-  <nav>
-    <div class="navbar navbar-default col-xs-12 navOpacified" id="divnavbarTop">
-      <div class="container-fluid">
-        <div class="navbar-header" id="divnavheader">
-          <a class="navbar-brand" href="#">
-            <img src="{% static 'home/images/wcNexusLogo.png' %}" class="img img-responsive">
-          </a>          
-          <a class="navbar-brand" href="#">
-            <span class="title">wcNexus</span>
-          </a>
-        </div>
-          <button type="button" class="wcNavBtn" id="btnShowMenu">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-      </div>
-    </div>    
-  </nav>
+{% block mainContent %}
   <header>  
     <div class="container-fluid">
       <div class="panel" id="divHeadBox">
@@ -256,121 +124,37 @@
       </div>      
     </div>
   </main>
-  <div class="modal" id="divLoginBox">
-    <div class="container">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Sign in/up</h4>
-          </div>
-          <div class="modal-body">
-            <div class="col-lg-12">
-              <form class="form-horizontal" id="formLoginBox">      
-                <fieldset>
-                  <div class="form-group label-floating" id="formGName">
-                    <label for="inputUsername" class="col-md-2 control-label">UserName</label>
-                    <div class="col-md-10">
-                     <input type="text" class="form-control" id="inputUsername" placeholder="">
-                    </div>
-                  </div>
-                  <div class="form-group label-floating" id="formGPswd">
-                    <label for="inputPassword" class="col-md-2 control-label">Password</label>
-                    <div class="col-md-10">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="">
-                    </div>              
-                  </div>
-                  <div class="form-group">
-                    <div class="col-md-10">
-                      <div class="checkbox">
-                        <label><input type="checkbox">Remember Me</label>
-                      </div>
-                    </div>
-                 </div>
-                </fieldset>
-                <footer>
-                  <a class="btn btn-primary btn-lg" id="btnForgotPswd">Forgot</a>
-                  <a class="btn btn-primary btn-lg" id="btnSignIn">Sign in</a>
-<!--                   <button class="btn btn-primary btn-lg">Forgot</button>
-                  <button class="btn btn-primary btn-lg" id="btnSignIn">Sign in</button> -->
-                </footer>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% endblock %}
+  {% block CustomJS %}
+    <script type="text/javascript">
 
-  <section id="secMenu">
-    <div class="container">
-      <div class="row panel">
-        <div class="list-group">
-          <div class="list-group-item" id="divUserInfo">
-            <div class="row-content">
-              <div>
-               <img class="img img-responsive img-circle" src="{% static 'home/images/Skyrim-dragonborn.png' %}" alt="Avatar">
-              </div>
-              <div>
-                <span id="spUserName">Not logged</span>
-                <span id="spUserType" class="label label-warning">Qunzhong</span>
-              </div>
-            </div>
-          </div>
-          <div class="list-group-item">
-            <div class="row-content">
-              <h3 class="list-group-item-heading"><a href="#" id="ALogOut">Sign Out</a></h3>
-              <h3 class="list-group-item-heading"><a href="#" id="ALogIn">Sign In/Up</a></h3>              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div id="divSnackbar"></div>
-  <!-- Bootstrap -->
-  <script src="{% static 'Globalsite/js/bootstrap.min.js' %}"></script>
-  <!-- Bootstrap MD Theme js-->
-  <script src="{% static 'Globalsite/js/material.min.js' %}"></script>
-  <script src="{% static 'Globalsite/js/ripples.min.js' %}"></script>
-  
-  <script type="text/javascript">
-    //Bootstrap Material Design Theme init
-    $.material.init();
-    //function handling VisibilityChange
-    function onVisibilityChange(el, callback) {
-        var old_visible;
-        return function () {
-            var visible = !isElementDisappeared(el);
-            if (visible != old_visible) {
-                old_visible = visible;
-                if (typeof callback == 'function') {
-                    callback(visible);
-                }
-            }
-        }
-    }
+      //function handling VisibilityChange
+      function onVisibilityChange(el, callback) {
+          var old_visible;
+          return function () {
+              var visible = !isElementDisappeared(el);
+              if (visible != old_visible) {
+                  old_visible = visible;
+                  if (typeof callback == 'function') {
+                      callback(visible);
+                  }
+              }
+          }
+      }
 
-    var handlerLogo = onVisibilityChange($("#divTitle"), function(visible) {
-      visible?($("#divnavheader .navbar-brand").addClass("hideInXS")):($("#divnavheader .navbar-brand").removeClass("hideInXS"));
-    });
+      var handlerLogo = onVisibilityChange($("#divTitle"), function(visible) {
+        visible?($("#divnavheader .navbar-brand").addClass("hideInXS")):($("#divnavheader .navbar-brand").removeClass("hideInXS"));
+      });
 
-    var handlerNavOpa = onVisibilityChange($("#divWCAvatar"), function(visible) {
-      visible?($("#divnavbarTop").addClass("navOpacified")):($("#divnavbarTop").removeClass("navOpacified"));
-    });   
+      var handlerNavOpa = onVisibilityChange($("#divWCAvatar"), function(visible) {
+        visible?($("#divnavbarTop").addClass("navOpacified")):($("#divnavbarTop").removeClass("navOpacified"));
+      });   
 
-    //jQuery
-    $(window).on('DOMContentLoaded load resize scroll', handlerLogo);
-    $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);   
-  </script>
-  {% if request.user.is_authenticated %}
-  <script>
-    loginSuccess("{{ request.user }}");
-  </script>
-  {% else %}
-  <script>
-    logoutSuccess();
-  </script>
-  {% endif %}  
-</body>
-</html>
+      //jQuery
+      $(window).on('DOMContentLoaded load resize scroll', handlerLogo);
+      $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);   
+    </script>
+
+  {% endblock %}
+ 
+
