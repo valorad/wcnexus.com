@@ -1,77 +1,74 @@
+{% extends "Globalsite/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>wcNexus Authentication</title>
-  <!-- /////////////// -->
-  <!-- /// Styles /// -->
-  <!-- /////////////// -->
-  <!-- Google Material Design Files Relay -->
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdFonts.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/mdIcons.css' %}" />  
-  <!-- Bootstrap -->
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap.min.css' %}" />
-  <!-- Bootstrap MD Theme css-->
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/bootstrap-material-design.min.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'Globalsite/css/ripples.min.css' %}" />
-  <!-- /////////////// -->
-  <!-- /// Scripts /// -->
-  <!-- /////////////// -->
-  <!-- JQuery -->
-  <script src="{% static 'Globalsite/js/jquery-3.1.0.min.js' %}"></script>
-  <script src="{% static 'Globalsite/js/wcNexusUtil.js' %}"></script>  
-</head>
-<body>
-{% if request.user.is_authenticated %}
-<h2>You've already logged in, please go back.</h2>
-{% else %}
-<div id="divTitle">
-    {% if userbkinfo.status == "failure" %}  
-        <p>Your username and password didn't match. Please try again.</p>  
-    {% endif %}
-    You have to log in to do this.
+
+{% block Title %}wcNexus Authentication{% endblock %}
+
+  {% block Customcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/login.css' %}" />   
+  {% endblock %}
+
+  {% block navBarMenu %}{% endblock %}
+
+{% block mainContent %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel col-xs-12" id="divHeadBox">
+      <div class="col-xs-12 col-md-6">
+        <img class="img img-responsive" src="{% static 'home/images/wcNexusLogo.png' %}" alt="wcNexusLogo">
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h1>wcNexus Authentication</h1>
+      </div>
+    </div>  
+  </div> 
+
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+     <header class="col-md-6" id="headTip">
+    {% if request.user.is_authenticated %}
+    <div id="divFtip"><h4>You've already logged in, please go back.</h4></div>
+    </header>
+    {% else %}
+      {% if userbkinfo.status == "failure" %}
+      <div id="divFtip"><h4>Your username and password didn't match. Please try again.</h4></div>
+            
+      {% endif %} 
+    </header>   
+  </div>
+</div>
+
 <main>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        blah
+      <div class="col-md-2">
+
       </div>
-      <div class="col-md-4">
+      <div class="col-md-8 well" id="divLoginBox">
   <form class="form-horizontal" method="post" action="{% url 'home:login_Form' %}">
   {% csrf_token %}
     <fieldset>
-      <legend>Legend</legend>
-      <div class="form-group">
+      <legend>You have to log in to do this.</legend>
+      <div class="form-group label-floating">
         <label for="inputEmail" class="col-md-2 control-label">UserName</label>
-
         <div class="col-md-10">
-          <input type="text" class="form-control" id="inputEmail" placeholder="UserName" name="username">
+          <input type="text" class="form-control" id="inputEmail" placeholder="" name="username">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group label-floating">
         <label for="inputPassword" class="col-md-2 control-label">Password</label>
 
         <div class="col-md-10">
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
-        </div>
-      </div>
-      <div class="form-group"">
-        <div class="col-md-10">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
+          <input type="password" class="form-control" id="inputPassword" placeholder="" name="password">
         </div>
       </div>
       <div class="form-group">
-        <div class="col-md-10 col-md-offset-2">
+        <footer class="col-md-10">
+          <a class="btn btn-primary" id="AiForget">iForget</a>
           <button type="submit" class="btn btn-primary">Submit</button>
-          <input type="hidden" name="next" value="{{ next }}" /> 
-        </div>
+        </footer>
       </div>
     </fieldset>
   </form>        
@@ -81,11 +78,20 @@
 </main>
   
 {% endif %} 
-  <!-- Bootstrap -->
-  <script src="{% static 'Globalsite/js/bootstrap.min.js' %}"></script>
-  <!-- Bootstrap MD Theme js-->
-  <script src="{% static 'Globalsite/js/material.min.js' %}"></script>
-  <script src="{% static 'Globalsite/js/ripples.min.js' %}"></script>
- 
-</body>
-</html>
+
+{% endblock %}
+
+{% block nvScripts %}
+
+{% endblock %}
+
+{% block CustomJS %}
+     <script>
+    //Events bindings
+      $(function() {
+        $("#AiForget").click(function() {
+          alert("You deserve it! Nobody can save you now!");
+        });
+      });      
+    </script>
+{% endblock %}
