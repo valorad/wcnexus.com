@@ -1,0 +1,49 @@
+@import "../../Globalsite/scss/base.scss";
+
+#headTip {
+	#divFtip {
+		text-align: center;
+		color: $red;
+		border: dashed $red 1px;		
+	}
+}
+
+#divHeadBox {
+	background-color: $currentCLargeBG;
+	div {
+		text-align: center;
+		img {
+			height: 100px;
+			margin: 0px auto;
+		}
+		h1 {
+			color: $colorFontIht;
+		}
+	}
+}
+
+/* Responsive Settings Start*/
+
+/* Extra small devices (phones, less than 768px) */
+@media only screen and (max-width: 768px) {	
+ 
+}
+
+/* Small devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+ 
+}
+
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+ 
+}
+
+/* Responsive Settings End*/
