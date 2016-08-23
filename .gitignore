@@ -222,3 +222,4 @@ __pycache__
 migrations
 manage.py
 .sass-cache
+media
