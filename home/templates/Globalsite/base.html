@@ -1,4 +1,5 @@
 {% load static %}
+{% load avatar_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +61,8 @@
           <div class="list-group-item" id="divUserInfo">
             <div class="row-content">
               <div>
-               <img class="img img-responsive img-circle" src="{% static 'home/images/Skyrim-dragonborn.png' %}" alt="Avatar">
+               {% avatar user class="img img-responsive img-circle" alt="userAvatar" %}
+               <a href="{% url 'avatar_change' %}">Change your avatar</a>
               </div>
               <div>
                 <span id="spUserName">Not logged</span>
