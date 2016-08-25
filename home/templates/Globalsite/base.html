@@ -61,8 +61,8 @@
           <div class="list-group-item" id="divUserInfo">
             <div class="row-content">
               <div id="divUserAvatar">
-               {% avatar user 80 class="img img-responsive img-circle" alt="userAvatar" id="imgUsrAvatar" %}
-<!--                <a href="{% url 'avatar_change' %}">Change your avatar</a> -->
+
+<!--                <a href="{# url 'avatar_change' #}">Change your avatar</a> -->
               </div>
               <div>
                 <span id="spUserName">Not logged</span>
@@ -72,8 +72,8 @@
           </div>
           <div class="list-group-item">
             <div class="row-content">
-              <h3 class="list-group-item-heading"><a href="#" id="ALogOut">Sign Out</a></h3>
-              <h3 class="list-group-item-heading"><a href="#" id="ALogIn">Sign In/Up</a></h3>              
+              <h3 class="list-group-item-heading"><a id="ALogOut">Sign Out</a></h3>
+              <h3 class="list-group-item-heading"><a id="ALogIn">Sign In/Up</a></h3>              
             </div>
           </div>
         </div>
@@ -208,11 +208,16 @@
       });
     }
 
-    function loginSuccess(username) {     
+    function loginSuccess(username) { 
+
       $("#ALogOut").show();
       $("#ALogIn").hide();
       $("#spUserName").html(username);
       $("#spUserType").html("Admin");
+      //SyncUserAvatar
+      $("#divUserAvatar").html("").load("{% url 'home:load_Avatar_in_AJAX' %}", function() {
+        $("#divUserAvatar img").addClass("img-circle");
+      });
     }
 
     function logoutSuccess() {
@@ -220,6 +225,10 @@
       $("#ALogOut").hide();
       $("#spUserName").html("Not Logged");
       $("#spUserType").html("Qunzhong");
+      //SyncUserAvatar
+      var uA = $("<img class='img img-responsive img-circle' alt='default avatar'></img>");
+      uA.attr("src", "{% static 'home/images/default_avatar_assassin.png' %}");
+      $("#divUserAvatar").html("").append(uA);
     }
 
 

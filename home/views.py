@@ -45,6 +45,10 @@ def loginFull(request):
 	return render(request, "home/login.html", locals())
 	# return HttpResponseRedirect(reverse('home:login_Form', args=(userbkinfo,)))
 
+@login_required
+def loadAjaxAvatar(request):
+	return render(request, "home/loadAjaxAvatar.html", locals())
+
 # @login_required
 # def pertest(request):
 # 	return JsonResponse({"apple" : "iphone 6S plus 土豪金限量抢购大狂欢只要998电视砸烂抱回家"})

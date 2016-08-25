@@ -10,5 +10,6 @@ urlpatterns = [
 	url(r'^logout/$', views.log_me_out, name='Logout'),
 	url(r'^loginFull/$', views.log_Page, name='Full_Login'),
 	url(r'^loginForm/$', views.loginFull, name='login_Form'),
+	url(r'^loadAjaxAvatar/$', views.loadAjaxAvatar, name='load_Avatar_in_AJAX'),
 	# url(r'^pertest$', views.pertest, name='pertest'),
 ]
