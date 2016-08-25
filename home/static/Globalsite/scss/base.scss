@@ -69,6 +69,13 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 }
 
 #divLoginBox {
+	#formLoginBox {
+		div.label-floating {
+			label {
+				top:-40px;
+			}
+		}
+	}	
 	div.form-group {
 		// margin-top: 0px;
 	}
@@ -80,6 +87,7 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 			// top: -15px;
 		}
 	}
+
 }
 
 %modernizedA {
@@ -179,6 +187,15 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 
 /* Extra small devices (phones, less than 768px) */
 @media only screen and (max-width: 768px) {	
+	// #divLoginBox {
+	// 	#formLoginBox {
+	// 		div.label-floating {
+	// 			label {
+	// 				top:-40px;
+	// 			}
+	// 		}
+	// 	}
+	// }	
 	#divnavheader > a > span.title {
 		margin-left: -25px;
 	}
