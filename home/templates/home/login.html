@@ -30,6 +30,9 @@
      <header class="col-md-6" id="headTip">
     {% if request.user.is_authenticated %}
     <div id="divFtip"><h4>You've already logged in, please go back.</h4></div>
+    <script>
+      window.location = "{% url 'home:HomePage' %}";
+    </script>
     </header>
     {% else %}
       {% if userbkinfo.status == "failure" %}

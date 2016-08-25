@@ -60,9 +60,9 @@
         <div class="list-group">
           <div class="list-group-item" id="divUserInfo">
             <div class="row-content">
-              <div>
-               {% avatar user class="img img-responsive img-circle" alt="userAvatar" %}
-               <a href="{% url 'avatar_change' %}">Change your avatar</a>
+              <div id="divUserAvatar">
+               {% avatar user 80 class="img img-responsive img-circle" alt="userAvatar" id="imgUsrAvatar" %}
+<!--                <a href="{% url 'avatar_change' %}">Change your avatar</a> -->
               </div>
               <div>
                 <span id="spUserName">Not logged</span>
@@ -265,6 +265,14 @@
     {% endif %} 
 {% endblock %} 
 {% block CustomJS %}  {% endblock %}
+{% block ColabJS %}
+<script>
+  $(function() {
+    $("#divUserAvatar img").addClass("img img-responsive img-circle centeredImg");
+  });
+</script>
+
+{% endblock %}
 </body>
 </html>
 

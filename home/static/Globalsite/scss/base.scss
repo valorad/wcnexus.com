@@ -87,6 +87,10 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 	text-decoration: none;
 }
 
+.centeredImg {
+	margin: 0px auto !important;
+}
+
 #secMenu {
 	// $itemNum: 3;
 	display: none;
@@ -135,7 +139,11 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 
 	#divUserInfo {
 		//display: none;
+		img {
+			@extend .centeredImg;
+		}
 	}
+
 }
 
 #snackbar-container {
