@@ -1,5 +1,6 @@
 {% extends "Globalsite/base.html" %}
 {% load static %}
+{% load i18n %}
 
   {% block Title %}wcNexus Awaits!{% endblock %}
   {% block Customcss %}
@@ -17,7 +18,10 @@
           <div class="col-md-6" id="divTitle">
             <img class="img img-responsive" src="{% static 'home/images/wcNexusLogo.png' %}" alt="wcnexus">
             <h1 class="display-3">wcNexus</h1>
-            <p>Harbor. Shelter. WC. SDK.</p>
+            {% get_current_language as LANGUAGE_CODE %}
+            <!-- Current language: {{ LANGUAGE_CODE }} -->
+            <p>{% blocktrans %}Harbor. Shelter. WC. SDK.{% endblocktrans %}</p>
+            
           </div>          
         </div>
       </div>
@@ -124,6 +128,23 @@
       </div>      
     </div>
   </main>
+
+  <div>
+<form action="{% url 'set_language' %}" method="post">
+  {% csrf_token %}
+  <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+  <select name="language">
+    {% get_language_info_list for LANGUAGES as languages %}
+      {% for language in languages %}
+        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+          {{ language.name_local }} ({{ language.code }})
+        </option>
+      {% endfor %}
+  </select>
+  <input type="submit" value="Change" />
+</form>
+  </div>
+
   {% endblock %}
   {% block CustomJS %}
     <script type="text/javascript">

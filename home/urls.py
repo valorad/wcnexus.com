@@ -11,5 +11,6 @@ urlpatterns = [
 	url(r'^loginFull/$', views.log_Page, name='Full_Login'),
 	url(r'^loginForm/$', views.loginFull, name='login_Form'),
 	url(r'^loadAjaxAvatar/$', views.loadAjaxAvatar, name='load_Avatar_in_AJAX'),
+	# url(r'^setlang/$', views.get_language_info_list, name='languageset'),
 	# url(r'^pertest$', views.pertest, name='pertest'),
 ]
