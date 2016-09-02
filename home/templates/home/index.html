@@ -76,6 +76,7 @@
         </div>
       </div>
     </header>
+
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -84,16 +85,26 @@
             <ol class="carousel-indicators">
               <li data-target="#wcSlider" data-slide-to="0" class="active"></li>
               <li data-target="#wcSlider" data-slide-to="1"></li>
-              <li data-target="#wcSlider" data-slide-to="2"></li>
+<!--               <li data-target="#wcSlider" data-slide-to="2"></li> -->
             </ol>
             <!-- Wrappers for slides -->
             <div class="carousel-inner" role="listbox">
-              <div class="item active">
+    {% for site in hotSites %}
+              <div class="item">
+                <a href="{{ site.link }}" target="_blank">
+                  <img src="{{ site.img }}" alt="{{ site.title }}">
+                </a>
+                <div class="carousel-caption">
+                  <h1>{{ site.title }}</h1>
+                </div>
+              </div>      
+    {% endfor %}            
+<!--               <div class="item active">
                 <a href="http://www.linruotian.com" target="_blank">
                   <img src="{% static 'home/images/protoss.jpg' %}" alt="Also check out linruotian.com!">
                 </a>
                 <div class="carousel-caption">
-                  <h1 class="">Also check out linruotian.com</h1>
+                  <h1 class="">Also 888 </h1>
                 </div>
               </div>
               <div class="item">
@@ -110,7 +121,7 @@
                 </a>
                 <div class="carousel-caption">
                   <h1 class="">Also a fan of cats?</h1>
-                </div>
+                </div> -->
               </div>
             </div>
 

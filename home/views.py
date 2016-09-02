@@ -3,6 +3,7 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 # from django.template import RequestContext
+from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -10,18 +11,23 @@ from django.http import JsonResponse
 # from django.urls import reverse
 
 # Databases
-from .models import SiteKV
+from .models import SiteKV, SiteHot
 
 
 # Create your views here.
+
+recNum = get_object_or_404(SiteKV, key="recNum").value
 
 
 
 def home(request):
 	# return render_to_response("home/index.html", locals(), context_instance=RequestContext(request))
 	# return render_to_response("home/index.html")
-	recNum = get_object_or_404(SiteKV, key="recNum").value
-	return render(request, "home/index.html", locals())
+	hotSites = SiteHot.objects.all()
+	for site in hotSites:
+		site.img = settings.MEDIA_ROOT + "home/" + site.img
+
+	return render(request, "home/index.html", {"recNum" : recNum, "hotSites" : hotSites})
 
 def authnow(WaideRequest):
 	name = WaideRequest.POST.get('username')
@@ -46,13 +52,11 @@ def log_me_out(request):
 	return JsonResponse({"status" : True})
 
 def log_Page(request):
-	recNum = get_object_or_404(SiteKV, key="recNum").value
-	return render(request, "home/login.html", locals())
+	return render(request, "home/login.html", {"recNum" : recNum})
 
 def loginFull(request):
 	userbkinfo = authnow(request)
-	recNum = get_object_or_404(SiteKV, key="recNum").value
-	return render(request, "home/login.html", locals())
+	return render(request, "home/login.html", {"userbkinfo" : userbkinfo, "recNum" : recNum})
 	# return HttpResponseRedirect(reverse('home:login_Form', args=(userbkinfo,)))
 
 @login_required

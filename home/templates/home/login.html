@@ -36,7 +36,7 @@
     </header>
     {% else %}
       {% if userbkinfo.status == "failure" %}
-      <div id="divFtip"><h4>Your username and password didn't match. Please try again.</h4></div>
+      <div id="divFtip"><h4>{{ userbkinfo.status }}:Your username and password didn't match. Please try again.</h4></div>
             
       {% endif %} 
     </header>   
@@ -71,7 +71,7 @@
         <footer class="col-md-10">
           <a class="btn btn-primary" id="AiForget">iForget</a>
           <button type="submit" class="btn btn-primary">Submit</button>
-            <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+
         </footer>
       </div>
     </fieldset>
