@@ -71,6 +71,7 @@
         <footer class="col-md-10">
           <a class="btn btn-primary" id="AiForget">iForget</a>
           <button type="submit" class="btn btn-primary">Submit</button>
+            <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
         </footer>
       </div>
     </fieldset>
