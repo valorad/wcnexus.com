@@ -276,9 +276,13 @@
 {% block CustomJS %}  {% endblock %}
 {% block ColabJS %}
 <script>
+  $.ajaxSetup({
+      data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+  });
   $(function() {
     $("#divUserAvatar img").addClass("img img-responsive img-circle centeredImg");
   });
+
 </script>
 
 {% endblock %}
