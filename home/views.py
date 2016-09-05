@@ -24,10 +24,11 @@ def home(request):
 	# return render_to_response("home/index.html", locals(), context_instance=RequestContext(request))
 	# return render_to_response("home/index.html")
 	hotSites = SiteHot.objects.all()
+	hlength = SiteHot.objects.count()
 	for site in hotSites:
-		site.img = settings.MEDIA_ROOT + "home/" + site.img
+		site.img = settings.MEDIA_URL + "home/sitehot/" + site.img
 
-	return render(request, "home/index.html", {"recNum" : recNum, "hotSites" : hotSites})
+	return render(request, "home/index.html", {"recNum" : recNum, "hotSites" : hotSites, "hlength" : hlength})
 
 def authnow(WaideRequest):
 	name = WaideRequest.POST.get('username')

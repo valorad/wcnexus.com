@@ -83,9 +83,9 @@
           <div id="wcSlider" class="carousel slide" data-ride="carousel">
             <!-- Indicators dot nav -->
             <ol class="carousel-indicators">
-              <li data-target="#wcSlider" data-slide-to="0" class="active"></li>
-              <li data-target="#wcSlider" data-slide-to="1"></li>
-<!--               <li data-target="#wcSlider" data-slide-to="2"></li> -->
+    {% for site in hotSites %}
+              <li data-target="#wcSlider" data-slide-to="{{ forloop.counter }}"></li>
+    {% endfor %} 
             </ol>
             <!-- Wrappers for slides -->
             <div class="carousel-inner" role="listbox">
@@ -99,22 +99,7 @@
                 </div>
               </div>      
     {% endfor %}            
-<!--               <div class="item active">
-                <a href="http://www.linruotian.com" target="_blank">
-                  <img src="{% static 'home/images/protoss.jpg' %}" alt="Also check out linruotian.com!">
-                </a>
-                <div class="carousel-caption">
-                  <h1 class="">Also 888 </h1>
-                </div>
-              </div>
-              <div class="item">
-                <a href="https://github.com/wcxaaa/wcnexus.com" target="_blank">
-                  <img src="{% static 'home/images/forkwcnonG.jpg' %}" alt="Fork me on Github">
-                </a>
-                <div class="carousel-caption">
-                  <h1 class="">Fork me on Github!</h1>
-                </div>
-              </div>
+<!--               
               <div class="item">
                 <a href="http://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=index&fr=&sf=1&fmq=&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&oq=%E8%B6%85%E8%90%8C%E5%B0%8F%E7%8C%AB%E7%8C%AB&rsp=-1" target="_blank">
                   <img src="{% static 'home/images/kittyfun.png' %}" alt="Fork me on Github">
@@ -184,7 +169,11 @@
 
       //jQuery
       $(window).on('DOMContentLoaded load resize scroll', handlerLogo);
-      $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);   
+      $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);
+      $(function() {
+        $("#wcSlider ol.carousel-indicators li:first").addClass("active");
+        $("#wcSlider div.carousel-inner div.item:first").addClass("active");
+      });
     </script>
 
   {% endblock %}
