@@ -152,6 +152,17 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 		}
 	}
 
+	#divUserAvatar {
+		margin-top: 10px;
+		img {
+			border: solid #eeeeee 3px;
+		}
+	}
+
+	#spUserName {
+		font-size: 30px;
+	}
+
 }
 
 #snackbar-container {

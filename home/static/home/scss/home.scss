@@ -61,14 +61,46 @@
 	> footer {
 		text-align: right;
 	}
-}    
+}
 
-#wcSlider {
+#divHotSites {
 	margin-bottom: $CpnGapBottom;
-	h1 {
-		background-color: rgba(0, 0, 0, 0.6);
-		border-radius: 30px;
+	div.col-md-12 {
+		padding: 0px;
+		box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	}
+	#wcSlider {
+		h1 {
+			background-color: rgba(0, 0, 0, 0.6);
+			border-radius: 30px;
+		}
+	}
+}
+
+#ftSiteBottom {
+	a {
+		:link{
+			@extend %modernizedA;
+		}
+		:visited{
+			@extend %modernizedA;
+		}
+		:hover{
+			@extend %modernizedA;
+		}	
+		:active {
+			@extend %modernizedA;
+		}
+		@extend %modernizedA;
 	}	
+	div.container {
+		div.row {
+			#divBCInfo {
+				margin: 10px 0px 0px 0px;
+				text-align: center;
+			}
+		}
+	}
 }
 
 /* Responsive Settings Start*/
