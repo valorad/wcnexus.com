@@ -49,6 +49,7 @@ Source code for wcnexus.
 		install dependencies:
 		<ul>
 			<b>Ubuntu/Debian:</b>
+			<li>$ sudo apt-get install python3-dev</li>
 			<li>$ sudo apt-get install libjpeg8-dev</li>
 			<li>$ sudo apt-get install pillow</li>
 			<li>$ pip install Django==1.10</li>
