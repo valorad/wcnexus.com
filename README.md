@@ -44,9 +44,9 @@ Source code for wcnexus.
 
 <h2>How to deploy</h2>
 <ol>
-	<li>Create a database (eg. wcnexus)</li>
+	<li>(Skip this if you use default SQLite database) Create a database (eg. wcnexus)</li>
 	<li>
-		install dependencies:
+		Install dependencies:
 		<ul>
 			<b>Ubuntu/Debian:</b>
 			<li>$ sudo apt-get install python3-dev</li>
@@ -57,33 +57,34 @@ Source code for wcnexus.
 		</ul>
 	</li>
 	<li>
-		start a django project (eg. wcNexus)
+		Start a django project (eg. wcNexus)
 		<ul>
 			<li>$ django-admin startproject "(your desired path)/wcNexus"</li>
 		</ul>
 	</li>
 	<li>
-		in settings.py, you must at least set:
+		In settings.py, you must at least set:
 		<ul>
 			<li>INSTALLED_APPS = [...'avatar','home',]</li>
 			<li>TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]</li>
+			<li>(Skip this if you use default SQLite database) DATABASES. See<a href="https://docs.djangoproject.com/en/1.10/ref/databases/">Django Ref doc</a> for more info.</li>
 			<li>MEDIA_URL</li>
 			<li>MEDIA_ROOT</li>
 			<li>LOGIN_URL</li>
 		</ul>
 	</li>
 	<li>
-		comment out or remove all python files in all apps except <strong>models.py</strong>.
+		Download this repo and <b>ONLY</b> copy every <strong>models.py</strong> into corresponding app folder. Create the folder yourself if does not exist.
 	</li>
 	<li>
-		in your terminal, switch to the repo root directory, 
+		In your terminal, switch to the root directory, 
 		<ul>
 			<li>$ python3 manage.py makemigrations</li>
 			<li>$ python3 manage.py migrate</li>
 		</ul>
 	</li>
-	<li>undo the changes in those py files (comment back or recover)</li>
-	<li>run server(either in your apache, ngnix, or django manage.py). For the latter:
+	<li>Create media folder at root dir</li>
+	<li>Run server(either in your apache, ngnix, or django manage.py). For the latter:
 		<ul><li>$ python3 manage.py runserver</li></ul>
 	</li>
 	<li>Visit <a href="http://127.0.0.1:8000">127.0.0.1:8000(in default port 8000, change if you wish)</a>, enjoy!</li>
