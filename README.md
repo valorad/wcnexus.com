@@ -67,7 +67,7 @@ Source code for wcnexus.
 		<ul>
 			<li>INSTALLED_APPS = [...'avatar','home',]</li>
 			<li>TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]</li>
-			<li>(Skip this if you use default SQLite database) DATABASES. See<a href="https://docs.djangoproject.com/en/1.10/ref/databases/">Django Ref doc</a> for more info.</li>
+			<li>(Skip this if you use default SQLite database) DATABASES. See <a href="https://docs.djangoproject.com/en/1.10/ref/databases/">Django Ref doc</a> for more info.</li>
 			<li>MEDIA_URL</li>
 			<li>MEDIA_ROOT</li>
 			<li>LOGIN_URL</li>
@@ -83,9 +83,10 @@ Source code for wcnexus.
 			<li>$ python3 manage.py migrate</li>
 		</ul>
 	</li>
+	<li>Copy the rest of the files into your root dir</li>
 	<li>Create media folder at root dir</li>
 	<li>Run server(either in your apache, ngnix, or django manage.py). For the latter:
 		<ul><li>$ python3 manage.py runserver</li></ul>
 	</li>
-	<li>Visit <a href="http://127.0.0.1:8000">127.0.0.1:8000(in default port 8000, change if you wish)</a>, enjoy!</li>
+	<li>Visit your site. eg. <a href="http://127.0.0.1:8000">127.0.0.1:8000 (in default port 8000, change if you wish)</a>, enjoy!</li>
 </ol>
