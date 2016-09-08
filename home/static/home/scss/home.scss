@@ -77,31 +77,6 @@
 	}
 }
 
-#ftSiteBottom {
-	a {
-		:link{
-			@extend %modernizedA;
-		}
-		:visited{
-			@extend %modernizedA;
-		}
-		:hover{
-			@extend %modernizedA;
-		}	
-		:active {
-			@extend %modernizedA;
-		}
-		@extend %modernizedA;
-	}	
-	div.container {
-		div.row {
-			#divBCInfo {
-				margin: 10px 0px 0px 0px;
-				text-align: center;
-			}
-		}
-	}
-}
 
 /* Responsive Settings Start*/
 

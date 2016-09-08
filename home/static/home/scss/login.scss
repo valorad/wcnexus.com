@@ -4,7 +4,10 @@
 	#divFtip {
 		text-align: center;
 		color: $red;
-		border: dashed $red 1px;		
+		padding-top: 2px;
+		h4 {
+			height: 50px;
+		}
 	}
 }
 
@@ -17,10 +20,39 @@
 			margin: 0px auto;
 		}
 		h1 {
-			color: $colorFontIht;
+			color: $white;
+			margin-top: 28px;
+			white-space: nowrap;
 		}
 	}
 }
+
+#divLoginBox {
+	fieldset {
+		div.is-empty {
+	
+		}
+		div.is-focused {
+
+		}
+
+		//at any time,
+		label.control-label {
+			margin-left: 1em;
+		}		
+		div.inputblock {
+			padding-left: 2em
+		}		
+	}
+}
+
+#ftSiteBottom {
+	position: fixed;
+	width: 100%;
+	bottom: 0px;
+}
+
+
 
 /* Responsive Settings Start*/
 
@@ -36,14 +68,35 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
- 
+
 }
 
 
 
 /* Large devices (large desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
- 
+	#divLoginBox {
+		fieldset {
+			div.is-empty {
+		
+			}
+			div.is-focused {
+				label.control-label {
+					margin-left: -2em;
+				}
+			}
+
+			//at any time,
+			label.control-label {
+				margin-left: 0em;
+			}		
+			div.inputblock {
+				padding-left: 2em
+			}		
+		}
+	}
+	
 }
+
 
 /* Responsive Settings End*/

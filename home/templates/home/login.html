@@ -14,29 +14,31 @@
 <div class="container-fluid">
   <div class="row">
     <div class="panel col-xs-12" id="divHeadBox">
-      <div class="col-xs-12 col-md-6">
-        <img class="img img-responsive" src="{% static 'home/images/wcNexusLogo.png' %}" alt="wcNexusLogo">
+      <div class="col-md-3"></div>
+      <div class="col-md-2">
+        <img class="img img-responsive" src="{% static 'home/images/wcNexusLogo.png' %}" alt="wcNexusLogo">        
       </div>
-      <div class="col-xs-12 col-md-6">
+      <div class="col-md-4">
         <h1>wcNexus Authentication</h1>
       </div>
+      <div class="col-md-3"></div>
     </div>  
   </div> 
 
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-3"></div>
-     <header class="col-md-6" id="headTip">
+    <div class="col-md-2"></div>
+     <header class="col-md-8" id="headTip">
     {% if request.user.is_authenticated %}
-    <div id="divFtip"><h4>You've already logged in, please go back.</h4></div>
+    <div id="divFtip" class="panel"><h4>You've already logged in, please go back.</h4></div>
     <script>
       window.location = "{% url 'home:HomePage' %}";
     </script>
     </header>
     {% else %}
       {% if userbkinfo.status == "failure" %}
-      <div id="divFtip"><h4>{{ userbkinfo.status }}:Your username and password didn't match. Please try again.</h4></div>
+      <div id="divFtip" class="panel"><h4>{{ userbkinfo.status }}:Your username and password didn't match. <br />Please try again.</h4></div>
             
       {% endif %} 
     </header>   
@@ -56,19 +58,19 @@
       <legend>You have to log in to do this.</legend>
       <div class="form-group label-floating">
         <label for="inputEmail" class="col-md-2 control-label">UserName</label>
-        <div class="col-md-10">
+        <div class="col-lg-12 inputblock">
           <input type="text" class="form-control" id="inputEmail" placeholder="" name="username">
         </div>
       </div>
       <div class="form-group label-floating">
         <label for="inputPassword" class="col-md-2 control-label">Password</label>
 
-        <div class="col-md-10">
+        <div class="col-lg-12 inputblock">
           <input type="password" class="form-control" id="inputPassword" placeholder="" name="password">
         </div>
       </div>
       <div class="form-group">
-        <footer class="col-md-10">
+        <footer class="col-lg-12">
           <a class="btn btn-primary" id="AiForget">iForget</a>
           <button type="submit" class="btn btn-primary">Submit</button>
 

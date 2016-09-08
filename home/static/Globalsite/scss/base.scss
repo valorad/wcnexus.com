@@ -97,6 +97,7 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 
 .centeredImg {
 	margin: 0px auto !important;
+	height: 160px;
 }
 
 #secMenu {
@@ -160,7 +161,7 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
 	}
 
 	#spUserName {
-		font-size: 30px;
+		font-size: 25px;
 	}
 
 }
@@ -192,6 +193,29 @@ $colorFontIht: rgba(255, 255, 255, 0.84);
     		
 		}
 	}
+	a {
+		:link{
+			@extend %modernizedA;
+		}
+		:visited{
+			@extend %modernizedA;
+		}
+		:hover{
+			@extend %modernizedA;
+		}	
+		:active {
+			@extend %modernizedA;
+		}
+		@extend %modernizedA;
+	}	
+	div.container {
+		div.row {
+			#divBCInfo {
+				margin: 10px 0px 0px 0px;
+				text-align: center;
+			}
+		}
+	}	
 }
 
 /* Responsive Settings Start*/
