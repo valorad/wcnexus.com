@@ -19,7 +19,7 @@ msgstr ""
 
 #: templates/avatar/add.html:5 templates/avatar/change.html:5
 msgid "Your current avatar: "
-msgstr ""
+msgstr "您的当前头像"
 
 #: templates/avatar/add.html:8 templates/avatar/change.html:8
 msgid "You haven't uploaded an avatar yet. Please upload one now."
