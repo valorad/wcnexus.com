@@ -1,0 +1,80 @@
+@import "../../../../home/static/Globalsite/scss/base.scss";
+
+#divHUserHolder {
+	background-color: $currentCLargeBG;
+}
+
+	#divUserCover {
+		text-align: center;
+		height: 400px;
+		padding-top: 80px;
+		img {
+			margin: 0px auto;
+			height: 160px;
+			border: solid white 3px;
+		}
+		#divHVentName {
+			> span {
+				font-size: 30px;
+				font-weight: bolder;
+			}
+		}
+		#divHSocial {
+			> ul {
+				list-style-type: none;
+				li {
+					display: inline;
+				}
+			}
+		}
+	}
+
+#secVPages {
+	> header {
+		> div {
+			height:160px;
+			border:solid red 1px;
+			img {
+				height: 160px;
+				margin: 0px auto;
+			}
+		}
+	}
+
+	> main {
+		img.imgArticle {
+			height: 100px;
+			margin: 0px auto;
+		}
+		article {
+			min-height:100px;
+			padding: 0px;
+		}
+	}
+}
+
+/* Responsive Settings Start*/
+
+/* Extra small devices (phones, less than 768px) */
+@media only screen and (max-width: 768px) {	
+	
+}
+
+/* Small devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Responsive Settings End*/
