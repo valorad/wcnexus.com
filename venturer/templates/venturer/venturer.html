@@ -1,0 +1,164 @@
+{% extends "Globalsite/base.html" %}
+{% load static %}
+{% load i18n %}
+
+  {% block Title %}Venturer Valorad's profile{% endblock %}
+  {% block Customcss %}
+  <link rel="stylesheet" type="text/css" href="{% static 'venturer/css/venturer.css' %}" />
+  {% endblock %}
+
+{% block mainContent %}
+
+<header>
+  <div class="container-fluid">
+    <div class="row" id="divHUserHolder">
+      <div class="col-xs-12" id="divUserCover">
+        <div class="col-xs-12">
+          <img class="img-circle img-responsive" src="media/avatars/valorad/resized/160/fallout_vaultboy_va.png" alt="user avatar">
+        </div>
+        <div class="col-xs-12" id="divHVentName">
+          <span>Valorad</span>
+        </div>
+        <div class="col-xs-12">
+          This is a very very long description as "This dude is too confused to make a bio "
+          青葡萄，紫葡萄，青葡萄没紫葡萄紫，吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮
+          黑化黑灰化肥灰会挥发发灰黑讳为黑灰花会回飞;灰化灰黑化肥会挥发发黑灰为讳飞花回化为灰
+        </div>
+        <div class="col-xs-12" id="divHSocial">
+          <ul>
+            <li><a href="#">口</a> </li>
+            <li><a href="#">口</a> </li>
+            <li><a href="#">口</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<hr />
+</header>
+<main>
+  <div class="container">
+    <div class="col-xs-12">
+      <nav>
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#">All</a></li>
+          <li><a href="#">Working</a></li>
+          <li><a href="#">Gaming</a></li>
+        </ul>
+      </nav>
+      <section id="secVPages">
+        <header>
+          <div class="col-md-4">
+            <img src="media/avatars/valorad/fallout-VaultBoy-2.jpg" class="img-responsive" alt="classimg">
+          </div>
+          <div class="col-md-8">
+            Another day, another RMB. What wc did shows here.
+          </div>
+          <div class="col-md-12">
+            tags
+          </div>
+        </header>
+        <main>
+          <article class="col-md-5 col-lg-3 panel">
+            <div class="panel-heading">Title: eg. webGIS</div>
+            <div class="panel-body">
+              <div class="col-xs-4 imgArticle">
+                <img src="media/avatars/valorad/ACU-3.jpg" alt="arrticle1img" class="img-responsive">
+              </div>
+              <div class="col-xs-8">
+                This is an article about WebGIS. It is relatively short.
+              </div>
+              <div class="col-xs-12">
+                <span>date: 2016-6-6 18:40:24</span>
+                <span>Tags: C#, Java, Ruby</span>
+              </div>
+            </div>
+          </article>
+          <div class="col-md-1 col-lg-1"></div>
+          <article class="col-md-5 col-lg-3 panel">
+            <div class="panel-heading">Title: eg. RedAlert</div>
+            <div class="panel-body">
+              <div class="col-xs-4 imgArticle">
+                <img src="media/avatars/valorad/ACU-4.jpg" alt="arrticle1img" class="img-responsive">
+              </div>
+              <div class="col-xs-8">
+                This is an article about the game Red Alert. Red Alert is a Real-time Stratagy game. The first franchise, RA98, was developed by WestWood. However the studio was dismissed by infamous Electronic Arts. And now this article is long enough.
+              </div>
+              <div class="col-xs-12">
+                <span>date: 2016-8-8 21:10:15</span>
+                <span>Tags: Red_Alert, Westwood, FinalAlert</span>
+              </div>
+            </div>
+          </article>
+          <div class="col-md-1 col-lg-1"></div>
+          <article class="col-md-6 col-lg-3 panel">
+            <div class="panel-heading">Title: eg. RedAlert</div>
+            <div class="panel-body">
+              <div class="col-xs-4 imgArticle">
+                <img src="media/avatars/valorad/ACU-4.jpg" alt="arrticle1img" class="img-responsive">
+              </div>
+              <div class="col-xs-8">
+                This is an article about the game Red Alert. Red Alert is a Real-time Stratagy game. The first franchise, RA98, was developed by WestWood. However the studio was dismissed by infamous Electronic Arts. And now this article is long enough.
+              </div>
+              <div class="col-xs-12">
+                <span>date: 2016-8-8 21:10:15</span>
+                <span>Tags: Red_Alert, Westwood, FinalAlert</span>
+              </div>
+            </div>
+          </article>
+          <div class="col-md-1 col-lg-1"></div>
+          <article class="col-md-6 col-lg-3 panel">
+            <div class="panel-heading">Title: eg. webGIS</div>
+            <div class="panel-body">
+              <div class="col-xs-4 imgArticle">
+                <img src="media/avatars/valorad/ACU-3.jpg" alt="arrticle1img" class="img-responsive">
+              </div>
+              <div class="col-xs-8">
+                This is an article about WebGIS. It is relatively short.
+              </div>
+              <div class="col-xs-12">
+                <span>date: 2016-6-6 18:40:24</span>
+                <span>Tags: C#, Java, Ruby</span>
+              </div>
+            </div>
+          </article>
+        </main>
+      </section>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+  {% block CustomJS %}
+    <script type="text/javascript">
+
+      //function handling VisibilityChange
+      function onVisibilityChange(el, callback) {
+          var old_visible;
+          return function () {
+              var visible = !isElementDisappeared(el);
+              if (visible != old_visible) {
+                  old_visible = visible;
+                  if (typeof callback == 'function') {
+                      callback(visible);
+                  }
+              }
+          }
+      }
+
+      var handlerLogo = onVisibilityChange($("#divUserCover"), function(visible) {
+        visible?($("#divnavheader .navbar-brand").addClass("hideInXS")):($("#divnavheader .navbar-brand").removeClass("hideInXS"));
+      });
+
+      var handlerNavOpa = onVisibilityChange($("#divUserCover"), function(visible) {
+        visible?($("#divnavbarTop").addClass("navOpacified")):($("#divnavbarTop").removeClass("navOpacified"));
+      });   
+
+      //jQuery
+      $(window).on('DOMContentLoaded load resize scroll', handlerLogo);
+      $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);
+    </script>
+
+  {% endblock %}
+ 
+
