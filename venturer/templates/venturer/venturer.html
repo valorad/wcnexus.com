@@ -48,34 +48,59 @@
       </nav>
       <section id="secVPages">
         <header>
-          <div class="col-md-4">
+          <div class="col-md-4" id="divVDescImg">
             <img src="media/avatars/valorad/fallout-VaultBoy-2.jpg" class="img-responsive" alt="classimg">
           </div>
           <div class="col-md-8">
             Another day, another RMB. What wc did shows here.
           </div>
-          <div class="col-md-12">
-            tags
+          <div class="col-md-12" id="divVTagsSec">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="panel">
+                  <div class="panel-body">
+                    <a href="#">
+                      <img class="img img-responsive" src="{% static 'home/images/moderator-512.png' %}" alt="WC">
+                      <p>WC</p>               
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="panel">
+                  <div class="panel-body">
+                    <a href="#">
+                      <img class="img img-responsive" src="{% static 'home/images/SdkMain.png' %}" alt="SDK">
+                      <p>SDK</p>                
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </header>
-        <main>
-          <article class="col-md-5 col-lg-3 panel">
-            <div class="panel-heading">Title: eg. webGIS</div>
-            <div class="panel-body">
-              <div class="col-xs-4 imgArticle">
-                <img src="media/avatars/valorad/ACU-3.jpg" alt="arrticle1img" class="img-responsive">
+        <div class="col-md-12">
+          A fake div
+        </div>
+        <main class="col-md-12">
+          <div class="col-xs-12" id="divVArticles" data-masonry='{ "itemSelector": ".vArticle", "columnWidth": 150}'>
+            <article class="col-md-6 col-lg-3 panel vArticle">
+              <div class="panel-heading">Title: eg. webGIS</div>
+              <div class="panel-body">
+                <div class="col-xs-4 imgArticle">
+                  <img src="media/avatars/valorad/ACU-3.jpg" alt="arrticle1img" class="img-responsive">
+                </div>
+                <div class="col-xs-8">
+                  This is an article about WebGIS. It is relatively short.
+                </div>
+                <div class="col-xs-12">
+                  <span>date: 2016-6-6 18:40:24</span>
+                  <span>Tags: C#, Java, Ruby</span>
+                </div>
               </div>
-              <div class="col-xs-8">
-                This is an article about WebGIS. It is relatively short.
-              </div>
-              <div class="col-xs-12">
-                <span>date: 2016-6-6 18:40:24</span>
-                <span>Tags: C#, Java, Ruby</span>
-              </div>
-            </div>
-          </article>
-          <div class="col-md-1 col-lg-1"></div>
-          <article class="col-md-5 col-lg-3 panel">
+            </article>
+            
+          <article class="col-md-6 col-lg-3 panel vArticle">
             <div class="panel-heading">Title: eg. RedAlert</div>
             <div class="panel-body">
               <div class="col-xs-4 imgArticle">
@@ -90,8 +115,8 @@
               </div>
             </div>
           </article>
-          <div class="col-md-1 col-lg-1"></div>
-          <article class="col-md-6 col-lg-3 panel">
+
+           <article class="col-md-6 col-lg-3 panel vArticle">
             <div class="panel-heading">Title: eg. RedAlert</div>
             <div class="panel-body">
               <div class="col-xs-4 imgArticle">
@@ -105,9 +130,9 @@
                 <span>Tags: Red_Alert, Westwood, FinalAlert</span>
               </div>
             </div>
-          </article>
-          <div class="col-md-1 col-lg-1"></div>
-          <article class="col-md-6 col-lg-3 panel">
+          </article>  
+
+          <article class="col-md-6 col-lg-3 panel vArticle">
             <div class="panel-heading">Title: eg. webGIS</div>
             <div class="panel-body">
               <div class="col-xs-4 imgArticle">
@@ -122,6 +147,9 @@
               </div>
             </div>
           </article>
+
+          </div>
+ 
         </main>
       </section>
     </div>
@@ -130,6 +158,7 @@
 
 {% endblock %}
   {% block CustomJS %}
+    <script src="{% static 'Globalsite/js/masonry.pkgd.min.js' %}"></script>
     <script type="text/javascript">
 
       //function handling VisibilityChange

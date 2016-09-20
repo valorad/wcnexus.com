@@ -31,17 +31,32 @@
 
 #secVPages {
 	> header {
-		> div {
-			height:160px;
+		#divVDescImg {
+			// height:160px;
 			border:solid red 1px;
 			img {
 				height: 160px;
 				margin: 0px auto;
 			}
 		}
+
+		#divVTagsSec {
+			text-align: center;
+			min-height: 200px;
+
+			img {
+				// height: 80px;
+				max-height: 80px;
+				margin: 0px auto;
+			}
+		}
 	}
 
 	> main {
+		#divVArticles {
+			margin: 0px auto;
+		}
+
 		img.imgArticle {
 			height: 100px;
 			margin: 0px auto;
@@ -49,6 +64,7 @@
 		article {
 			min-height:100px;
 			padding: 0px;
+			// margin: 0px auto;
 		}
 	}
 }
@@ -74,7 +90,13 @@
 
 /* Large devices (large desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
+	#secVPages {
+		> main {
+			#divVArticles {
+				margin: 0px 70px;
+			}
+		}
+	}
 }
 
 /* Responsive Settings End*/
