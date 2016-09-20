@@ -83,7 +83,14 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-
+	#secVPages {
+		> main {
+			#divVArticles {
+				padding-left: 80px;
+				margin: 0px 40px;
+			}
+		}
+	}
 }
 
 
@@ -93,7 +100,8 @@
 	#secVPages {
 		> main {
 			#divVArticles {
-				margin: 0px 70px;
+				padding-left: 70px;
+				margin: 0px 30px;
 			}
 		}
 	}
