@@ -29,6 +29,10 @@
 		}
 	}
 
+#ulVNav {
+	background-color: $currentCPanels;
+}
+
 #secVPages {
 	> header {
 		#divVDescImg {
@@ -43,6 +47,12 @@
 		#divVTagsSec {
 			text-align: center;
 			min-height: 200px;
+
+			#divVTagArea {
+				border: solid #eeeeee 2px;
+				padding-top: 10px;
+				background-color: $currentCLargeBG;
+			}
 
 			img {
 				// height: 80px;
