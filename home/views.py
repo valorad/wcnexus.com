@@ -16,19 +16,24 @@ from .models import SiteKV, SiteHot
 
 # Create your views here.
 
-recNum = get_object_or_404(SiteKV, key="recNum").value
+try:
+	recNum = get_object_or_404(SiteKV, key="recNum").value
+	recLink = get_object_or_404(SiteKV, key="recNum").link
+except Exception as e:
+	print("unable to retrieve a SiteKV now")
+else:
+	pass
+finally:
+	pass
 
 
 
 def home(request):
-	# return render_to_response("home/index.html", locals(), context_instance=RequestContext(request))
-	# return render_to_response("home/index.html")
 	hotSites = SiteHot.objects.all()
 	hlength = SiteHot.objects.count()
 	for site in hotSites:
 		site.img = settings.MEDIA_URL + "home/sitehot/" + site.img
-
-	return render(request, "home/index.html", {"recNum" : recNum, "hotSites" : hotSites, "hlength" : hlength})
+	return render(request, "home/index.html", {"recNum" : recNum, "recLink" : recLink, "hotSites" : hotSites, "hlength" : hlength})
 
 def authnow(WaideRequest):
 	name = WaideRequest.POST.get('username')
@@ -53,11 +58,11 @@ def log_me_out(request):
 	return JsonResponse({"status" : True})
 
 def log_Page(request):
-	return render(request, "home/login.html", {"recNum" : recNum})
+	return render(request, "home/login.html", {"recNum" : recNum, "recLink" : recLink})
 
 def loginFull(request):
 	userbkinfo = authnow(request)
-	return render(request, "home/login.html", {"userbkinfo" : userbkinfo, "recNum" : recNum})
+	return render(request, "home/login.html", {"userbkinfo" : userbkinfo, "recNum" : recNum, "recLink" : recLink})
 	# return HttpResponseRedirect(reverse('home:login_Form', args=(userbkinfo,)))
 
 @login_required
