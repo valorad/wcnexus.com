@@ -21,6 +21,8 @@ def loadVenturer(request, venturerName):
 	venturerAvatar = getAvatar(venturerID)
 	# sync name alias
 	venturerNameAlias = getNameAlias(venturerID)
+	# sync short bio
+	venturerShortBio = getShortBio(venturerID)
 	mediapath = settings.MEDIA_URL
 
 	return render(request, "venturer/venturer.html", locals())
@@ -45,8 +47,10 @@ def getAvatar(venturerId):
 		return "ERROR_AVATAR_NOT_EXIST"
 
 def getNameAlias(venturerId):
-
 	return venturerDetail.objects.get(venturer=venturerId).alias
+
+def getShortBio(venturerId):
+	return venturerDetail.objects.get(venturer=venturerId).shortBio
 
 
 
