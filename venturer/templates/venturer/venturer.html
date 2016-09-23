@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-  {% block Title %}Venturer Valorad's profile{% endblock %}
+  {% block Title %}Venturer {{ venturerName }}'s profile{% endblock %}
   {% block Customcss %}
   <link rel="stylesheet" type="text/css" href="{% static 'venturer/css/venturer.css' %}" />
   {% endblock %}
@@ -17,7 +17,7 @@
           <img class="img-circle img-responsive" src="{{ mediapath }}{{ venturerAvatar }}" alt="{{ venturerName }}'s avatar">
         </div>
         <div class="col-xs-12" id="divHVentName">
-          <span>{{ venturerName }}</span>
+          <span>{{ venturerNameAlias }}</span>
         </div>
         <div class="col-xs-12">
           This is a very very long description as "This dude is too confused to make a bio "
