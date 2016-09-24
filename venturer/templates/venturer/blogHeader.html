@@ -1,0 +1,41 @@
+{% load static %}
+{% load i18n %}
+
+          <div class="panel-body">
+            <div class="col-md-4" id="divVDescImg">
+              <img src="{{ cateImg }}" class="img-responsive" alt="classimg">
+            </div>
+            <div class="col-md-8">
+              <h1>{{ cateTitle }}</h1>
+              <p>{{ cateDesc }}</p>
+            </div>
+            <div class="col-md-12" id="divVTagsSec">
+              <div class="col-md-12">
+                Tags
+              </div>
+              <div class="col-md-12" id="divVTagArea">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                      <div class="panel">
+                        <div class="panel-body">
+                          <a href="#">
+                            <img class="img img-responsive" src="{% static 'home/images/moderator-512.png' %}" alt="WC">
+                            <p>WC</p>               
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                      <div class="panel">
+                        <div class="panel-body">
+                          <a href="#">
+                            <img class="img img-responsive" src="{% static 'home/images/SdkMain.png' %}" alt="SDK">
+                            <p>SDK</p>                
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
