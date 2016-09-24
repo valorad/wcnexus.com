@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from zinnia.models.category import Category
 
 # Create your models here.
 class venturerDetail(models.Model):
@@ -14,4 +15,9 @@ class venturerDetail(models.Model):
 
 		return self.alias + ": " + self.shortBio
 
-	
+class vBlogCategory(models.Model):
+	venturer = models.ForeignKey(User, on_delete=models.CASCADE)
+	title = models.ForeignKey(Category, on_delete=models.CASCADE)
+	image = models.CharField(max_length=255, null=True)
+	def __str__(self):
+		return str(self.title) + " under " + str(self.venturer)
