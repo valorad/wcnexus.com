@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.conf import settings
 
-from .models import venturerDetail
+from .models import *
+from zinnia.models.category import Category
 
 # test area
 from django.http import HttpResponse
@@ -13,7 +14,7 @@ from django.http import HttpResponse
 def venturerSelf(request):
 	return render(request, "venturer/venturer.html", locals())
 
-def loadVenturer(request, venturerName):
+def loadVenturer(request, venturerName, viewCate="all"):
 	venturerID = getVenturer(venturerName)
 	if venturerID == -1:
 		return HttpResponse("Unfortunately,  " + venturerName + " got an arrow on the knee!")
@@ -23,10 +24,31 @@ def loadVenturer(request, venturerName):
 	venturerNameAlias = getNameAlias(venturerID)
 	# sync short bio
 	venturerShortBio = getShortBio(venturerID)
+	# sync categories
+	venturerCategoryList = getCategoryList(venturerID)
+
+	viewTab = viewCate
+	# sync header (tab All in default)
+	# blogHeader = loadBHeaderAjax(request, venturerName, viewCate).content
+
 	mediapath = settings.MEDIA_URL
 
 	return render(request, "venturer/venturer.html", locals())
 
+def loadBHeaderAjax(request, venturerName, viewCate):
+	venturerID = getVenturer(venturerName)
+	if venturerID == -1:
+		return HttpResponse("Unfortunately,  " + venturerName + " got an arrow on the knee!")
+	venturerCall = venturerName
+	cateTitle = viewCate
+	if cateTitle == "All" or cateTitle == "all":
+		cateImg = settings.MEDIA_URL + str(getAvatar(venturerID))
+		cateDesc = "Everything about " + venturerName + " is shown here."
+	else:
+		cateImg = settings.MEDIA_URL + "venturer/" + venturerName + "/blogCatagory/" +  vBlogCategory.objects.get(venturer=venturerID, title=cateTitle).image 
+		cateDesc = Category.objects.get(title=cateTitle).description
+
+	return render(request, "venturer/blogHeader.html", locals())
 
 
 # private functions
@@ -52,5 +74,9 @@ def getNameAlias(venturerId):
 def getShortBio(venturerId):
 	return venturerDetail.objects.get(venturer=venturerId).shortBio
 
-
-
+def getCategoryList(venturerId):
+	cateList = []
+	cateQS = vBlogCategory.objects.filter(venturer=venturerId)
+	for category in cateQS:
+		cateList.append(category.title)
+	return cateList
