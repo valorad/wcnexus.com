@@ -8,7 +8,7 @@ Source code for wcnexus.
 <br />
 <span style='font-size: 5px'>&nbsp;&nbsp;&nbsp;already claimed ha ha ha ha ha</span>
 
-<p>You may now visit the construction site at <a href="http://www.wcnexus.com">wcnexus.com</a></p>
+<p>You may now visit the construction site at <a href="http://www.wcnexus.com"  target="_blank">wcnexus.com</a></p>
 <p>Please stay safe and always put your safety helmet on! :)</p>
 
 <p>Plus special thanks to opensource project:</p>
@@ -54,7 +54,7 @@ Source code for wcnexus.
 
 <h2>How to deploy</h2>
 <h3>Warning! If you are using python 3, your <strong>DEBUG</strong> setting <b>MUST Be Turned OFF!!!</b> </h3>
-<p>This is because of the implimentaion of magnificent but still not perfect "Zinnia's Weblog". See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'>Issue #484</a> for more information.</p>
+<p>This is because of the implimentaion of magnificent but still not perfect "Zinnia's Weblog". See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for more information.</p>
 
 <ol>
 	<li>(Skip this if you use default SQLite database) Create a database (eg. wcnexus)</li>
@@ -76,11 +76,14 @@ Source code for wcnexus.
 		</ul>
 	</li>
 	<li>
+		follow the guide to install <a href='https://github.com/Fantomas42/django-blog-zinnia'  target="_blank">django-blog-zinnia</a>
+	</li>
+	<li>
 		In settings.py, you must at least set:
 		<ul>
-			<li>INSTALLED_APPS = [...'avatar','home',]</li>
+			<li>INSTALLED_APPS = [...'django_comments','mptt','tagging','zinnia','avatar','home','venturer',]</li>
 			<li>TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]</li>
-			<li>(Skip this if you use default SQLite database) DATABASES. See <a href="https://docs.djangoproject.com/en/1.10/ref/databases/">Django Ref doc</a> for more info.</li>
+			<li>(Skip this if you use default SQLite database) DATABASES. See <a href="https://docs.djangoproject.com/en/1.10/ref/databases/"  target="_blank">Django Ref doc</a> for more info.</li>
 			<li>MEDIA_URL</li>
 			<li>MEDIA_ROOT</li>
 			<li>STATIC_ROOT</li>
@@ -104,5 +107,5 @@ Source code for wcnexus.
 	<li>Run server (currently only tested in local server).
 		<ul><li>$ python3 manage.py runserver --insecure</li></ul>
 	</li>
-	<li>Visit your site. eg. <a href="http://127.0.0.1:8000">127.0.0.1:8000 (in default port 8000, change if you wish)</a>, enjoy!</li>
+	<li>Visit your site. eg. <a href="http://127.0.0.1:8000"  target="_blank">127.0.0.1:8000 (in default port 8000, change if you wish)</a>, enjoy!</li>
 </ol>
