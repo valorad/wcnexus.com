@@ -1,13 +1,13 @@
 # wcNexus
 Source code for wcnexus.
-<p>wcnexus.com is still under construction, and it is likely to open public in <b>late September</b>.</p>
+<p>wcnexus.com is still under construction, and it is likely to open public in <b>early October</b>.</p>
 <p>wcNexus is a non-profit site of personal interest, with apps like blogs, showcases, etc.</p>
 <p>This site is powered by Django 1.10.</p>
 
 <p>As Billy the infamous at the neighborhood say he will never give a BDK, however, you can get most of the {B, M, S}DK here that are... 
-<del><br />
+<br />
 <span style='font-size: 5px'>&nbsp;&nbsp;&nbsp;already claimed ha ha ha ha ha</span>
-</del>
+
 <p>You may now visit the construction site at <a href="http://www.wcnexus.com">wcnexus.com</a></p>
 <p>Please stay safe and always put your safety helmet on! :)</p>
 
@@ -39,10 +39,23 @@ Source code for wcnexus.
         <td><a href="https://github.com/FezVrasta" target="_blank">FezVrasta</a></td>
         <td>Material design theme for Bootstrap 3 and 4</td>
       </tr>
+      <tr>
+        <td><a href="https://github.com/Fantomas42/django-blog-zinnia" target="_blank">django-blog-zinnia</a></td>
+        <td><a href="https://github.com/Fantomas42" target="_blank">Fantomas42</a></td>
+        <td>Simple yet powerful and really extendable application for managing a blog within your Django Web site.</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/desandro/masonry" target="_blank">masonry</a></td>
+        <td><a href="https://github.com/desandro" target="_blank">desandro</a></td>
+        <td>Cascading grid layout library</td>
+      </tr>
   </tbody>
 </table>
 
 <h2>How to deploy</h2>
+<h3>Warning! If you are using python 3, your <strong>DEBUG</strong> setting <b>MUST Be Turned OFF!!!</b> </h3>
+<p>This is because of the implimentaion of magnificent but still not perfect "Zinnia's Weblog". See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'>Issue #484</a> for more information.</p>
+
 <ol>
 	<li>(Skip this if you use default SQLite database) Create a database (eg. wcnexus)</li>
 	<li>
@@ -70,11 +83,12 @@ Source code for wcnexus.
 			<li>(Skip this if you use default SQLite database) DATABASES. See <a href="https://docs.djangoproject.com/en/1.10/ref/databases/">Django Ref doc</a> for more info.</li>
 			<li>MEDIA_URL</li>
 			<li>MEDIA_ROOT</li>
+			<li>STATIC_ROOT</li>
 			<li>LOGIN_URL</li>
 		</ul>
 	</li>
 	<li>
-		Download this repo and <b>ONLY</b> copy every <strong>models.py</strong> into corresponding app folder. Create the folder yourself if does not exist.
+		Download this repo. Create the folders yourself if not exist.
 	</li>
 	<li>
 		In your terminal, switch to the root directory, 
@@ -83,10 +97,12 @@ Source code for wcnexus.
 			<li>$ python3 manage.py migrate</li>
 		</ul>
 	</li>
-	<li>Copy the rest of the files into your root dir</li>
 	<li>Create media folder at root dir</li>
-	<li>Run server(either in your apache, ngnix, or django manage.py). For the latter:
-		<ul><li>$ python3 manage.py runserver</li></ul>
+	<li>Create static folder at root dir</li>
+	<li>Collect static files</li>
+		<ul><li>$ python3 manage.py collectstatic</li></ul>
+	<li>Run server (currently only tested in local server).
+		<ul><li>$ python3 manage.py runserver --insecure</li></ul>
 	</li>
 	<li>Visit your site. eg. <a href="http://127.0.0.1:8000">127.0.0.1:8000 (in default port 8000, change if you wish)</a>, enjoy!</li>
 </ol>
