@@ -2,8 +2,11 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.conf import settings
 
+
 from .models import *
 from zinnia.models.category import Category
+
+
 
 # test area
 from django.http import HttpResponse
@@ -45,8 +48,18 @@ def loadBHeaderAjax(request, venturerName, viewCate):
 		cateImg = settings.MEDIA_URL + str(getAvatar(venturerID))
 		cateDesc = "Everything about " + venturerName + " is shown here."
 	else:
-		cateImg = settings.MEDIA_URL + "venturer/" + venturerName + "/blogCatagory/" +  vBlogCategory.objects.get(venturer=venturerID, title=cateTitle).image 
-		cateDesc = Category.objects.get(title=cateTitle).description
+		cateTitleId = getTitleId(cateTitle)
+		if cateTitleId == -1:
+			cateDesc = "Error! this Title is invalid!"
+		else:
+			cateImg = settings.MEDIA_URL + "venturer/" + venturerName + "/blogCatagory/" +  vBlogCategory.objects.get(venturer=venturerID, title=cateTitleId).image
+			cateDesc = vBlogCategory.objects.get(venturer=venturerID, title=cateTitleId).personalDesc
+			if cateDesc is None:
+				# no desc in personal database, then search for public one
+				cateDesc = Category.objects.get(title=cateTitle).description
+			if cateDesc is None:
+				# public one still has no desc, then return "nothing found"
+				cateDesc = "This is a fresh new label as no public description is given!"
 
 	return render(request, "venturer/blogHeader.html", locals())
 
@@ -80,3 +93,11 @@ def getCategoryList(venturerId):
 	for category in cateQS:
 		cateList.append(category.title)
 	return cateList
+
+def getTitleId(TitleName):
+	# check whether title exists:
+	vTitle = Category.objects.filter(title=TitleName)
+	if vTitle.exists():
+		return Category.objects.get(title=TitleName).pk
+	else:
+		return -1
