@@ -39,98 +39,21 @@
     <div class="col-xs-12">
       <nav>
         <ul class="nav nav-tabs" id="ulVNav">
-          <li class="active"><a href="#">All</a></li>
+          <li class="active"><a onclick="loadBHeader('all')">All</a></li>
           {% for category in venturerCategoryList %}
-            <li><a href="#">{{ category }}</a></li>
+            <li><a onclick="loadBHeader('{{ category }}')">{{ category }}</a></li>
           {% endfor %}
         </ul>
       </nav>
       <section id="secVPages">
         <header id="headTabs" class="panel">
           
-          <script>
-            function loadBHeader(tab) {
-              $(function() {
-                $("#headTabs").html("").load("VCate/" + tab);
-              });
-            }
-            /*               $(function() {
-                $("#headTabs").html("").load("/{{ venturerName }}/" + tab, function() {};)
-              });
-
-"{# url 'venturer:View_a_Profile_Specifing_Cate' venturerName=venturerName viewCate='' #}" + tab
-              */
-            loadBHeader("{{ viewTab }}");
-
-          </script>
+<!-- header is loaded via Ajax -->
 
         </header>
         <main class="col-md-12">
-          <div class="col-xs-12" id="divVArticles" data-masonry='{ "itemSelector": ".vArticle", "columnWidth": 150}'>
-            <article class="col-md-4 col-lg-3 panel vArticle">
-              <div class="panel-heading">Title: eg. webGIS</div>
-              <div class="panel-body">
-                <div class="col-xs-4 imgArticle">
-                  <img src="/media/avatars/valorad/ACU-3.jpg" alt="arrticle1img" class="img-responsive">
-                </div>
-                <div class="col-xs-8">
-                  This is an article about WebGIS. It is relatively short.
-                </div>
-                <div class="col-xs-12">
-                  <span>date: 2016-6-6 18:40:24</span>
-                  <span>Tags: C#, Java, Ruby</span>
-                </div>
-              </div>
-            </article>
-            
-          <article class="col-md-4 col-lg-3 panel vArticle">
-            <div class="panel-heading">Title: eg. RedAlert</div>
-            <div class="panel-body">
-              <div class="col-xs-4 imgArticle">
-                <img src="/media/avatars/valorad/ACU-4.jpg" alt="arrticle1img" class="img-responsive">
-              </div>
-              <div class="col-xs-8">
-                This is an article about the game Red Alert. Red Alert is a Real-time Stratagy game. The first franchise, RA98, was developed by WestWood. However the studio was dismissed by infamous Electronic Arts. And now this article is long enough.
-              </div>
-              <div class="col-xs-12">
-                <span>date: 2016-8-8 21:10:15</span>
-                <span>Tags: Red_Alert, Westwood, FinalAlert</span>
-              </div>
-            </div>
-          </article>
-
-           <article class="col-md-4 col-lg-3 panel vArticle">
-            <div class="panel-heading">Title: eg. RedAlert</div>
-            <div class="panel-body">
-              <div class="col-xs-4 imgArticle">
-                <img src="/media/avatars/valorad/ACU-4.jpg" alt="arrticle1img" class="img-responsive">
-              </div>
-              <div class="col-xs-8">
-                This is an article about the game Red Alert. Red Alert is a Real-time Stratagy game. The first franchise, RA98, was developed by WestWood. However the studio was dismissed by infamous Electronic Arts. And now this article is long enough.
-              </div>
-              <div class="col-xs-12">
-                <span>date: 2016-8-8 21:10:15</span>
-                <span>Tags: Red_Alert, Westwood, FinalAlert</span>
-              </div>
-            </div>
-          </article>  
-
-          <article class="col-md-4 col-lg-3 panel vArticle">
-            <div class="panel-heading">Title: eg. webGIS</div>
-            <div class="panel-body">
-              <div class="col-xs-4 imgArticle">
-                <img src="/media/avatars/valorad/ACU-3.jpg" alt="arrticle1img" class="img-responsive">
-              </div>
-              <div class="col-xs-8">
-                This is an article about WebGIS. It is relatively short.
-              </div>
-              <div class="col-xs-12">
-                <span>date: 2016-6-6 18:40:24</span>
-                <span>Tags: C#, Java, Ruby</span>
-              </div>
-            </div>
-          </article>
-
+          <div class="col-xs-12" id="divVArticles">
+<!-- load articles via Ajax -->
           </div>
  
         </main>
@@ -170,6 +93,49 @@
       $(window).on('DOMContentLoaded load resize scroll', handlerLogo);
       $(window).on('DOMContentLoaded load resize scroll', handlerNavOpa);
 
+
+//masonry acivation
+      function reMasonry() {
+        $('#divVArticles').masonry({
+          // options...
+          itemSelector: '.vArticle',
+          columnWidth: 150
+        });
+      }
+
+
+//load blog header
+      function loadBHeader(tab) {
+        $("#headTabs").html("").load("VCate/" + tab);
+        loadVArticles(tab, "{{ venturerName }}");
+      }
+
+      function loadVArticles(category, venturer) {
+        if (category == 'All' || category == 'all') {
+          vArtURL = "/weblog/authors/" + venturer
+        }
+        else {
+          vArtURL = "/weblog/categories/" + venturer + "/" + category
+        }
+        $.get(vArtURL, function(content) {
+          // wrap content in jQuery object
+          var vArticles = $(content);
+          // add jQuery object
+          $("#divVArticles").html("").append(vArticles).masonry( 'appended', vArticles);
+        });
+
+        //.masonry( 'reload' )
+      }
+
+//load blogs
+
+//executions
+      $(function() {
+        reMasonry();
+        loadBHeader("{{ viewTab }}");
+        
+      });
+      
 
     </script>
 
