@@ -19,5 +19,6 @@ class vBlogCategory(models.Model):
 	venturer = models.ForeignKey(User, on_delete=models.CASCADE)
 	title = models.ForeignKey(Category, on_delete=models.CASCADE)
 	image = models.CharField(max_length=255, null=True)
+	personalDesc = models.TextField(blank=True)
 	def __str__(self):
 		return str(self.title) + " under " + str(self.venturer)
