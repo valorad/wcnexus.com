@@ -4,6 +4,9 @@ from django.conf import settings
 
 
 from .models import *
+
+from home.models import SiteKV
+from home.views import getSiteKV
 from zinnia.models.category import Category
 
 
@@ -13,9 +16,6 @@ from django.http import HttpResponse
 # end test area
 
 # Create your views here.
-
-def venturerSelf(request):
-	return render(request, "venturer/venturer.html", locals())
 
 def loadVenturer(request, venturerName, viewCate="all"):
 	venturerID = getVenturer(venturerName)
@@ -35,6 +35,11 @@ def loadVenturer(request, venturerName, viewCate="all"):
 	# blogHeader = loadBHeaderAjax(request, venturerName, viewCate).content
 
 	mediapath = settings.MEDIA_URL
+
+	recInfo = getSiteKV("recNum")
+
+	recNum = recInfo["value"]
+	recLink = recInfo["link"]
 
 	return render(request, "venturer/venturer.html", locals())
 
@@ -63,6 +68,19 @@ def loadBHeaderAjax(request, venturerName, viewCate):
 
 	return render(request, "venturer/blogHeader.html", locals())
 
+def loadBTagsAjax(request, venturerName):
+	venturerID = getVenturer(venturerName)
+	if venturerID == -1:
+		return HttpResponse("Unfortunately,  " + venturerName + " got an arrow on the knee!")
+	venturerCall = venturerName
+	tagList = []
+	tagImgList = []
+	vTags = vBlogTags.objects.filter(venturer=venturerID)
+	for atag in vTags:
+		tagList.append(atag.tag)
+		tagImgList.append(atag.image)
+	listMixin = zip(tagList, tagImgList)
+	return render(request, "venturer/vTags.html", locals())
 
 # private functions
 def getVenturer(venturerName):
