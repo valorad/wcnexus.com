@@ -1,0 +1,22 @@
+{% load static %}
+{% for tag, img in listMixin %}
+                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                      <div class="panel">
+                        <div class="panel-body">
+                          <a href="/weblog/tags/{{ tag }}">
+                          <!-- img is "{{ img }}" -->
+                            <img class="img img-responsive" src="
+{% if img == '' %}
+{% static 'venturer/image/tag.png' %}
+{% else %}
+/media/venturer/{{ venturerCall }}/blogTag/{{ img }}
+{% endif %}
+
+" alt="{{ tag }}">
+                            <p>{{ tag }}</p>               
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+{% endfor %}
+<!--  home/images/SdkMain.png-->
