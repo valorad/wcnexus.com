@@ -33,28 +33,28 @@
 	background-color: $currentCPanels;
 }
 
+#divVTagsSec {
+	text-align: center;
+	min-height: 200px;
+
+	#divVTagArea {
+		border: solid #eeeeee 2px;
+		padding-top: 10px;
+		background-color: $currentCLargeBG;
+	}
+
+	img {
+		// height: 80px;
+		max-height: 80px;
+		margin: 0px auto;
+	}
+}
+
 #secVPages {
 	> header {
 		#divVDescImg {
 			img {
 				height: 160px;
-				margin: 0px auto;
-			}
-		}
-
-		#divVTagsSec {
-			text-align: center;
-			min-height: 200px;
-
-			#divVTagArea {
-				border: solid #eeeeee 2px;
-				padding-top: 10px;
-				background-color: $currentCLargeBG;
-			}
-
-			img {
-				// height: 80px;
-				max-height: 80px;
 				margin: 0px auto;
 			}
 		}
