@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from zinnia.models.category import Category
+from tagging.models import Tag
 
 # Create your models here.
 class venturerDetail(models.Model):
 	venturer = models.ForeignKey(User, on_delete=models.CASCADE)
-	alias = models.CharField(max_length=50, null=True)
-	shortBio = models.CharField(max_length=140, null=True)
+	alias = models.CharField(max_length=50, null=True, blank=True)
+	shortBio = models.CharField(max_length=140, null=True, blank=True)
 	def __str__(self):
 		if self.alias is None:
 			return "a venturer's detail"
@@ -18,7 +19,17 @@ class venturerDetail(models.Model):
 class vBlogCategory(models.Model):
 	venturer = models.ForeignKey(User, on_delete=models.CASCADE)
 	title = models.ForeignKey(Category, on_delete=models.CASCADE)
-	image = models.CharField(max_length=255, null=True)
-	personalDesc = models.TextField(blank=True)
+	image = models.CharField(max_length=255, null=True, blank=True)
+	personalDesc = models.TextField(null=True, blank=True)
 	def __str__(self):
 		return str(self.title) + " under " + str(self.venturer)
+
+class vBlogTags(models.Model):
+	venturer = models.ForeignKey(User, on_delete=models.CASCADE)
+	tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+	image = models.CharField(max_length=255, null=True, blank=True)
+	personalDesc = models.TextField(null=True, blank=True)
+	def __str__(self):
+		return str(self.venturer) + " 's " + str(self.tag)
+
+
