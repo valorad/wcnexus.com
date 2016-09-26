@@ -16,19 +16,11 @@ from .models import SiteKV, SiteHot
 
 # Create your views here.
 
-try:
-	recNum = get_object_or_404(SiteKV, key="recNum").value
-	recLink = get_object_or_404(SiteKV, key="recNum").link
-except Exception as e:
-	print("unable to retrieve a SiteKV now")
-else:
-	pass
-finally:
-	pass
-
-
-
 def home(request):
+	recInfo = getSiteKV("recNum")
+	recNum = recInfo["value"]
+	recLink = recInfo["link"]
+
 	hotSites = SiteHot.objects.all()
 	hlength = SiteHot.objects.count()
 	for site in hotSites:
@@ -68,6 +60,13 @@ def loginFull(request):
 @login_required
 def loadAjaxAvatar(request):
 	return render(request, "home/loadAjaxAvatar.html", locals())
+
+def getSiteKV(Ikey):
+	kvs = SiteKV.objects.filter(key=Ikey)
+	for kv in kvs:
+		value = kv.value
+		link = kv.link
+	return {"key": Ikey, "value": value, "link": link}
 
 # def get_language_info_list(request)
 # 	from django.conf import settings
