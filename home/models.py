@@ -4,7 +4,7 @@ from django.db import models
 class SiteKV(models.Model):
 	key = models.CharField(max_length=30)
 	value = models.CharField(max_length=50)
-	link = models.CharField(max_length=200, null=True)
+	link = models.CharField(max_length=200, null=True, blank=True)
 	def __str__(self):
 		return self.key + " : " + self.value
 
