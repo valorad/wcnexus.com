@@ -53,8 +53,8 @@ Source code for wcnexus.
 </table>
 
 <h2>How to deploy</h2>
-<h3>Warning! If you are using python 3, your <strong>DEBUG</strong> setting <b>MUST Be Turned OFF!!!</b> </h3>
-<p>This is because of the implimentaion of magnificent but still not perfect "Zinnia's Weblog". See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for more information.</p>
+<del><h3>Warning! If you are using python 3, your <strong>DEBUG</strong> setting <b>MUST Be Turned OFF!!!</b> </h3></del>
+<p>This issue is fixed. See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for more information.</p>
 
 <ol>
 	<li>(Skip this if you use default SQLite database) Create a database (eg. wcnexus)</li>
@@ -81,7 +81,9 @@ Source code for wcnexus.
 	<li>
 		In settings.py, you must at least set:
 		<ul>
-			<li>INSTALLED_APPS = [...'django_comments','mptt','tagging','zinnia','avatar','home','venturer',]</li>
+			<li>INSTALLED_APPS = [...,'mptt','tagging','zinnia','django_comments','avatar','home','venturer',]<br />
+<h3>Alert: 'django_comments' must be put after 'zinnia'. See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for details.</h3>
+			</li>
 			<li>TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]</li>
 			<li>(Skip this if you use default SQLite database) DATABASES. See <a href="https://docs.djangoproject.com/en/1.10/ref/databases/"  target="_blank">Django Ref doc</a> for more info.</li>
 			<li>MEDIA_URL</li>
