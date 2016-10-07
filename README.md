@@ -8,9 +8,6 @@ Source code for wcnexus.
 <br />
 <span style='font-size: 5px'>&nbsp;&nbsp;&nbsp;already claimed ha ha ha ha ha</span>
 
-<p>You may now visit the construction site at <a href="http://www.wcnexus.com"  target="_blank">wcnexus.com</a></p>
-<p>Please stay safe and always put your safety helmet on! :)</p>
-
 <p>Plus special thanks to opensource project:</p>
 <table>
   <thead>
