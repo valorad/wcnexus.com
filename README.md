@@ -1,6 +1,6 @@
 # wcNexus
 Source code for wcnexus.
-<p>wcnexus.com is still under construction, and it is likely to open public in <b>early October</b>.</p>
+<p>wcnexus.com is currently open beta in <a href="http://www.wcnexus.com">wcnexus.com</a>.</p>
 <p>wcNexus is a non-profit site of personal interest, with apps like blogs, showcases, etc.</p>
 <p>This site is powered by Django 1.10.</p>
 
@@ -45,12 +45,24 @@ Source code for wcnexus.
         <td>Simple yet powerful and really extendable application for managing a blog within your Django Web site.</td>
       </tr>
       <tr>
+        <td><a href="https://github.com/grantmcconnaughey/django-avatar" target="_blank">django-avatar</a></td>
+        <td><a href="https://github.com/grantmcconnaughey" target="_blank">grantmcconnaughey</a></td>
+        <td>Cascading grid layout library</td>
+      </tr>
+      <tr>
         <td><a href="https://github.com/desandro/masonry" target="_blank">masonry</a></td>
         <td><a href="https://github.com/desandro" target="_blank">desandro</a></td>
         <td>Cascading grid layout library</td>
       </tr>
   </tbody>
 </table>
+
+<p>Django Capability:</p>
+<ul>
+  <li>1.10.2 <span>✔</span></li>
+  <li>1.10 <span>✔</span></li>
+  <li>1.9 <span>❌</span></li>
+</ul>
 
 <h2>How to deploy</h2>
 <del><h3>Warning! If you are using python 3, your <strong>DEBUG</strong> setting <b>MUST Be Turned OFF!!!</b> </h3></del>
