@@ -47,7 +47,7 @@ Source code for wcnexus.
       <tr>
         <td><a href="https://github.com/grantmcconnaughey/django-avatar" target="_blank">django-avatar</a></td>
         <td><a href="https://github.com/grantmcconnaughey" target="_blank">grantmcconnaughey</a></td>
-        <td>Cascading grid layout library</td>
+        <td>A Django app for handling user avatars.</td>
       </tr>
       <tr>
         <td><a href="https://github.com/desandro/masonry" target="_blank">masonry</a></td>
