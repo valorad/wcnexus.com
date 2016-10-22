@@ -223,3 +223,4 @@ migrations
 manage.py
 .sass-cache
 media
+/static
