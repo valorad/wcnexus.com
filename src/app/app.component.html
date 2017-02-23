@@ -1,3 +1,28 @@
 <h1>
   {{title}}
 </h1>
+
+<h2>Current theme: {{ currentClass }}</h2>
+
+<select name="theme" id="selTheme" #selTheme>
+  <option value="white">white</option>
+  <option value="black">black</option>
+</select>
+
+<button (click)="changeClass(selTheme.options[selTheme.selectedIndex].value)">Change</button>
+
+<div id="test" class="container">
+  <h2>test section</h2>
+  <div [class]="currentAppliedClass">
+    <h3>C1</h3>
+  </div>
+  <div [class]="currentAppliedClass">
+    <h3>C2</h3>
+  </div>
+  <div [class]="currentAppliedClass">
+    <h3>C3</h3>
+  </div>
+  <div [class]="currentAppliedClass">
+    <h3>C4</h3>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+div.display {
+    height: 150px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+// $th_black: (
+//     bg: black,
+//     ft: white
+// );
+
+// $th_white: (
+//     bg: white,
+//     ft: black
+// );
+
+.white {
+    background-color: white;
+    color: black;
+    border-bottom-color: dimgrey;
+    outline-color: floralwhite;
+    border-radius: 50%;
+}
+
+.black {
+    background-color: black;
+    color: white;
+    border-bottom-color: floralwhite;
+    outline-color: dimgrey;
+    border-radius: 50%;
+}
