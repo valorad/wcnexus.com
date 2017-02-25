@@ -38,3 +38,13 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+# Site Specific
+.tscache/*
+/.tscache
+/.tscache/*
+!.tscache
+!.tscache/*
+!/.tscache
+!/.tscache/*
+.tscache/**
