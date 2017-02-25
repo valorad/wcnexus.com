@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname));
 
+// Get our API routes
+const api = require('./api');
+// Set our api routes
+app.use('/api', api);
+
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname,'index.html'))
 });
