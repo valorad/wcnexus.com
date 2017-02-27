@@ -1,3 +1,13 @@
+nav#appNav {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    > button {
+        padding: 5px;
+    }
+}
+
+
 div.display {
     height: 150px;
     margin-top: 10px;
@@ -32,3 +42,65 @@ div.display {
 
 .grid-item { width: 200px; }
 .grid-item--width2 { width: 400px; }
+
+/* Responsive Settings Start. Bootstrap v4 */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 576px) {	
+
+// #wcnNavContent {
+//     position: relative;
+//     float: right;
+//     top: 70px;
+//     right: 5%;
+//     background-color: white;
+// }
+
+#wcnNavContent {
+    ul {
+        display: none;
+    }
+    div#navUser {
+        display: none;
+    }
+}
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+
+#wcnNavContent {
+    ul {
+        display: none;
+    }
+    div#navUser {
+        display: none;
+    }
+}
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+#wcnNavContent {
+    ul {
+        display: none;
+    }
+    div#navUser {
+        display: none;
+    }
+}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+/* Responsive Settings End*/
