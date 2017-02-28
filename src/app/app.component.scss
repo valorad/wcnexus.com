@@ -1,11 +1,20 @@
-nav#appNav {
+.Opacified {
+    opacity: 0.1;
+}
+
+#navCover {
     position: fixed;
     width: 100%;
     top: 0px;
+    z-index: 1000;
+    transition: 1s;
+}
+
+nav#appNav {
     > button {
         padding: 5px;
+        border-color: transparent;
     }
-    opacity: 0.01;
 }
 
 

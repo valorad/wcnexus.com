@@ -1,45 +1,47 @@
-<nav id="appNav" class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#wcnNavContent" aria-controls="wcnNavContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>-->
+<div id="navCover" [class]="navbarClass" (mouseenter)="toggleNav()" (mouseleave)="toggleNav()"> 
+  <nav id="appNav" class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#wcnNavContent" aria-controls="wcnNavContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>-->
 
-  <button class="navbar-toggler navbar-toggler-right" type="button">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler navbar-toggler-right" type="button">
+      <i class="material-icons">more_vert</i>
+    </button>
 
-  <div class="navbar-collapse" id="wcnNavContent">
-    <a class="navbar-brand" href="#"><span class="icon-wcNexusLogo"></span> <span>wcNexus</span></a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Venturer</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-      <li>
+    <div class="navbar-collapse" id="wcnNavContent">
+      <a class="navbar-brand" href="#"><span class="icon-wcNexusLogo"></span> <span>wcNexus</span></a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Venturer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </li>
+      </ul>
+      <ul>
+        
+      </ul>
+      <div id="navUser">
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <button class="btn btn-outline-success">Sign in</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-primary">Sign up</button>
+            </li>
+          </ul>
         </form>
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <div id="navUser">
-      <form class="form-inline my-2 my-lg-0">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <button class="btn btn-outline-success">Sign in</button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-primary">Sign up</button>
-          </li>
-        </ul>
-      </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
 
 <main>
   <router-outlet></router-outlet>

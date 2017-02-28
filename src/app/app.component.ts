@@ -22,6 +22,13 @@ export class AppComponent {
     this.currentAppliedClass = toClass + this.baseClass;
   }
 
+  //nav bar class
+  private navbarClass: string = "Opacified";
+
+  toggleNav() {
+    this.navbarClass = (this.navbarClass == "" ? "Opacified" : "");
+  }
+
 
 
 }
