@@ -1,9 +1,5 @@
 @import "../assets/scss/_colors.scss";
-
-$themePanelColor: $grey;
-$themePanelBGColor: $black;
-$themeTitleColor: $grey-300;
-$themeTitleColorHigh: $red-800;
+@import "../assets/scss/_wcnvar.scss";
 
 .Opacified {
     opacity: 0.1;
@@ -61,6 +57,21 @@ div.display {
 		:active {
 			
 		}
+        a {
+            :link{
+                color: $themeTitleColor;
+            }
+            :visited{
+                color: $themeTitleColor;
+            }
+            :hover{
+                color: $themeTitleColor;
+            }	
+            :active {
+                color: $themeTitleColor;
+            }
+            color: $themeTitleColor;
+        }
     }
 }
 

@@ -1,10 +1,28 @@
+@import "../../assets/scss/_wcnvar.scss";
+
 header#cover {
-    padding: 0px;
+    padding-top: 0px;
+    background-color: $themePanelBGColor;
+}
+
+#titleHolder {
     span.icon-wcNexusLogo {
         font-size: 150px;
+        color: $themeTitleColorHigh;
     }
+    h1.wcnTitle {
+        font-weight: bolder;
+        color: $themeTitleColorHigh;
+    }
+    h3 {
+        color: $themeTitleColor;
+    }
+}
+
+// header#cover in screen greater than xs. Using mixin instead of % is beacuse % is a sb.
+@mixin headerInGtXS {
+    padding: 0px;
     div#titleHolder {
-        padding-top: 9%;
         div h1 {
             display: inline-block;
             position: relative;
@@ -13,3 +31,61 @@ header#cover {
     }
 }
 
+
+/* Responsive Settings Start. Bootstrap v4 */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 576px) {	
+header#cover {
+    div#titleHolder {
+        text-align: center;
+    }
+    img {
+        box-shadow: 1px 6px 2px -4px #fafafa;
+    }
+}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+header#cover {
+    div#titleHolder {
+        text-align: center;
+    }
+    img {
+        box-shadow: 1px 6px 2px -4px #fafafa;
+    }
+}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+header#cover {
+    div#titleHolder {
+        padding-top: 5%;
+    }
+    @include headerInGtXS;
+}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+header#cover {
+    div#titleHolder {
+        padding-top: 9%;
+    }
+    @include headerInGtXS;
+}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+header#cover {
+    div#titleHolder {
+        padding-top: 9%;
+    }
+    @include headerInGtXS;
+}
+}
+
+/* Responsive Settings End*/
