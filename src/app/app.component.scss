@@ -17,11 +17,14 @@ nav#appNav {
     }
 }
 
-
 div.display {
     height: 150px;
     margin-top: 10px;
     text-align: center;
+}
+
+#wcnNavContent {
+    width: 100%;
 }
 
 // $th_black: (
@@ -50,55 +53,96 @@ div.display {
     border-radius: 50%;
 }
 
+/* Masonry settings */ 
+
 .grid-item { width: 200px; }
 .grid-item--width2 { width: 400px; }
 
 /* Responsive Settings Start. Bootstrap v4 */
 
 /* Extra small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 576px) {	
-
-// #wcnNavContent {
-//     position: relative;
-//     float: right;
-//     top: 70px;
-//     right: 5%;
-//     background-color: white;
-// }
-
+@media only screen and (max-width: 576px) {
+.HiddenltLG {
+    display: none;
+}
 #wcnNavContent {
-    ul {
-        display: none;
+    > ul {
+        position: absolute;
+        top: 58px;
+        right: 2px;
+        background-color: greenyellow;
     }
     div#navUser {
-        display: none;
+        position: absolute;
+        display: inline;
+        right: 9%;
+        form {
+            display: inline;
+            ul {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
+        }
     }
 }
-
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media only screen and (min-width: 576px) and (max-width: 768px) {
-
+.HiddenltLG {
+    display: none;
+}
 #wcnNavContent {
-    ul {
-        display: none;
+    > ul {
+        position: absolute;
+        top: 58px;
+        right: 2px;
+        background-color: greenyellow;
     }
     div#navUser {
-        display: none;
+        position: absolute;
+        display: inline;
+        right: 9%;
+        form {
+            display: inline;
+            ul {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
+        }
     }
 }
-
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
+.HiddenltLG {
+    display: none;
+}
 #wcnNavContent {
-    ul {
-        display: none;
+    > ul {
+        position: absolute;
+        top: 58px;
+        right: 2px;
+        background-color: greenyellow;
     }
     div#navUser {
-        display: none;
+        position: absolute;
+        display: inline;
+        right: 9%;
+        form {
+            display: inline;
+            ul {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
+        }
     }
 }
 }
@@ -109,7 +153,7 @@ div.display {
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 1200px) {
 
 }
 
