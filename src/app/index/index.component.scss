@@ -21,6 +21,24 @@ header#cover {
                 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
+main#indexMain {
+    section.card {
+        display: flex;
+        padding: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        transition: 1s;
+        p {
+            margin-bottom: 2rem;
+        }
+        footer {
+            position: absolute;
+            bottom: 4px;
+            left: 8px;
+        }
+    }
+}
+
 // header#cover in screen greater than xs. Using mixin instead of % is beacuse % is a sb.
 @mixin headerInGtXS {
     padding: 0px;
