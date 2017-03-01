@@ -39,6 +39,13 @@ main#indexMain {
     }
 }
 
+section#masterInfo {
+    img {
+        max-width: 100px;
+        box-shadow: 3px 2px 0 3px rgba(153, 153, 153, 0.4);
+    }
+}
+
 // header#cover in screen greater than xs. Using mixin instead of % is beacuse % is a sb.
 @mixin headerInGtXS {
     padding: 0px;
