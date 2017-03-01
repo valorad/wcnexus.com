@@ -1,5 +1,5 @@
 @import "../assets/scss/_colors.scss";
-@import "../assets/scss/_wcnvar.scss";
+@import "../assets/scss/_wcnthemes.scss";
 
 .Opacified {
     opacity: 0.1;
@@ -16,7 +16,6 @@
 nav#appNav {
     padding-top: 0px;
     padding-bottom: 0px;
-    background-color: $themePanelColor;
     > button {
         padding-top: 10px;
         padding-bottom: 10px;
@@ -34,11 +33,10 @@ div.display {
     width: 100%;
     > a {
         padding-top: 6px;
-        color: $themeTitleColorHigh;
         span.icon-wcNexusLogo {
             font-size: 30px;
         }
-        span.wcnTitle {
+        span.wcnTitleHigh {
             font-size: 22px;
             position: relative;
             bottom: 4px;
@@ -57,21 +55,6 @@ div.display {
 		:active {
 			
 		}
-        a {
-            :link{
-                color: $themeTitleColor;
-            }
-            :visited{
-                color: $themeTitleColor;
-            }
-            :hover{
-                color: $themeTitleColor;
-            }	
-            :active {
-                color: $themeTitleColor;
-            }
-            color: $themeTitleColor;
-        }
     }
 }
 
@@ -91,45 +74,10 @@ div#navUser {
 		}
     }
     button {
-        color: $themeTitleColor;
-        border-color: $themeTitleColor;
         padding-top: 15px;
         padding-bottom: 15px;
     }
-
-    button.high {
-        color: $themeTitleColorHigh;
-        border-color: $themeTitleColorHigh;
-    }
-
 }
-
-// $th_black: (
-//     bg: black,
-//     ft: white
-// );
-
-// $th_white: (
-//     bg: white,
-//     ft: black
-// );
-
-.white {
-    background-color: white;
-    color: black;
-    border-bottom-color: dimgrey;
-    outline-color: floralwhite;
-    border-radius: 50%;
-}
-
-.black {
-    background-color: black;
-    color: white;
-    border-bottom-color: floralwhite;
-    outline-color: dimgrey;
-    border-radius: 50%;
-}
-
 
 /* Masonry settings */ 
 
@@ -148,7 +96,6 @@ div#navUser {
         position: absolute;
         top: 58px;
         right: 2px;
-        background-color: $themePanelColor;
     }
     div#navUser {
         position: absolute;
@@ -177,7 +124,6 @@ div#navUser {
         position: absolute;
         top: 58px;
         right: 2px;
-        background-color: $themePanelColor;
     }
     div#navUser {
         position: absolute;
@@ -206,7 +152,6 @@ div#navUser {
         position: absolute;
         top: 58px;
         right: 2px;
-        background-color: $themePanelColor;
     }
     div#navUser {
         position: absolute;

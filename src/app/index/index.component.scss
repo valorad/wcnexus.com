@@ -1,21 +1,15 @@
-@import "../../assets/scss/_wcnvar.scss";
+@import "../../assets/scss/_wcnthemes.scss";
 
 header#cover {
     padding-top: 0px;
-    background-color: $themePanelBGColor;
 }
 
 #titleHolder {
     span.icon-wcNexusLogo {
         font-size: 150px;
-        color: $themeTitleColorHigh;
     }
-    h1.wcnTitle {
+    h1.wcnTitleHigh {
         font-weight: bolder;
-        color: $themeTitleColorHigh;
-    }
-    h3 {
-        color: $themeTitleColor;
     }
 }
 

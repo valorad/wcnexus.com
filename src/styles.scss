@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "assets/scss/_wcnthemes.scss";
+
 main#entry {
     text-align: center;
     min-height: 500px;
@@ -7,6 +10,53 @@ main#entry {
         font-size: 300px;
     }
 }
+
+.themeAC {
+
+    $AC: map-get($theme, tAC);
+    $PanelColor: map-get($AC, PanelColor);
+    $CoverColor: map-get($AC, CoverColor);
+    $bodyColor: map-get($AC, bodyColor);
+    $TitleColor: map-get($AC, TitleColor);
+    $TitleColorHigh: map-get($AC, TitleColorHigh);
+
+    background-color: $bodyColor;
+
+    .wcnPanel {
+        background-color: $PanelColor;
+    }
+    .wcnButton {
+        background-color: $PanelColor;
+    }
+    .wcnCover {
+        background-color: $CoverColor;
+    }
+    .wcnButtonHigh {
+        color: $TitleColorHigh;
+    }
+    .icon-wcNexusLogo {
+        color: $TitleColorHigh;
+    }
+    .wcnTitle {
+        color: $TitleColor;
+    }
+    .wcnTitleHigh {
+        color: $TitleColorHigh;
+    }
+
+}
+
+/*
+
+wcnPanel
+wcnButton
+wcnButtonHigh
+icon-wcNexusLogo
+wcnTitle
+wcnTitleHigh
+wcnCover
+
+*/
 
 /* Responsive Settings Start. Bootstrap v4 */
 

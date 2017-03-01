@@ -8,20 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'wcNexus';
 
-  themes = [
-    'white',
-    'black'
-  ];
-
-  currentClass: string = this.themes[0];
-  baseClass = " display col-md-12 card";
-  currentAppliedClass = this.currentClass + this.baseClass;
-
-  changeClass(toClass: string) {
-    this.currentClass = toClass;
-    this.currentAppliedClass = toClass + this.baseClass;
-  }
-
   //nav bar class
   private navbarClass: string = "Opacified";
 
@@ -43,7 +29,4 @@ export class AppComponent {
       this.navbarMenuClass += " HiddenltLG";
     }
   }
-
-
-
 }
