@@ -1,0 +1,23 @@
+@import "./_colors.scss";
+
+// $themePanelColor: $grey;
+// $themePanelBGColor: $black;
+// $themeTitleColor: $grey-300;
+// $themeTitleColorHigh: $red-800;
+
+$theme: (
+    tDefault: (
+        PanelColor: $blue-grey,
+        CoverColor: $grey,
+        bodyColor: $grey-50,
+        TitleColor: $blue-grey-800,
+        TitleColorHigh: $blue
+    ),
+    tAC: (
+        PanelColor: $grey,
+        CoverColor: $black,
+        bodyColor: $grey-800,
+        TitleColor: $grey-300,
+        TitleColorHigh: $red-800
+    )
+)

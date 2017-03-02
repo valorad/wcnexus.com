@@ -1,0 +1,198 @@
+@import "../assets/scss/_colors.scss";
+@import "../assets/scss/_wcnthemes.scss";
+
+.Opacified {
+    opacity: 0.1;
+}
+
+#navCover {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 1000;
+    transition: 1s;
+}
+
+nav#appNav {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    > button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-color: transparent;
+    }
+}
+
+div.display {
+    height: 150px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#wcnNavContent {
+    width: 100%;
+    > a {
+        padding-top: 6px;
+        span.icon-wcNexusLogo {
+            font-size: 30px;
+        }
+        span.wcnTitleHigh {
+            font-size: 22px;
+            position: relative;
+            bottom: 4px;
+        }
+    }
+    > ul li {
+		:link{
+			
+		}
+		:visited{
+			
+		}
+		:hover{
+			background-color: #f5f5f5;
+		}	
+		:active {
+			
+		}
+    }
+}
+
+div#navUser {
+    > form ul li {
+		:link{
+			
+		}
+		:visited{
+			
+		}
+		:hover{
+			background-color: rgba($white, 0.1);
+		}	
+		:active {
+			background-color: rgba($white, 0.1);
+		}
+    }
+    button {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+footer#siteBottom {
+    h1 {
+        text-align: center;
+        margin-bottom: 0px;
+        font-size: 1em;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+/* Responsive Settings Start. Bootstrap v4 */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 576px) {
+.HiddenltLG {
+    display: none;
+}
+#wcnNavContent {
+    > ul {
+        position: absolute;
+        top: 58px;
+        right: 2px;
+    }
+    div#navUser {
+        position: absolute;
+        display: inline;
+        right: 9%;
+        form {
+            display: inline;
+            ul {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+.HiddenltLG {
+    display: none;
+}
+#wcnNavContent {
+    > ul {
+        position: absolute;
+        top: 58px;
+        right: 2px;
+    }
+    div#navUser {
+        position: absolute;
+        display: inline;
+        right: 9%;
+        form {
+            display: inline;
+            ul {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+.HiddenltLG {
+    display: none;
+}
+#wcnNavContent {
+    > ul {
+        position: absolute;
+        top: 58px;
+        right: 2px;
+    }
+    div#navUser {
+        position: absolute;
+        display: inline;
+        right: 9%;
+        form {
+            display: inline;
+            ul {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+#wcnNavContent {
+    ul li a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+#wcnNavContent {
+    ul li a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+}
+
+/* Responsive Settings End*/

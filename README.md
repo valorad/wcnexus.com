@@ -1,122 +1,44 @@
 # wcNexus
-Source code for wcnexus.
-<p>wcnexus.com is currently open beta in <a href="http://www.wcnexus.com">wcnexus.com</a>.</p>
-<p>wcNexus is a non-profit site of personal interest, with apps like blogs, showcases, etc.</p>
-<p>This site is powered by Django 1.10.</p>
 
-<p>As Billy the infamous at the neighborhood say he will never give a BDK, however, you can get most of the {B, M, S}DK here that are... 
-<br />
-<span style='font-size: 5px'>&nbsp;&nbsp;&nbsp;already claimed ha ha ha ha ha</span>
+wcNexus is a nexus of wc worlds. (wc's personal website)
 
-<p>Plus special thanks to opensource project:</p>
-<table>
-  <thead>
-    <tr>
-      <td>Project name</td>      <td>Author</td>      <td>Description</td>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><a href="https://github.com/django/django" target="_blank">Django</a></td>
-        <td><a href="https://github.com/django" target="_blank">Django</a></td>
-        <td>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.</td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/jquery/jquery" target="_blank">jQuery</a></td>
-        <td><a href="https://github.com/jquery">jQuery Foundation</a></td>
-        <td>JavaScript Library</td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/twbs/bootstrap" target="_blank">Bootstrap</a></td>
-        <td><a href="https://github.com/twbs" target="_blank">Bootstrap</a></td>
-        <td>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development</td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/FezVrasta/bootstrap-material-design" target="_blank">bootstrap-material-design</a></td>
-        <td><a href="https://github.com/FezVrasta" target="_blank">FezVrasta</a></td>
-        <td>Material design theme for Bootstrap 3 and 4</td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/Fantomas42/django-blog-zinnia" target="_blank">django-blog-zinnia</a></td>
-        <td><a href="https://github.com/Fantomas42" target="_blank">Fantomas42</a></td>
-        <td>Simple yet powerful and really extendable application for managing a blog within your Django Web site.</td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/grantmcconnaughey/django-avatar" target="_blank">django-avatar</a></td>
-        <td><a href="https://github.com/grantmcconnaughey" target="_blank">grantmcconnaughey</a></td>
-        <td>A Django app for handling user avatars.</td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/desandro/masonry" target="_blank">masonry</a></td>
-        <td><a href="https://github.com/desandro" target="_blank">desandro</a></td>
-        <td>Cascading grid layout library</td>
-      </tr>
-  </tbody>
-</table>
+wcNexus was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30, and is successfully updated to version 1.0.0-rc.0.
 
-<p>Django Capability:</p>
-<ul>
-  <li>1.10.2 <span>✔</span></li>
-  <li>1.10 <span>✔</span></li>
-  <li>1.9 <span>❌</span></li>
-</ul>
+## Deploy
 
-<h2>How to deploy</h2>
-<del><h3>Warning! If you are using python 3, your <strong>DEBUG</strong> setting <b>MUST Be Turned OFF!!!</b> </h3></del>
-<p>This issue is fixed. See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for more information.</p>
+- install node ^6.0.0 yourself.
+- install MongoDB distribution of your current system and architecture.
+- install [angular-cli](https://github.com/angular/angular-cli) ^1.0.0.rc0.
+- `npm install `
 
-<ol>
-	<li>(Skip this if you use default SQLite database) Create a database (eg. wcnexus)</li>
-	<li>
-		Install dependencies:
-		<ul>
-			<b>Ubuntu/Debian:</b>
-			<li>$ sudo apt-get install python3-dev</li>
-			<li>$ sudo apt-get install libjpeg8-dev</li>
-			<li>$ sudo apt-get install pillow</li>
-			<li>$ pip install Django==1.10</li>
-			<li>$ pip install django-avatar</li>
-		</ul>
-	</li>
-	<li>
-		Start a django project (eg. wcNexus)
-		<ul>
-			<li>$ django-admin startproject "(your desired path)/wcNexus"</li>
-		</ul>
-	</li>
-	<li>
-		follow the guide to install <a href='https://github.com/Fantomas42/django-blog-zinnia'  target="_blank">django-blog-zinnia</a>
-	</li>
-	<li>
-		In settings.py, you must at least set:
-		<ul>
-			<li>INSTALLED_APPS = [...,'mptt','tagging','zinnia','django_comments','avatar','home','venturer',]<br />
-<h3>Alert: 'django_comments' must be put after 'zinnia'. See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for details.</h3>
-			</li>
-			<li>TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]</li>
-			<li>(Skip this if you use default SQLite database) DATABASES. See <a href="https://docs.djangoproject.com/en/1.10/ref/databases/"  target="_blank">Django Ref doc</a> for more info.</li>
-			<li>MEDIA_URL</li>
-			<li>MEDIA_ROOT</li>
-			<li>STATIC_ROOT</li>
-			<li>LOGIN_URL</li>
-		</ul>
-	</li>
-	<li>
-		Download this repo. Create the folders yourself if not exist.
-	</li>
-	<li>
-		In your terminal, switch to the root directory, 
-		<ul>
-			<li>$ python3 manage.py makemigrations</li>
-			<li>$ python3 manage.py migrate</li>
-		</ul>
-	</li>
-	<li>Create media folder at root dir</li>
-	<li>Create static folder at root dir</li>
-	<li>Collect static files</li>
-		<ul><li>$ python3 manage.py collectstatic</li></ul>
-	<li>Run server (currently only tested in local server).
-		<ul><li>$ python3 manage.py runserver --insecure</li></ul>
-	</li>
-	<li>Visit your site. eg. <a href="http://127.0.0.1:8000"  target="_blank">127.0.0.1:8000 (in default port 8000, change if you wish)</a>, enjoy!</li>
-</ol>
+## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Express with MongoDB
+Not fully supported but you can run `ng build && node src/app` to start up express. Navigate to `http://localhost:3000/`. 
+
+The app will NOT automatically reload and you have to reload yourself, if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+Before running the tests make sure you are serving the app via `ng serve`.
+
+## Further help
+
+To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+And of course you can contact wc (as well as his xiaomajias) directly.
