@@ -46,6 +46,41 @@ section#masterInfo {
     }
 }
 
+
+
+section#upComings {
+    header {
+        h1 {
+            padding: 5px 0px 5px 15px;
+        }
+    }
+/* Masonry settings */ 
+
+    * { box-sizing: border-box; }
+
+    .grid {
+        width: 100%;
+        padding-left: 4%;
+    }
+    /* clearfix */
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .grid-item {
+        float: left;
+    }
+
+    .grid-sizer { width: 5%; }
+    .grid-item { width: 80%; }
+
+
+}
+
+
+
 // header#cover in screen greater than xs. Using mixin instead of % is beacuse % is a sb.
 @mixin headerInGtXS {
     padding: 0px;
@@ -71,6 +106,7 @@ header#cover {
         box-shadow: 1px 6px 2px -4px #fafafa;
     }
 }
+
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -83,6 +119,7 @@ header#cover {
         box-shadow: 1px 6px 2px -4px #fafafa;
     }
 }
+
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -93,6 +130,14 @@ header#cover {
     }
     @include headerInGtXS;
 }
+
+section#upComings {
+/* Masonry settings */ 
+    .grid-sizer { width: 10%; }
+    .grid-item { width: 40%; }
+}
+
+
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -103,6 +148,14 @@ header#cover {
     }
     @include headerInGtXS;
 }
+
+section#upComings {
+/* Masonry settings */ 
+    .grid-sizer { width: 5%; }
+    .grid-item { width: 25%; }
+    }
+
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -113,6 +166,12 @@ header#cover {
     }
     @include headerInGtXS;
 }
-}
 
+section#upComings {
+/* Masonry settings */ 
+    .grid-sizer { width: 4%; }
+    .grid-item { width: 20%; }
+    }
+
+}
 /* Responsive Settings End*/
