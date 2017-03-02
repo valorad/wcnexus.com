@@ -1,6 +1,6 @@
 {
   "name": "wcnexus",
-  "version": "2.0.0-alpha",
+  "version": "2.0.0-alpha.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -8,9 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "exp": "echo 'Warning! this will fail on Windows!' && ng build && cp './src/app.js' './dist' && node dist/app",
-    "expWin": "(ng build) && powershell (xcopy '.\\src\\app.js' 'dist') && (node dist/app)"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
