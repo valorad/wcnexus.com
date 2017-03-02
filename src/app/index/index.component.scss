@@ -44,6 +44,9 @@ section#masterInfo {
         max-width: 100px;
         box-shadow: 3px 2px 0 3px rgba(153, 153, 153, 0.4);
     }
+    blockquote > p {
+        margin-bottom: 0px !important;
+    }
 }
 
 

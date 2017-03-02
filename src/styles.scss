@@ -31,6 +31,14 @@ main#entry {
     .wcnCover {
         background-color: $CoverColor;
     }
+    .blockquote {
+        color: $TitleColorHigh;
+        border-left-color: $PanelColor;
+        .blockquote-footer {
+            color: $TitleColorHigh;
+        }
+
+    }
     .wcnButtonHigh {
         color: $TitleColorHigh;
     }
