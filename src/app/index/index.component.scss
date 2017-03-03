@@ -82,6 +82,31 @@ section#upComings {
 
 }
 
+#selThemeModal {
+    div.modal-header {
+        button {
+            position: absolute;
+            right: 40px
+        }
+    }
+    div.modal-body {
+        ul {
+            list-style: none;
+            padding: 0px;
+            li {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            div {
+                display:inline-block;
+                text-align: center;
+            }
+        }
+        img {
+            width: 200px;
+        }
+    }
+}
 
 
 // header#cover in screen greater than xs. Using mixin instead of % is beacuse % is a sb.
@@ -95,6 +120,7 @@ section#upComings {
         }
     }
 }
+
 
 
 /* Responsive Settings Start. Bootstrap v4 */

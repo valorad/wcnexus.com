@@ -19,14 +19,14 @@ $theme: (
         CoverColor: $black,
         bodyColor: $grey-800,
         ContentBGColor: $white,
-        TitleColor: $grey-300,
+        TitleColor: $brown,
         TitleColorHigh: $red-800
     ),
     tFallout: (
         PanelColor: $light-blue,
         CoverColor: $green-800,
         bodyColor: $green-100,
-        ContentBGColor: $teal,
+        ContentBGColor: $grey-800,
         TitleColor: $grey-300,
         TitleColorHigh: $yellow
     )
@@ -54,7 +54,7 @@ $theme: (
     .wcnCover {
         background-color: $CoverColor;
     }
-    .card {
+    .wcnContent {
         background-color: $ContentBGColor;
     }
     .blockquote {
@@ -63,6 +63,9 @@ $theme: (
         .blockquote-footer {
             color: $TitleColorHigh;
         }
+    }
+    .wcnParaDark {
+        color: $TitleColor
     }
     .wcnButtonHigh {
         color: $TitleColorHigh;

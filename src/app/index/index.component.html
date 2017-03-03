@@ -67,31 +67,31 @@
 <main id="indexMain">
   <div class="container-fluid">
     <div class="row mx-auto">
-      <section class="card col-md-5 col-lg-4">
+      <section class="card wcnContent col-md-5 col-lg-4">
         <img class="card-img-top img-fluid" src="assets/images/testskyrim.jpg" alt="Card image cap">
         <div class="card-block">
           <h4 class="card-title wcnTitleHigh">About wcnexus.com</h4>
-          <p class="card-text">wcnexus.com is a big nexus of wc worlds. Know more about wc or become a xiaomajia right now!</p>
+          <p class="card-text wcnParaDark">wcnexus.com is a big nexus of wc worlds. Know more about wc or become a xiaomajia right now!</p>
           <footer>
             <a href="#" class="btn wcnButtonHigh">what?</a>
           </footer>
         </div>
       </section>
-      <section class="card col-md-5 col-lg-4">
+      <section class="card wcnContent col-md-5 col-lg-4">
         <img class="card-img-top img-fluid img-circle" [src]="themeImg" alt="Card image cap">
         <div class="card-block">
           <h4 class="card-title wcnTitleHigh" [innerHTML]="themeDescrTitle">wcNexus default theme</h4>
-          <p class="card-text" [innerHTML]="themeDescr">wcNexus is a nexus of wcWorlds</p>
+          <p class="card-text wcnParaDark" [innerHTML]="themeDescr">wcNexus is a nexus of wcWorlds</p>
           <footer>
             <a href="####" class="btn wcnButtonHigh" data-toggle="modal" data-target="#selThemeModal">Change</a>
           </footer>
         </div>
       </section>
-      <section id="masterInfo" class="card col-md-5 col-lg-3">
+      <section id="masterInfo" class="card wcnContent col-md-5 col-lg-3">
         <img class="img-fluid img-circle mx-auto" src="assets/images/fallout-VaultBoy-2.jpg" alt="Card image cap">
         <div class="card-block">
           <h4 class="card-title wcnTitleHigh">Valorad</h4>
-          <p>Your respectful master</p>
+          <p class="wcnParaDark">Your respectful master</p>
           <blockquote class="blockquote wcnTitleHigh">
             <p class="card-text">What is life's greatest illusion?</p>
           </blockquote>
@@ -114,44 +114,44 @@
   </header>
   <main class="grid container-fluid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
     <div class="grid-sizer"></div>
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       <img class="card-img-top img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title wcnTitleHigh">wcnexus added AC theme</h4>
-        <p class="card-text">Yeah I added AC theme!</p>
+        <p class="card-text wcnParaDark">Yeah I added AC theme!</p>
       </div>
     </article>
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       <div class="card-block">
         <h4 class="card-title wcnTitleHigh">Error encountered.</h4>
-        <p class="card-text">Error encountered resolving symbol values statically!</p>
+        <p class="card-text wcnParaDark">Error encountered resolving symbol values statically!</p>
       </div>
     </article>
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       <div class="card-block">
         <h4 class="card-title wcnTitleHigh">A~ER!</h4>
         <blockquote class="blockquote wcnTitleHigh">
-          <p class="card-text">Calling function 'makeDecorator', function calls are not supported. Consider replacing the function or lambda with a reference to an exported function!</p>
+          <p class="card-text wcnParaDark">Calling function 'makeDecorator', function calls are not supported. Consider replacing the function or lambda with a reference to an exported function!</p>
           <footer class="blockquote-footer">an error in @angular/cli ver. 1.0.0-rc0, win32</footer>
         </blockquote>
       </div>
     </article>
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       Error encountered resolving symbol values statically. Error encountered resolving symbol values statically.
     </article>
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       ERROR in
     </article>
     <!--<article class="card grid-item">
       resolving symbol NgModule in E:/DocCenter/va_WorkStation_Benben/vaSites/wcnexus.com/node_modules/@angular/platform-browser/node_modules/@angular/core/index.d.ts, resolving symbol BrowserModule in DocCenter/va_WorkStation_Benben/vaSites/wcnexus.com/node_modules/@angular/platform-browser/src/browser.d.ts, resolving symbol BrowserModule in E:/DocCenter/va_WorkStation_Benben/vaSites/wcnexus.com/node_modules/@angular/platform-browser/src/browser.d.ts
     </article>-->
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       Error encountered resolving symbol values statically.
     </article>
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       ERROR in
     </article>
-    <article class="card grid-item">
+    <article class="card wcnContent grid-item">
       <div class="card-block">
         <h4 class="card-title wcnTitleHigh">A~ER!</h4>
         <blockquote class="blockquote wcnTitleHigh">
@@ -166,17 +166,31 @@
 <!-- Modal -->
 <div class="modal fade" id="selThemeModal" tabindex="-1" role="dialog" aria-labelledby="selThemeModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content wcnContent">
       <div class="modal-header">
-        <h5 class="modal-title" id="selThemeModalLabel">Select a theme</h5>
+        <h5 class="modal-title wcnTitleHigh" id="selThemeModalLabel">Select a theme</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <ul>
-          <li value="tAC" (click)="selectATheme($event)">AC</li>
-          <li value="tFallout" (click)="selectATheme($event)">Fallout</li>
+          <li value="tAC">
+            <a href="####" value="tAC">
+              <div value="tAC" (click)="selectATheme($event)">
+                <img value="tAC" class="img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="tAC">
+                <small value="tAC">AC</small>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="####" value="tFallout">
+              <div value="tFallout" (click)="selectATheme($event)">
+                <img value="tFallout" class="img-fluid" src="assets/images/themes/tFallout/wcn-theme-fallout.jpg" alt="tFallout">
+                <small value="tFallout">Fallout</small>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="modal-footer">

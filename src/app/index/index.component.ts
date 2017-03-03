@@ -13,7 +13,7 @@ export class IndexComponent implements OnInit {
 
   themeRoot: string = "assets/images/themes/";
 
-  theme = {
+  themes = {
     tDefault: {
       class: "themeDefault",
       themeImg: "wcn-theme-fallout.jpg",
@@ -45,15 +45,15 @@ export class IndexComponent implements OnInit {
 
   currentTheme: string = "tFallout"; // Currrent running theme
 
-  slogan: string = this.theme[this.currentTheme]["slogan"];
+  slogan: string = this.themes[this.currentTheme]["slogan"];
 
   coverImg: string = this.themeRoot + this.currentTheme + "/" + "wcn-Fallout.png";
   themeImg: string = this.themeRoot + this.currentTheme + "/" + "wcn-theme-fallout.jpg";
 
-  themeDescrTitle: string = this.theme[this.currentTheme]["descrTitle"];
-  themeDescr: string = this.theme[this.currentTheme]["descr"];
+  themeDescrTitle: string = this.themes[this.currentTheme]["descrTitle"];
+  themeDescr: string = this.themes[this.currentTheme]["descr"];
 
-  selectedTheme: string = ""; //Theme selected in the modal selection interface.
+  selectedTheme: string = "tFallout"; //Theme selected in the modal selection interface.
 
   changeTheme(changedTheme: string) {
     //change body class
@@ -62,21 +62,21 @@ export class IndexComponent implements OnInit {
     $('body').removeClass();
 
     //add body class
-    $('body').addClass(this.theme[changedTheme].class);
+    $('body').addClass(this.themes[changedTheme].class);
 
     // current theme changed to:
     this.currentTheme = changedTheme;
 
     //change cover and theme img
-    this.coverImg = this.themeRoot + this.currentTheme + "/" + this.theme[this.currentTheme]["cover"];
-    this.themeImg = this.themeRoot + this.currentTheme + "/" + this.theme[this.currentTheme]["themeImg"];
+    this.coverImg = this.themeRoot + this.currentTheme + "/" + this.themes[this.currentTheme]["cover"];
+    this.themeImg = this.themeRoot + this.currentTheme + "/" + this.themes[this.currentTheme]["themeImg"];
 
     //change slogan
-    this.slogan = this.theme[this.currentTheme]["slogan"];
+    this.slogan = this.themes[this.currentTheme]["slogan"];
 
     //change theme descr
-    this.themeDescrTitle = this.theme[this.currentTheme]["descrTitle"];
-    this.themeDescr = this.theme[this.currentTheme]["descr"];
+    this.themeDescrTitle = this.themes[this.currentTheme]["descrTitle"];
+    this.themeDescr = this.themes[this.currentTheme]["descr"];
   }
 
 
