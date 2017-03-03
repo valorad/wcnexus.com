@@ -10,6 +10,7 @@ $theme: (
         PanelColor: $blue-grey,
         CoverColor: $grey,
         bodyColor: $grey-50,
+        ContentBGColor: $white,
         TitleColor: $blue-grey-800,
         TitleColorHigh: $blue
     ),
@@ -17,7 +18,16 @@ $theme: (
         PanelColor: $grey,
         CoverColor: $black,
         bodyColor: $grey-800,
+        ContentBGColor: $white,
         TitleColor: $grey-300,
         TitleColorHigh: $red-800
+    ),
+    tFallout: (
+        PanelColor: $light-blue,
+        CoverColor: $green-800,
+        bodyColor: $green-100,
+        ContentBGColor: $teal,
+        TitleColor: $grey-300,
+        TitleColorHigh: $yellow
     )
 )
