@@ -43,7 +43,7 @@ export class IndexComponent implements OnInit {
 
   }
 
-  currentTheme: string = "tFallout";
+  currentTheme: string = "tFallout"; // Currrent running theme
 
   slogan: string = this.theme[this.currentTheme]["slogan"];
 
@@ -52,6 +52,8 @@ export class IndexComponent implements OnInit {
 
   themeDescrTitle: string = this.theme[this.currentTheme]["descrTitle"];
   themeDescr: string = this.theme[this.currentTheme]["descr"];
+
+  selectedTheme: string = ""; //Theme selected in the modal selection interface.
 
   changeTheme(changedTheme: string) {
     //change body class
@@ -79,6 +81,11 @@ export class IndexComponent implements OnInit {
 
 
   ngOnInit() {
+  }
+
+  selectATheme(e) {
+    this.selectedTheme = e.target.attributes.value.value;
+    console.log("Theme selected as " + this.selectedTheme);
   }
 
 }

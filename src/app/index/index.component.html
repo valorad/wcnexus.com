@@ -174,11 +174,14 @@
         </button>
       </div>
       <div class="modal-body">
-        AC
+        <ul>
+          <li value="tAC" (click)="selectATheme($event)">AC</li>
+          <li value="tFallout" (click)="selectATheme($event)">Fallout</li>
+        </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn wcnButtonHigh" (click)="changeTheme('tAC')" data-dismiss="modal">OK</button>
+        <button type="button" class="btn wcnButtonHigh" (click)="changeTheme(selectedTheme)" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
