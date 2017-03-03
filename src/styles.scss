@@ -12,94 +12,11 @@ main#entry {
 }
 
 .themeAC {
-
-    $AC: map-get($theme, tAC);
-    $PanelColor: map-get($AC, PanelColor);
-    $CoverColor: map-get($AC, CoverColor);
-    $bodyColor: map-get($AC, bodyColor);
-    $ContentBGColor: map-get($AC, ContentBGColor);
-    $TitleColor: map-get($AC, TitleColor);
-    $TitleColorHigh: map-get($AC, TitleColorHigh);
-
-    background-color: $bodyColor;
-
-    .wcnPanel {
-        background-color: $PanelColor;
-    }
-    .wcnButton {
-        background-color: $PanelColor;
-    }
-    .wcnCover {
-        background-color: $CoverColor;
-    }
-    .blockquote {
-        color: $TitleColorHigh;
-        border-left-color: $PanelColor;
-        .blockquote-footer {
-            color: $TitleColorHigh;
-        }
-
-    }
-    .wcnButtonHigh {
-        color: $TitleColorHigh;
-    }
-    .icon-wcNexusLogo {
-        color: $TitleColorHigh;
-    }
-    .wcnTitle {
-        color: $TitleColor;
-    }
-    .wcnTitleHigh {
-        color: $TitleColorHigh;
-    }
-
+    @include getTheme("tAC");
 }
 
 .themeFallout {
-
-    $Fallout: map-get($theme, tFallout);
-    $PanelColor: map-get($Fallout, PanelColor);
-    $CoverColor: map-get($Fallout, CoverColor);
-    $bodyColor: map-get($Fallout, bodyColor);
-    $ContentBGColor: map-get($Fallout, ContentBGColor);
-    $TitleColor: map-get($Fallout, TitleColor);
-    $TitleColorHigh: map-get($Fallout, TitleColorHigh);
-
-    background-color: $bodyColor;
-
-    .wcnPanel {
-        background-color: $PanelColor;
-    }
-    .wcnButton {
-        background-color: $PanelColor;
-    }
-    .wcnCover {
-        background-color: $CoverColor;
-    }
-    .card {
-        background-color: $ContentBGColor;
-    }
-    .blockquote {
-        color: $TitleColorHigh;
-        border-left-color: $PanelColor;
-        .blockquote-footer {
-            color: $TitleColorHigh;
-        }
-
-    }
-    .wcnButtonHigh {
-        color: $TitleColorHigh;
-    }
-    .icon-wcNexusLogo {
-        color: $TitleColorHigh;
-    }
-    .wcnTitle {
-        color: $TitleColor;
-    }
-    .wcnTitleHigh {
-        color: $TitleColorHigh;
-    }
-
+    @include getTheme("tFallout");
 }
 
 /*
