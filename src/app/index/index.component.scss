@@ -130,6 +130,9 @@ header#cover {
 header#cover {
     div#titleHolder {
         padding-top: 5%;
+        h3 {
+            padding-left: 3rem;
+        }
     }
     @include headerInGtXS;
 }
@@ -148,6 +151,9 @@ section#upComings {
 header#cover {
     div#titleHolder {
         padding-top: 9%;
+        h3 {
+            padding-left: 3rem;
+        }
     }
     @include headerInGtXS;
 }
@@ -166,6 +172,9 @@ section#upComings {
 header#cover {
     div#titleHolder {
         padding-top: 120px;
+        h3 {
+            padding-left: 3rem;
+        }
     }
     @include headerInGtXS;
 }
