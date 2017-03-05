@@ -13,8 +13,10 @@ export class IndexComponent implements OnInit {
 
   themeRoot: string = "assets/images/themes/";
 
-  themes = {
-    tDefault: {
+  themes = [
+    {
+      id: 0,
+      name: "tDefault",
       class: "themeDefault",
       themeImg: "wcn-theme-fallout.jpg",
       cover: "wcn-Fallout.png",
@@ -22,8 +24,9 @@ export class IndexComponent implements OnInit {
       descrTitle: "wcNexus default theme",
       descr: "wcNexus is a nexus of wcWorlds"
     },
-
-    tAC: {
+    {
+      id: 1,
+      name: "tAC",
       class: "themeAC",
       themeImg: "wcn-theme-ac.jpg",
       cover: "wcn-AC.png",
@@ -31,8 +34,9 @@ export class IndexComponent implements OnInit {
       descrTitle: "Assassin's creed",
       descr: "Action game presented by Ubisoft."
     },
-
-    tFallout: {
+    {
+      id: 2,
+      name: "tFallout",
       class: "themeFallout",
       themeImg: "wcn-theme-fallout.jpg",
       cover: "wcn-Fallout.png",
@@ -40,43 +44,56 @@ export class IndexComponent implements OnInit {
       descrTitle: "Fallout",
       descr: "RPG survival game made by Bethesda Softworks LLC"
     }
+  ]
 
+  // default theme settings
+
+  theme: object = this.themes[2]; // default to fallout theme
+
+  currentTheme: string = this.theme["name"]; // Currrent running theme
+
+  slogan: string = this.theme["slogan"]; // Currrent displaying slogan
+
+  coverImg: string = this.themeRoot + this.currentTheme + "/" + this.theme["cover"];
+  themeImg: string = this.themeRoot + this.currentTheme + "/" + this.theme["themeImg"];
+
+  themeDescrTitle: string = this.theme["descrTitle"];
+  themeDescr: string = this.theme["descr"];
+
+  selectedTheme: string = this.currentTheme; //Theme selected in the modal selection interface.
+
+  //select a theme by name. Will be handed over to Mongo in the future.
+  getThemeByName(name: string): object {
+    for (let theme of this.themes) {
+      if (theme.name === name) {
+        return theme;
+      }
+    }
+    return null;
   }
 
-  currentTheme: string = "tFallout"; // Currrent running theme
-
-  slogan: string = this.themes[this.currentTheme]["slogan"];
-
-  coverImg: string = this.themeRoot + this.currentTheme + "/" + "wcn-Fallout.png";
-  themeImg: string = this.themeRoot + this.currentTheme + "/" + "wcn-theme-fallout.jpg";
-
-  themeDescrTitle: string = this.themes[this.currentTheme]["descrTitle"];
-  themeDescr: string = this.themes[this.currentTheme]["descr"];
-
-  selectedTheme: string = "tFallout"; //Theme selected in the modal selection interface.
-
   changeTheme(changedTheme: string) {
-    //change body class
 
-    //clear body class
-    $('body').removeClass();
+    let theme = this.getThemeByName(changedTheme);
 
-    //add body class
-    $('body').addClass(this.themes[changedTheme].class);
-
-    // current theme changed to:
-    this.currentTheme = changedTheme;
-
-    //change cover and theme img
-    this.coverImg = this.themeRoot + this.currentTheme + "/" + this.themes[this.currentTheme]["cover"];
-    this.themeImg = this.themeRoot + this.currentTheme + "/" + this.themes[this.currentTheme]["themeImg"];
-
-    //change slogan
-    this.slogan = this.themes[this.currentTheme]["slogan"];
-
-    //change theme descr
-    this.themeDescrTitle = this.themes[this.currentTheme]["descrTitle"];
-    this.themeDescr = this.themes[this.currentTheme]["descr"];
+    if (theme != null) {
+      //clear body class
+      $('body').removeClass();
+      //add body class
+      $('body').addClass(theme["class"]);
+      // current theme changed to:
+      this.currentTheme = changedTheme;
+      //change cover and theme img
+      this.coverImg = this.themeRoot + this.currentTheme + "/" + theme["cover"];
+      this.themeImg = this.themeRoot + this.currentTheme + "/" + theme["themeImg"];
+      //change slogan
+      this.slogan = theme["slogan"];
+      //change theme descr
+      this.themeDescrTitle = theme["descrTitle"];
+      this.themeDescr = theme["descr"];
+    } else {
+      console.error("Invalid theme name detected");
+    }
   }
 
 
