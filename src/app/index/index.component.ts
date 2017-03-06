@@ -43,12 +43,22 @@ export class IndexComponent implements OnInit {
       slogan: "Var, var never changes.",
       descrTitle: "Fallout",
       descr: "RPG survival game made by Bethesda Softworks LLC"
+    },
+    {
+      id: 3,
+      name: "tTES",
+      class: "themeTES",
+      themeImg: "wcn-theme-tes.jpg",
+      cover: "wcn-TES.png",
+      slogan: "Var, var never changes.",
+      descrTitle: "Elder Scroll",
+      descr: "RPG game that is Bethesda's Qin er zi"
     }
   ]
 
   // default theme settings
 
-  theme: object = this.themes[2]; // default to fallout theme
+  theme: object = this.themes[3]; // default to fallout theme
 
   currentTheme: string = this.theme["name"]; // Currrent running theme
 
@@ -98,6 +108,7 @@ export class IndexComponent implements OnInit {
 
 
   ngOnInit() {
+    this.changeTheme(this.selectedTheme);
   }
 
   selectATheme(e) {

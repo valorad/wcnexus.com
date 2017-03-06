@@ -1,10 +1,5 @@
 @import "./_colors.scss";
 
-// $themePanelColor: $grey;
-// $themePanelBGColor: $black;
-// $themeTitleColor: $grey-300;
-// $themeTitleColorHigh: $red-800;
-
 $theme: (
     tDefault: (
         PanelColor: $blue-grey,
@@ -29,6 +24,14 @@ $theme: (
         ContentBGColor: $grey-800,
         TitleColor: $grey-300,
         TitleColorHigh: $yellow
+    ),
+    tTES: (
+        PanelColor: $blue-grey-300,
+        CoverColor: $grey,
+        bodyColor: $grey,
+        ContentBGColor: $grey-800,
+        TitleColor: $grey-600,
+        TitleColorHigh: $grey-300
     )
 );
 
@@ -50,6 +53,7 @@ $theme: (
     }
     .wcnButton {
         background-color: $PanelColor;
+        color: $TitleColor;
     }
     .wcnCover {
         background-color: $CoverColor;

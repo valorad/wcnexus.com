@@ -83,6 +83,10 @@ main#entry {
     @include getTheme("tFallout");
 }
 
+.themeTES {
+    @include getTheme("tTES");
+}
+
 /*
 
 wcnPanel
