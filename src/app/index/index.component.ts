@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 import * as $ from "jquery";
 
@@ -9,106 +10,47 @@ import * as $ from "jquery";
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private app: AppComponent) {
+    this.themeRoot = app.themeRoot;
+    this.runningTheme = app.runningTheme;
+    this.changeTheme = app.changeTheme;
+   }
 
-  themeRoot: string = "assets/images/themes/";
+  themeRoot: string = "";
 
-  themes = [
-    {
-      id: 0,
-      name: "tDefault",
-      class: "themeDefault",
-      themeImg: "wcn-theme-fallout.jpg",
-      cover: "wcn-Fallout.png",
-      slogan: "Connect wc worlds.",
-      descrTitle: "wcNexus default theme",
-      descr: "wcNexus is a nexus of wcWorlds"
-    },
-    {
-      id: 1,
-      name: "tAC",
-      class: "themeAC",
-      themeImg: "wcn-theme-ac.jpg",
-      cover: "wcn-AC.png",
-      slogan: "We work in the dark to serve the light.",
-      descrTitle: "Assassin's creed",
-      descr: "Action game presented by Ubisoft."
-    },
-    {
-      id: 2,
-      name: "tFallout",
-      class: "themeFallout",
-      themeImg: "wcn-theme-fallout.jpg",
-      cover: "wcn-Fallout.png",
-      slogan: "Var, var never changes.",
-      descrTitle: "Fallout",
-      descr: "RPG survival game made by Bethesda Softworks LLC"
-    },
-    {
-      id: 3,
-      name: "tTES",
-      class: "themeTES",
-      themeImg: "wcn-theme-tes.jpg",
-      cover: "wcn-TES.png",
-      slogan: "Var, var never changes.",
-      descrTitle: "Elder Scroll",
-      descr: "RPG game that is Bethesda's Qin er zi"
-    }
-  ]
+  changeTheme: Function;
 
-  // default theme settings
+  runningTheme: object = {};
 
-  theme: object = this.themes[3]; // default to fallout theme
+  private selectedTheme: string = "";
 
-  currentTheme: string = this.theme["name"]; // Currrent running theme
+  // changeTheme(changedTheme: string) {
 
-  slogan: string = this.theme["slogan"]; // Currrent displaying slogan
+  //   let theme = this.getThemeByName(changedTheme);
 
-  coverImg: string = this.themeRoot + this.currentTheme + "/" + this.theme["cover"];
-  themeImg: string = this.themeRoot + this.currentTheme + "/" + this.theme["themeImg"];
-
-  themeDescrTitle: string = this.theme["descrTitle"];
-  themeDescr: string = this.theme["descr"];
-
-  selectedTheme: string = this.currentTheme; //Theme selected in the modal selection interface.
-
-  //select a theme by name. Will be handed over to Mongo in the future.
-  getThemeByName(name: string): object {
-    for (let theme of this.themes) {
-      if (theme.name === name) {
-        return theme;
-      }
-    }
-    return null;
-  }
-
-  changeTheme(changedTheme: string) {
-
-    let theme = this.getThemeByName(changedTheme);
-
-    if (theme != null) {
-      //clear body class
-      $('body').removeClass();
-      //add body class
-      $('body').addClass(theme["class"]);
-      // current theme changed to:
-      this.currentTheme = changedTheme;
-      //change cover and theme img
-      this.coverImg = this.themeRoot + this.currentTheme + "/" + theme["cover"];
-      this.themeImg = this.themeRoot + this.currentTheme + "/" + theme["themeImg"];
-      //change slogan
-      this.slogan = theme["slogan"];
-      //change theme descr
-      this.themeDescrTitle = theme["descrTitle"];
-      this.themeDescr = theme["descr"];
-    } else {
-      console.error("Invalid theme name detected");
-    }
-  }
+  //   if (theme != null) {
+  //     //clear body class
+  //     $('body').removeClass();
+  //     //add body class
+  //     $('body').addClass(theme["class"]);
+  //     // current theme changed to:
+  //     this.currentTheme = changedTheme;
+  //     //change cover and theme img
+  //     this.coverImg = this.themeRoot + this.currentTheme + "/" + theme["cover"];
+  //     this.themeImg = this.themeRoot + this.currentTheme + "/" + theme["themeImg"];
+  //     //change slogan
+  //     this.slogan = theme["slogan"];
+  //     //change theme descr
+  //     this.themeDescrTitle = theme["descrTitle"];
+  //     this.themeDescr = theme["descr"];
+  //   } else {
+  //     console.error("Invalid theme name detected");
+  //   }
+  // }
 
 
   ngOnInit() {
-    this.changeTheme(this.selectedTheme);
+    //this.changeTheme(this.selectedTheme);
   }
 
   selectATheme(e) {

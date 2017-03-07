@@ -2,13 +2,13 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <img class="img-fluid mx-auto" [src]="coverImg" alt="wcn-Fallout">
+        <img class="img-fluid mx-auto" [src]="runningTheme.coverImg" alt="wcn-Fallout">
       </div>
       <div id="titleHolder" class="col-md-6">
         <div>
           <span class="icon-wcNexusLogo"></span>
           <h1 class="display-3 wcnTitleHigh">wcNexus</h1>
-          <h3 class="wcnTitle" [innerHTML]="slogan">Connect wc worlds.</h3>
+          <h3 class="wcnTitle" [innerHTML]="runningTheme.slogan">Connect wc worlds.</h3>
         </div>
       </div>
     </div>
@@ -78,10 +78,10 @@
         </div>
       </section>
       <section class="card wcnContent col-md-5 col-lg-4">
-        <img class="card-img-top img-fluid img-circle" [src]="themeImg" alt="Card image cap">
+        <img class="card-img-top img-fluid img-circle" [src]="runningTheme.themeImg" alt="Card image cap">
         <div class="card-block">
-          <h4 class="card-title wcnTitleHigh" [innerHTML]="themeDescrTitle">wcNexus default theme</h4>
-          <p class="card-text wcnParaDark" [innerHTML]="themeDescr">wcNexus is a nexus of wcWorlds</p>
+          <h4 class="card-title wcnTitleHigh" [innerHTML]="runningTheme.themeDescrTitle">wcNexus default theme</h4>
+          <p class="card-text wcnParaDark" [innerHTML]="runningTheme.themeDescr">wcNexus is a nexus of wcWorlds</p>
           <footer>
             <a href="####" class="btn wcnButtonHigh" data-toggle="modal" data-target="#selThemeModal">Change</a>
           </footer>
