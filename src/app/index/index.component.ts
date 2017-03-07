@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { ThemeService } from '../theme.service';
 
 import * as $ from "jquery";
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+  providers: [ThemeService]
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private app: AppComponent) {
-    this.themeRoot = app.themeRoot;
-    this.runningTheme = app.runningTheme;
-    this.changeTheme = app.changeTheme;
+  constructor(private themeService: ThemeService) {
+    this.themeRoot = themeService.themeRoot;
+    this.runningTheme = themeService.runningTheme;
+    this.changeTheme = themeService.changeTheme;
    }
 
   themeRoot: string = "";
