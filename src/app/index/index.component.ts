@@ -12,18 +12,22 @@ import * as $ from "jquery";
 export class IndexComponent implements OnInit {
 
   constructor(private themeService: ThemeService) {
-    this.themeRoot = themeService.themeRoot;
-    this.runningTheme = themeService.runningTheme;
-    this.changeTheme = themeService.changeTheme;
+    // this.themeRoot = themeService.themeRoot;
+    // this.runningTheme = themeService.runningTheme;
+    // this.changeTheme = themeService.changeTheme;
+
+    this.themeService = themeService;
+
    }
+
 
   themeRoot: string = "";
 
-  changeTheme: Function;
+  //changeTheme: Function = this.themeService.changeTheme;
 
-  runningTheme: object = {};
+  runningTheme: object = this.themeService.runningTheme;
 
-  private selectedTheme: string = "";
+  private selectedTheme: string = "tFallout";
 
   // changeTheme(changedTheme: string) {
 
@@ -49,9 +53,8 @@ export class IndexComponent implements OnInit {
   //   }
   // }
 
-
   ngOnInit() {
-    //this.changeTheme(this.selectedTheme);
+    this.themeService.changeTheme(this.selectedTheme);
   }
 
   selectATheme(e) {
