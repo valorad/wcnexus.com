@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { wcnexusRoutes } from './wcnexus.route';
 
+import { ThemeService } from './theme.service';
+
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { Http404Component } from './http404/http404.component';
@@ -24,7 +26,7 @@ import { VenturerComponent } from './venturer/venturer.component';
 
     wcnexusRoutes
   ],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

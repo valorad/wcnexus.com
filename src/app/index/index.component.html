@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <img class="img-fluid mx-auto" [src]="runningTheme.coverImg" alt="wcn-Fallout">
+        <img class="img-fluid mx-auto" [src]="themeService.runningTheme.coverImg" alt="wcn-Fallout">
       </div>
       <div id="titleHolder" class="col-md-6">
         <div>
@@ -203,7 +203,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn wcnButtonHigh" (click)="changeTheme(selectedTheme)" data-dismiss="modal">OK</button>
+        <button type="button" class="btn wcnButtonHigh" (click)="themeService.changeTheme(selectedTheme)" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>

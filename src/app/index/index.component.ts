@@ -6,28 +6,22 @@ import * as $ from "jquery";
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss'],
-  providers: [ThemeService]
+  styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
 
   constructor(private themeService: ThemeService) {
-    // this.themeRoot = themeService.themeRoot;
-    // this.runningTheme = themeService.runningTheme;
-    // this.changeTheme = themeService.changeTheme;
-
-    this.themeService = themeService;
 
    }
 
 
-  themeRoot: string = "";
+  themeRoot: string = this.themeService.themeRoot;
 
   //changeTheme: Function = this.themeService.changeTheme;
 
-  runningTheme: object = this.themeService.runningTheme;
+  runningTheme: any = this.themeService["runningTheme"];
 
-  private selectedTheme: string = "tFallout";
+  private selectedTheme: string = "";
 
   // changeTheme(changedTheme: string) {
 
@@ -54,7 +48,7 @@ export class IndexComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.themeService.changeTheme(this.selectedTheme);
+    //this.themeService.changeTheme(this.runningTheme["currentTheme"]);
   }
 
   selectATheme(e) {

@@ -5,18 +5,18 @@ import { ThemeService } from './theme.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [ThemeService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'wcNexus';
 
   constructor(private themeService: ThemeService) {
-    this.themeRoot = themeService.themeRoot;
-    this.themes = themeService.themes;
-    this.runningTheme = themeService.runningTheme;
-    this.getThemeByName = themeService.getThemeByName;
-    this.changeTheme = themeService.changeTheme;
+    // this.themeRoot = themeService.themeRoot;
+    // this.themes = themeService.themes;
+    // this.runningTheme = themeService.runningTheme;
+    // this.getThemeByName = themeService.getThemeByName;
+    // this.changeTheme = themeService.changeTheme;
+    this.themeService = themeService;
   }
 
 // themes 
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
   // default theme settings
 
-  public runningTheme: object = {
+  public runningTheme = {
   }
 
   // public theme: object = this.themes[3]; // default to fallout theme
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
 
   //select a theme by name. Will be handed over to Mongo in the future.
-  public getThemeByName: Function 
+  //public getThemeByName: Function 
     // for (let theme of this.themes) {
     //   if (theme.name === name) {
     //     return theme;
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
     // }
     // return null;
   
-  public changeTheme: Function 
+  //public changeTheme: Function 
 
   //nav bar class
   private navbarClass: string = "Opacified";
@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.changeTheme("tFallout");
+    this.themeService.changeTheme("tFallout");
   }
 
 }
