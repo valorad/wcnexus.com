@@ -56,7 +56,7 @@ export class ThemeService {
       }
     ]
 
-  public runningTheme: object = {
+  public runningTheme: Object = {
     currentTheme: "",
     slogan: "",
     coverImg: "",
@@ -65,7 +65,7 @@ export class ThemeService {
     themeDescr: ""
   }
 
-  public getThemeByName(name: string): object {
+  public getThemeByName(name: string): Object {
     for (let theme of this.themes) {
       if (theme.name === name) {
         return theme;
