@@ -50,7 +50,7 @@ export class ThemeService {
         class: "themeTES",
         themeImg: "wcn-theme-tes.jpg",
         cover: "wcn-TES.png",
-        slogan: "Var, var never changes.",
+        slogan: "Then I took an arrow on the knee",
         descrTitle: "Elder Scroll",
         descr: "RPG game that is Bethesda's Qin er zi"
       }
