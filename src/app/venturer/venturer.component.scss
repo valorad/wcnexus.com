@@ -10,6 +10,40 @@ header#ventCover {
     }
 }
 
+main#ventAct {
+
+    header {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        h3 {
+            padding: 0.5rem 0rem 0.5rem 15px;
+        }
+    }
+
+ * { box-sizing: border-box; }
+
+    .grid {
+        width: 100%;
+        padding-left: 4%;
+    }
+    /* clearfix */
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .grid-item {
+        float: left;
+    }
+
+    .grid-sizer { width: 5%; }
+    .grid-item { width: 80%; }
+
+
+}
+
 /* Responsive Settings Start. Bootstrap v4 */
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -25,15 +59,33 @@ header#ventCover {
 /* Medium devices (tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
 
+main#ventAct {
+/* Masonry settings */ 
+    .grid-sizer { width: 10%; }
+    .grid-item { width: 40%; }
+}
+
 }
 
 /* Large devices (desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
 
+main#ventAct {
+/* Masonry settings */ 
+    .grid-sizer { width: 5%; }
+    .grid-item { width: 25%; }
+}
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+
+main#ventAct {
+/* Masonry settings */ 
+    .grid-sizer { width: 4%; }
+    .grid-item { width: 20%; }
+    }
 
 }
 
