@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && grunt",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,6 +27,7 @@
     "express": "^4.14.1",
     "imagesloaded": "^4.1.1",
     "jquery": "^3.1.1",
+    "mongoose": "^4.9.0",
     "morgan": "^1.7.0",
     "rxjs": "^5.1.0",
     "serve-favicon": "^2.3.2",
