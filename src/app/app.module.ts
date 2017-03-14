@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MasonryModule } from 'angular2-masonry';
+
 import { wcnexusRoutes } from './wcnexus.route';
 
 import { ThemeService } from './theme.service';
@@ -23,6 +25,8 @@ import { VenturerComponent } from './venturer/venturer.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+
+    MasonryModule,
 
     wcnexusRoutes
   ],

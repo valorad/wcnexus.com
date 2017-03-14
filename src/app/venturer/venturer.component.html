@@ -26,7 +26,7 @@
   <header class="wcnPanel">
     <h3 class="wcnTitleHigh display-4">Activities</h3>
   </header>
-  <main class="grid container-fluid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
+  <masonry class="grid container-fluid" [useImagesLoaded]="true" [options]='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
       <div class="grid-sizer"></div>
       <article class="card wcnContent grid-item">
         <div class="card-block">
@@ -55,5 +55,5 @@ a musical prodigy.</li>
           <p class="card-text wcnParaDark">Subway project in one of wc world in game Terraria.</p>
         </div>
       </article>
-    </main>
+    </masonry>
 </main>
