@@ -5,10 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && grunt",
+    "build": "ng build --output-path=dist/client",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "_serverBuild": "grunt",
+    "initServer": "npm run build && npm run _serverBuild && npm run server",
+    "server": "node dist/server/app"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +38,7 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0-rc.1",
+    "@angular/cli": "^1.0.0-rc.2",
     "@angular/compiler-cli": "^2.4.0",
     "@types/connect-mongo": "0.0.32",
     "@types/jasmine": "2.5.38",

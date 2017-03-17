@@ -9,11 +9,14 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const clientPath = path.join(__dirname,'../client/');
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(__dirname));
+
+app.use(express.static(clientPath));
 
 // Get our API routes
 const api = require('./api');
@@ -21,24 +24,23 @@ const api = require('./api');
 app.use('/api', api);
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname,'index.html'))
+    res.sendFile(path.join(clientPath,'index.html'))
 });
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
     let err = new Error('Not Found');
-    err.status = 404;
     next(err);
 });
 
 if ('development' == app.get('env')) {
     app.listen(3000, function () {
-        console.log('Example listening on port 3000!');
+        console.log('** express started on port 3000. **');
     });
 } else {
     app.listen(8080, function () {
-        console.log('Example listening on port 8080!');
+        console.log('** express started on port 8080. **');
     });
 }
 
-module.exports = app;
+export const backend = app;
