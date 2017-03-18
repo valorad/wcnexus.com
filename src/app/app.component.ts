@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ThemeService } from './theme.service';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
