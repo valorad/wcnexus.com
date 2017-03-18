@@ -30,7 +30,9 @@ import { VenturerComponent } from './venturer/venturer.component';
 
     wcnexusRoutes
   ],
-  providers: [ThemeService],
-  bootstrap: [AppComponent]
+  exports: [AppComponent],
+  providers: [ThemeService]
+  // ,
+  // bootstrap: [AppComponent]
 })
 export class AppModule { }

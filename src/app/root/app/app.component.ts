@@ -5,7 +5,7 @@ import { ThemeService } from './theme.service';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-root',
+  selector: 'wcnexus',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
