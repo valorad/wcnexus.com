@@ -1,5 +1,3 @@
-@import "../../../assets/scss/_colors.scss";
-@import "../../../assets/scss/_wcnthemes.scss";
 
 .Opacified {
     opacity: 0.1;
@@ -67,10 +65,10 @@ div#navUser {
 			
 		}
 		:hover{
-			background-color: rgba($white, 0.1);
+		//	background-color: rgba($white, 0.1);
 		}	
 		:active {
-			background-color: rgba($white, 0.1);
+		//	background-color: rgba($white, 0.1);
 		}
     }
     button {

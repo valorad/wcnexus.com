@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
 
 import { MasonryModule } from 'angular2-masonry';
 
@@ -25,6 +26,7 @@ import { VenturerComponent } from './venturer/venturer.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule,
 
     MasonryModule,
 

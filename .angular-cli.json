@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "wcn",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "wcnThemes.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.slim.min.js",

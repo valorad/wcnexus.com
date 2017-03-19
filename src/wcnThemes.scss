@@ -1,0 +1,66 @@
+@import '~@angular/material/core/theming/all-theme';
+// Plus imports for other components in your app.
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.@import "./_colors.scss";
+
+$wcnTheme: (
+    tDefault: (
+        primary: mat-palette($mat-indigo),
+        accent: mat-palette($mat-pink, A200, A100, A400),
+        warn: mat-palette($mat-red),
+        is-dark: false,
+        foreground: $mat-light-theme-foreground,
+        background: $mat-light-theme-background,
+    ),
+    tAC: (
+        primary: mat-palette($mat-red),
+        accent: mat-palette($mat-grey, A200, A100, A400),
+        warn: mat-palette($mat-red),
+        is-dark: true,
+        foreground: $mat-dark-theme-foreground,
+        background: $mat-dark-theme-background,
+    ),
+    tFallout: (
+        primary: mat-palette($mat-yellow),
+        accent: mat-palette($mat-blue, A200, A100, A400),
+        warn: mat-palette($mat-red),
+        is-dark: false,
+        foreground: $mat-light-theme-foreground,
+        background: $mat-light-theme-background,
+    ),
+    tTES: (
+        primary: mat-palette($mat-grey),
+        accent: mat-palette($mat-blue-grey, A200, A100, A400),
+        warn: mat-palette($mat-red),
+        is-dark: true,
+        foreground: $mat-dark-theme-foreground,
+        background: $mat-dark-theme-background,
+    )
+);
+
+@mixin getTheme($themeName) {
+
+    $localTheme: map-get($wcnTheme, $themeName);
+    @include angular-material-theme($localTheme);
+
+}
+
+
+/* Specific themes */
+.themeAC {
+    @include getTheme("tAC");
+}
+
+.themeFallout {
+    @include getTheme("tFallout");
+}
+
+.themeTES {
+    @include getTheme("tTES");
+}

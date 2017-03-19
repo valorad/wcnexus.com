@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "assets/scss/_wcnthemes.scss";
-
 // loader keyframes
 @-webkit-keyframes load1 {
   0%,
@@ -73,18 +71,6 @@ main#entry {
         margin: 10% auto;
         font-size: 300px;
     }
-}
-
-.themeAC {
-    @include getTheme("tAC");
-}
-
-.themeFallout {
-    @include getTheme("tFallout");
-}
-
-.themeTES {
-    @include getTheme("tTES");
 }
 
 /*
