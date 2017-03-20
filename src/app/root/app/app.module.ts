@@ -7,6 +7,8 @@ import { MaterialModule } from '@angular/material';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { MasonryModule } from 'angular2-masonry';
 
+import 'hammerjs';
+
 import { wcnexusRoutes } from './wcnexus.route';
 
 import { ThemeService } from './theme.service';
