@@ -27,7 +27,7 @@ $wcnTheme: (
         background: $mat-dark-theme-background,
     ),
     tFallout: (
-        primary: mat-palette($mat-yellow),
+        primary: mat-palette($mat-green),
         accent: mat-palette($mat-blue, A200, A100, A400),
         warn: mat-palette($mat-red),
         is-dark: false,
@@ -48,6 +48,30 @@ $wcnTheme: (
 
     $localTheme: map-get($wcnTheme, $themeName);
     @include angular-material-theme($localTheme);
+
+    .wcnTitleP {
+        color: map-get(map-get($localTheme, primary), 500); // hacking mat palette out 
+    }
+
+    .wcnTitleA2 {
+        color: map-get(map-get($localTheme, accent), A200);
+    }
+
+    .wcnTitleA1 {
+        color: map-get(map-get($localTheme, accent), A100);
+    }
+
+    .wcnTitleA4 {
+        color: map-get(map-get($localTheme, accent), A400);
+    }
+
+    .icon-wcNexusLogo {
+        color: map-get(map-get($localTheme, primary), 500);
+    }
+
+    .wcnBG {
+        background-color: map-get(map-get($localTheme, background), background);
+    }
 
 }
 
