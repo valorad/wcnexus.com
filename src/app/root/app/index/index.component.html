@@ -1,4 +1,4 @@
-<header id="cover" class="jumbotron jumbotron-fluid wcnCover">
+<header id="cover" class="jumbotron jumbotron-fluid wcnBG">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
@@ -7,8 +7,8 @@
       <div id="titleHolder" class="col-md-6">
         <div>
           <span class="icon-wcNexusLogo"></span>
-          <h1 class="display-3 wcnTitleHigh">wcNexus</h1>
-          <h3 class="wcnTitle" [innerHTML]="runningTheme.slogan">Connect wc worlds.</h3>
+          <h1 class="display-3 wcnTitleP">wcNexus</h1>
+          <h3 class="wcnTitleA2" [innerHTML]="runningTheme.slogan">Connect wc worlds.</h3>
         </div>
       </div>
     </div>
@@ -261,3 +261,16 @@
       <button md-raised-button color="accent">ACCENT RAISED</button>
       <button md-raised-button color="warn">Warn RAISED</button>
   </md-card>
+
+<div class="btn-group" dropdown>
+  <button md-raised-button color="primary" id="single-button" type="button" dropdownToggle>
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>

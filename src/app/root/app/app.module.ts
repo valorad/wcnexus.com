@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { MasonryModule } from 'angular2-masonry';
 
 import { wcnexusRoutes } from './wcnexus.route';
@@ -28,6 +29,7 @@ import { VenturerComponent } from './venturer/venturer.component';
     HttpModule,
     MaterialModule,
 
+    DropdownModule.forRoot(),
     MasonryModule,
 
     wcnexusRoutes
