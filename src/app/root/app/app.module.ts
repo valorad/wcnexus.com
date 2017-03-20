@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
+import { CarouselModule } from 'ng2-bootstrap/carousel';
+ 
 import { MasonryModule } from 'angular2-masonry';
 
 import 'hammerjs';
@@ -32,6 +34,7 @@ import { VenturerComponent } from './venturer/venturer.component';
     MaterialModule,
 
     DropdownModule.forRoot(),
+    CarouselModule.forRoot(),
     MasonryModule,
 
     wcnexusRoutes
