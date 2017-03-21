@@ -58,6 +58,7 @@ export class ThemeService {
 
   public runningTheme: Object = {
     currentTheme: "",
+    currentThemeClass: "",
     slogan: "",
     coverImg: "",
     themeImg: "",
@@ -79,10 +80,17 @@ export class ThemeService {
     let theme = this.getThemeByName(changedTheme);
 
     if (theme != null) {
+
+      // jquery method has been deprecated.
+
       //clear body class
-      $('body').removeClass();
+      //$('body').removeClass();
       //add body class
-      $('body').addClass(theme["class"]);
+      //$('body').addClass(theme["class"]);
+
+      // sync current class
+      this.runningTheme["currentThemeClass"] = theme["class"];
+
       // current theme changed to:
       this.runningTheme["currentTheme"] = changedTheme;
       //change cover and theme img

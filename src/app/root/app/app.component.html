@@ -1,46 +1,49 @@
-<div id="navCover" [class]="navbarClass" (mouseenter)="toggleNav()" (mouseleave)="toggleNav()"> 
-  <nav id="appNav" class="navbar navbar-toggleable-md navbar-light bg-faded wcnPanel">
-    <button class="navbar-toggler navbar-toggler-right wcnButton" type="button" (click)="toggleNavMenu()" >
-      <i class="material-icons">more_vert</i>
-    </button>
+<main id="wcnexusHolder" [class]="themeService.runningTheme.currentThemeClass">
+  <div id="navCover" [class]="navbarClass" (mouseenter)="toggleNav()" (mouseleave)="toggleNav()"> 
+    <nav id="appNav" class="navbar navbar-toggleable-md navbar-light bg-faded wcnPanel">
+      <button class="navbar-toggler navbar-toggler-right wcnButton" type="button" (click)="toggleNavMenu()" >
+        <i class="material-icons">more_vert</i>
+      </button>
 
-    <div class="navbar-collapse" id="wcnNavContent">
-      <a class="navbar-brand" href="#"><span class="icon-wcNexusLogo"></span> <span class="wcnTitleHigh">{{ title }}</span></a>
+      <div class="navbar-collapse" id="wcnNavContent">
+        <a class="navbar-brand" href="#"><span class="icon-wcNexusLogo"></span> <span class="wcnTitleHigh">{{ title }}</span></a>
 
-      <ul [class]="navbarMenuClass">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/venturer">Venturer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-      </ul>
+        <ul [class]="navbarMenuClass">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/venturer">Venturer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
 
-      <div id="navUser">
-        <form class="form-inline my-2 my-lg-0">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <button class="btn wcnButton">Sign in</button>
-            </li>
-            <li class="nav-item">
-              <button class="btn wcnButtonHigh">Sign up</button>
-            </li>
-          </ul>
-        </form>
+        <div id="navUser">
+          <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button class="btn wcnButton">Sign in</button>
+              </li>
+              <li class="nav-item">
+                <button class="btn wcnButtonHigh">Sign up</button>
+              </li>
+            </ul>
+          </form>
+        </div>
       </div>
-    </div>
-  </nav>
-</div>
-
-<main>
-  <router-outlet></router-outlet>
-</main>
-
-<footer id="siteBottom" class="wcnPanel">
-  <div class="container">
-    <h1>Case number: XICPB23948739923</h1>
+    </nav>
   </div>
-</footer>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer id="siteBottom" class="wcnPanel">
+    <div class="container">
+      <h1>Case number: XICPB23948739923</h1>
+    </div>
+  </footer>
+
+</main>

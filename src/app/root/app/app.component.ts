@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { ThemeService } from './theme.service';
 
-import * as $ from 'jquery';
-
 @Component({
   selector: 'wcnexus',
   templateUrl: './app.component.html',
@@ -13,11 +11,6 @@ export class AppComponent implements OnInit {
   title = 'wcNexus';
 
   constructor(private themeService: ThemeService) {
-    // this.themeRoot = themeService.themeRoot;
-    // this.themes = themeService.themes;
-    // this.runningTheme = themeService.runningTheme;
-    // this.getThemeByName = themeService.getThemeByName;
-    // this.changeTheme = themeService.changeTheme;
     this.themeService = themeService;
   }
 
@@ -27,35 +20,6 @@ export class AppComponent implements OnInit {
 
   public themes: any;
 
-  // default theme settings
-
-  public runningTheme = {
-  }
-
-  // public theme: object = this.themes[3]; // default to fallout theme
-
-  // public currentTheme: string = this.theme["name"]; // Currrent running theme
-
-  // public slogan: string = this.theme["slogan"]; // Currrent displaying slogan
-
-  // public coverImg: string = this.themeRoot + this.currentTheme + "/" + this.theme["cover"];
-  // public themeImg: string = this.themeRoot + this.currentTheme + "/" + this.theme["themeImg"];
-
-  // public themeDescrTitle: string = this.theme["descrTitle"];
-  // public themeDescr: string = this.theme["descr"];
-
-
-
-  //select a theme by name. Will be handed over to Mongo in the future.
-  //public getThemeByName: Function 
-    // for (let theme of this.themes) {
-    //   if (theme.name === name) {
-    //     return theme;
-    //   }
-    // }
-    // return null;
-  
-  //public changeTheme: Function 
 
   //nav bar class
   private navbarClass: string = "Opacified";
