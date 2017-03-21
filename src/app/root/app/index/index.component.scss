@@ -20,11 +20,9 @@ header#cover {
 }
 
 main#indexMain {
-    section.card {
-        display: flex;
+    md-card {
         padding: 0px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 1rem auto;
         transition: 1s;
         p {
             margin-bottom: 2rem;
@@ -37,10 +35,20 @@ main#indexMain {
     }
 }
 
-section#masterInfo {
+#themeControl {
     img {
-        max-width: 100px;
-        box-shadow: 3px 2px 0 3px rgba(153, 153, 153, 0.4);
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+}
+
+#masterInfo {
+    header {
+        text-align: center;
+        img {
+            max-width: 100px;
+            box-shadow: 3px 2px 0 3px rgba(153, 153, 153, 0.4);
+        }
     }
     blockquote > p {
         margin-bottom: 0px !important;
@@ -214,3 +222,8 @@ section#upComings {
 
 }
 /* Responsive Settings End*/
+
+/* Patch */
+.img-circle {
+    border-radius: 50%; //patch for img-circle
+}

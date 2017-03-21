@@ -99,28 +99,30 @@
 <main id="indexMain">
   <div class="container-fluid">
     <div class="row mx-auto">
-      <section class="card wcnContent col-md-5 col-lg-4">
+      <md-card class="col-md-5 col-lg-4">
         <img class="card-img-top img-fluid" src="assets/images/wcnexus.png" alt="Card image cap">
         <div class="card-block">
-          <h4 class="card-title wcnTitleHigh">About wcnexus.com</h4>
-          <p class="card-text wcnParaDark">wcnexus.com is a big nexus of wc worlds. Know more about wc or become a xiaomajia right now!</p>
+          <h4 class="card-title">About wcnexus.com</h4>
+          <p class="card-text">wcnexus.com is a big nexus of wc worlds. Know more about wc or become a xiaomajia right now!</p>
           <footer>
-            <a href="####" class="btn wcnButtonHigh">what?</a>
+            <a md-button color="primary" href="####">what?</a>
           </footer>
         </div>
-      </section>
-      <section class="card wcnContent col-md-5 col-lg-4">
-        <img class="card-img-top img-fluid img-circle" [src]="runningTheme.themeImg" alt="Card image cap">
+      </md-card>
+      <md-card id="themeControl" class="col-md-5 col-lg-4">
+        <img class="card-img-top img-fluid" [src]="runningTheme.themeImg" alt="Card image cap">
         <div class="card-block">
           <h4 class="card-title wcnTitleHigh" [innerHTML]="runningTheme.themeDescrTitle">wcNexus default theme</h4>
           <p class="card-text wcnParaDark" [innerHTML]="runningTheme.themeDescr">wcNexus is a nexus of wcWorlds</p>
           <footer>
-            <a href="####" class="btn wcnButtonHigh" data-toggle="modal" data-target="#selThemeModal">Change</a>
+            <a md-button color="primary" href="####" data-toggle="modal" data-target="#selThemeModal">Change</a>
           </footer>
         </div>
-      </section>
-      <section id="masterInfo" class="card wcnContent col-md-5 col-lg-3">
-        <img class="img-fluid img-circle mx-auto" src="assets/images/fallout-VaultBoy-2.jpg" alt="Card image cap">
+      </md-card>
+      <md-card id="masterInfo" class="col-md-5 col-lg-3">
+        <header>
+          <img class="img-fluid img-circle mx-auto" src="assets/images/fallout-VaultBoy-2.jpg" alt="Card image cap">
+        </header>
         <div class="card-block">
           <h4 class="card-title wcnTitleHigh">Valorad</h4>
           <p class="wcnParaDark">Your respectful master</p>
@@ -129,13 +131,13 @@
           </blockquote>
           <p><br></p>
           <footer>
-            <a href="#" class="btn wcnButtonHigh">Freedom</a>
-            <a href="#" class="btn wcnButtonHigh">Innocence</a>
-            <a href="#" class="btn wcnButtonHigh">Order</a>
-            <a href="#" class="btn wcnButtonHigh">Life</a>
+            <a md-button color="primary" href="####">Freedom</a>
+            <a md-button color="primary" href="####">Innocence</a>
+            <a md-button color="primary" href="####">Order</a>
+            <a md-button color="primary" href="####">Life</a>
           </footer>
         </div>
-      </section>
+      </md-card>
     </div>
   </div>
 </main>
