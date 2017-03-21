@@ -1,5 +1,5 @@
 <main id="wcnexusHolder" [class]="themeService.runningTheme.currentThemeClass">
-  <div id="navCover" [class]="navbarClass" (mouseenter)="toggleNav()" (mouseleave)="toggleNav()"> 
+  <!--<div id="navCover" [class]="navbarClass" (mouseenter)="toggleNav()" (mouseleave)="toggleNav()"> 
     <nav id="appNav" class="navbar navbar-toggleable-md navbar-light bg-faded wcnPanel">
       <button class="navbar-toggler navbar-toggler-right wcnButton" type="button" (click)="toggleNavMenu()" >
         <i class="material-icons">more_vert</i>
@@ -24,17 +24,35 @@
           <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <button class="btn wcnButton">Sign in</button>
+                <button md-button color="primary">Sign in</button>
               </li>
               <li class="nav-item">
-                <button class="btn wcnButtonHigh">Sign up</button>
+                img(sned)
               </li>
             </ul>
           </form>
         </div>
       </div>
     </nav>
-  </div>
+  </div>-->
+
+  <md-toolbar color="primary" id="wcnNav">
+    <div id="brandHolder">
+      <a class="navbar-brand" href="#"><span class="icon-wcNexusLogo"></span> <span>{{ title }}</span></a>
+    </div>
+    <div id="menuHolder">
+      <ul>
+        <li><a class="nav-link active" routerLink="/index">Home</a></li>
+        <li><a class="nav-link" routerLink="/venturer">Venturer</a></li>
+        <li><a class="nav-link" href="#">About</a></li>
+      </ul>
+    </div>
+    <div id="navBtnHolder">
+      <button md-button>
+        <i class="material-icons app-toolbar-menu">more_vert</i>
+      </button>
+    </div>
+  </md-toolbar>
 
   <main>
     <router-outlet></router-outlet>
