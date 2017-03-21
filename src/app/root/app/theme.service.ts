@@ -81,13 +81,6 @@ export class ThemeService {
 
     if (theme != null) {
 
-      // jquery method has been deprecated.
-
-      //clear body class
-      //$('body').removeClass();
-      //add body class
-      //$('body').addClass(theme["class"]);
-
       // sync current class
       this.runningTheme["currentThemeClass"] = theme["class"];
 

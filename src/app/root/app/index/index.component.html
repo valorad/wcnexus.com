@@ -115,7 +115,7 @@
           <h4 class="card-title wcnTitleHigh" [innerHTML]="runningTheme.themeDescrTitle">wcNexus default theme</h4>
           <p class="card-text wcnParaDark" [innerHTML]="runningTheme.themeDescr">wcNexus is a nexus of wcWorlds</p>
           <footer>
-            <a md-button color="primary" href="####" data-toggle="modal" data-target="#selThemeModal">Change</a>
+            <a md-button color="primary" href="####" (click)="showModal()">Change</a>
           </footer>
         </div>
       </md-card>
@@ -193,56 +193,10 @@
       </div>
     </md-card>
   </masonry>
-  <!--<main class="grid container-fluid">
-    <div class="grid-sizer"></div>
-    <article class="card wcnContent grid-item">
-      <img class="card-img-top img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title wcnTitleHigh">wcnexus added AC theme</h4>
-        <p class="card-text wcnParaDark">Yeah I added AC theme!</p>
-      </div>
-    </article>
-    <article class="card wcnContent grid-item">
-      <div class="card-block">
-        <h4 class="card-title wcnTitleHigh">Error encountered.</h4>
-        <p class="card-text wcnParaDark">Error encountered resolving symbol values statically!</p>
-      </div>
-    </article>
-    <article class="card wcnContent grid-item">
-      <div class="card-block">
-        <h4 class="card-title wcnTitleHigh">A~ER!</h4>
-        <blockquote class="blockquote wcnTitleHigh">
-          <p class="card-text wcnParaDark">Calling function 'makeDecorator', function calls are not supported. Consider replacing the function or lambda with a reference to an exported function!</p>
-          <footer class="blockquote-footer">an error in @angular/cli ver. 1.0.0-rc0, win32</footer>
-        </blockquote>
-      </div>
-    </article>
-    <article class="card wcnContent grid-item">
-      Error encountered resolving symbol values statically. Error encountered resolving symbol values statically.
-    </article>
-    <article class="card wcnContent grid-item">
-      ERROR in
-    </article>
-    <article class="card wcnContent grid-item">
-      Error encountered resolving symbol values statically.
-    </article>
-    <article class="card wcnContent grid-item">
-      ERROR in
-    </article>
-    <article class="card wcnContent grid-item">
-      <div class="card-block">
-        <h4 class="card-title wcnTitleHigh">A~ER!</h4>
-        <blockquote class="blockquote wcnTitleHigh">
-          <p class="card-text">Boom boom boom boom boom boom</p>
-          <footer class="blockquote-footer">a psychopath</footer>
-        </blockquote>
-      </div>
-    </article>
-  </main>-->
 </section>
 
 <!-- Modal -->
-<div class="modal fade" id="selThemeModal" tabindex="-1" role="dialog" aria-labelledby="selThemeModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="selThemeModal" tabindex="-1" role="dialog" aria-labelledby="selThemeModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content wcnContent">
       <div class="modal-header">
@@ -285,26 +239,53 @@
       </div>
     </div>
   </div>
+</div>-->
+
+
+
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #selThemeModal="bs-modal" id="selThemeModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title display-5" id="selThemeModalLabel">Select a theme</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li value="tAC">
+            <a href="####" value="tAC">
+              <div value="tAC" (click)="selectATheme($event)">
+                <img value="tAC" class="img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="tAC">
+                <small value="tAC">AC</small>
+              </div>
+            </a>
+          </li>
+          <li value="tFallout">
+            <a href="####" value="tFallout">
+              <div value="tFallout" (click)="selectATheme($event)">
+                <img value="tFallout" class="img-fluid" src="assets/images/themes/tFallout/wcn-theme-fallout.jpg" alt="tFallout">
+                <small value="tFallout">Fallout</small>
+              </div>
+            </a>
+          </li>
+          <li value="tTES">
+            <a href="####" value="tTES">
+              <div value="tTES" (click)="selectATheme($event)">
+                <img value="tTES" class="img-fluid" src="assets/images/themes/tTES/wcn-theme-tes.jpg" alt="tTES">
+                <small value="tTES">Elder scroll</small>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button md-button (click)="deSelectATheme(); hideModal()">Close</button>
+        <button md-button color="primary" (click)="themeService.changeTheme(selectedTheme); hideModal()">OK</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!--test section-->
- <md-card>
-      <button md-button>FLAT</button>
-      <button md-raised-button md-tooltip="raised button's tooltip">RAISED</button>
-      <button md-raised-button color="primary">PRIMARY RAISED</button>
-      <button md-raised-button color="accent">ACCENT RAISED</button>
-      <button md-raised-button color="warn">Warn RAISED</button>
-  </md-card>
-
-<div class="btn-group" dropdown>
-  <button md-raised-button color="primary" id="single-button" type="button" dropdownToggle>
-    Button dropdown <span class="caret"></span>
-  </button>
-  <ul dropdownMenu role="menu" aria-labelledby="single-button">
-    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-    <li class="divider dropdown-divider"></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
-</div>
+<!-- Test Area -->

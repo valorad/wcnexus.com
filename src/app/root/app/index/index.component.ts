@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { ThemeService } from '../theme.service';
+
+import { ModalDirective } from 'ng2-bootstrap/modal';
 
 import * as $ from "jquery";
 
@@ -54,6 +56,26 @@ export class IndexComponent implements OnInit {
   selectATheme(e) {
     this.selectedTheme = e.target.attributes.value.value;
     console.log("Theme selected as " + this.selectedTheme);
+  }
+
+  deSelectATheme() {
+    this.selectedTheme = this.themeService.runningTheme["currentTheme"];
+  }
+
+/* theme Modal related */
+  @ViewChild('selThemeModal') public selThemeModal: ModalDirective;
+  public isModalShown: boolean = false;
+ 
+  public showModal(): void {
+    this.isModalShown = true;
+  }
+ 
+  public hideModal(): void {
+    this.selThemeModal.hide();
+  }
+ 
+  public onHidden(): void {
+    this.isModalShown = false;
   }
 
 }

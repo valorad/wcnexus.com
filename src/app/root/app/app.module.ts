@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
-import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { CarouselModule } from 'ng2-bootstrap/carousel';
+import { ModalModule } from 'ng2-bootstrap/modal';
  
 import { MasonryModule } from 'angular2-masonry';
 
@@ -33,8 +33,9 @@ import { VenturerComponent } from './venturer/venturer.component';
     HttpModule,
     MaterialModule,
 
-    DropdownModule.forRoot(),
     CarouselModule.forRoot(),
+    ModalModule.forRoot(),
+    
     MasonryModule,
 
     wcnexusRoutes
