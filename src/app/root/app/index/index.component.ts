@@ -62,12 +62,17 @@ export class IndexComponent implements OnInit {
     this.selectedTheme = this.themeService.runningTheme["currentTheme"];
   }
 
+  msE(ph: Boolean = false) {
+    this.showModal2();
+    this.msRes= (ph? "Welcome home!" : "You are not worthy!");
+  }
+
 /* theme Modal related */
   @ViewChild('selThemeModal') public selThemeModal: ModalDirective;
-  public isModalShown: boolean = false;
+  public isThemeModalShown: boolean = false;
  
   public showModal(): void {
-    this.isModalShown = true;
+    this.isThemeModalShown = true;
   }
  
   public hideModal(): void {
@@ -75,7 +80,25 @@ export class IndexComponent implements OnInit {
   }
  
   public onHidden(): void {
-    this.isModalShown = false;
+    this.isThemeModalShown = false;
+  }
+
+/* ms Modal Related*/
+  @ViewChild('msDialog') public msDialog: ModalDirective;
+
+  public isMSModalShown: boolean = false;
+  public msRes: string = "";
+ 
+  public showModal2(): void {
+    this.isMSModalShown = true;
+  }
+ 
+  public hideModal2(): void {
+    this.msDialog.hide();
+  }
+ 
+  public onHidden2(): void {
+    this.isMSModalShown = false;
   }
 
 }

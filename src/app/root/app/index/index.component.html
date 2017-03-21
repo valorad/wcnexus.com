@@ -131,10 +131,10 @@
           </blockquote>
           <p><br></p>
           <footer>
-            <a md-button color="primary" href="####">Freedom</a>
-            <a md-button color="primary" href="####">Innocence</a>
-            <a md-button color="primary" href="####">Order</a>
-            <a md-button color="primary" href="####">Life</a>
+            <a md-button color="primary" href="####" (click)="msE()">Freedom</a>
+            <a md-button color="primary" href="####" (click)="msE(true)">Innocence</a>
+            <a md-button color="primary" href="####" (click)="msE()">Order</a>
+            <a md-button color="primary" href="####" (click)="msE()">Life</a>
           </footer>
         </div>
       </md-card>
@@ -195,55 +195,8 @@
   </masonry>
 </section>
 
-<!-- Modal -->
-<!--<div class="modal fade" id="selThemeModal" tabindex="-1" role="dialog" aria-labelledby="selThemeModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content wcnContent">
-      <div class="modal-header">
-        <h5 class="modal-title wcnTitleHigh" id="selThemeModalLabel">Select a theme</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul>
-          <li value="tAC">
-            <a href="####" value="tAC">
-              <div value="tAC" (click)="selectATheme($event)">
-                <img value="tAC" class="img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="tAC">
-                <small value="tAC">AC</small>
-              </div>
-            </a>
-          </li>
-          <li value="tFallout">
-            <a href="####" value="tFallout">
-              <div value="tFallout" (click)="selectATheme($event)">
-                <img value="tFallout" class="img-fluid" src="assets/images/themes/tFallout/wcn-theme-fallout.jpg" alt="tFallout">
-                <small value="tFallout">Fallout</small>
-              </div>
-            </a>
-          </li>
-          <li value="tTES">
-            <a href="####" value="tTES">
-              <div value="tTES" (click)="selectATheme($event)">
-                <img value="tTES" class="img-fluid" src="assets/images/themes/tTES/wcn-theme-tes.jpg" alt="tTES">
-                <small value="tTES">Elder scroll</small>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn wcnButtonHigh" (click)="themeService.changeTheme(selectedTheme)" data-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div>-->
-
-
-
-<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #selThemeModal="bs-modal" id="selThemeModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Modals -->
+<div *ngIf="isThemeModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #selThemeModal="bs-modal" id="selThemeModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -283,6 +236,23 @@
       <div class="modal-footer">
         <button md-button (click)="deSelectATheme(); hideModal()">Close</button>
         <button md-button color="primary" (click)="themeService.changeTheme(selectedTheme); hideModal()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="isMSModalShown" [config]="{ show: true }" (onHidden)="onHidden2()" bsModal #msDialog="bs-modal" id="msDialog" class="modal fade" tabindex="2" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Master</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal2()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p [innerHTML]="msRes">Response from it</p>
       </div>
     </div>
   </div>
