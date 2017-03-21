@@ -47,18 +47,21 @@ $wcnTheme: (
 @mixin getTheme($themeName) {
 
     $localTheme: map-get($wcnTheme, $themeName);
+    $localPrimary: map-get(map-get($localTheme, primary), 500); // hacking mat palette out 
+    $localAccent1: map-get(map-get($localTheme, accent), A100);
+    $localAccent2: map-get(map-get($localTheme, accent), A200);
     @include angular-material-theme($localTheme);
 
     .wcnTitleP {
-        color: map-get(map-get($localTheme, primary), 500); // hacking mat palette out 
+        color: $localPrimary; // hacking mat palette out 
     }
 
     .wcnTitleA2 {
-        color: map-get(map-get($localTheme, accent), A200);
+        color: $localAccent2;
     }
 
     .wcnTitleA1 {
-        color: map-get(map-get($localTheme, accent), A100);
+        color: $localAccent1;
     }
 
     .wcnTitleA4 {
@@ -66,11 +69,26 @@ $wcnTheme: (
     }
 
     .icon-wcNexusLogo {
-        color: map-get(map-get($localTheme, primary), 500);
+        color: $localPrimary;
     }
 
     .wcnBG {
         background-color: map-get(map-get($localTheme, background), background);
+    }
+
+    .blockquote {
+        border-left-color: $localAccent2;
+        p {
+            color: $localPrimary;
+        }
+        footer {
+            color: $localAccent1;
+        }
+    }
+
+    //material button patch
+    .mat-raised-button, .mat-button {
+        text-transform: uppercase;
     }
 
 }
