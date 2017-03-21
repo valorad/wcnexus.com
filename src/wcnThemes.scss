@@ -76,6 +76,10 @@ $wcnTheme: (
         background-color: map-get(map-get($localTheme, background), background);
     }
 
+    .wcnPanel {
+        background-color: $localPrimary;
+    }
+
     .blockquote {
         border-left-color: $localAccent2;
         p {
@@ -90,6 +94,9 @@ $wcnTheme: (
     .mat-raised-button, .mat-button {
         text-transform: uppercase;
     }
+
+    // individual
+    background-color: map-get(map-get($localTheme, background), background);
 
 }
 
