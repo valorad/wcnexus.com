@@ -3,6 +3,10 @@ header#cover {
     margin-bottom: 1px;
 }
 
+#coverImgHolder {
+    text-align: center;
+}
+
 #titleHolder {
     span.icon-wcNexusLogo {
         font-size: 150px;
@@ -133,7 +137,7 @@ section#upComings {
         div h1 {
             display: inline-block;
             position: relative;
-            bottom: 50px;
+            bottom: 2.5rem;
         }
     }
 }
@@ -172,7 +176,13 @@ header#cover {
 @media only screen and (min-width: 768px) and (max-width: 992px) {
 header#cover {
     div#titleHolder {
-        padding-top: 5%;
+        padding-top: 3em;
+        span.icon-wcNexusLogo {
+            font-size: 8rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
         h3 {
             padding-left: 3rem;
         }
@@ -193,7 +203,7 @@ section#upComings {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
 header#cover {
     div#titleHolder {
-        padding-top: 9%;
+        padding-top: 5em;
         h3 {
             padding-left: 3rem;
         }
@@ -214,7 +224,7 @@ section#upComings {
 @media only screen and (min-width: 1200px) {
 header#cover {
     div#titleHolder {
-        padding-top: 120px;
+        padding-top: 7em;
         h3 {
             padding-left: 3rem;
         }
