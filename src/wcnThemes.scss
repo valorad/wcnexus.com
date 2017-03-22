@@ -50,6 +50,7 @@ $wcnTheme: (
     $localPrimary: map-get(map-get($localTheme, primary), 500); // hacking mat palette out 
     $localAccent1: map-get(map-get($localTheme, accent), A100);
     $localAccent2: map-get(map-get($localTheme, accent), A200);
+    $localForeground: map-get(map-get($localTheme, foreground), foreground);
     @include angular-material-theme($localTheme);
 
     .wcnTitleP {
@@ -78,6 +79,21 @@ $wcnTheme: (
 
     .wcnPanel {
         background-color: $localPrimary;
+        a {
+            :link{
+                color: $localForeground;
+            }
+            :visited{
+                color: $localForeground;
+            }
+            :hover{
+                color: $localForeground;
+            }	
+            :active {
+                color: $localForeground;
+            }
+            text-decoration: none;
+        }
     }
 
     .blockquote {
@@ -93,6 +109,7 @@ $wcnTheme: (
     //material button patch
     .mat-raised-button, .mat-button {
         text-transform: uppercase;
+        text-decoration: none;
     }
 
     // individual

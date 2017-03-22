@@ -21,6 +21,33 @@
 //     }
 // }
 
+#wcnNav {
+    span.icon-wcNexusLogo {
+        color: inherit;
+        font-size: 2.5rem;
+    }
+    span.title {
+        font-size: 1.5rem;
+        text-transform: initial;
+    }
+    ul {
+        display: inline;
+        list-style: none;
+        padding-left: 0px;
+        li {
+            a {
+                padding: 0.5em 1em;
+            }
+
+            display: inline;
+        }
+    }
+}
+
+#brandHolder {
+
+}
+
 div.display {
     height: 150px;
     margin-top: 10px;

@@ -36,16 +36,28 @@
     </nav>
   </div>-->
 
-  <md-toolbar color="primary" id="wcnNav">
+  <md-toolbar color="primary" id="wcnNav" class="container">
     <div id="brandHolder">
-      <a class="navbar-brand" href="#"><span class="icon-wcNexusLogo"></span> <span>{{ title }}</span></a>
+      <button md-button class="navbar-brand" routerLink="/index"><span class="icon-wcNexusLogo"></span> <span class="title display-5">{{ title }}</span></button>
     </div>
     <div id="menuHolder">
       <ul>
-        <li><a class="nav-link active" routerLink="/index">Home</a></li>
-        <li><a class="nav-link" routerLink="/venturer">Venturer</a></li>
-        <li><a class="nav-link" href="#">About</a></li>
+        <li><button md-button routerLink="/venturer">Venturer</button></li>
+        <li><button md-button href="####">Theme</button></li>
+        <li><button md-button href="####">About</button></li>
       </ul>
+    </div>
+    <div id="navUser">
+      <form class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav">
+          <li>
+            <button md-button>Sign in</button>
+          </li>
+          <li>
+            img(sned)
+          </li>
+        </ul>
+      </form>
     </div>
     <div id="navBtnHolder">
       <button md-button>
