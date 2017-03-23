@@ -30,19 +30,16 @@ export class AppComponent implements OnInit {
 
   toggleNav() {
     this.navbarClass = (this.navbarClass == "" ? "Opacified" : "");
+    
   }
 
-  toggleNavMenu() {
-    let startPos = this.navbarMenuClass.indexOf("HiddenltLG");
-    // if navbarMenuClass contains "HiddenltLG" then remove this class
-    if (startPos >= 0) {
-      this.navbarMenuClass = this.navbarMenuClass.slice(0, startPos - 1);
-    }
-    else {
-      // navbarMenuClass does not contain "HiddenltLG", then add this class
-      this.navbarMenuClass += " HiddenltLG";
-    }
+  // nav bar shown or not
+  private sidenavShown: Boolean = false;
+
+  toggleSideNav() {
+    this.sidenavShown = !this.sidenavShown;
   }
+
 
   ngOnInit() {
     this.themeService.changeTheme("tFallout");

@@ -1,40 +1,6 @@
 <main id="wcnexusHolder" [class]="themeService.runningTheme.currentThemeClass">
-  <!--<div id="navCover" [class]="navbarClass" (mouseenter)="toggleNav()" (mouseleave)="toggleNav()"> 
-    <nav id="appNav" class="navbar navbar-toggleable-md navbar-light bg-faded wcnPanel">
-      <button class="navbar-toggler navbar-toggler-right wcnButton" type="button" (click)="toggleNavMenu()" >
-        <i class="material-icons">more_vert</i>
-      </button>
+<!--<md-sidenav-container>-->
 
-      <div class="navbar-collapse" id="wcnNavContent">
-        <a class="navbar-brand" href="#"><span class="icon-wcNexusLogo"></span> <span class="wcnTitleHigh">{{ title }}</span></a>
-
-        <ul [class]="navbarMenuClass">
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/index">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/venturer">Venturer</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
-
-        <div id="navUser">
-          <form class="form-inline my-2 my-lg-0">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <button md-button color="primary">Sign in</button>
-              </li>
-              <li class="nav-item">
-                img(sned)
-              </li>
-            </ul>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </div>-->
 
   <md-toolbar color="primary" id="wcnNav" class="container">
     <div id="brandHolder">
@@ -59,12 +25,21 @@
         </ul>
       </form>
     </div>
-    <div id="navBtnHolder">
-      <button md-button>
-        <i class="material-icons app-toolbar-menu">more_vert</i>
-      </button>
-    </div>
   </md-toolbar>
+
+  <nav id="navltLG">
+    <button md-fab (click)="toggleSideNav()"><i class="material-icons">menu</i></button>
+  </nav>
+
+    <!--<md-sidenav #sidenav mode="over" class="app-sidenav">
+    Sidenav
+  </md-sidenav>-->
+
+
+  <aside id="sideNav" *ngIf="sidenavShown">
+    side nav
+  </aside>
+  
 
   <main>
     <router-outlet></router-outlet>
@@ -76,4 +51,5 @@
     </div>
   </footer>
 
+<!--</md-sidenav-container>-->
 </main>

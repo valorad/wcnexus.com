@@ -1,3 +1,17 @@
+#sideNav {
+    background-color: rgba(36,38,38,.93);
+    position: absolute;
+    z-index: 100;
+    padding: 10px;
+    width: 44vw;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    transition: all 150ms cubic-bezier(.86,0,.07,1);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 // .Opacified {
 //     opacity: 0.1;
@@ -44,8 +58,9 @@
     }
 }
 
-#brandHolder {
-
+#navUser {
+    position: absolute;
+    right: 1em;
 }
 
 div.display {
@@ -54,55 +69,12 @@ div.display {
     text-align: center;
 }
 
-// #wcnNavContent {
-//     width: 100%;
-//     > a {
-//         padding-top: 6px;
-//         span.icon-wcNexusLogo {
-//             font-size: 30px;
-//         }
-//         span.wcnTitleHigh {
-//             font-size: 22px;
-//             position: relative;
-//             bottom: 4px;
-//         }
-//     }
-//     > ul li {
-// 		:link{
-			
-// 		}
-// 		:visited{
-			
-// 		}
-// 		:hover{
-// 			background-color: #f5f5f5;
-// 		}	
-// 		:active {
-			
-// 		}
-//     }
-// }
-
-// div#navUser {
-//     > form ul li {
-// 		:link{
-			
-// 		}
-// 		:visited{
-			
-// 		}
-// 		:hover{
-// 		//	background-color: rgba($white, 0.1);
-// 		}	
-// 		:active {
-// 		//	background-color: rgba($white, 0.1);
-// 		}
-//     }
-//     button {
-//         padding-top: 15px;
-//         padding-bottom: 15px;
-//     }
-// }
+nav#navltLG {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 100;
+}
 
 footer#siteBottom {
     h1 {
@@ -114,110 +86,46 @@ footer#siteBottom {
     }
 }
 
+
+@mixin ltLG() {
+    //wcn Main nav in xs, sm, md screen is invisible
+    #wcnNav {
+        display: none;
+    }
+}
+
+@mixin gtMD() {
+    //side nav btn in lg, xl screen is invisible
+    #navltLG {
+        display: none;
+    }
+}
+
 /* Responsive Settings Start. Bootstrap v4 */
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media only screen and (max-width: 576px) {
-.HiddenltLG {
-    display: none;
-}
-// #wcnNavContent {
-//     > ul {
-//         position: absolute;
-//         top: 58px;
-//         right: 2px;
-//     }
-//     div#navUser {
-//         position: absolute;
-//         display: inline;
-//         right: 9%;
-//         form {
-//             display: inline;
-//             ul {
-//                 display: inline;
-//                 li {
-//                     display: inline;
-//                 }
-//             }
-//         }
-//     }
-// }
+    @include ltLG();
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media only screen and (min-width: 576px) and (max-width: 768px) {
-.HiddenltLG {
-    display: none;
-}
-// #wcnNavContent {
-//     > ul {
-//         position: absolute;
-//         top: 58px;
-//         right: 2px;
-//     }
-//     div#navUser {
-//         position: absolute;
-//         display: inline;
-//         right: 9%;
-//         form {
-//             display: inline;
-//             ul {
-//                 display: inline;
-//                 li {
-//                     display: inline;
-//                 }
-//             }
-//         }
-//     }
-// }
+    @include ltLG();
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-.HiddenltLG {
-    display: none;
-}
-// #wcnNavContent {
-//     > ul {
-//         position: absolute;
-//         top: 58px;
-//         right: 2px;
-//     }
-//     div#navUser {
-//         position: absolute;
-//         display: inline;
-//         right: 9%;
-//         form {
-//             display: inline;
-//             ul {
-//                 display: inline;
-//                 li {
-//                     display: inline;
-//                 }
-//             }
-//         }
-//     }
-// }
+    @include ltLG();
 }
 
 /* Large devices (desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-// #wcnNavContent {
-//     ul li a {
-//         padding-top: 12px;
-//         padding-bottom: 12px;
-//     }
-// }
+    @include gtMD();
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-// #wcnNavContent {
-//     ul li a {
-//         padding-top: 12px;
-//         padding-bottom: 12px;
-//     }
-// }
+    @include gtMD();
 }
 
 /* Responsive Settings End*/
