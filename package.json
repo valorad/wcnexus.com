@@ -1,6 +1,6 @@
 {
   "name": "wcnexus",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -42,7 +42,7 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0-rc.2",
+    "@angular/cli": "^1.0.0-rc.4",
     "@angular/compiler-cli": "^2.4.0",
     "@types/connect-mongo": "0.0.32",
     "@types/jasmine": "2.5.38",
@@ -63,6 +63,6 @@
     "protractor": "~5.1.0",
     "ts-node": "1.2.1",
     "tslint": "^4.4.2",
-    "typescript": "~2.1.0"
+    "typescript": "~2.2.0"
   }
 }

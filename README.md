@@ -2,22 +2,30 @@
 
 wcNexus is a nexus of wc worlds. (wc's personal website)
 
-wcNexus was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30, and is successfully updated to version 1.0.0-rc.0.
+wcNexus is powered by node, as well as [Angular2](https://github.com/angular/angular), and was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30, having been successfully updated to version 1.0.0-rc.4.
 
-## Deploy
+## Prerequisites and Deployment
 
-- install node ^6.0.0 yourself.
-- install MongoDB distribution of your current system and architecture.
-- install [angular-cli](https://github.com/angular/angular-cli) ^1.0.0.rc0.
-- `npm install `
+- According to @angular/cli, you may require node ^6.9.0, together with npm ^3.0.0.
+- Install MongoDB distribution of your current system and architecture.
+- install [angular-cli](https://github.com/angular/angular-cli) ^1.0.0.rc4 **GLOBALLY**.
+- Enter the directory of this repo and `npm install`.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Front-end Dev server
+Run `ng serve` for a front-end only dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Express with MongoDB
-Not fully supported but you can run `ng build && node src/app` to start up express. Navigate to `http://localhost:3000/`. 
+Express is ok, but connection to Mongo is still being working on. 
 
-The app will NOT automatically reload and you have to reload yourself, if you change any of the source files.
+To start the back-end for the first time (or have changed front-end code), you may run `npm run initServer`.
+
+Later times, you can directly run `npm run server` to quickly start it.
+
+Navigate to `http://localhost:3000/`. 
+
+Note that this app will NOT automatically reload.
+
+Should you change any of the back-end source files, run `npm run _serverBuild` to compile via grunt and `npm run server` to start.
 
 ## Code scaffolding
 
@@ -25,7 +33,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Front-end
+
+Run `ng build` to build the front-end project. The build artifacts will be stored in the `dist/client` directory. The `-prod` flag for a production build is currently **Not Supported**!.
+
+### Back-end
+
+Run `npm run _serverBuild` to compile via grunt and `npm run server` to start. The dist files of back-end side will be output to `dist/server` directory.
 
 ## Running unit tests
 
