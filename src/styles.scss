@@ -76,6 +76,11 @@ main#entry {
     }
 }
 
+//controls body to disable scrolling when side nav appears
+.navOpen {
+    overflow: hidden;
+}
+
 /*
 
 wcnPanel

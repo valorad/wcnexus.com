@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 import { ThemeService } from './theme.service';
 
@@ -10,7 +11,7 @@ import { ThemeService } from './theme.service';
 export class AppComponent implements OnInit {
   title = 'wcNexus';
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService,@Inject(DOCUMENT) private document) {
     this.themeService = themeService;
   }
 
@@ -30,14 +31,16 @@ export class AppComponent implements OnInit {
 
   toggleNav() {
     this.navbarClass = (this.navbarClass == "" ? "Opacified" : "");
-    
   }
 
   // nav bar shown or not
   private sidenavShown: Boolean = false;
+  private navExit: Boolean = true;
 
   toggleSideNav() {
     this.sidenavShown = !this.sidenavShown;
+    this.navExit = !this.navExit;
+    this.document.querySelector('body').classList.toggle("navOpen");
   }
 
 

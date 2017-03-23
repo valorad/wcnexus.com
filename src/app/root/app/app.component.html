@@ -27,7 +27,7 @@
     </div>
   </md-toolbar>
 
-  <nav id="navltLG">
+  <nav id="navltLG" class="navActBtn">
     <button md-fab (click)="toggleSideNav()"><i class="material-icons">menu</i></button>
   </nav>
 
@@ -36,8 +36,8 @@
   </md-sidenav>-->
 
 
-  <aside id="sideNav" *ngIf="sidenavShown">
-    side nav
+  <aside id="sideNav" [hidden]="!sidenavShown" [class.exitTop]="navExit">
+    <nav class="navActBtn"><button md-fab (click)="toggleSideNav()"><i class="material-icons">close</i></button></nav>
   </aside>
   
 
