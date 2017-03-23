@@ -37,7 +37,21 @@
 
 
   <aside id="sideNav" [hidden]="!sidenavShown" [class.exitTop]="navExit">
-    <nav class="navActBtn"><button md-fab (click)="toggleSideNav()"><i class="material-icons">close</i></button></nav>
+    <header class="navActBtn">
+      <button md-fab (click)="toggleSideNav()"><i class="material-icons">close</i></button>
+    </header>
+    <nav class="wcnTitleP">
+      <div id="brandHolderSide">
+        <button md-button class="navbar-brand" routerLink="/index" (click)="toggleSideNav()"><span class="icon-wcNexusLogo"></span> <span class="title display-5">{{ title }}</span></button>
+      </div>
+      <div id="menuHolderSide">
+        <ul>
+          <li><button md-button routerLink="/venturer" (click)="toggleSideNav()">Venturer</button></li>
+          <li><button md-button href="####">Theme</button></li>
+          <li><button md-button href="####">About</button></li>
+        </ul>
+      </div>
+    </nav>
   </aside>
   
 
