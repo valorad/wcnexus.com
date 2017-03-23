@@ -81,6 +81,18 @@ main#entry {
     overflow: hidden;
 }
 
+// ng2-bootstrap carousel image center patch
+
+.slide {
+  margin: 0px auto;
+  max-width: 1920px;
+  .item {
+      margin: 0px auto;
+  }
+}
+
+
+
 /*
 
 wcnPanel
