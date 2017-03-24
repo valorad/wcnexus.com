@@ -9,66 +9,63 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class ThemeService {
 
-  constructor() { }
+  constructor(private _http: Http) {
+    this.getThemes().subscribe(
+      (resTheme) => {this.themes = resTheme},
+      (resError) => {this.themeError = resError}
+    );
+  }
 
   public themeRoot: string = "assets/images/themes/";
 
-  public themes = [
+  private dataUrl: string = "../../../assets/data/theme.json";
+
+  getThemes() {
+    let themes = this._http.get(this.dataUrl).map(
+      this.extractData
+    )
+    .catch(this.throwException);
+
+    return themes;
+  }
+
+  extractData(res: Response) {
+    let data = res.json() || [];
+    return data;
+  }
+
+  throwException(error: Response) {
+    console.error(error);
+    return Observable.throw(error || "Server Error");
+  }
+
+  public themes: Array<Object> = [
       {
         id: 0,
         name: "tDefault",
         class: "themeDefault",
-        themeImg: "wcn-theme-fallout.jpg",
-        cover: "wcn-Fallout.png",
+        themeImg: "wcn-theme-default.jpg",
+        cover: "wcn-Default.png",
         slogan: "Connect wc worlds.",
         descrTitle: "wcNexus default theme",
         descr: "wcNexus is a nexus of wcWorlds"
       },
-      {
-        id: 1,
-        name: "tAC",
-        class: "themeAC",
-        themeImg: "wcn-theme-ac.jpg",
-        cover: "wcn-AC.png",
-        slogan: "We work in the dark to serve the light.",
-        descrTitle: "Assassin's creed",
-        descr: "Action game presented by Ubisoft."
-      },
-      {
-        id: 2,
-        name: "tFallout",
-        class: "themeFallout",
-        themeImg: "wcn-theme-fallout.jpg",
-        cover: "wcn-Fallout.png",
-        slogan: "Var, var never changes.",
-        descrTitle: "Fallout",
-        descr: "RPG survival game made by Bethesda Softworks LLC"
-      },
-      {
-        id: 3,
-        name: "tTES",
-        class: "themeTES",
-        themeImg: "wcn-theme-tes.jpg",
-        cover: "wcn-TES.png",
-        slogan: "Then I took an arrow on the knee",
-        descrTitle: "Elder Scroll",
-        descr: "RPG game that is Bethesda's Qin er zi"
-      }
-    ]
+  ];
+  public themeError: string;
 
   public runningTheme: Object = {
-    currentTheme: "",
-    currentThemeClass: "",
-    slogan: "",
-    coverImg: "",
-    themeImg: "",
-    themeDescrTitle: "",
-    themeDescr: ""
+    currentTheme: "tDefault",
+    currentThemeClass: "themeDefault",
+    slogan: "Connect wc worlds.",
+    coverImg: "assets/images/themes/tDefault/wcn-Default.png",
+    themeImg: "assets/images/themes/tDefault/wcn-theme-default.jpg",
+    themeDescrTitle: "wcNexus default theme",
+    themeDescr: "wcNexus is a nexus of wcWorlds"
   }
 
   public getThemeByName(name: string): Object {
     for (let theme of this.themes) {
-      if (theme.name === name) {
+      if (theme["name"] === name) {
         return theme;
       }
     }

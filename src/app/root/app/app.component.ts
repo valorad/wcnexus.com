@@ -45,7 +45,12 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    this.themeService.changeTheme("tFallout");
+    //this.themeService.changeTheme("tFallout");
+    this.themeService.getThemes().subscribe(
+      (themes) => {
+        let themeName = themes[2]["name"];
+        this.themeService.changeTheme(themeName);
+      }
+    );
   }
-
 }

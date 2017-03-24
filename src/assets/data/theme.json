@@ -1,0 +1,42 @@
+[
+    {
+        "id": 0,
+        "name": "tDefault",
+        "class": "themeDefault",
+        "themeImg": "wcn-theme-default.jpg",
+        "cover": "wcn-Default.png",
+        "slogan": "Connect wc worlds.",
+        "descrTitle": "wcNexus default theme",
+        "descr": "wcNexus is a nexus of wcWorlds"
+    },
+    {
+        "id": 1,
+        "name": "tAC",
+        "class": "themeAC",
+        "themeImg": "wcn-theme-ac.jpg",
+        "cover": "wcn-AC.png",
+        "slogan": "We work in the dark to serve the light.",
+        "descrTitle": "Assassin's creed",
+        "descr": "Action game presented by Ubisoft."
+    },
+    {
+        "id": 2,
+        "name": "tFallout",
+        "class": "themeFallout",
+        "themeImg": "wcn-theme-fallout.jpg",
+        "cover": "wcn-Fallout.png",
+        "slogan": "Var, var never changes.",
+        "descrTitle": "Fallout",
+        "descr": "RPG survival game made by Bethesda Softworks LLC"
+    },
+    {
+        "id": 3,
+        "name": "tTES",
+        "class": "themeTES",
+        "themeImg": "wcn-theme-tes.jpg",
+        "cover": "wcn-TES.png",
+        "slogan": "Then I took an arrow on the knee",
+        "descrTitle": "Elder Scroll",
+        "descr": "RPG game that is Bethesda's Qin er zi"
+    }
+]
