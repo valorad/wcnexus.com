@@ -14,6 +14,7 @@ import 'hammerjs';
 import { wcnexusRoutes } from './wcnexus.route';
 
 import { ThemeService } from './theme.service';
+import { UpcomingService } from './upcoming.service';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -41,7 +42,7 @@ import { VenturerComponent } from './venturer/venturer.component';
     wcnexusRoutes
   ],
   exports: [AppComponent],
-  providers: [ThemeService]
+  providers: [ThemeService, UpcomingService]
   // ,
   // bootstrap: [AppComponent]
 })

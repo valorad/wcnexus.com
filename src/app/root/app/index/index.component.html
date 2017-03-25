@@ -158,6 +158,19 @@
     <masonry-brick class="brick"> </masonry-brick>
     <div class="grid-sizer"></div>
     <md-card class="grid-item">
+      <div class="card-block">
+        <h4 class="card-title wcnTitleHigh">A static one</h4>
+        <p class="card-text wcnParaDark">This is a static upcoming</p>
+      </div>
+    </md-card>
+    <md-card class="grid-item" *ngFor="let up of upcomings">
+      <img *ngIf="up.img !== (''||null||undefined)" src="{{ up.img }}" alt="{{ up.title }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ up.title }}</h4>
+        <p class="card-text">{{ up.descr }}</p>
+      </div>
+    </md-card>
+    <!--<md-card class="grid-item">
       <img class="card-img-top img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title wcnTitleHigh">wcnexus added AC theme</h4>
@@ -199,7 +212,7 @@
           <footer class="blockquote-footer">a psychopath</footer>
         </blockquote>
       </div>
-    </md-card>
+    </md-card>-->
   </masonry>
 </section>
 

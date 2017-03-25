@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { ThemeService } from '../theme.service';
+import { UpcomingService } from '../upcoming.service';
 
 import { ModalDirective } from 'ng2-bootstrap/modal';
 
@@ -12,10 +13,20 @@ import * as $ from "jquery";
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private themeService: ThemeService) {
+  constructor(
+    private themeService: ThemeService,
+    private upcomingService: UpcomingService
+    ) {
 
    }
 
+  private upcomings: any = [{
+        "id": "0",
+        "img": "",
+        "title": "default",
+        "descr": "loading..."
+    }];
+  private error: string;
 
   themeRoot: string = this.themeService.themeRoot;
 
@@ -50,7 +61,10 @@ export class IndexComponent implements OnInit {
   // }
 
   ngOnInit() {
-    //this.themeService.changeTheme(this.runningTheme["currentTheme"]);
+    this.upcomingService.getUpcomings().subscribe(
+      (resUpcomings) => {this.upcomings = resUpcomings},
+      (resError) => {this.error = resError}
+    );
   }
 
   selectATheme(e) {
