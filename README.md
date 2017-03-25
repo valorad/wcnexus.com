@@ -2,13 +2,13 @@
 
 wcNexus is a nexus of wc worlds. (wc's personal website)
 
-wcNexus is powered by node, as well as [Angular2](https://github.com/angular/angular), and was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30, having been successfully updated to version 1.0.0-rc.4.
+wcNexus is powered by node, as well as [Angular4](https://github.com/angular/angular), and was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30, having been successfully updated to version 1.0.0.
 
 ## Prerequisites and Deployment
 
 - According to @angular/cli, you may require node ^6.9.0, together with npm ^3.0.0.
 - Install MongoDB distribution of your current system and architecture.
-- install [angular-cli](https://github.com/angular/angular-cli) ^1.0.0.rc4 **GLOBALLY**.
+- install [angular-cli](https://github.com/angular/angular-cli) ^1.0.0 **GLOBALLY**.
 - Enter the directory of this repo and `npm install`.
 
 ## Front-end Dev server
