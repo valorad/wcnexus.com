@@ -20,12 +20,7 @@ export class IndexComponent implements OnInit {
 
    }
 
-  private upcomings: any = [{
-        "id": "0",
-        "img": "",
-        "title": "default",
-        "descr": "loading..."
-    }];
+  private upcomings: any;
   private error: string;
 
   themeRoot: string = this.themeService.themeRoot;
