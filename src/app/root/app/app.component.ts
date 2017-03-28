@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
+import { WcnauthService } from  './wcnauth.service';
 import { ThemeService } from './theme.service';
 
 @Component({
@@ -11,7 +12,10 @@ import { ThemeService } from './theme.service';
 export class AppComponent implements OnInit {
   title = 'wcNexus';
 
-  constructor(private themeService: ThemeService,@Inject(DOCUMENT) private document) {
+  constructor(
+    private themeService: ThemeService,
+    @Inject(DOCUMENT) private document,
+    private authService: WcnauthService) {
     this.themeService = themeService;
   }
 

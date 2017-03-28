@@ -7,15 +7,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: "./public",
+            cwd: "./src/server/wcnexus",
             src: ["**"],
-            dest: "./dist/public"
-          },
-          {
-            expand: true,
-            cwd: "./views",
-            src: ["**"],
-            dest: "./dist/views"
+            dest: "./dist/server/wcnexus"
           }
         ]
       }

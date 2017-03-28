@@ -16,11 +16,14 @@
     <div id="navUser">
       <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav">
-          <li>
-            <button md-button>Sign in</button>
+          <li *ngIf="!authService.loggedIn()">
+            <button md-button (click)=authService.login()>Sign in/up</button>
           </li>
-          <li>
+          <li *ngIf="authService.loggedIn()">
             img(sned)
+          </li>
+          <li *ngIf="authService.loggedIn()">
+            <button md-button (click)=authService.logout()>Sign out</button>
           </li>
         </ul>
       </form>
