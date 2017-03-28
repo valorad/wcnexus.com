@@ -20,10 +20,10 @@
             <button md-button (click)=authService.login()>Sign in/up</button>
           </li>
           <li *ngIf="authService.loggedIn()">
-            img(sned)
+            <img class="img-circle" [src]="authService.userProfile.picture" alt="loading...">
           </li>
           <li *ngIf="authService.loggedIn()">
-            <button md-button (click)=authService.logout()>Sign out</button>
+            <button md-button (click)="authService.logout()">Sign out</button>
           </li>
         </ul>
       </form>

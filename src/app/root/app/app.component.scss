@@ -68,6 +68,10 @@
 #navUser {
     position: absolute;
     right: 1em;
+    img {
+        max-height: 2.5em;
+        width: auto;
+    }
 }
 
 div.display {

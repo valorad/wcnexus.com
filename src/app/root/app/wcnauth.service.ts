@@ -26,6 +26,10 @@ export class WcnauthService {
   private lock: any;
   private authyError: string;
   private authy: IAuth0;
+  private userProfile: object = {
+    picture: "null"
+  };
+  //private accessToken: string;
 
   constructor(
     private router: Router,
@@ -38,6 +42,7 @@ export class WcnauthService {
       () => {
         this.lock = new Auth0Lock(this.authy.client, this.authy.domain, {});
         this.finalizeLock();
+        this.getUser();
       }
     );
 
@@ -45,6 +50,7 @@ export class WcnauthService {
 
   finalizeLock() {
     this.lock.on('authenticated', (authResult: any) => {
+      //this.accessToken = authResult.accessToken;
       localStorage.setItem('id_token', authResult.idToken);
 
       this.lock.getProfile(authResult.idToken, (error: any, profile: any) => {
@@ -53,10 +59,23 @@ export class WcnauthService {
         }
 
         localStorage.setItem('profile', JSON.stringify(profile));
+        this.getUser();
       });
 
       this.lock.hide();
     });
+  }
+
+  getUser() {
+    // let token = localStorage.getItem('id_token');
+    // if(token) {
+      let profile = JSON.parse(localStorage.getItem('profile'));
+      if (profile !== null) {
+        this.userProfile = profile;
+        //console.log(this.userProfile);
+      }
+
+    // }
   }
 
   getAuthy() {
@@ -82,6 +101,8 @@ export class WcnauthService {
   login() {
     this.lock.show();
   }
+
+
 
   // Log the user out
   logout() {
