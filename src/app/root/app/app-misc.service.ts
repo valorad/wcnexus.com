@@ -13,7 +13,7 @@ export class AppMiscService {
 
   constructor(private http: Http) { }
 
-  getRawData(url: string) {
+  getRawData(url: string): any {
     let data = this.http.get(url).map(
       this.extractData
     )
@@ -32,5 +32,11 @@ export class AppMiscService {
     return data;
   }
 
+  getCookedData(url: string, extractMethod: (value: Response, index: number) => {}) {
+    let data = this.http.get(url).map(
+      extractMethod
+    )
+    return data;
+  }
 
 }

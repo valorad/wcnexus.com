@@ -6,20 +6,20 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+import { AppMiscService } from './app-misc.service';
+
 @Injectable()
 export class UpcomingService {
 
-  constructor(private _http: Http) { }
+  constructor(
+    private _http: Http,
+    private appMiscService: AppMiscService
+    ) { }
 
-  public dataUrl: string = "../../../assets/data/upcoming.json";
+  public dataUrl: string = "assets/data/upcoming.json";
 
   getUpcomings() {
-    let themes = this._http.get(this.dataUrl).map(
-      this.extractData
-    )
-    .catch(this.throwException);
-
-    return themes;
+    return this.appMiscService.getCookedData(this.dataUrl, this.extractData);
   }
 
   extractData(res: Response) {
@@ -32,10 +32,10 @@ export class UpcomingService {
     return data;
   }
 
-  throwException(error: Response) {
-    console.error(error);
-    return Observable.throw(error || "Server Error");
-  }
+  // throwException(error: Response) {
+  //   console.error(error);
+  //   return Observable.throw(error || "Server Error");
+  // }
 
 
 }
