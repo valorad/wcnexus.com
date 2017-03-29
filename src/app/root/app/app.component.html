@@ -50,8 +50,8 @@
       <div id="menuHolderSide">
         <ul>
           <li><button md-button routerLink="/venturer" (click)="toggleSideNav()">Venturer</button></li>
-          <li><button md-button href="####">Theme</button></li>
-          <li><button md-button href="####">About</button></li>
+          <li><button md-button>Theme</button></li>
+          <li><button md-button>About</button></li>
         </ul>
       </div>
     </nav>
@@ -64,7 +64,7 @@
 
   <footer id="siteBottom" class="wcnPanel">
     <div class="container">
-      <h1>Case number: XICPB23948739923</h1>
+      <h1>Case number: {{ site.caseNumber }}</h1>
     </div>
   </footer>
 
