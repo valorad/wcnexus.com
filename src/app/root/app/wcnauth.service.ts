@@ -9,6 +9,8 @@ import 'rxjs/add/observable/throw';
 
 import { tokenNotExpired } from 'angular2-jwt';
 
+import { AppMiscService } from './app-misc.service';
+
 declare var Auth0Lock: any;
 
 interface IAuth0 {
@@ -22,7 +24,7 @@ export class WcnauthService {
 
   
   // We'll use the Auth0 Lock widget for capturing user credentials
-  private api = "/api/authy";
+  private api = "/api/site";
   private lock: any;
   private authyError: string;
   private authy: IAuth0;
@@ -33,11 +35,12 @@ export class WcnauthService {
 
   constructor(
     private router: Router,
-    private http: Http
+    private http: Http,
+    private appMiscService: AppMiscService
   ) {
     // first, get necessary data, then proceed 
-    this.getAuthy().subscribe(
-      (resAuthy) => {this.authy = resAuthy.auth0},
+    this.appMiscService.getRawData(this.api).subscribe(
+      (resSite) => {this.authy = resSite.auth0},
       (resError) => {this.authyError = resError},
       () => {
         this.lock = new Auth0Lock(this.authy.client, this.authy.domain, {});
@@ -78,24 +81,24 @@ export class WcnauthService {
     // }
   }
 
-  getAuthy() {
-    let authy = this.http.get(this.api).map(
-      this.extractData
-    )
-    .catch(this.throwException);
+  // getAuthy() {
+  //   let authy = this.http.get(this.api).map(
+  //     this.extractData
+  //   )
+  //   .catch(this.throwException);
 
-    return authy;
-  }
+  //   return authy;
+  // }
 
-  throwException(error: Response) {
-    console.error(error);
-    return Observable.throw(error || "Server Error");
-  }
+  // throwException(error: Response) {
+  //   console.error(error);
+  //   return Observable.throw(error || "Server Error");
+  // }
 
-  extractData(res: Response) {
-    let data = res.json() || [];
-    return data;
-  }
+  // extractData(res: Response) {
+  //   let data = res.json() || [];
+  //   return data;
+  // }
 
   // Display the lock widget
   login() {

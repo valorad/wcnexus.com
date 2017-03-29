@@ -6,11 +6,17 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+import { AppMiscService } from './app-misc.service';
+
 @Injectable()
 export class ThemeService {
 
-  constructor(private _http: Http) {
-    this.getThemes().subscribe(
+  constructor(
+    private _http: Http, 
+    private appMiscService: AppMiscService
+  ) {
+    //get themes
+    this.appMiscService.getRawData(this.dataUrl).subscribe(
       (resTheme) => {this.themes = resTheme},
       (resError) => {this.themeError = resError}
     );
@@ -18,26 +24,26 @@ export class ThemeService {
 
   public themeRoot: string = "assets/images/themes/";
 
-  private dataUrl: string = "../../../assets/data/theme.json";
+  public dataUrl: string = "assets/data/theme.json";
 
-  getThemes() {
-    let themes = this._http.get(this.dataUrl).map(
-      this.extractData
-    )
-    .catch(this.throwException);
+  // getThemes() {
+  //   let themes = this._http.get(this.dataUrl).map(
+  //     this.extractData
+  //   )
+  //   .catch(this.throwException);
 
-    return themes;
-  }
+  //   return themes;
+  // }
 
-  extractData(res: Response) {
-    let data = res.json() || [];
-    return data;
-  }
+  // extractData(res: Response) {
+  //   let data = res.json() || [];
+  //   return data;
+  // }
 
-  throwException(error: Response) {
-    console.error(error);
-    return Observable.throw(error || "Server Error");
-  }
+  // throwException(error: Response) {
+  //   console.error(error);
+  //   return Observable.throw(error || "Server Error");
+  // }
 
   public themes: Array<Object> = [
       {

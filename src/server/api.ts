@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
-router.get('/authy', (req, res) => {
+router.get('/site', (req, res) => {
   res.json(wcnexus);
 });
 
