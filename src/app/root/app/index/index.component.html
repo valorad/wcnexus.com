@@ -8,67 +8,18 @@
         <div>
           <span class="icon-wcNexusLogo"></span>
           <h1 class="display-3 wcnTitleP">wcNexus</h1>
-          <h3 class="wcnTitleA2" [innerHTML]="runningTheme.slogan">Connect wc worlds.</h3>
+          <h3 class="wcnTitleA2" [innerHTML]="themeService.runningTheme.slogan">Connect wc worlds.</h3>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!--<section class="container-fluid">
-  <div class="row">
-    <section id="recomSite" class="carousel slide mx-auto" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#recomSite" data-slide-to="0" class="active"></li>
-        <li data-target="#recomSite" data-slide-to="1"></li>
-        <li data-target="#recomSite" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <a href="#">
-            <img class="d-block img-fluid" src="assets/images/testskyrim.jpg" alt="testskyrim">
-          </a>
-          <div class="carousel-caption d-none d-lg-block d-xl-block">
-            <h3>testskyrim</h3>
-            <small class="descr">Skyrim is a game that wc favors most</small>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <a href="#">
-            <img class="d-block img-fluid" src="assets/images/steam-wallpaper-17.jpg" alt="Steam">
-          </a>
-          <div class="carousel-caption d-none d-lg-block d-xl-block">
-            <h3>Steam</h3>
-            <small class="descr">Steam. Gpan's walletcraft</small>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <a href="#">
-            <img class="d-block img-fluid" src="assets/images/protoss.jpg" alt="linruotian">
-          </a>
-          <div class="carousel-caption d-none d-lg-block d-xl-block">
-            <h3>linruotian.com</h3>
-            <small class="descr">Billy cdk vault</small>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#recomSite" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#recomSite" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </section>
-  </div>
-</section>-->
-
 <section id="recomSite">
   <carousel>
     <slide>
       <article>
-        <a href="####">
+        <a>
           <img class="d-block img-fluid" src="assets/images/testskyrim.jpg" alt="testskyrim">
         </a>
         <div class="carousel-caption d-none d-lg-block d-xl-block">
@@ -79,7 +30,7 @@
     </slide>
     <slide>
       <article>
-      <a href="####">
+      <a>
         <img class="d-block img-fluid" src="assets/images/steam-wallpaper-17.jpg" alt="Steam">
       </a>
       <div class="carousel-caption d-none d-lg-block d-xl-block">
@@ -87,11 +38,10 @@
         <small class="descr">Steam. Gpan's walletcraft</small>
       </div>
       </article>
-
     </slide>
     <slide>
       <article>
-      <a href="####">
+      <a>
         <img class="d-block img-fluid" src="assets/images/protoss.jpg" alt="linruotian">
       </a>
       <div class="carousel-caption d-none d-lg-block d-xl-block">
@@ -99,7 +49,6 @@
         <small class="descr">Billy cdk vault</small>
       </div>
       </article>
-
     </slide>
   </carousel>
 </section>
@@ -113,17 +62,17 @@
           <h4 class="card-title">About wcnexus.com</h4>
           <p class="card-text">wcnexus.com is a big nexus of wc worlds. Know more about wc or become a xiaomajia right now!</p>
           <footer>
-            <a md-button color="primary" href="####">what?</a>
+            <a md-button color="primary" href="https://github.com/wcxaaa/wcnexus.com" target="_blank">what?</a>
           </footer>
         </div>
       </md-card>
       <md-card id="themeControl" class="col-md-5 col-lg-4">
-        <img class="card-img-top img-fluid" [src]="runningTheme.themeImg" alt="Card image cap">
+        <img class="card-img-top img-fluid" [src]="themeService.runningTheme.themeImg" alt="Card image cap">
         <div class="card-block">
-          <h4 class="card-title wcnTitleHigh" [innerHTML]="runningTheme.themeDescrTitle">wcNexus default theme</h4>
-          <p class="card-text wcnParaDark" [innerHTML]="runningTheme.themeDescr">wcNexus is a nexus of wcWorlds</p>
+          <h4 class="card-title wcnTitleHigh" [innerHTML]="themeService.runningTheme.themeDescrTitle">wcNexus default theme</h4>
+          <p class="card-text wcnParaDark" [innerHTML]="themeService.runningTheme.themeDescr">wcNexus is a nexus of wcWorlds</p>
           <footer>
-            <a md-button color="primary" href="####" (click)="showModal()">Change</a>
+            <a md-button color="primary" (click)="showModal()">Change</a>
           </footer>
         </div>
       </md-card>
@@ -139,10 +88,10 @@
           </blockquote>
           <p><br></p>
           <footer>
-            <a md-button color="primary" href="####" (click)="msE()">Freedom</a>
-            <a md-button color="primary" href="####" (click)="msE(true)">Innocence</a>
-            <a md-button color="primary" href="####" (click)="msE()">Order</a>
-            <a md-button color="primary" href="####" (click)="msE()">Life</a>
+            <a md-button color="primary" (click)="msE()">Freedom</a>
+            <a md-button color="primary" (click)="msE(true)">Innocence</a>
+            <a md-button color="primary" (click)="msE()">Order</a>
+            <a md-button color="primary" (click)="msE()">Life</a>
           </footer>
         </div>
       </md-card>
@@ -181,8 +130,16 @@
       </div>
       <div class="modal-body">
         <ul>
-          <li value="tAC">
-            <a href="####" value="tAC">
+          <li *ngFor="let theme of themes">
+            <a title="{{ theme.name }}">
+              <div title="{{ theme.name }}" (click)="selectATheme($event)">
+                <img title="{{ theme.name }}" class="img-fluid" src="assets/images/themes/{{ theme.name }}/{{ theme.themeImg }}" alt="{{ theme.name }}">
+                <small title="{{ theme.name }}">{{ theme.descrTitle }}</small>
+              </div>
+            </a>
+          </li>
+          <!--<li value="tAC">
+            <a value="tAC">
               <div value="tAC" (click)="selectATheme($event)">
                 <img value="tAC" class="img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="tAC">
                 <small value="tAC">AC</small>
@@ -190,7 +147,7 @@
             </a>
           </li>
           <li value="tFallout">
-            <a href="####" value="tFallout">
+            <a value="tFallout">
               <div value="tFallout" (click)="selectATheme($event)">
                 <img value="tFallout" class="img-fluid" src="assets/images/themes/tFallout/wcn-theme-fallout.jpg" alt="tFallout">
                 <small value="tFallout">Fallout</small>
@@ -198,13 +155,13 @@
             </a>
           </li>
           <li value="tTES">
-            <a href="####" value="tTES">
+            <a value="tTES">
               <div value="tTES" (click)="selectATheme($event)">
                 <img value="tTES" class="img-fluid" src="assets/images/themes/tTES/wcn-theme-tes.jpg" alt="tTES">
                 <small value="tTES">Elder scroll</small>
               </div>
             </a>
-          </li>
+          </li>-->
         </ul>
       </div>
       <div class="modal-footer">

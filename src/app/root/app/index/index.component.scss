@@ -117,17 +117,23 @@ section#upComings {
         ul {
             list-style: none;
             padding: 0px;
+            //display: flex;
+            margin: 0px auto;
+            text-align: center;
+
             li {
                 display: inline-block;
-                margin-right: 10px;
+                margin-right: 0.5em;
+                margin-bottom: 0.5em;
             }
             div {
-                display:inline-block;
+                cursor: pointer;
+                display: inline-block;
                 text-align: center;
             }
         }
         img {
-            width: 200px;
+            width: 10em;
             display: block;
         }
     }

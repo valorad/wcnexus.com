@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
+
+import { AppMiscService } from '../app-misc.service';
 import { ThemeService } from '../theme.service';
 import { UpcomingService } from '../upcoming.service';
 
 import { ModalDirective } from 'ng2-bootstrap/modal';
+
 
 import * as $ from "jquery";
 
@@ -14,6 +17,7 @@ import * as $ from "jquery";
 export class IndexComponent implements OnInit {
 
   constructor(
+    private appMiscService: AppMiscService,
     private themeService: ThemeService,
     private upcomingService: UpcomingService
     ) {
@@ -23,47 +27,32 @@ export class IndexComponent implements OnInit {
   private upcomings: any;
   private error: string;
 
-  themeRoot: string = this.themeService.themeRoot;
+  //themeRoot: string = this.themeService.themeRoot;
 
   //changeTheme: Function = this.themeService.changeTheme;
 
-  runningTheme: any = this.themeService["runningTheme"];
+  //runningTheme: any = this.themeService["runningTheme"];
 
   private selectedTheme: string = "";
-
-  // changeTheme(changedTheme: string) {
-
-  //   let theme = this.getThemeByName(changedTheme);
-
-  //   if (theme != null) {
-  //     //clear body class
-  //     $('body').removeClass();
-  //     //add body class
-  //     $('body').addClass(theme["class"]);
-  //     // current theme changed to:
-  //     this.currentTheme = changedTheme;
-  //     //change cover and theme img
-  //     this.coverImg = this.themeRoot + this.currentTheme + "/" + theme["cover"];
-  //     this.themeImg = this.themeRoot + this.currentTheme + "/" + theme["themeImg"];
-  //     //change slogan
-  //     this.slogan = theme["slogan"];
-  //     //change theme descr
-  //     this.themeDescrTitle = theme["descrTitle"];
-  //     this.themeDescr = theme["descr"];
-  //   } else {
-  //     console.error("Invalid theme name detected");
-  //   }
-  // }
+  private themes: object = {};
 
   ngOnInit() {
+
+    //retrieve theme selections
+    this.appMiscService.getRawData(this.themeService.dataUrl).subscribe(
+      (resTheme) => {this.themes = resTheme}
+    );
+
+    //retrieve upcomings
     this.upcomingService.getUpcomings().subscribe(
       (resUpcomings) => {this.upcomings = resUpcomings},
       (resError) => {this.error = resError}
     );
+    
   }
 
   selectATheme(e) {
-    this.selectedTheme = e.target.attributes.value.value;
+    this.selectedTheme = e.currentTarget.title;
     console.log("Theme selected as " + this.selectedTheme);
   }
 
