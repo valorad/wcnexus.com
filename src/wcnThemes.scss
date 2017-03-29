@@ -77,6 +77,12 @@ $wcnTheme: (
         background-color: map-get(map-get($localTheme, background), background);
     }
 
+    //used in symbols and shapes like the one in 404 page
+    .symbol {
+        border-color: $localPrimary;
+        background-color: $localPrimary;
+    }
+
     .wcnPanel {
         background-color: $localPrimary;
         a {
