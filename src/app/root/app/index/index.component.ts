@@ -3,11 +3,9 @@ import { Component, OnInit, ViewChild  } from '@angular/core';
 import { AppMiscService } from '../app-misc.service';
 import { ThemeService } from '../theme.service';
 import { UpcomingService } from '../upcoming.service';
+import { RecomSiteService } from '../recom-site.service';
 
 import { ModalDirective } from 'ng2-bootstrap/modal';
-
-
-import * as $ from "jquery";
 
 @Component({
   selector: 'app-index',
@@ -19,7 +17,8 @@ export class IndexComponent implements OnInit {
   constructor(
     private appMiscService: AppMiscService,
     private themeService: ThemeService,
-    private upcomingService: UpcomingService
+    private upcomingService: UpcomingService,
+    private recomSiteService: RecomSiteService
     ) {
 
    }
@@ -34,9 +33,15 @@ export class IndexComponent implements OnInit {
   //runningTheme: any = this.themeService["runningTheme"];
 
   private selectedTheme: string = "";
-  private themes: object = {};
+  private themes: any;
+  private recomSites: any;
 
   ngOnInit() {
+
+    // get recom site carousel data
+    this.recomSiteService.getRecomSites().subscribe(
+      (resRecSite) => { this.recomSites = resRecSite }
+    );
 
     //retrieve theme selections
     this.appMiscService.getRawData(this.themeService.dataUrl).subscribe(

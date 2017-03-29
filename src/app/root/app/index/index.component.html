@@ -17,37 +17,15 @@
 
 <section id="recomSite">
   <carousel>
-    <slide>
+    <slide *ngFor="let recSite of recomSites">
       <article>
-        <a>
-          <img class="d-block img-fluid" src="assets/images/testskyrim.jpg" alt="testskyrim">
+        <a href="{{ recSite.link }}" target="_blank">
+          <img class="d-block img-fluid" src="{{ recSite.img }}" alt="{{ recSite.title }}">
         </a>
         <div class="carousel-caption d-none d-lg-block d-xl-block">
-          <h3>Skyrim</h3>
-          <small class="descr">Skyrim is a game that wc favors most</small>
+          <h3>{{ recSite.title }}</h3>
+          <small class="descr">{{ recSite.descr }}</small>
         </div>
-      </article>
-    </slide>
-    <slide>
-      <article>
-      <a>
-        <img class="d-block img-fluid" src="assets/images/steam-wallpaper-17.jpg" alt="Steam">
-      </a>
-      <div class="carousel-caption d-none d-lg-block d-xl-block">
-        <h3>Steam</h3>
-        <small class="descr">Steam. Gpan's walletcraft</small>
-      </div>
-      </article>
-    </slide>
-    <slide>
-      <article>
-      <a>
-        <img class="d-block img-fluid" src="assets/images/protoss.jpg" alt="linruotian">
-      </a>
-      <div class="carousel-caption d-none d-lg-block d-xl-block">
-        <h3>linruotian.com</h3>
-        <small class="descr">Billy cdk vault</small>
-      </div>
       </article>
     </slide>
   </carousel>
@@ -138,30 +116,6 @@
               </div>
             </a>
           </li>
-          <!--<li value="tAC">
-            <a value="tAC">
-              <div value="tAC" (click)="selectATheme($event)">
-                <img value="tAC" class="img-fluid" src="assets/images/themes/tAC/wcn-theme-ac.jpg" alt="tAC">
-                <small value="tAC">AC</small>
-              </div>
-            </a>
-          </li>
-          <li value="tFallout">
-            <a value="tFallout">
-              <div value="tFallout" (click)="selectATheme($event)">
-                <img value="tFallout" class="img-fluid" src="assets/images/themes/tFallout/wcn-theme-fallout.jpg" alt="tFallout">
-                <small value="tFallout">Fallout</small>
-              </div>
-            </a>
-          </li>
-          <li value="tTES">
-            <a value="tTES">
-              <div value="tTES" (click)="selectATheme($event)">
-                <img value="tTES" class="img-fluid" src="assets/images/themes/tTES/wcn-theme-tes.jpg" alt="tTES">
-                <small value="tTES">Elder scroll</small>
-              </div>
-            </a>
-          </li>-->
         </ul>
       </div>
       <div class="modal-footer">
