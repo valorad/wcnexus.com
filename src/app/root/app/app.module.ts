@@ -18,6 +18,7 @@ import { wcnexusRoutes } from './wcnexus.route';
 import { WcnauthService } from './wcnauth.service';
 import { WcnauthGuardService } from './wcnauth-guard.service';
 import { AppMiscService } from './app-misc.service';
+import { RecomSiteService } from './recom-site.service';
 import { ThemeService } from './theme.service';
 import { UpcomingService } from './upcoming.service';
 
@@ -63,6 +64,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     WcnauthService, 
     WcnauthGuardService, 
     AppMiscService,
+    RecomSiteService,
     ThemeService, 
     UpcomingService
   ]
