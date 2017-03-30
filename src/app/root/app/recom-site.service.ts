@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 import { AppMiscService } from './app-misc.service';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class RecomSiteService {
     private appMiscService: AppMiscService
     ) { }
 
-  dataUrl: string = "assets/data/recomSite.json";
+  dataUrl: string = "/api/recomSites";
 
   getRecomSites() {
     return this.appMiscService.getCookedData(this.dataUrl, this.extractData);

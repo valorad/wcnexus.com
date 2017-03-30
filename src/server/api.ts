@@ -11,17 +11,11 @@ import { wcnConstr, mgInstance } from './dataAccess';
 //import { cors } from 'cors';
 
 // schemas
-
 import { upcomings } from './schemas/upcomings';
+import { recomSites } from './schemas/recomSites';
 
 const jwt = require('express-jwt');
 const cors = require('cors');
-// const fs = require('fs');
-// const path = require('path');
-
-//read settings synclly first
-// const file: string = path.join(__dirname,'wcnexus/wcnexus.json');
-// const siteConfig = JSON.parse(fs.readFileSync(file, 'utf8'));
 
 // site settings passed from dataAccess
 const wcnexus = wcnConstr;
@@ -50,8 +44,13 @@ router.get('/site', (req, res) => {
 // });
 
 router.get('/upcomings', (req: Request, res: Response) => {
-  // send to front-end because Auth0 needs token as well
   upcomings.find().then((result) => {
+    res.send(result);
+  });
+});
+
+router.get('/recomSites', (req: Request, res: Response) => {
+  recomSites.find().then((result) => {
     res.send(result);
   });
 });

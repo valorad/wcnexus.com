@@ -1,26 +1,22 @@
 [
     {
-        "id": 0,
         "title": "Skyrim",
         "img": "testskyrim.jpg",
         "descr": "wc's favorite RPG game.",
         "link": "http://store.steampowered.com/app/489830/"
     },
     {
-        "id": 1,
         "title": "Steam",
         "img": "steam-wallpaper-17.jpg",
         "descr": "Steam. Gpan's walletcraft."
     },
     {
-        "id": 2,
         "title": "linruotian.com",
         "img": "protoss.jpg",
         "descr": "Billy cdk vault.",
         "link": "http://www.linruotian.com/"
     },
     {
-        "id": 3,
         "title": "Mass Effect Andromeda",
         "img": "Mass-Effect-Andromeda.jpg",
         "descr": "Steve is waiting for *dk of this game.",

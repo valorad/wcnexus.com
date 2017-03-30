@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 export interface IUpcomings extends Document {
-    img: string,
+    img?: string,
     title: string,
     descr: string
 }
