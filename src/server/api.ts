@@ -1,21 +1,23 @@
-import * as express from 'express';
+import { Router } from 'express';
 
 //import mgInstance from './dataAccess';
-import { SDK } from './SDK';
+//import { SDK } from './SDK';
 
-const mgInstance = require('./dataAccess');
+import { wcnConstr, mgInstance } from './dataAccess';
+
 //const SDK = require('../../app/dataAccess/schemas/');
 
 const jwt = require('express-jwt');
 const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 
 //read settings synclly first
-const file: string = path.join(__dirname,'wcnexus/wcnexus.json');
-const siteConfig = JSON.parse(fs.readFileSync(file, 'utf8'));
+// const file: string = path.join(__dirname,'wcnexus/wcnexus.json');
+// const siteConfig = JSON.parse(fs.readFileSync(file, 'utf8'));
 
-const wcnexus = siteConfig[0];
+// site settings passed from dataAccess
+const wcnexus = wcnConstr;
 
 // auth0 middleware
 const authCheck = jwt({
@@ -23,7 +25,7 @@ const authCheck = jwt({
   audience: wcnexus.auth0.client
 });
 
-const router = express.Router();
+const router = Router();
 /* GET api listing. */
 router.get('/', (req, res) => {
   res.send('api works');
@@ -33,10 +35,10 @@ router.get('/site', (req, res) => {
   res.json(wcnexus);
 });
 
-router.get('/posts', authCheck, (req, res) => {
-  SDK.find().then((result)=> {
-    res.send(result);
-  });
-});
+// router.get('/posts', authCheck, (req, res) => {
+//   SDK.find().then((result)=> {
+//     res.send(result);
+//   });
+// });
 
 module.exports = router;
