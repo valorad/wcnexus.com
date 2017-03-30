@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 
 //import mgInstance from './dataAccess';
 //import { SDK } from './SDK';
@@ -6,6 +6,13 @@ import { Router } from 'express';
 import { wcnConstr, mgInstance } from './dataAccess';
 
 //const SDK = require('../../app/dataAccess/schemas/');
+
+//import { jwt } from 'express-jwt';
+//import { cors } from 'cors';
+
+// schemas
+
+import { upcomings } from './schemas/upcomings';
 
 const jwt = require('express-jwt');
 const cors = require('cors');
@@ -32,6 +39,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/site', (req, res) => {
+  // send to front-end because Auth0 needs token as well
   res.json(wcnexus);
 });
 
@@ -41,4 +49,13 @@ router.get('/site', (req, res) => {
 //   });
 // });
 
-module.exports = router;
+router.get('/upcomings', (req: Request, res: Response) => {
+  // send to front-end because Auth0 needs token as well
+  upcomings.find().then((result) => {
+    res.send(result);
+  });
+});
+
+export const api = router;
+
+//module.exports = router;

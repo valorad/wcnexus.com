@@ -7,6 +7,9 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+// Get our API routes
+import { api } from './api';
+
 const app = express();
 
 const clientPath = path.join(__dirname,'../client/');
@@ -18,8 +21,7 @@ app.use(cookieParser());
 
 app.use(express.static(clientPath));
 
-// Get our API routes
-const api = require('./api');
+
 // Set our api routes
 app.use('/api', api);
 

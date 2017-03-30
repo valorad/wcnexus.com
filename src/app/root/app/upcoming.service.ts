@@ -16,7 +16,7 @@ export class UpcomingService {
     private appMiscService: AppMiscService
     ) { }
 
-  public dataUrl: string = "assets/data/upcoming.json";
+  public dataUrl: string = "/api/upcomings";
 
   getUpcomings() {
     return this.appMiscService.getCookedData(this.dataUrl, this.extractData);
