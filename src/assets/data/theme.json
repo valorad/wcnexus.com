@@ -1,42 +1,38 @@
 [
     {
-        "id": 0,
         "name": "tDefault",
-        "class": "themeDefault",
-        "themeImg": "wcn-theme-default.jpg",
+        "className": "themeDefault",
+        "title": "wcNexus default theme",
+        "titleImg": "wcn-theme-default.jpg",
+        "descr": "wcNexus is a nexus of wcWorlds",
         "cover": "wcn-Default.png",
-        "slogan": "Connect wc worlds.",
-        "descrTitle": "wcNexus default theme",
-        "descr": "wcNexus is a nexus of wcWorlds"
+        "slogan": "Connect wc worlds."
     },
     {
-        "id": 1,
         "name": "tAC",
-        "class": "themeAC",
-        "themeImg": "wcn-theme-ac.jpg",
+        "className": "themeAC",
+        "title": "Assassin's creed",
+        "titleImg": "wcn-theme-ac.jpg",
+        "descr": "Action game presented by Ubisoft.",
         "cover": "wcn-AC.png",
-        "slogan": "We work in the dark to serve the light.",
-        "descrTitle": "Assassin's creed",
-        "descr": "Action game presented by Ubisoft."
+        "slogan": "We work in the dark to serve the light."
     },
     {
-        "id": 2,
         "name": "tFallout",
-        "class": "themeFallout",
-        "themeImg": "wcn-theme-fallout.jpg",
+        "className": "themeFallout",
+        "title": "Fallout",
+        "titleImg": "wcn-theme-fallout.jpg",
+        "descr": "RPG survival game made by Bethesda Softworks LLC.",
         "cover": "wcn-Fallout.png",
-        "slogan": "Var, var never changes.",
-        "descrTitle": "Fallout",
-        "descr": "RPG survival game made by Bethesda Softworks LLC"
+        "slogan": "Var, var never changes."
     },
     {
-        "id": 3,
         "name": "tTES",
-        "class": "themeTES",
-        "themeImg": "wcn-theme-tes.jpg",
+        "className": "themeTES",
+        "title": "Elder Scroll",
+        "titleImg": "wcn-theme-tes.jpg",
+        "descr": "RPG game that is Bethesda's Qin er zi",
         "cover": "wcn-TES.png",
-        "slogan": "Then I took an arrow on the knee",
-        "descrTitle": "Elder Scroll",
-        "descr": "RPG game that is Bethesda's Qin er zi"
+        "slogan": "Then I took an arrow on the knee"
     }
 ]

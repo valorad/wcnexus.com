@@ -14,6 +14,9 @@ import { wcnConstr, mgInstance } from './dataAccess';
 import { upcomings } from './schemas/upcomings';
 import { recomSites } from './schemas/recomSites';
 
+// child routes
+import { theme } from './theme';
+
 const jwt = require('express-jwt');
 const cors = require('cors');
 
@@ -27,12 +30,16 @@ const authCheck = jwt({
 });
 
 const router = Router();
+
+// Set child routes
+router.use('/theme', theme);
+
 /* GET api listing. */
-router.get('/', (req, res) => {
+router.get('/', (req: Request, res: Response) => {
   res.send('api works');
 });
 
-router.get('/site', (req, res) => {
+router.get('/site', (req: Request, res: Response) => {
   // send to front-end because Auth0 needs token as well
   res.json(wcnexus);
 });

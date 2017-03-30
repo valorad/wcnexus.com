@@ -34,7 +34,12 @@ export class IndexComponent implements OnInit {
 
   private selectedTheme: string = "";
   private themes: any;
-  private recomSites: any;
+  private recomSites: any = {
+      "title": "Skyrim",
+      "img": "testskyrim.jpg",
+      "descr": "wc's favorite RPG game.",
+      "link": "http://store.steampowered.com/app/489830/"
+  };
 
   ngOnInit() {
 
