@@ -16,24 +16,22 @@ export class ThemeService {
     private appMiscService: AppMiscService
   ) {
     //get themes
-    this.appMiscService.getRawData(this.dataUrl).subscribe(
-      (resTheme) => {this.themes = resTheme},
-      (resError) => {this.themeError = resError}
-    );
+    // this.appMiscService.getRawData(this.dataUrl).subscribe(
+    //   (resTheme) => {this.themes = resTheme},
+    //   (resError) => {this.themeError = resError}
+    // );
   }
 
   public themeRoot: string = "assets/images/themes/";
 
-  public dataUrl: string = "assets/data/theme.json";
+  //public dataUrl: string = "assets/data/theme.json";
 
-  // getThemes() {
-  //   let themes = this._http.get(this.dataUrl).map(
-  //     this.extractData
-  //   )
-  //   .catch(this.throwException);
+  public urlSingle: string = "/api/theme/name/";
+  public urlToChoose: string = "/api/theme/choose";
 
-  //   return themes;
-  // }
+  getThemesToChoose() {
+    return this.appMiscService.getCookedData(this.urlToChoose, this.extractData);
+  }
 
   // extractData(res: Response) {
   //   let data = res.json() || [];
@@ -45,61 +43,77 @@ export class ThemeService {
   //   return Observable.throw(error || "Server Error");
   // }
 
-  public themes: Array<Object> = [
-      {
-        id: 0,
-        name: "tDefault",
-        class: "themeDefault",
-        themeImg: "wcn-theme-default.jpg",
-        cover: "wcn-Default.png",
-        slogan: "Connect wc worlds.",
-        descrTitle: "wcNexus default theme",
-        descr: "wcNexus is a nexus of wcWorlds"
-      },
-  ];
-  public themeError: string;
-
-  public runningTheme: Object = {
-    currentTheme: "tDefault",
-    currentThemeClass: "themeDefault",
-    slogan: "Connect wc worlds.",
-    coverImg: "assets/images/themes/tDefault/wcn-Default.png",
-    themeImg: "assets/images/themes/tDefault/wcn-theme-default.jpg",
-    themeDescrTitle: "wcNexus default theme",
-    themeDescr: "wcNexus is a nexus of wcWorlds"
-  }
-
-  public getThemeByName(name: string): Object {
-    for (let theme of this.themes) {
-      if (theme["name"] === name) {
-        return theme;
+  public extractData(res: Response) {
+    let data = res.json() || [];
+    for (let datium of data) {
+      if (datium["titleImg"] !== (null||undefined||'')) {
+        datium["titleImg"] = "assets/images/themes/" + datium["name"] + "/" + datium["titleImg"];
+      }
+      if (datium["cover"] !== (null||undefined||'')) {
+        datium["cover"] = "assets/images/themes/" + datium["name"] + "/" + datium["cover"];
       }
     }
-    return null;
+    return data;
   }
+
+  // public themes: Array<Object> = [
+  //     {
+  //     },
+  // ];
+  //public themeError: string;
+
+  public runningTheme: Object = {
+    name: "tDefault",
+    className: "themeDefault",
+    title: "wcNexus default theme",
+    titleImg: "assets/images/themes/tDefault/wcn-theme-default.jpg",
+    descr: "wcNexus is a nexus of wcWorlds",
+    cover: "assets/images/themes/tDefault/wcn-Default.png",
+    slogan: "Connect wc worlds."
+  }
+
+  // public getThemeByName(name: string): Object {
+  //   for (let theme of this.themes) {
+  //     if (theme["name"] === name) {
+  //       return theme;
+  //     }
+  //   }
+  //   return null;
+  // }
 
   public changeTheme(changedTheme: string) {
 
-    let theme = this.getThemeByName(changedTheme);
+    // load a single theme from database
 
-    if (theme != null) {
+    let themeServiceInstance = this;
 
-      // sync current class
-      this.runningTheme["currentThemeClass"] = theme["class"];
+    this.appMiscService.getCookedData((this.urlSingle + changedTheme), this.extractData).subscribe(
+      (resSingleTheme) => {
+        let theme = resSingleTheme;
+        if (theme != null) {
 
-      // current theme changed to:
-      this.runningTheme["currentTheme"] = changedTheme;
-      //change cover and theme img
-      this.runningTheme["coverImg"] = this.themeRoot + this.runningTheme["currentTheme"] + "/" + theme["cover"];
-      this.runningTheme["themeImg"] = this.themeRoot + this.runningTheme["currentTheme"] + "/" + theme["themeImg"];
-      //change slogan
-      this.runningTheme["slogan"] = theme["slogan"];
-      //change theme descr
-      this.runningTheme["themeDescrTitle"] = theme["descrTitle"];
-      this.runningTheme["themeDescr"] = theme["descr"];
-    } else {
-      console.error("Invalid theme name detected");
-    }
+          themeServiceInstance.runningTheme = theme[0]; // data retrieved from mongo is an array, not an object
+
+          // // sync current class
+          // this.runningTheme["currentThemeClass"] = theme["class"];
+
+          // // current theme changed to:
+          // this.runningTheme["currentTheme"] = changedTheme;
+          // //change cover and theme img
+          // this.runningTheme["coverImg"] = this.themeRoot + this.runningTheme["currentTheme"] + "/" + theme["cover"];
+          // this.runningTheme["themeImg"] = this.themeRoot + this.runningTheme["currentTheme"] + "/" + theme["themeImg"];
+          // //change slogan
+          // this.runningTheme["slogan"] = theme["slogan"];
+          // //change theme descr
+          // this.runningTheme["themeDescrTitle"] = theme["descrTitle"];
+          // this.runningTheme["themeDescr"] = theme["descr"];
+        } else {
+          console.error(`There is no theme in database or ${ changedTheme } is invalid.`);
+        }
+      }
+    );
+    
+    //let theme = this.getThemeByName(changedTheme);
   }
 
 }

@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
 
    }
 
-  private upcomings: any;
+  private upcomings: any = [  ];
   private error: string;
 
   //themeRoot: string = this.themeService.themeRoot;
@@ -33,29 +33,59 @@ export class IndexComponent implements OnInit {
   //runningTheme: any = this.themeService["runningTheme"];
 
   private selectedTheme: string = "";
-  private themes: any;
-  private recomSites: any = {
+ // private themes: any;
+  private themesToChoose: any = [
+    {
+      name: "tDefault",
+      title: "wcNexus default theme",
+      titleImg: "wcn-theme-default.jpg"
+    }
+  ]
+  private recomSites: any = [{
       "title": "Skyrim",
       "img": "testskyrim.jpg",
       "descr": "wc's favorite RPG game.",
       "link": "http://store.steampowered.com/app/489830/"
-  };
+  }];
 
   ngOnInit() {
 
     // get recom site carousel data
     this.recomSiteService.getRecomSites().subscribe(
-      (resRecSite) => { this.recomSites = resRecSite }
+      (resRecSite) => { 
+        if (resRecSite != null) {
+          this.recomSites = resRecSite;
+        }
+       }
     );
 
     //retrieve theme selections
-    this.appMiscService.getRawData(this.themeService.dataUrl).subscribe(
-      (resTheme) => {this.themes = resTheme}
+    this.themeService.getThemesToChoose().subscribe(
+      (resThemesToChoose) => {
+        if (resThemesToChoose != null) {
+          this.themesToChoose = resThemesToChoose;
+        }
+      }
     );
 
+    // this.appMiscService.getRawData(this.themeService.dataUrl).subscribe(
+    //   (resTheme) => {this.themeToChoose = resTheme}
+    // );
+
+    // let _themesToChoose = this.themeService.getThemesToChoose();
+    // if (_themesToChoose != null) {
+    //   this.themesToChoose = _themesToChoose;
+    // } else {
+    //   console.error("failed to fetch themes to choose");
+    // }
+    
     //retrieve upcomings
     this.upcomingService.getUpcomings().subscribe(
-      (resUpcomings) => {this.upcomings = resUpcomings},
+      (resUpcomings) => { 
+        if (resUpcomings != null) {
+          this.upcomings = resUpcomings
+        }
+      },
       (resError) => {this.error = resError}
     );
     
@@ -67,7 +97,7 @@ export class IndexComponent implements OnInit {
   }
 
   deSelectATheme() {
-    this.selectedTheme = this.themeService.runningTheme["currentTheme"];
+    this.selectedTheme = this.themeService.runningTheme["name"];
   }
 
   msE(ph: Boolean = false) {

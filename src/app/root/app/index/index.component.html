@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div id="coverImgHolder" class="col-md-6">
-        <img class="img-fluid mx-auto" [src]="themeService.runningTheme.coverImg" alt="wcn-Fallout">
+        <img class="img-fluid mx-auto" [src]="themeService.runningTheme.cover" alt="wcn-Fallout">
       </div>
       <div id="titleHolder" class="col-md-6">
         <div>
@@ -45,10 +45,10 @@
         </div>
       </md-card>
       <md-card id="themeControl" class="col-md-5 col-lg-4">
-        <img class="card-img-top img-fluid" [src]="themeService.runningTheme.themeImg" alt="Card image cap">
+        <img class="card-img-top img-fluid" [src]="themeService.runningTheme.titleImg" alt="Card image cap">
         <div class="card-block">
-          <h4 class="card-title wcnTitleHigh" [innerHTML]="themeService.runningTheme.themeDescrTitle">wcNexus default theme</h4>
-          <p class="card-text wcnParaDark" [innerHTML]="themeService.runningTheme.themeDescr">wcNexus is a nexus of wcWorlds</p>
+          <h4 class="card-title wcnTitleHigh" [innerHTML]="themeService.runningTheme.title">wcNexus default theme</h4>
+          <p class="card-text wcnParaDark" [innerHTML]="themeService.runningTheme.descr">wcNexus is a nexus of wcWorlds</p>
           <footer>
             <a md-button color="primary" (click)="showModal()">Change</a>
           </footer>
@@ -108,11 +108,11 @@
       </div>
       <div class="modal-body">
         <ul>
-          <li *ngFor="let theme of themes">
+          <li *ngFor="let theme of themesToChoose">
             <a title="{{ theme.name }}">
               <div title="{{ theme.name }}" (click)="selectATheme($event)">
-                <img title="{{ theme.name }}" class="img-fluid" src="assets/images/themes/{{ theme.name }}/{{ theme.themeImg }}" alt="{{ theme.name }}">
-                <small title="{{ theme.name }}">{{ theme.descrTitle }}</small>
+                <img title="{{ theme.name }}" class="img-fluid" src="{{ theme.titleImg }}" alt="{{ theme.name }}">
+                <small title="{{ theme.name }}">{{ theme.title }}</small>
               </div>
             </a>
           </li>

@@ -71,12 +71,15 @@ export class AppComponent implements OnInit {
       (resSite) => {this.site = resSite},
       (resError) => {console.error(resError)}
     );
+
+    this.themeService.changeTheme("tFallout");
+
     // retrieve themes
-    this.appMiscService.getRawData(this.themeService.dataUrl).subscribe(
-      (resThemes) => {
-        let themeName = resThemes[2]["name"];
-        this.themeService.changeTheme(themeName);
-      }
-    );
+    // this.appMiscService.getRawData(this.themeService.dataUrl).subscribe(
+    //   (resThemes) => {
+    //     let themeName = resThemes[2]["name"];
+    //     this.themeService.changeTheme(themeName);
+    //   }
+    // );
   }
 }
