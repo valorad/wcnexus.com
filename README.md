@@ -8,7 +8,7 @@ wcNexus is powered by node, as well as [Angular4](https://github.com/angular/ang
 
   ### Prerequisites
 
-  - you may require node ^6.9.0, together with npm ^3.0.0.
+  - You may require node ^6.9.0, together with npm ^3.0.0.
 
   - MongoDB distribution of your current system and architecture.
 
@@ -64,11 +64,11 @@ wcNexus is powered by node, as well as [Angular4](https://github.com/angular/ang
 
     - `mongoimport --db [dataDB] --collection [colName] --file [fileName].json [--jsonArray] -u [user] -p [password] --authenticationDatabase [authDB]`
 
-  ### You are good to go
+  ### You are now good to go
 
   - run `node server/app` to start.
 
-## Developments and Compilation
+## Development and Compilation
 
   ### Additional Requirement
   install [angular-cli](https://github.com/angular/angular-cli) ^1.0.0 **GLOBALLY**.
@@ -100,13 +100,13 @@ wcNexus is powered by node, as well as [Angular4](https://github.com/angular/ang
 
   ### Build
 
-    #### Front-end
+  - Front-end
 
-    Run `ng build` to build the front-end project. The build artifacts will be stored in the `dist/client` directory. The `-prod` flag for a production build is currently **Not Supported**!.
+  Run `ng build` to build the front-end project. The build artifacts will be stored in the `dist/client` directory. The `-prod` flag for a production build is currently **Not Supported**!.
 
-    #### Back-end
+  - Back-end
 
-    Run `npm run _serverBuild` to compile via grunt and `npm run server` to start. The dist files of back-end side will be output to `dist/server` directory.
+  Run `npm run _serverBuild` to compile via grunt and `npm run server` to start. The dist files of back-end side will be output to `dist/server` directory.
 
   ### Running unit tests
 
