@@ -39,10 +39,10 @@ router.get('/', (req: Request, res: Response) => {
   res.send('api works');
 });
 
-router.get('/site', (req: Request, res: Response) => {
-  // send to front-end because Auth0 needs token as well
-  res.json(wcnexus);
-});
+// router.get('/site', (req: Request, res: Response) => {
+//   // send to front-end because Auth0 needs token as well
+//   res.json(wcnexus);
+// });
 
 // router.get('/posts', authCheck, (req, res) => {
 //   SDK.find().then((result)=> {

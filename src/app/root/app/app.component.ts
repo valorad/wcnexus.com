@@ -33,14 +33,13 @@ export class AppComponent implements OnInit {
     site: "string",
     caseNumber: "",
     auth0: {
-        secret: "string",
         domain: "string",
         client: "string"
     }
   };
 
   //site settings
-  private api = "/api/site";
+  private api = "/assets/data/wcnexus.json";
 
 
   //nav bar class
@@ -68,7 +67,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //get site settings for case number
     this.appMiscService.getRawData(this.api).subscribe(
-      (resSite) => {this.site = resSite},
+      (resSite) => {this.site = resSite[0]},
       (resError) => {console.error(resError)}
     );
 

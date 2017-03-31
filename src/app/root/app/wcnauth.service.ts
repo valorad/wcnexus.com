@@ -11,23 +11,26 @@ import { tokenNotExpired } from 'angular2-jwt';
 
 import { AppMiscService } from './app-misc.service';
 
+import { ISite } from "./ISite.interface";
+
 declare var Auth0Lock: any;
 
-interface IAuth0 {
-  secret: string,
-  domain: string,
-  client: string
-}
+// interface IAuth0 {
+//   secret: string,
+//   domain: string,
+//   client: string
+// }
 
 @Injectable()
 export class WcnauthService {
 
   
   // We'll use the Auth0 Lock widget for capturing user credentials
-  private api = "/api/site";
+  private api = "/assets/data/wcnexus.json";
   private lock: any;
   private authyError: string;
-  private authy: IAuth0;
+  private site: ISite;
+
   private userProfile: object = {
     picture: "null"
   };
@@ -40,10 +43,10 @@ export class WcnauthService {
   ) {
     // first, get necessary data, then proceed 
     this.appMiscService.getRawData(this.api).subscribe(
-      (resSite) => {this.authy = resSite.auth0},
+      (resSite) => {this.site = resSite[0]},
       (resError) => {this.authyError = resError},
       () => {
-        this.lock = new Auth0Lock(this.authy.client, this.authy.domain, {});
+        this.lock = new Auth0Lock(this.site.auth0.client, this.site.auth0.domain, {});
         this.finalizeLock();
         this.getUser();
       }
