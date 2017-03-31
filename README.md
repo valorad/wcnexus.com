@@ -54,19 +54,24 @@ wcNexus is powered by node, as well as [Angular4](https://github.com/angular/ang
 
   - You need to import following json files to mongo, located in `assets/data`.
 
-    - `recomSite.json`  (its collection name to be `recomsites`. Note that collection names should all be uncapialized)
+    `recomSite.json`  (its collection name to be `recomsites`. Note that collection names should all be uncapialized)
 
-    - `theme.json`
+    `theme.json`
 
-    - `upcoming.json`
+    `upcoming.json`
 
   - You may import to mongo with following command:
 
-    - `mongoimport --db [dataDB] --collection [colName] --file [fileName].json [--jsonArray] -u [user] -p [password] --authenticationDatabase [authDB]`
-
+    `mongoimport --db [dataDB] --collection [colName] --file [fileName].json [--jsonArray] -u [user] -p [password] --authenticationDatabase [authDB]`
+    
+    
+### Collect node modules
+  
+  run `npm install` to collect necessary dependencies.
+  
   ### You are now good to go
 
-  - run `node server/app` to start.
+  run `node server/app` to start.
 
 ## Development and Compilation
 
