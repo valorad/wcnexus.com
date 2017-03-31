@@ -55,3 +55,4 @@ Thumbs.db
 .tscache/**
 
 /src/server/wcnexus/wcnexus.json
+/src/assets/data/wcnexus.json
