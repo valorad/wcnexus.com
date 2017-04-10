@@ -5,7 +5,7 @@ import { ThemeService } from '../theme.service';
 import { UpcomingService } from '../upcoming.service';
 import { RecomSiteService } from '../recom-site.service';
 
-import { ModalDirective } from 'ng2-bootstrap/modal';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-index',

@@ -6,8 +6,8 @@ import { MaterialModule } from '@angular/material';
 
 import { AUTH_PROVIDERS, AuthHttp, AuthConfig } from 'angular2-jwt';
 
-import { CarouselModule } from 'ng2-bootstrap/carousel';
-import { ModalModule } from 'ng2-bootstrap/modal';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ModalModule } from 'ngx-bootstrap/modal';
  
 import { MasonryModule } from 'angular2-masonry';
 
