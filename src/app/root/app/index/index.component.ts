@@ -43,7 +43,7 @@ export class IndexComponent implements OnInit {
   ]
   private recomSites: any = [{
       "title": "Skyrim",
-      "img": "testskyrim.jpg",
+      "img": "assets/images/media/recomSite/testskyrim.jpg",
       "descr": "wc's favorite RPG game.",
       "link": "http://store.steampowered.com/app/489830/"
   }];

@@ -52,6 +52,21 @@
           <li><button md-button routerLink="/venturer" (click)="toggleSideNav()">Venturer</button></li>
           <li><button md-button>Theme</button></li>
           <li><button md-button>About</button></li>
+          <div id="navUserMobile">
+            <form class="form-inline my-2 my-lg-0">
+              <ul class="navbar-nav">
+                <li *ngIf="!authService.loggedIn()">
+                  <button md-button (click)=authService.login()>Sign in/up</button>
+                </li>
+                <li *ngIf="authService.loggedIn()">
+                  <img class="img-circle" [src]="authService.userProfile.picture" alt="loading...">
+                </li>
+                <li *ngIf="authService.loggedIn()">
+                  <button md-button (click)="authService.logout()">Sign out</button>
+                </li>
+              </ul>
+            </form>
+          </div>
         </ul>
       </div>
     </nav>
