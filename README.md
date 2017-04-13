@@ -12,6 +12,8 @@ wcNexus is powered by node, as well as [Angular4](https://github.com/angular/ang
 
   - MongoDB distribution of your current system and architecture.
 
+  - A valid [Auth0](https://auth0.com/) account for log-in controls
+
   ### Distribution
 
   - Extract dist file
