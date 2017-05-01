@@ -216,11 +216,29 @@ pip-log.txt
 .mr.developer.cfg
 
 #Files that shouldn't or needn't be seen in public
-wcNexus
+
+/vatest/*
+!/vatest/*.txt
+
+/static/*
+!/static/.gitkeep
+
+/media/*
+!/media/.gitkeep
+
+*/migrations/*
+!*/migrations/__init__.py
+
+wcNexus/*
+wcnexus/*
+
 __pycache__
+
 *.sqlite3
-migrations
+
 manage.py
 .sass-cache
-media
-/static
+
+
+
+
