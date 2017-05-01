@@ -1,14 +1,12 @@
 # wcNexus
-Source code for wcnexus.
-<p>wcnexus.com is currently open beta in <a href="http://www.wcnexus.com">wcnexus.com</a>.</p>
-<p>wcNexus is a non-profit site of personal interest, with apps like blogs, showcases, etc.</p>
-<p>This site is powered by Django 1.10.</p>
 
-<p>As Billy the infamous at the neighborhood say he will never give a BDK, however, you can get most of the {B, M, S}DK here that are... 
-<br />
-<span style='font-size: 5px'>&nbsp;&nbsp;&nbsp;already claimed ha ha ha ha ha</span>
+wcnexus.com v1 is closed open beta and entered maintenance stage.
 
-<p>Plus special thanks to opensource project:</p>
+wcNexus is a nexus of wcworlds. (wc's personal website)
+
+v1 is powered by Python as well as Django
+
+## Plus special thanks to the opensource projects:
 <table>
   <thead>
     <tr>
@@ -54,69 +52,82 @@ Source code for wcnexus.
   </tbody>
 </table>
 
-<p>Django Capability:</p>
-<ul>
-  <li>1.10.2 <span>✔</span></li>
-  <li>1.10 <span>✔</span></li>
-  <li>1.9 <span>❌</span></li>
-</ul>
+## Django compability
+- 1.11 ✔
+- 1.10 ✔
+- 1.9 ✔
+- <=1.8 not tested
 
-<h2>How to deploy</h2>
-<del><h3>Warning! If you are using python 3, your <strong>DEBUG</strong> setting <b>MUST Be Turned OFF!!!</b> </h3></del>
-<p>This issue is fixed. See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for more information.</p>
+## Deployment
 
-<ol>
-	<li>(Skip this if you use default SQLite database) Create a database (eg. wcnexus)</li>
-	<li>
-		Install dependencies:
-		<ul>
-			<b>Ubuntu/Debian:</b>
-			<li>$ sudo apt-get install python3-dev</li>
-			<li>$ sudo apt-get install libjpeg8-dev</li>
-			<li>$ sudo apt-get install pillow</li>
-			<li>$ pip install Django==1.10</li>
-			<li>$ pip install django-avatar</li>
-		</ul>
-	</li>
-	<li>
-		Start a django project (eg. wcNexus)
-		<ul>
-			<li>$ django-admin startproject "(your desired path)/wcNexus"</li>
-		</ul>
-	</li>
-	<li>
-		follow the guide to install <a href='https://github.com/Fantomas42/django-blog-zinnia'  target="_blank">django-blog-zinnia</a>
-	</li>
-	<li>
-		In settings.py, you must at least set:
-		<ul>
-			<li>INSTALLED_APPS = [...,'mptt','tagging','zinnia','django_comments','avatar','home','venturer',]<br />
-<h3>Alert: 'django_comments' must be put after 'zinnia'. See django-blog-zinnia's <a href='https://github.com/Fantomas42/django-blog-zinnia/issues/484'  target="_blank">Issue #484</a> for details.</h3>
-			</li>
-			<li>TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]</li>
-			<li>(Skip this if you use default SQLite database) DATABASES. See <a href="https://docs.djangoproject.com/en/1.10/ref/databases/"  target="_blank">Django Ref doc</a> for more info.</li>
-			<li>MEDIA_URL</li>
-			<li>MEDIA_ROOT</li>
-			<li>STATIC_ROOT</li>
-			<li>LOGIN_URL</li>
-		</ul>
-	</li>
-	<li>
-		Download this repo. Create the folders yourself if not exist.
-	</li>
-	<li>
-		In your terminal, switch to the root directory, 
-		<ul>
-			<li>$ python3 manage.py makemigrations</li>
-			<li>$ python3 manage.py migrate</li>
-		</ul>
-	</li>
-	<li>Create media folder at root dir</li>
-	<li>Create static folder at root dir</li>
-	<li>Collect static files</li>
-		<ul><li>$ python3 manage.py collectstatic</li></ul>
-	<li>Run server (currently only tested in local server).
-		<ul><li>$ python3 manage.py runserver --insecure</li></ul>
-	</li>
-	<li>Visit your site. eg. <a href="http://127.0.0.1:8000"  target="_blank">127.0.0.1:8000 (in default port 8000, change if you wish)</a>, enjoy!</li>
-</ol>
+1. (Skip this if you use default SQLite database) Create a database (eg. wcnexus)
+
+2. Install dependencies:
+
+    - Ubuntu/Debian:
+      - `sudo apt-get install python3-dev libjpeg8-dev`
+      - `pip install pillow django django-avatar`
+
+3. Start a django project (eg. wcNexus)
+
+    `django-admin startproject "(your desired path)/wcNexus"`
+
+4. follow the guide to install [django-blog-zinnia](https://github.com/Fantomas42/django-blog-zinnia)
+
+5. In settings.py, you must at least set:
+
+    `INSTALLED_APPS = [...,'mptt','tagging','zinnia','django_comments','avatar','home','venturer',]`
+
+    - Be cautious that 'django_comments' must be put after 'zinnia'. You may refer to Fantomas42/django-blog-zinnia#484 for more details.
+
+    `TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]`
+
+    `(Skip this if you use default SQLite database) DATABASES.`
+
+    - You may refer to [Django Ref doc](https://docs.djangoproject.com/en/1.11/ref/databases/) for more info.
+
+    `MEDIA_URL` (eg. `/media/`)
+    `MEDIA_ROOT` (eg. `/media/`)
+    `STATIC_ROOT` (eg. `/static/`)
+    `LOGIN_URL` (eg. `/static/`)
+
+6. In site urls.py, you may configure similar to follows:
+
+        from django.conf.urls import include, url
+        from django.contrib import admin
+
+        urlpatterns = [
+            url(r'^admin/', admin.site.urls),
+            url(r'^', include('home.urls')),
+            url(r'^weblog/', include('zinnia.urls')),
+            url(r'^comments/', include('django_comments.urls')),
+            url(r'^i18n/', include('django.conf.urls.i18n')),
+        ]
+
+7. Clone this repo and move above folders to this repo.  No need to worry redundancies as .gitignore file is already configured.
+
+8. In your terminal, switch to the root directory, and run
+
+    `python3 manage.py makemigrations`
+
+    `python3 manage.py migrate`
+
+9. Collect static files by running
+
+    `python3 manage.py collectstatic`
+
+10. Create a super user
+
+    `python3 manage.py createsuperuser`
+
+11. Run server
+
+    `python3 manage.py runserver --insecure`
+
+12. Navigate to admin site at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) (Usually port 8000 unless you have otherwise specified.), log yourself in, and add an entry to table Site_KV. 
+
+        Key: recNum,
+        Value: "(天朝特色备案号)",
+        Link: "(工信部大网站链接)"
+
+13. Visit your site. Usually at [127.0.0.1:8000](http://127.0.0.1:8000), and enjoy!
