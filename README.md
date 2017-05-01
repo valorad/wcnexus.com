@@ -2,9 +2,9 @@
 
 wcnexus.com v1 is closed open beta and entered maintenance stage.
 
-wcNexus is a nexus of wcworlds. (wc's personal website)
+wcNexus is a nexus of wc worlds. (wc's personal website)
 
-v1 is powered by Python as well as Django
+v1 is powered by [Python](https://github.com/python) as well as [Django](https://github.com/django/django)
 
 ## Plus special thanks to the opensource projects:
 <table>
@@ -53,9 +53,9 @@ v1 is powered by Python as well as Django
 </table>
 
 ## Django compability
-- 1.11 ✔
-- 1.10 ✔
-- 1.9 ✔
+- 1.11 
+- 1.10 
+- 1.9 
 - <=1.8 not tested
 
 ## Deployment
@@ -78,17 +78,20 @@ v1 is powered by Python as well as Django
 
     `INSTALLED_APPS = [...,'mptt','tagging','zinnia','django_comments','avatar','home','venturer',]`
 
-    - Be cautious that 'django_comments' must be put after 'zinnia'. You may refer to Fantomas42/django-blog-zinnia#484 for more details.
+    - Be cautious that 'django_comments' must be put after 'zinnia'. You may refer to [Fantomas42/django-blog-zinnia#484](https://github.com/Fantomas42/django-blog-zinnia/issues/484) for more details.
 
     `TEMPLATES = [{...'DIRS': [os.path.join(BASE_DIR,'templates')],...},]`
 
     `(Skip this if you use default SQLite database) DATABASES.`
 
-    - You may refer to [Django Ref doc](https://docs.djangoproject.com/en/1.11/ref/databases/) for more info.
+    - You may refer to [Django Ref doc](https://docs.djangoproject.com/en/1.11/ref/databases/) for more info about database configurations.
 
     `MEDIA_URL` (eg. `/media/`)
+    
     `MEDIA_ROOT` (eg. `/media/`)
+    
     `STATIC_ROOT` (eg. `/static/`)
+    
     `LOGIN_URL` (eg. `/static/`)
 
 6. In site urls.py, you may configure similar to follows:
