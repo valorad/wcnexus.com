@@ -77,9 +77,9 @@
     <router-outlet></router-outlet>
   </main>
 
-  <footer id="siteBottom" class="wcnPanel">
+  <footer class="siteBottom wcnPanel">
     <div class="container">
-      <h1>Case number: {{ site.caseNumber }}</h1>
+      <h1>Case number: <a href="{{ site.link }}" target="_blank">{{ site.caseNumber }}</a> </h1>
     </div>
   </footer>
 

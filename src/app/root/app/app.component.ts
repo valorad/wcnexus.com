@@ -30,8 +30,9 @@ export class AppComponent implements OnInit {
   public themes: any;
 
   public site: ISite = {
-    site: "string",
+    site: "",
     caseNumber: "",
+    link: "",
     auth0: {
         domain: "string",
         client: "string"
@@ -40,18 +41,6 @@ export class AppComponent implements OnInit {
 
   //site settings
   private api = "/assets/data/wcnexus.json";
-
-
-  //nav bar class
-  // private navbarClass: string = "Opacified";
-
-  // private navbarMenuClass: string = "navbar-nav mr-auto HiddenltLG";
-
-
-
-  // toggleNav() {
-  //   this.navbarClass = (this.navbarClass == "" ? "Opacified" : "");
-  // }
 
   // nav bar shown or not
   private sidenavShown: Boolean = false;
@@ -62,7 +51,6 @@ export class AppComponent implements OnInit {
     this.navExit = !this.navExit;
     this.document.querySelector('body').classList.toggle("navOpen");
   }
-
 
   ngOnInit() {
     //get site settings for case number
