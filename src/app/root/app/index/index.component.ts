@@ -30,12 +30,12 @@ export class IndexComponent implements OnInit {
     {
       name: "tDefault",
       title: "wcNexus default theme",
-      titleImg: "wcn-theme-default.jpg"
+      titleImg: "assets/images/themes/tDefault/wcn-theme-default.png"
     }
   ]
   private recomSites: any = [{
       "title": "Skyrim",
-      "img": "assets/images/media/recomSite/testskyrim.jpg",
+      "img": "assets/images/defaultRecom.jpg",
       "descr": "wc's favorite RPG game.",
       "link": "http://store.steampowered.com/app/489830/"
   }];
@@ -67,7 +67,8 @@ export class IndexComponent implements OnInit {
           this.upcomings = resUpcomings
         }
       },
-      (resError) => {this.error = resError}
+      (resError) => {this.error = resError},
+      () => {console.log(this.upcomings);}
     );
     
   }

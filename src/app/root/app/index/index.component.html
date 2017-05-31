@@ -15,7 +15,7 @@
   </div>
 </header>
 
-<section id="recomSite">
+<section class="recomSite">
   <carousel>
     <slide *ngFor="let recSite of recomSites">
       <article>
@@ -77,23 +77,36 @@
   </div>
 </main>
 
-<section id="upComings">
+<section class="upComings">
   <header class="wcnPanel">
     <h3 class="wcnTitleHigh display-5">Upcomings</h3>
   </header>
-  <masonry class="grid container-fluid" [useImagesLoaded]="true" [options]='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
-    <masonry-brick class="brick"> </masonry-brick>
-    <div class="grid-sizer"></div>
-    <masonry-brick  *ngFor="let up of upcomings">
-      <md-card class="grid-item">
-        <img *ngIf="up.img!==(null||undefined||'')" class="card-img-top img-fluid" src="{{ up.img }}" alt="{{ up.title }}">
-        <div class="card-block">
-          <h4 class="card-title">{{ up.title }}</h4>
-          <p class="card-text">{{ up.descr }}</p>
-        </div>
-      </md-card>
-    </masonry-brick>
-  </masonry>
+  <main class="upComings" *ngIf="upcomings.length>0;then haveUpcomings else noUpcomings"></main>
+    
+  <ng-template #haveUpcomings>
+    <masonry class="grid container-fluid" [useImagesLoaded]="true" [options]='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
+      <masonry-brick class="brick"> </masonry-brick>
+      <div class="grid-sizer"></div>
+      <masonry-brick  *ngFor="let up of upcomings">
+        <md-card class="grid-item">
+          <img *ngIf="up.img" class="card-img-top img-fluid" src="{{ up.img }}" alt="{{ up.title }}">
+          <div class="card-block">
+            <h4 class="card-title">{{ up.title }}</h4>
+            <p class="card-text">{{ up.descr }}</p>
+          </div>
+        </md-card>
+      </masonry-brick>
+    </masonry>
+  </ng-template>
+
+  <ng-template #noUpcomings>
+    <div class="noUpcomings">
+      <h3 class="display3">No Data</h3>
+      <p>Seems wc is too confused to push any upcoming</p>
+    </div>
+  </ng-template>
+
+  
 </section>
 
 <!-- Modals -->
