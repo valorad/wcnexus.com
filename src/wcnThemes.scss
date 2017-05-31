@@ -126,6 +126,10 @@ $wcnTheme: (
 
 
 /* Specific themes */
+.themeDefault {
+    @include getTheme("tDefault");
+}
+
 .themeAC {
     @include getTheme("tAC");
 }
