@@ -6,14 +6,14 @@ import { Http, Response } from '@angular/http';
 // import 'rxjs/add/operator/catch';
 // import 'rxjs/add/observable/throw';
 
-import { AppMiscService } from './app-misc.service';
+import { DataService } from './data.service';
 
 @Injectable()
 export class ThemeService {
 
   constructor(
     private _http: Http, 
-    private appMiscService: AppMiscService
+    private dataService: DataService
   ) {
     //get themes
     // this.appMiscService.getRawData(this.dataUrl).subscribe(
@@ -30,7 +30,7 @@ export class ThemeService {
   public urlToChoose: string = "/api/theme/choose";
 
   getThemesToChoose() {
-    return this.appMiscService.getCookedData(this.urlToChoose, this.extractData);
+    return this.dataService.getCookedData(this.urlToChoose, this.extractData);
   }
 
   // extractData(res: Response) {
@@ -87,7 +87,7 @@ export class ThemeService {
 
     let themeServiceInstance = this;
 
-    this.appMiscService.getCookedData((this.urlSingle + changedTheme), this.extractData).subscribe(
+    this.dataService.getCookedData((this.urlSingle + changedTheme), this.extractData).subscribe(
       (resSingleTheme) => {
         let theme = resSingleTheme;
         if (theme != null) {

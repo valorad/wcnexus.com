@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { WcnauthGuardService } from './wcnauth-guard.service';
+import { WcnauthGuardService } from '../../services/wcnauth-guard.service';
 
 import { IndexComponent } from './index/index.component';
 import { Http404Component } from './http404/http404.component';

@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-
+import { Http, RequestOptions, Response, Headers, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class AppMiscService {
-
-  
+export class DataService {
 
   constructor(private http: Http) { }
 
-  getRawData(url: string): any {
+  getRawData(url: string): Observable<any> {
     let data = this.http.get(url).map(
       this.extractData
     )
@@ -37,6 +34,15 @@ export class AppMiscService {
       extractMethod
     )
     return data;
+  }
+
+  postJsonData(url: string, data: any) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let postData = JSON.stringify(data);
+    let options = new RequestOptions({
+      headers: headers,
+    });
+    return this.http.post(url, postData, options).map(res => res.json());
   }
 
 }

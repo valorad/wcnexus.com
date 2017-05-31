@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 
-import { AppMiscService } from '../app-misc.service';
-import { ThemeService } from '../theme.service';
-import { UpcomingService } from '../upcoming.service';
-import { RecomSiteService } from '../recom-site.service';
+import { ThemeService } from '../../../services/theme.service';
+import { UpcomingService } from '../../../services/upcoming.service';
+import { RecomSiteService } from '../../../services/recom-site.service';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
@@ -15,7 +14,6 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 export class IndexComponent implements OnInit {
 
   constructor(
-    private appMiscService: AppMiscService,
     private themeService: ThemeService,
     private upcomingService: UpcomingService,
     private recomSiteService: RecomSiteService
@@ -25,12 +23,6 @@ export class IndexComponent implements OnInit {
 
   private upcomings: any = [  ];
   private error: string;
-
-  //themeRoot: string = this.themeService.themeRoot;
-
-  //changeTheme: Function = this.themeService.changeTheme;
-
-  //runningTheme: any = this.themeService["runningTheme"];
 
   private selectedTheme: string = "";
  // private themes: any;
@@ -67,17 +59,6 @@ export class IndexComponent implements OnInit {
         }
       }
     );
-
-    // this.appMiscService.getRawData(this.themeService.dataUrl).subscribe(
-    //   (resTheme) => {this.themeToChoose = resTheme}
-    // );
-
-    // let _themesToChoose = this.themeService.getThemesToChoose();
-    // if (_themesToChoose != null) {
-    //   this.themesToChoose = _themesToChoose;
-    // } else {
-    //   console.error("failed to fetch themes to choose");
-    // }
     
     //retrieve upcomings
     this.upcomingService.getUpcomings().subscribe(

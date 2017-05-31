@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
-import { AppMiscService } from './app-misc.service';
-import { WcnauthService } from  './wcnauth.service';
-import { ThemeService } from './theme.service';
+import { DataService } from '../../services/data.service';
+import { WcnauthService } from  '../../services/wcnauth.service';
+import { ThemeService } from '../../services/theme.service';
 
-import { ISite } from "./ISite.interface";
+import { ISite } from "../../interfaces/ISite.interface";
 
 @Component({
   selector: 'wcnexus',
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   title = 'wcNexus';
 
   constructor(
-    private appMiscService: AppMiscService,
+    private dataService: DataService,
     private themeService: ThemeService,
     @Inject(DOCUMENT) private document,
     private authService: WcnauthService) {
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     //get site settings for case number
-    this.appMiscService.getRawData(this.api).subscribe(
+    this.dataService.getRawData(this.api).subscribe(
       (resSite) => {this.site = resSite[0]},
       (resError) => {console.error(resError)}
     );

@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 
 //import { Observable } from 'rxjs/Observable';
-import { AppMiscService } from './app-misc.service';
+import { DataService } from './data.service';
 
 @Injectable()
 export class RecomSiteService {
 
   constructor(
-    private appMiscService: AppMiscService
+    private dataService: DataService
     ) { }
 
   dataUrl: string = "/api/recomSites";
 
   getRecomSites() {
-    return this.appMiscService.getCookedData(this.dataUrl, this.extractData);
+    return this.dataService.getCookedData(this.dataUrl, this.extractData);
   }
 
   extractData(res: Response) {

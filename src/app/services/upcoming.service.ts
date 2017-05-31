@@ -6,20 +6,20 @@ import { Response } from '@angular/http';
 // import 'rxjs/add/operator/catch';
 // import 'rxjs/add/observable/throw';
 
-import { AppMiscService } from './app-misc.service';
+import { DataService } from './data.service';
 
 @Injectable()
 export class UpcomingService {
 
   constructor(
     //private _http: Http,
-    private appMiscService: AppMiscService
+    private dataService: DataService
     ) { }
 
   public dataUrl: string = "/api/upcomings";
 
   getUpcomings() {
-    return this.appMiscService.getCookedData(this.dataUrl, this.extractData);
+    return this.dataService.getCookedData(this.dataUrl, this.extractData);
   }
 
   extractData(res: Response) {
