@@ -4,7 +4,9 @@
   "description": "wc's personal website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "webpack-dev-server --hot --inline --progress",
+    "test": "karma start",
+    "build": "webpack --config config/webpack.prod.js --progress --profile --bail"
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,47 @@
   "bugs": {
     "url": "https://github.com/valorad/wcnexus.com/issues"
   },
-  "homepage": "https://github.com/valorad/wcnexus.com#readme"
+  "homepage": "https://github.com/valorad/wcnexus.com#readme",
+  "dependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/router": "^5.0.0",
+    "core-js": "^2.5.1",
+    "rxjs": "^5.4.3",
+    "zone.js": "^0.8.17"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^5.0.2",
+    "@angular/compiler-cli": "^5.0.2",
+    "@ngtools/webpack": "^1.8.2",
+    "@types/jasmine": "^2.6.0",
+    "@types/node": "^8.0.28",
+    "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.2.3",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.0",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.4",
+    "node-sass": "^4.7.2",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "typescript": "^2.5.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2",
+    "webpack-merge": "^4.1.0"
+  }
 }

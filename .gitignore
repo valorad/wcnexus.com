@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+/dist/*
 /tmp
 
 # dependencies
@@ -45,14 +45,6 @@ testem.log
 Thumbs.db
 
 # Site Specific
-.tscache/*
-/.tscache
-/.tscache/*
-!.tscache
-!.tscache/*
-!/.tscache
-!/.tscache/*
-.tscache/**
-
-/src/server/wcnexus/wcnexus.json
-/src/assets/data/wcnexus.json
+/src/client/static/*
+*.lock
+*-lock.json
