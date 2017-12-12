@@ -1,9 +1,12 @@
+const path = require('path');
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const { root } = require('../lib/helpers');
+require("babel-polyfill")
 
 const appPath = root('src', 'client', 'app');
 const globalscss = [
@@ -17,6 +20,7 @@ module.exports = {
     'polyfills': root('src', 'client', 'polyfills.ts'),
     'vendor': root('src', 'client', 'vendor.ts'),
     'app': [
+      "babel-polyfill",
       root('src', 'client', 'main.ts')
     ],
     'styles': root('src', 'client', 'styles.ts')
@@ -83,7 +87,7 @@ module.exports = {
 
     new AngularCompilerPlugin({
       tsConfigPath: root('src', 'client', 'tsconfig.client.json'),
-      entryModule: root('src', 'client', 'app', 'app.module#AppModule')
+      entryModule:  path.resolve('src/client/app/app.module#AppModule')
     }),
 
     new HtmlWebpackPlugin({
