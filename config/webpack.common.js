@@ -78,7 +78,7 @@ module.exports = {
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)@angular/,
       clientpath, 
-      {} // a map of your routes
+      {} // Your Angular Async Route paths relative to this root directory
     ),
 
     new webpack.optimize.CommonsChunkPlugin({
