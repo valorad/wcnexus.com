@@ -19,6 +19,13 @@ mat-sidenav-container.sNavContainer {
   z-index: 150;
 }
 
+#sidenavContainer {
+  // Initially, side nav container's overflow is auto,
+  // because unlike the official way, we have put the router parts inside mat-sidenav-content.
+  // If we don't set this, we will not be able to scroll down.
+  overflow: auto;
+}
+
 #sidenav {
   /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
      causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */

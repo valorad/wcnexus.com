@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 // services
@@ -11,6 +11,9 @@ import { ThemeService } from './_services/theme.service';
   providers: [MediaMatcher]
 })
 export class AppComponent { 
+
+  @ViewChild('sidenav') sidenav: ElementRef;
+  @ViewChild('sideNavContainer') sideNavContainer: any; // MatSidenavContainer
 
   mobileQuery: MediaQueryList;
   _mobileQueryListener: () => void;
@@ -35,6 +38,19 @@ export class AppComponent {
     this.mobileQuery = media.matchMedia('(max-width: 992px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  // toggleSideNav = () => {
+  //   let _sideNav: any = this.sidenav;
+  //   if (_sideNav) {
+  //     _sideNav.toggle();
+  //   }
+
+  // };
+
+  setSideNavOverflow = (switchHiddenOn: boolean) => {
+    switchHiddenOn? this.sideNavContainer._element.nativeElement.style.overflow = 'hidden':
+     this.sideNavContainer._element.nativeElement.style.overflow = 'auto';
   }
 
   ngOnDestroy() {

@@ -1,7 +1,7 @@
 <div [class.appRoot]="true" [class.isMobile]="mobileQuery.matches" [ngClass]="themeService.config.current">
 
-  <mat-sidenav-container class="sNavContainer">
-    <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches">
+  <mat-sidenav-container #sideNavContainer id="sidenavContainer" class="sNavContainer">
+    <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" (openedStart)="setSideNavOverflow(true)" (closedStart)="setSideNavOverflow(false)">
       <mat-nav-list>
         <ng-template ngFor let-nav [ngForOf]="navList">
           <div *ngIf="nav.exterior; then sideNavExt else sideNavInt"></div>
@@ -29,7 +29,7 @@
             <div>
               <a mat-button routerLink="/index">
                 <span>W</span>
-                <span class="hideLG">wcnexus</span>
+                <span class="showLG">wcnexus</span>
               </a>  
             </div>
           </header>
@@ -51,7 +51,7 @@
           <footer>
             <a mat-button href="https://github.com/valorad/wcnexus.com" target="_blank">
               <span>G</span>
-              <span>Github</span>
+              <span class="showLG">Github</span>
             </a>
           </footer>
         </mat-toolbar>
