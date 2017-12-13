@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 // mat modules
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 // site shared modules
 
@@ -20,12 +24,16 @@ import { Http404Component } from './http404/http404.component';
 
 const ngModules = [
   BrowserModule,
-  HttpModule
+  BrowserAnimationsModule,
+  HttpModule,
+  FormsModule
 ];
 
 const ngMatModules = [
   MatButtonModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule
 ]
 
 @NgModule({

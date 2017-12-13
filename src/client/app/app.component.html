@@ -1,22 +1,77 @@
-<div [class]="themeService.config.current + ' app-root'">
+<div [class.appRoot]="true" [class.isMobile]="mobileQuery.matches" [ngClass]="themeService.config.current">
 
-  <nav class="app">
-    <mat-toolbar color="primary">
-      <a mat-button routerLink="/index">Index</a>
-      <a mat-button href="/">Venture</a>
-      <span class="flexSpacer"></span>
-      <a mat-button href="https://github.com/valorad/wcnexus.com" target="_blank">Github</a>
-    </mat-toolbar>
-  </nav>
+  <mat-sidenav-container class="sNavContainer">
+    <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches">
+      <mat-nav-list>
+        <ng-template ngFor let-nav [ngForOf]="navList">
+          <div *ngIf="nav.exterior; then sideNavExt else sideNavInt"></div>
 
-  <main class="router">
-    <router-outlet></router-outlet>
-  </main>
+          <!-- nav link posibilities -->
+          <ng-template #sideNavExt>
+            <a mat-list-item href="{{ nav.link }}">{{ nav.title }}</a>
+          </ng-template>
+          <ng-template #sideNavInt>
+            <a mat-list-item routerLink="{{ nav.link }}">{{ nav.title }}</a>
+          </ng-template>
+        </ng-template>
 
-  <footer class="app">
-    <p>
-      <span>© 2017 Valorad the Oneiroseeker</span>
-      <span><a href="https://github.com/valorad/wcnexus.com/blob/master/LICENSE" title="MIT License"><i class="iconfont icon-libra">libra</i></a></span>
-    </p>
-  </footer>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="main">
+      <!-- top nav bar -->
+      <nav class="app">
+        <mat-toolbar color="primary">
+          <header>
+            <div class="brand hideLG">
+              <a mat-icon-button (click)="sidenav.toggle()" ><i class="material-icons">menu</i></a>
+            </div>
+            <div>
+              <a mat-button routerLink="/index">
+                <span>W</span>
+                <span class="hideLG">wcnexus</span>
+              </a>  
+            </div>
+          </header>
+          <main class="navTopList showLG">
+            <ng-template ngFor let-nav [ngForOf]="navList">
+              <div *ngIf="nav.exterior; then topNavExt else topNavInt"></div>
+
+              <!-- nav link posibilities -->
+              <ng-template #topNavExt>
+                <a mat-button href="{{ nav.link }}">{{ nav.title }}</a>
+              </ng-template>
+              <ng-template #topNavInt>
+                <a mat-button routerLink="{{ nav.link }}">{{ nav.title }}</a>
+              </ng-template>
+
+            </ng-template>
+          </main>
+          <div class="flexSpacer"></div>
+          <footer>
+            <a mat-button href="https://github.com/valorad/wcnexus.com" target="_blank">
+              <span>G</span>
+              <span>Github</span>
+            </a>
+          </footer>
+        </mat-toolbar>
+      </nav>
+      <!-- Router * Router * Router * Router * Router * Router -->
+      <main class="router">
+        <router-outlet></router-outlet>        
+      </main>
+      <!-- Router * Router * Router * Router * Router * Router -->
+      <footer class="app">
+        <p>
+          <span>© 2017 Valorad the Oneiroseeker</span>
+          <span><a href="https://github.com/valorad/wcnexus.com/blob/master/LICENSE" title="MIT License"><i class="iconfont icon-libra">libra</i></a></span>
+        </p>
+      </footer>
+    </mat-sidenav-content>
+    
+  </mat-sidenav-container>
+
+
+
+
 </div>

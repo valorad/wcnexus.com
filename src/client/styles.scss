@@ -13,3 +13,25 @@ div.content {
 .flexSpacer {
   flex-grow: 1;
 }
+
+.showLG {
+  // elements that will be shown only at lg, xl.
+  // "lg", "xl" are Bootstrap 4 default grid tiers.
+  // In other cases, this is hidden
+  display: none;
+}
+
+.hideLG {
+  // elements that will hide once screen reaches lg, xl size.
+  // In other cases, this is shown
+  display: inherit;
+}
+
+@media only screen and (min-width: 992px) {
+  .showLG {
+    display: inherit;
+  }
+  .hideLG {
+    display: none;
+  }
+}
