@@ -45,6 +45,6 @@ testem.log
 Thumbs.db
 
 # Site Specific
-/src/client/static/*
+
 *.lock
 *-lock.json

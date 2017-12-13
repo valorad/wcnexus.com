@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// services
+import { ThemeService } from '../_services/theme.service';
+
 @Component({
 	selector: 'app-http404',
 	templateUrl: './http404.component.html',
@@ -7,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Http404Component implements OnInit {
 	constructor(
+		public themeService: ThemeService
 	) { }
 	
 	ngOnInit() {}

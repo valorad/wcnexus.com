@@ -1,8 +1,13 @@
-<div class="app-root mat-blue-pink">
-  <h1 class="primary-text">wcnexus</h1>
-  mat toolbar ...
+<div [class]="themeService.config.current + ' app-root'">
 
-  side nav ...
+  <nav class="app">
+    <mat-toolbar color="primary">
+      <a mat-button routerLink="/index">Index</a>
+      <a mat-button href="/">Venture</a>
+      <span class="flexSpacer"></span>
+      <a mat-button href="https://github.com/valorad/wcnexus.com" target="_blank">Github</a>
+    </mat-toolbar>
+  </nav>
 
   <main class="router">
     <router-outlet></router-outlet>
