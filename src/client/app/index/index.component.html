@@ -5,7 +5,7 @@
         <ul>
           <li *ngFor="let avt of dummyAvt">
             <div class="avatar">
-              img
+              <!-- img -->
             </div>
           </li>
         </ul>
@@ -32,7 +32,36 @@
   <main class="index">
     <section class="intro">
       <div class="content">
-        introduction to site
+        <h1>Welcome to wcnexus</h1>
+        <section>
+          <header>
+            <div class="row">
+              <div class="descr col-lg-6">
+                <p>wcnexus is wc's personal website as nexus.</p>
+                <p>We're currently in version 3 dev stage.</p>
+                <p>By speaking "We", I mean me and my xiaomajias.</p>
+              </div>
+              <div class="imgHolder col-lg-6">
+                pic
+              </div>
+            </div>
+          </header>
+
+          <h2 class="primary">CS technologies we used</h2>
+          <div class="row cstech">
+
+            <div *ngFor="let tech of dummyTechs" class="tech col-sm-5 col-md-3 col-lg-2">
+              <div class="icon">img is nownull</div>
+              <p class="title">{{ tech.title }}</p>
+              <p class="descr">{{ tech.descr }}</p>
+              <div class="action">
+                <a mat-button color="primary" [href]="tech.link">know more</a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
       </div>
     </section>
     <section class="master">
