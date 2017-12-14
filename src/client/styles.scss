@@ -1,6 +1,14 @@
 // a md theme
 @import './assets/scss/theme-index';
 
+// Bootstrap 4 grid system
+@import './assets/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+
+// Bootstrap 4 positioning system
+@import '~bootstrap/scss/utilities/position';
+
 body {
   margin: 0px;
   font-size: 14px;
