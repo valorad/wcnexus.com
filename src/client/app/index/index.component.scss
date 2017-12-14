@@ -32,6 +32,8 @@ header.index {
     z-index: 10;
     top: 25%;
     width: 100%;
+    transform: translateX(50%);
+    left: -50%;
     main {
       margin: 0px auto;
       color: white;
@@ -92,21 +94,6 @@ section.master {
 
 // screen sm, md, lg, xl
 @media only screen and (min-width: 576px) {
-  header.index {
-    div.title {
-      max-width: 600px;
-      left: 25%;
-    }
-    div.brand {
-      text-align: right;
-    }
-    div.titleMain {
-      text-align: left;
-    }
-    div.slogan {
-      padding-left: 5em;
-    }
-  }
 
   section.intro {
     header {
@@ -127,7 +114,14 @@ section.master {
 
 // screen lg, xl
 @media only screen and (min-width: 992px) {
-
+  header.index {
+    div.brand {
+      text-align: right;
+    }
+    div.titleMain {
+      text-align: left;
+    }
+  }
 }
 
 
