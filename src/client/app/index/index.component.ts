@@ -9,12 +9,21 @@ import { ThemeService } from '../_services/theme.service';
 	styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
+
+	dummyAvt: any[] = [];
+
 	constructor(
 		public themeService: ThemeService
 	) { }
 	
 	ngOnInit() {
 		this.themeService.config.current = "mat-blue-pink";
+		for (let i = 0; i < 30; i++) {
+			this.dummyAvt.push({
+				title: i,
+				img: null
+			})
+		}
 	}
 
 }

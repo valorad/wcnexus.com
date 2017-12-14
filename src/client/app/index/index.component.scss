@@ -12,3 +12,41 @@ section.master {
   height: 1080px;
   background-color: rgba(19, 177, 59, 0.8);
 }
+
+header.index {
+  position: relative;
+  overflow: hidden;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    position: absolute;
+    left: calc(50% - 600px);
+    z-index: 8;
+    top: -8%;
+  }
+  div.avatar {
+    width: 10em;
+    height: 10em;
+    margin: 1em;
+    background-color: #eeeeee;
+    opacity: 0.1;
+    transition: all 0.2s ease-in;
+  }
+  div.avatar:hover {
+    opacity: 1.0;
+  }
+
+  div.title {
+    position: absolute;
+    z-index: 10;
+    top: 5em;
+    width: 100%;
+    main {
+      margin: 0px auto;
+      color: white;
+    }
+  }
+}
+
+
