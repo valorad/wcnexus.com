@@ -23,13 +23,13 @@
       <nav class="app">
         <mat-toolbar color="primary">
           <header>
-            <div class="brand hideLG">
+            <div class="hideLG">
               <a mat-icon-button (click)="sidenav.toggle()" ><i class="material-icons">menu</i></a>
             </div>
             <div>
               <a mat-button routerLink="/index">
-                <span>W</span>
-                <span class="showLG">wcnexus</span>
+                <span class="brand"><i class="icomoon icon-wcnexus"></i></span>
+                <span class="showLG title">wcnexus</span>
               </a>  
             </div>
           </header>
@@ -50,8 +50,10 @@
           <div class="flexSpacer"></div>
           <footer>
             <a mat-button href="https://github.com/valorad/wcnexus.com" target="_blank">
-              <span>G</span>
-              <span class="showLG">Github</span>
+              <span class="brand">
+                <i class="iconfont icon-github"></i>
+              </span>
+              <span class="title showLG">Github</span>
             </a>
           </footer>
         </mat-toolbar>
