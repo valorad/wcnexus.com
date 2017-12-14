@@ -40,11 +40,49 @@ header.index {
   div.title {
     position: absolute;
     z-index: 10;
-    top: 5em;
+    top: 25%;
     width: 100%;
     main {
       margin: 0px auto;
       color: white;
+    }
+    .row {
+      align-items: center;
+    }
+  }
+
+  div.brand, div.titleMain {
+    text-align: center;
+  }
+
+  i {
+    font-size: 10em;
+  }
+
+  h1 {
+    font-size: 5em;
+    margin: 0px;
+  }
+  div.slogan {
+    text-align: center;
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  header.index {
+    div.title {
+      max-width: 600px;
+      left: 25%;
+    }
+    div.brand {
+      text-align: right;
+    }
+    div.titleMain {
+      text-align: left;
+    }
+    div.slogan {
+      padding-left: 5em;
     }
   }
 }
