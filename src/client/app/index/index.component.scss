@@ -1,3 +1,14 @@
+.row > * {
+  align-items: center;
+}
+
+div.descr {
+  p.title {
+    font-size: 2em;
+    font-weight: bold;
+  }
+}
+
 header.index {
   height: 600px;
   background-color: rgba(1, 1, 1, 0.8);
@@ -60,7 +71,8 @@ header.index {
 
 main.index {
   h1 {
-    margin: 3em auto;
+    margin: 0px;
+    margin-bottom: 3em;
     text-align: center;
     font-size: 2em;
   }
@@ -69,16 +81,15 @@ main.index {
     padding: 0.5em;
     font-weight: 300;
   }
+  > section {
+    margin: 5em auto;
+  }
+  section.topics {
+    margin-top: 5em;
+  }
 }
 
 section.intro {
-
-  div.descr {
-    p.title {
-      font-size: 2em;
-      font-weight: bold;
-    }
-  }
   div.imgHolder {
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
   }
@@ -152,9 +163,6 @@ section.site {
     div.titleMain {
       text-align: left;
     }
-  }
-  section.intro {
-
   }
 
 }
