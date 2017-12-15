@@ -72,11 +72,29 @@ main.index {
 }
 
 section.intro {
-  header {
-    div.descr, div.imgHolder {
+
+  // div.descr, div.imgHolder, div.avatarHolder {
+  //   text-align: center;
+  // }
+
+  div.descrHeader {
+    .colHolder {
       text-align: center;
+      width: 22rem;
+      margin: 0px auto;
+    }
+    p.title {
+      font-size: 2em;
+      font-weight: bold;
     }
   }
+
+  // .colHolder {
+
+  // }
+
+
+
 }
 
 section.site {
@@ -126,16 +144,19 @@ section.site {
     }
   }
   section.intro {
-    header {
-      div.descr {
-        text-align: right;
-        transform: translateX(-5em);
+
+    div.descrHeader {
+      display: flex;
+      flex-direction: row-reverse;
+      .colHolder {
+        margin: 0px;
+        text-align: unset;
       }
-      div.imgHolder {
-        text-align: left;
-        transform: translateX(5em);
+      .descr {
+        flex-direction: row-reverse;
       }
     }
+
   }
 
 }
