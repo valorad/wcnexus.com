@@ -73,28 +73,38 @@ main.index {
 
 section.intro {
 
-  // div.descr, div.imgHolder, div.avatarHolder {
-  //   text-align: center;
-  // }
-
-  div.descrHeader {
-    .colHolder {
-      text-align: center;
-      width: 22rem;
-      margin: 0px auto;
-    }
+  div.descr {
     p.title {
       font-size: 2em;
       font-weight: bold;
     }
   }
+  div.imgHolder {
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  section.topics {
+    picture.avatar {
+      margin: 1em;
+      width: 4em;
+      height: 4em;
+      background-color: burlywood;
+    }
+  }
 
-  // .colHolder {
+  div.master {
+    picture.avatar {
+      width: 6em;
+      height: 6em;
+      margin: 0px auto;
+    }
+  }
 
-  // }
-
-
-
+  div.xmj {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 }
 
 section.site {
@@ -144,18 +154,6 @@ section.site {
     }
   }
   section.intro {
-
-    div.descrHeader {
-      display: flex;
-      flex-direction: row-reverse;
-      .colHolder {
-        margin: 0px;
-        text-align: unset;
-      }
-      .descr {
-        flex-direction: row-reverse;
-      }
-    }
 
   }
 
