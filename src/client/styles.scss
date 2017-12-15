@@ -30,6 +30,10 @@ ul {
   flex-grow: 1;
 }
 
+.fluid {
+  max-width: 100%;
+}
+
 .showLG {
   // elements that will be shown only at lg, xl.
   // "lg", "xl" are Bootstrap 4 default grid tiers.

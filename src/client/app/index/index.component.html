@@ -3,9 +3,9 @@
     <div class="content">
       <div class="picwall">
         <ul>
-          <li *ngFor="let avt of dummyAvt">
+          <li *ngFor="let photo of onWallPhotos">
             <div class="avatar">
-              <!-- img -->
+              <img class="fluid" [src]="onWallPhotoBase + photo.img" [alt]="photo.title">
             </div>
           </li>
         </ul>

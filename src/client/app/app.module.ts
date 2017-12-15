@@ -12,10 +12,13 @@ import { MatListModule } from '@angular/material/list';
 
 // site shared modules
 
+
 // routes
 import { appRoutes } from './app.route';
 
 // services
+import { DataService } from "@xmj-alliance/lib-ngx";
+
 import { ThemeService } from './_services/theme.service';
 
 import { AppComponent } from './app.component';
@@ -49,6 +52,8 @@ const ngMatModules = [
     Http404Component
   ],
   providers: [
+    DataService,
+    
     ThemeService
   ],
   bootstrap: [ AppComponent ]

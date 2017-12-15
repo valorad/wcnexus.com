@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 // services
+import { DataService } from "@xmj-alliance/lib-ngx";
+
 import { ThemeService } from '../_services/theme.service';
 
 @Component({
@@ -12,11 +14,14 @@ export class IndexComponent implements OnInit {
 
 	photoNum = 30;
 
-	dummyAvt: any[] = [];
+	// dummyAvt: any[] = [];
 	dummyTechs: any[] = [];
 
+	onWallPhotos: any[] = [];
+	onWallPhotoBase = "statics/images/photowall/";
+
 	fetchphoto: (num: string) => {
-		// TO DO...
+		// TO DO... in future (back-end photo fetch)
 
 		// fetch photo from backend
 		// e.g. GET /api/photo/0
@@ -29,19 +34,15 @@ export class IndexComponent implements OnInit {
 
 	};
 
-	constructor(
-		public themeService: ThemeService
-	) { }
-	
-	ngOnInit() {
+	main = async () => {
+		// set themes to blue color
 		this.themeService.config.current = "mat-blue-pink";
-
-		// fill photowall with dummy
-		for (let i = 0; i < this.photoNum; i++) {
-			this.dummyAvt.push({
-				title: i,
-				img: null
-			})
+		// fetch photowall data
+		try {
+			let photos: any[] = await this.fetchPhotoLocal();
+			this.onWallPhotos = photos;
+		} catch (error) {
+			console.error("Failed to fetch photos on wall");
 		}
 
 		// dummy tech landfill
@@ -53,6 +54,33 @@ export class IndexComponent implements OnInit {
 				link: "https://www.link-to-the-dummy-tech.org.tv"
 			})
 		}
+	};
+
+	fetchPhotoLocal: () => Promise<any[]> = () => {
+		return new Promise((resolve, reject) => {
+			this.dataService.getData("statics/data/wallphotos.json").subscribe(
+				(next) => {
+					resolve(next);
+				}
+			);
+		});
+	};
+
+	constructor(
+		private dataService: DataService,
+		public themeService: ThemeService
+	) { }
+	
+	ngOnInit() {
+
+		this.main();
+		// fill photowall with dummy
+		// for (let i = 0; i < this.photoNum; i++) {
+		// 	this.dummyAvt.push({
+		// 		title: i,
+		// 		img: null
+		// 	})
+		// }
 
 	}
 

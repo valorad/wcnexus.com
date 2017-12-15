@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, ChangeDetectorRef, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 // services
@@ -10,7 +10,7 @@ import { ThemeService } from './_services/theme.service';
   styleUrls: ['./app.component.scss'],
   providers: [MediaMatcher]
 })
-export class AppComponent { 
+export class AppComponent implements OnDestroy { 
 
   @ViewChild('sidenav') sidenav: ElementRef;
   @ViewChild('sideNavContainer') sideNavContainer: any; // MatSidenavContainer
@@ -39,14 +39,6 @@ export class AppComponent {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-
-  // toggleSideNav = () => {
-  //   let _sideNav: any = this.sidenav;
-  //   if (_sideNav) {
-  //     _sideNav.toggle();
-  //   }
-
-  // };
 
   setSideNavOverflow = (switchHiddenOn: boolean) => {
     switchHiddenOn? this.sideNavContainer._element.nativeElement.style.overflow = 'hidden':
