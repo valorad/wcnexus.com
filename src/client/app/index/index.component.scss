@@ -1,9 +1,6 @@
 header.index {
   height: 600px;
   background-color: rgba(1, 1, 1, 0.8);
-}
-
-header.index {
   position: relative;
   overflow: hidden;
   ul {
@@ -67,45 +64,51 @@ main.index {
     text-align: center;
     font-size: 2em;
   }
-}
-
-section.intro {
+  
   h2 {
     padding: 0.5em;
     font-weight: 300;
   }
+}
+
+section.intro {
   header {
     div.descr, div.imgHolder {
       text-align: center;
     }
   }
+}
+
+section.site {
+
   div.cstech {
     text-align: center;
     .tech {
       padding: 1em;
     }
+    .title {
+      font-weight: bold;
+    }
   }
-}
-
-section.master {
-  height: 1080px;
-  background-color: rgba(19, 177, 59, 0.8);
+  div.tech {
+    transition: all 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  div.tech:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  div.icon {
+    height: 64px;
+    width: 64px;
+    overflow: hidden;
+    margin: 0px auto;
+  }
 }
 
 // screen sm, md, lg, xl
 @media only screen and (min-width: 576px) {
 
-  section.intro {
-    header {
-      div.descr {
-        text-align: right;
-        transform: translateX(-5em);
-      }
-      div.imgHolder {
-        text-align: left;
-        transform: translateX(5em);
-      }
-    }
+  section.site {
+
     div.cstech {
       transform: translateX(3em);
     }
@@ -122,6 +125,19 @@ section.master {
       text-align: left;
     }
   }
+  section.intro {
+    header {
+      div.descr {
+        text-align: right;
+        transform: translateX(-5em);
+      }
+      div.imgHolder {
+        text-align: left;
+        transform: translateX(5em);
+      }
+    }
+  }
+
 }
 
 

@@ -47,31 +47,53 @@
             </div>
           </header>
 
+          <main class="master">
+
+            <h2 class="primary">About me</h2>
+            Get to know more about your master valorad
+
+          </main>
+
+        </section>
+
+      </div>
+    </section>
+
+    <section class="site">
+      <div class="content">
+        <h1>About wcnexus</h1>
+        <section>
           <h2 class="primary">CS technologies we used</h2>
           <div class="row cstech">
 
             <div *ngFor="let tech of dummyTechs" class="tech col-sm-5 col-md-3 col-lg-2">
               <div class="icon">img is nownull</div>
               <p class="title">{{ tech.title }}</p>
-              <p class="descr">{{ tech.descr }}</p>
+              <small class="descr">{{ tech.descr }}</small>
               <div class="action">
                 <a mat-button color="primary" [href]="tech.link">know more</a>
               </div>
             </div>
 
           </div>
+          <h2 class="primary">History and releases</h2>
+
+          v1
+          v2
+          v3
+
         </section>
 
+        
       </div>
     </section>
-    <section class="master">
+
+    <section class="tour">
       <div class="content">
-        get to know more about your master valorad
-      </div>
-    </section>
-    <section>
-      <div class="content">
-        further links (cards)
+        <h1>Let's go</h1>
+        <section>
+            further links (cards) cards
+        </section>
       </div>
     </section>
   </main>
