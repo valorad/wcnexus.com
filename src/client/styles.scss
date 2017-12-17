@@ -34,6 +34,10 @@ ul {
   max-width: 100%;
 }
 
+.flex-reverse-ltLG {
+  flex-direction: column-reverse;
+}
+
 .showLG {
   // elements that will be shown only at lg, xl.
   // "lg", "xl" are Bootstrap 4 default grid tiers.
@@ -77,6 +81,10 @@ picture.avatar:hover {
   .colHolder {
     margin: 0px;
     text-align: unset;
+  }
+
+  .flex-reverse-ltLG {
+    flex-direction: unset;
   }
 
   .flex-left {
