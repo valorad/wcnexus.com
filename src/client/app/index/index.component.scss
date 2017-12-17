@@ -72,9 +72,8 @@ header.index {
 main.index {
   h1 {
     margin: 0px;
-    margin-bottom: 3em;
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
   }
   
   h2 {
@@ -82,7 +81,7 @@ main.index {
     font-weight: 300;
   }
   > section {
-    margin: 5em auto;
+    margin: 3em auto;
   }
   section.topics {
     margin-top: 5em;
@@ -167,6 +166,16 @@ section.site {
     }
     div.titleMain {
       text-align: left;
+    }
+  }
+
+  main.index {
+    h1 {
+      margin: 0px;
+      margin-bottom: 1em;
+    }
+    > section {
+      margin: 5em auto;
     }
   }
 
