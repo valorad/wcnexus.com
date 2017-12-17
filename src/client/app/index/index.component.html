@@ -37,16 +37,15 @@
           <div class="descr flex-right col-lg-6">
             <div class="colHolder">
               <p class="title">wcnexus is wc's personal website as nexus.</p>
-              <p>We developed this site for the purpose of our interest display, 
+              <p>I developed this site for the purpose of my interest display, 
                 demostration of front-end (and also maybe some back-end) techniques,
                 but more importantly, to accomplish what wished couple of years ago.
               </p>
-              <p>By saying "We", I mean me and my xiaomajias.</p>
             </div>
           </div>
           <div class="imgHolder col-lg-6 flex-left">
-            <picture class="primary colHolder">
-
+            <picture class="colHolder">
+              <img class="fluid" src="../../assets/images/wcnexus.png" alt="wcnexus">
             </picture>
           </div>
         </div>
@@ -57,36 +56,21 @@
               <div class="colHolder">
                 <div class="master">
                   <picture class="avatar">
-                      valroad
+                    <img class="fluid" [src]="userAvatarBase + master.avatar" [alt]="master.name">
                   </picture>
+                  <p [innerHtml]="master.name"></p>
                 </div>
 
                 <div class="xmj">
                   <ul>
-                    <li>
-                      <picture class="avatar">
-                        xmj1
-                      </picture>
-                    </li>
-                    <li>
-                      <picture class="avatar">
-                        xmj2
-                      </picture>
-                    </li>
-                    <li>
-                      <picture class="avatar">
-                        xmj3
-                      </picture>
-                    </li>
-                    <li>
-                      <picture class="avatar">
-                        xmj4
-                      </picture>
-                    </li>
-                    <li>
-                      <picture class="avatar">
-                        xmj5
-                      </picture>
+                    <li *ngFor="let xmj of xiaomajias">
+                      <div>
+                        <picture class="avatar">
+                          <img class="fluid" [src]="userAvatarBase + xmj.avatar" [alt]="xmj.name">
+                        </picture>
+                        <p [innerHTML]="xmj.name"></p>
+                      </div>
+
                     </li>
                   </ul>
                 </div>
@@ -97,7 +81,7 @@
                 <p class="title">单身喵，伪学霸。老滚辐射粉，刺客远哭粉，龙腾质量粉。杯赛路，育碧路，EA黑。</p>
                 <p>Loves CS, video games, installing OS</p>
                 <p>Front-end, GIS</p>
-                <p>Currently working</p>
+                <p>Currently working at an IT company.</p>
               </div>
             </div>
           </div>

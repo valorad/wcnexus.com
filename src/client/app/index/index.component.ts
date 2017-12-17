@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
 
 // services
 import { DataService } from "@xmj-alliance/lib-ngx";
@@ -20,6 +21,10 @@ export class IndexComponent implements OnInit {
 	onWallPhotos: any[] = [];
 	onWallPhotoBase = "statics/images/photowall/";
 
+	master: any = {};
+	xiaomajias: any[] = [];
+	userAvatarBase = "statics/images/avatar/";
+
 	fetchphoto: (num: string) => {
 		// TO DO... in future (back-end photo fetch)
 
@@ -34,6 +39,56 @@ export class IndexComponent implements OnInit {
 
 	};
 
+	fetchPhotoLocal: () => Promise<any[]> = () => {
+		return new Promise((resolve, reject) => {
+			this.dataService.getData("statics/data/wallphotos.json").subscribe(
+				(next) => {
+					// next e.g.
+					// {
+					// 	"title": "watch_dogs",
+					// 	"img": "watch_dogs.jpg"
+					// }
+					resolve(next);
+				}
+			);
+		});
+	};
+
+	getMaster: () => Promise<any[]> = () => {
+		return new Promise((resolve, reject) => {
+			this.dataService.getData("statics/data/user-response.json").subscribe(
+				(next) => {
+					// next e.g.
+					// {
+					// 	"name": "valorad",
+					// 	"fullName": "Valorad the Oneiroseeker",
+					// 	"descr": "",
+					// 	"role": "master",
+					// 	"avatar": ""
+					// }
+					resolve(next);
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
+		});
+	}
+
+	getXiaomajias: () => Promise<any[]> = () => {
+		return new Promise((resolve, reject) => {
+			this.dataService.getData("statics/data/xiaomajia-response.json").subscribe(
+				(next) => {
+					// next is [{user}{user}]
+					resolve(next);
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
+		});
+	}
+
 	main = async () => {
 		// set themes to blue color
 		this.themeService.config.current = "mat-blue-pink";
@@ -45,6 +100,16 @@ export class IndexComponent implements OnInit {
 			console.error("Failed to fetch photos on wall");
 		}
 
+		// get master and xiaomajia
+		try {
+			this.master = await this.getMaster();
+			this.xiaomajias = await this.getXiaomajias();
+		} catch (ex) {
+			console.error("Failed to get master or xiaomajia data");
+		}
+
+
+
 		// dummy tech landfill
 		for (let i = 0; i < 15; i++) {
 			this.dummyTechs.push({
@@ -54,16 +119,6 @@ export class IndexComponent implements OnInit {
 				link: "https://www.link-to-the-dummy-tech.org.tv"
 			})
 		}
-	};
-
-	fetchPhotoLocal: () => Promise<any[]> = () => {
-		return new Promise((resolve, reject) => {
-			this.dataService.getData("statics/data/wallphotos.json").subscribe(
-				(next) => {
-					resolve(next);
-				}
-			);
-		});
 	};
 
 	constructor(

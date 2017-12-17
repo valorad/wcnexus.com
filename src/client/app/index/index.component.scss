@@ -27,7 +27,7 @@ header.index {
     width: 10em;
     height: 10em;
     margin: 1em;
-    background-color: #eeeeee;
+    background-color: transparent;
     opacity: 0.1;
     transition: all 0.2s ease-in;
   }
@@ -90,9 +90,6 @@ main.index {
 }
 
 section.intro {
-  div.imgHolder {
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
-  }
   section.topics {
     picture.avatar {
       margin: 1em;
@@ -106,7 +103,11 @@ section.intro {
     picture.avatar {
       width: 6em;
       height: 6em;
-      margin: 0px auto;
+      margin: 1em auto;
+    }
+    p {
+      text-align: center;
+      font-weight: bold;
     }
   }
 
@@ -114,6 +115,10 @@ section.intro {
     ul {
       display: flex;
       flex-wrap: wrap;
+    }
+    p {
+      text-align: center;
+      font-weight: bold;
     }
   }
 }
