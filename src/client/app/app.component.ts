@@ -40,9 +40,9 @@ export class AppComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  setSideNavOverflow = (switchHiddenOn: boolean) => {
-    switchHiddenOn? this.sideNavContainer._element.nativeElement.style.overflow = 'hidden':
-     this.sideNavContainer._element.nativeElement.style.overflow = 'auto';
+  setSideNavToTop = (switchToTop: boolean) => {
+    switchToTop? this.sideNavContainer._element.nativeElement.style.zIndex = '150':
+     this.sideNavContainer._element.nativeElement.style.zIndex = '80';
   }
 
   ngOnDestroy() {

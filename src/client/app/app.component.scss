@@ -23,7 +23,8 @@ mat-sidenav-container.sNavContainer {
   // Initially, side nav container's overflow is auto,
   // because unlike the official way, we have put the router parts inside mat-sidenav-content.
   // If we don't set this, we will not be able to scroll down.
-  overflow: auto;
+  // overflow: auto;
+  z-index: 80;
 }
 
 #sidenav {
@@ -40,6 +41,10 @@ mat-sidenav-container.sNavContainer {
 
 .mat-drawer-container {
   background-color: unset;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 150;
 }
 
 mat-sidenav-content.main {

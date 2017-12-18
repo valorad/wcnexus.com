@@ -12,7 +12,9 @@
 body {
   margin: 0px;
   font-size: 14px;
-  font-family:Roboto, 'Noto Sans CJK SC', Hack, 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'
+  font-family:Roboto, 'Noto Sans CJK SC', Hack, 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback';
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 div.content {
