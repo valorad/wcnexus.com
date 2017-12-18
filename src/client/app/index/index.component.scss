@@ -147,6 +147,12 @@ section.site {
   }
 }
 
+section.tour {
+  .colHolder {
+    width: unset;
+  }
+}
+
 // screen sm, md, lg, xl
 @media only screen and (min-width: 576px) {
 

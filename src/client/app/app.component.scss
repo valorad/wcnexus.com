@@ -82,8 +82,38 @@ nav.app {
   }
 }
 
+footer.app {
+  display: flow-root;
+  color: white;
+  text-align: center;
+  a {
+    color: white;
+  }
+  div.social {
+    text-align: center;
+    i {
+      font-size: 24px;
+      margin: 0.5em;
+    }
+  }
+}
+
+
+
 @media only screen and (min-width: 992px) {
   main.router {
     margin-top: 0em;
   }
+
+  footer.app {
+    padding: 0.25rem;
+    display: flex;
+  }
+
+  div.copyright {
+    p {
+      margin-left: 1em;
+    }
+  }
+
 }
