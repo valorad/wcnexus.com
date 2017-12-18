@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Angular",
+    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
+    "img": null,
+    "link": "https://www.link-to-the-dummy-tech.org.tv"
+  },
+  {
+    "title": "Material",
+    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
+    "img": null,
+    "link": "https://www.link-to-the-dummy-tech.org.tv"
+  },
+  {
+    "title": "node.js",
+    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
+    "img": null,
+    "link": "https://www.link-to-the-dummy-tech.org.tv"
+  },
+  {
+    "title": "webpack",
+    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
+    "img": null,
+    "link": "https://www.link-to-the-dummy-tech.org.tv"
+  },
+  {
+    "title": "koa",
+    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
+    "img": null,
+    "link": "https://www.link-to-the-dummy-tech.org.tv"
+  },
+  {
+    "title": "MongoDB",
+    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
+    "img": null,
+    "link": "https://www.link-to-the-dummy-tech.org.tv"
+  }
+]

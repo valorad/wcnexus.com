@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit {
 	photoNum = 30;
 
 	// dummyAvt: any[] = [];
-	dummyTechs: any[] = [];
+	// dummyTechs: any[] = [];
 
 	onWallPhotos: any[] = [];
 	onWallPhotoBase = "statics/images/photowall/";
@@ -24,6 +24,8 @@ export class IndexComponent implements OnInit {
 	master: any = {};
 	xiaomajias: any[] = [];
 	userAvatarBase = "statics/images/avatar/";
+
+	techs: any[] = [];
 
 	fetchphoto: (num: string) => {
 		// TO DO... in future (back-end photo fetch)
@@ -89,6 +91,16 @@ export class IndexComponent implements OnInit {
 		});
 	}
 
+	getTechs: () => Promise<any[]> = () => {
+		return new Promise((resolve, reject) => {
+			this.dataService.getData("statics/data/techs.json").subscribe(
+				(next) => {
+					resolve(next);
+				}
+			);
+		});
+	};
+
 	main = async () => {
 		// set themes to blue color
 		this.themeService.config.current = "mat-blue-pink";
@@ -108,17 +120,24 @@ export class IndexComponent implements OnInit {
 			console.error("Failed to get master or xiaomajia data");
 		}
 
-
+		// get techs
+		try {
+			this.techs = await this.getTechs();
+		} catch (error) {
+			console.error("Failed to get techs data");
+		}
 
 		// dummy tech landfill
-		for (let i = 0; i < 15; i++) {
-			this.dummyTechs.push({
-				title: "A Tech no lo gy",
-				descr: "This is an amazing tech. Don't worry, this will be a formal description.",
-				img: null,
-				link: "https://www.link-to-the-dummy-tech.org.tv"
-			})
-		}
+		// for (let i = 0; i < 15; i++) {
+		// 	this.dummyTechs.push({
+		// 		title: "A Tech no lo gy",
+		// 		descr: "This is an amazing tech. Don't worry, this will be a formal description.",
+		// 		img: null,
+		// 		link: "https://www.link-to-the-dummy-tech.org.tv"
+		// 	})
+		// }
+
+
 	};
 
 	constructor(
