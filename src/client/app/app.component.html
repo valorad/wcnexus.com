@@ -1,7 +1,7 @@
 <div [class.appRoot]="true" [class.isMobile]="mobileQuery.matches" [ngClass]="themeService.config.current">
 
   <mat-sidenav-container #sideNavContainer id="sidenavContainer" class="sNavContainer">
-    <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" (openedStart)="setSideNavToTop(true)" (closedStart)="setSideNavToTop(false)">
+    <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" (closedStart)="hideSideNav()">
       <mat-nav-list>
         <ng-template ngFor let-nav [ngForOf]="navList">
           <div *ngIf="nav.exterior; then sideNavExt else sideNavInt"></div>
@@ -28,7 +28,7 @@
     <mat-toolbar color="primary">
       <header>
         <div class="hideLG">
-          <a mat-icon-button (click)="sidenav.toggle()" ><i class="material-icons">menu</i></a>
+          <a mat-icon-button (click)="openSideNav()" ><i class="material-icons">menu</i></a>
         </div>
         <div>
           <a mat-button routerLink="/index">
@@ -68,7 +68,7 @@
     <router-outlet></router-outlet>        
   </main>
   <!-- Router * Router * Router * Router * Router * Router -->
-  <footer class="app primary">
+  <footer class="app primary flex-reverse-ltLG">
     <div class="copyright">
       <p>
         <span>© 2017 Valorad the Oneiroseeker</span>

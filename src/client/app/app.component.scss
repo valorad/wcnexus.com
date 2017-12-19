@@ -1,5 +1,4 @@
 div.appRoot {
-  display: flex;
   flex-direction: column;
   position: absolute;
   top: 0;
@@ -20,11 +19,8 @@ mat-sidenav-container.sNavContainer {
 }
 
 #sidenavContainer {
-  // Initially, side nav container's overflow is auto,
-  // because unlike the official way, we have put the router parts inside mat-sidenav-content.
-  // If we don't set this, we will not be able to scroll down.
-  // overflow: auto;
-  z-index: 80;
+  // z-index: 0;
+  display: none;
 }
 
 #sidenav {
@@ -88,9 +84,11 @@ nav.app {
 }
 
 footer.app {
-  display: flow-root;
+  display: flex;
+  padding: 2em;
   color: white;
   text-align: center;
+  z-index: 10;
   a {
     color: white;
   }
@@ -110,7 +108,6 @@ footer.app {
 
   footer.app {
     padding: 0.25rem;
-    display: flex;
   }
 
   div.copyright {

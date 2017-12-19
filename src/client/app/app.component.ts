@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
 
 // services
 import { ThemeService } from './_services/theme.service';
@@ -12,7 +13,7 @@ import { ThemeService } from './_services/theme.service';
 })
 export class AppComponent implements OnDestroy { 
 
-  @ViewChild('sidenav') sidenav: ElementRef;
+  @ViewChild('sidenav') sidenav: MatSidenav;
   @ViewChild('sideNavContainer') sideNavContainer: any; // MatSidenavContainer
 
   mobileQuery: MediaQueryList;
@@ -40,10 +41,28 @@ export class AppComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  setSideNavToTop = (switchToTop: boolean) => {
-    switchToTop? this.sideNavContainer._element.nativeElement.style.zIndex = '150':
-     this.sideNavContainer._element.nativeElement.style.zIndex = '80';
-  }
+  openSideNav = async () => {
+    this.sideNavContainer._element.nativeElement.style.display = 'block';
+    await this.sidenav.open();
+  };
+
+  // closeSideNav = async () => {
+  //   await this.sidenav.close();
+  //   console.log('sidenav closed');
+  //   this.sideNavContainer._element.nativeElement.style.display = 'none';
+  // };
+
+  hideSideNav = async () => {
+    await this.sidenav.close();
+    this.sideNavContainer._element.nativeElement.style.display = 'none';
+  };
+
+  // setSideNavToTop = (switchToTop: boolean) => {
+  //   // switchToTop? this.sideNavContainer._element.nativeElement.style.zIndex = '150':
+  //   //  this.sideNavContainer._element.nativeElement.style.zIndex = '0';
+  //   switchToTop? this.sideNavContainer._element.nativeElement.style.display = 'block':
+  //    this.sideNavContainer._element.nativeElement.style.display = 'none';
+  // }
 
   ngOnDestroy() {
     this.mobileQuery.removeListener(this._mobileQueryListener);
