@@ -27,6 +27,14 @@ mat-sidenav-container.sNavContainer {
   /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
      causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
   flex: 1;
+  mat-nav-list {
+    padding: 0px;
+  }
+  div.cover {
+    display: flex;
+    align-items: center;
+    max-width: 30em;
+  }
 }
 
 .isMobile #sidenav {

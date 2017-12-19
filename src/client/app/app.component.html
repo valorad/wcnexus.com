@@ -3,6 +3,11 @@
   <mat-sidenav-container #sideNavContainer id="sidenavContainer" class="sNavContainer">
     <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" (closedStart)="hideSideNav()">
       <mat-nav-list>
+
+        <div class="cover">
+          <img src="../assets/images/mobileCover.jpg" alt="mobileCover" class="fluid">
+        </div>
+
         <ng-template ngFor let-nav [ngForOf]="navList">
           <div *ngIf="nav.exterior; then sideNavExt else sideNavInt"></div>
 
