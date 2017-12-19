@@ -30,11 +30,44 @@ mat-sidenav-container.sNavContainer {
   mat-nav-list {
     padding: 0px;
   }
-  div.cover {
+  header.cover {
     display: flex;
     align-items: center;
-    max-width: 30em;
+    max-width: 25em;
+    position: relative;
+    img {
+      opacity: 0.8;
+      z-index: -1;
+    }
   }
+  div.action {
+    position: absolute;
+    right: 1em;
+    top: 1em
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 84%;
+    // height: 3em;
+    display: flow-root;
+    padding: 2em;
+    text-align: center;
+    div.social {
+      text-align: center;
+      i {
+        font-size: 24px;
+        margin: 0.5em;
+        padding: 0.4rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      i:hover {
+        border-radius: 10%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
 }
 
 .isMobile #sidenav {

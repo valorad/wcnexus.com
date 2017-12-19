@@ -52,7 +52,7 @@ export class AppComponent implements OnDestroy {
   //   this.sideNavContainer._element.nativeElement.style.display = 'none';
   // };
 
-  hideSideNav = async () => {
+  closeSideNav = async () => {
     await this.sidenav.close();
     this.sideNavContainer._element.nativeElement.style.display = 'none';
   };

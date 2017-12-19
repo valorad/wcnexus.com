@@ -1,13 +1,18 @@
 <div [class.appRoot]="true" [class.isMobile]="mobileQuery.matches" [ngClass]="themeService.config.current">
 
   <mat-sidenav-container #sideNavContainer id="sidenavContainer" class="sNavContainer">
-    <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" (closedStart)="hideSideNav()">
+    <mat-sidenav #sidenav id="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" (closedStart)="closeSideNav()">
       <mat-nav-list>
 
-        <div class="cover">
+        <header class="cover">
+          <div class="action">
+            <a mat-icon-button color="primary" (click)="closeSideNav()"><i class="material-icons">arrow_back</i></a>
+            
+          </div>
           <img src="../assets/images/mobileCover.jpg" alt="mobileCover" class="fluid">
-        </div>
+        </header>
 
+        <main>
         <ng-template ngFor let-nav [ngForOf]="navList">
           <div *ngIf="nav.exterior; then sideNavExt else sideNavInt"></div>
 
@@ -19,6 +24,25 @@
             <a mat-list-item routerLink="{{ nav.link }}">{{ nav.title }}</a>
           </ng-template>
         </ng-template>
+        </main>
+
+        <footer class="primary-text">
+          <div class="copyright">
+            <p>
+              <span>© 2017 Valorad the Oneiroseeker</span>
+              <span><a href="https://github.com/valorad/wcnexus.com/blob/master/LICENSE" title="MIT License"><i class="iconfont icon-libra"></i></a></span>
+            </p>
+          </div>
+          <div class="flexSpacer"></div>
+          <div class="social">
+            <p>
+              <span><a href="https://weibo.com/wcxaaa" target="_blank"><i class="iconfont icon-weibo"></i></a></span>
+              <span><a href="https://www.zhihu.com/people/ying-pan-mao" target="_blank"><i class="iconfont icon-zhihu"></i></a></span>
+              <span><a href="https://twitter.com/wcxaaa" target="_blank"><i class="iconfont icon-twitter"></i></a></span>
+              <span><a href="https://github.com/valorad" target="_blank"><i class="iconfont icon-github"></i></a></span>
+            </p>
+          </div>
+        </footer>
 
       </mat-nav-list>
     </mat-sidenav>
