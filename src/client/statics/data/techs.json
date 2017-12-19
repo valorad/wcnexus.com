@@ -34,5 +34,11 @@
     "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
     "img": null,
     "link": "https://www.link-to-the-dummy-tech.org.tv"
+  },
+  {
+    "title": "docker",
+    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
+    "img": null,
+    "link": "https://www.link-to-the-dummy-tech.org.tv"
   }
 ]

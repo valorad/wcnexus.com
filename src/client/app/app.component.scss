@@ -97,6 +97,12 @@ footer.app {
     i {
       font-size: 24px;
       margin: 0.5em;
+      padding: 0.4rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    i:hover {
+      border-radius: 10%;
+      background-color: rgba(0, 0, 0, 0.5);
     }
   }
 }
