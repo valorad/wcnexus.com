@@ -1,6 +1,7 @@
 {
   "github": "给特哈布",
   "app": {
+    "changeLanguage": "切换语言",
     "slogan": "我们选择多彩人生",
     "welcome": "欢迎来到wcnexus",
     "introTitle": "wcnexus是wc的个人网站据点.",

@@ -33,24 +33,16 @@ export class AppComponent implements OnDestroy {
     }
   ];
 
-  constructor(
-		private translateService: TranslateService,
-    public themeService: ThemeService,
-    changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher
-  ) {
-    // ng material2 cdk media fetch
-    this.mobileQuery = media.matchMedia('(max-width: 992px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-
-    // i18n
-    translateService.addLangs(["en", "zh"]);
-    // this language will be used as a fallback when a translation isn't found in the current language
-    translateService.setDefaultLang('en');
-    let browserLang = translateService.getBrowserLang();
-    translateService.use(browserLang.match(/en|zh/) ? browserLang : 'en');
-  }
+  languageList: any[] = [
+    {
+      name: "en",
+      descr: "English"
+    },
+    {
+      name: "zh",
+      descr: "中文"
+    }
+  ];
 
   openSideNav = async () => {
     this.sideNavContainer._element.nativeElement.style.display = 'block';
@@ -67,6 +59,44 @@ export class AppComponent implements OnDestroy {
     await this.sidenav.close();
     this.sideNavContainer._element.nativeElement.style.display = 'none';
   };
+
+  changeLang = (toLang: string) => {
+    return new Promise((resolve, reject) => {
+      this.translateService.use(toLang).subscribe(
+        (next) => {
+          resolve("OK");
+        },
+        (err) => {
+          console.error(err);
+          reject(err);
+        }
+      );
+    });
+  };
+
+  constructor(
+		private translateService: TranslateService,
+    public themeService: ThemeService,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
+    // ng material2 cdk media fetch
+    this.mobileQuery = media.matchMedia('(max-width: 992px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+    // i18n
+    let langs: string[] = [];
+    for (let lang of this.languageList) {
+      langs.push(lang.name);
+    }
+    translateService.addLangs(langs);
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translateService.setDefaultLang('en');
+    let browserLang = translateService.getBrowserLang();
+    let langRegX = new RegExp(langs.join("|"));
+    translateService.use(browserLang.match(langRegX) ? browserLang : 'en');
+  }
 
   // setSideNavToTop = (switchToTop: boolean) => {
   //   // switchToTop? this.sideNavContainer._element.nativeElement.style.zIndex = '150':

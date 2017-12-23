@@ -82,13 +82,23 @@
       </main>
       <div class="flexSpacer"></div>
       <footer>
+        <a mat-button [matMenuTriggerFor]="langMenu">
+          <span class="brand lang"><i class="material-icons">language</i></span>
+          <span class="title showLG">{{ 'app.changeLanguage' | translate }}</span>
+        </a>
         <a mat-button href="https://github.com/valorad/wcnexus.com" target="_blank">
           <span class="brand">
             <i class="iconfont icon-github"></i>
           </span>
-          <span class="title showLG">Github</span>
+          <span class="title showLG">{{ 'github' | translate }}</span>
         </a>
       </footer>
+
+      <!-- mat menus -->
+      <mat-menu #langMenu="matMenu">
+        <button mat-menu-item *ngFor="let lang of languageList" (click)="changeLang(lang.name)">{{ lang.descr }}</button>
+      </mat-menu>
+
     </mat-toolbar>
   </nav>
 

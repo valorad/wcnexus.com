@@ -1,6 +1,7 @@
 {
   "github": "Github",
   "app": {
+    "changeLanguage": "Change Language",
     "slogan": "We choose to live many.",
     "welcome": "Welcome to wcnexus",
     "introTitle": "wcnexus is wc's personal website as nexus.",
