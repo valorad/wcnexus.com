@@ -26,6 +26,7 @@ export class IndexComponent implements OnInit {
 	userAvatarBase = "statics/images/avatar/";
 
 	techs: any[] = [];
+	techLogoBase = "statics/images/techs/";
 
 	fetchphoto: (num: string) => {
 		// TO DO... in future (back-end photo fetch)
@@ -126,17 +127,6 @@ export class IndexComponent implements OnInit {
 		} catch (error) {
 			console.error("Failed to get techs data");
 		}
-
-		// dummy tech landfill
-		// for (let i = 0; i < 15; i++) {
-		// 	this.dummyTechs.push({
-		// 		title: "A Tech no lo gy",
-		// 		descr: "This is an amazing tech. Don't worry, this will be a formal description.",
-		// 		img: null,
-		// 		link: "https://www.link-to-the-dummy-tech.org.tv"
-		// 	})
-		// }
-
 
 	};
 

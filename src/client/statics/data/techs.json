@@ -1,44 +1,44 @@
 [
   {
     "title": "Angular",
-    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
-    "img": null,
-    "link": "https://www.link-to-the-dummy-tech.org.tv"
+    "descr": "One framework. Mobile & desktop.",
+    "img": "angular.png",
+    "link": "https://angular.io/"
   },
   {
     "title": "Material",
-    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
-    "img": null,
-    "link": "https://www.link-to-the-dummy-tech.org.tv"
+    "descr": "A unified system that combines theory, resources, and tools for crafting digital experiences.",
+    "img": "material.png",
+    "link": "https://material.io/"
   },
   {
     "title": "node.js",
-    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
-    "img": null,
-    "link": "https://www.link-to-the-dummy-tech.org.tv"
+    "descr": "A JavaScript runtime built on Chrome's V8 JavaScript engine.",
+    "img": "node.js.png",
+    "link": "https://nodejs.org"
   },
   {
     "title": "webpack",
-    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
-    "img": null,
-    "link": "https://www.link-to-the-dummy-tech.org.tv"
+    "descr": "A bundler for javascript and friends.",
+    "img": "webpack.png",
+    "link": "https://webpack.js.org/"
   },
   {
     "title": "koa",
-    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
-    "img": null,
-    "link": "https://www.link-to-the-dummy-tech.org.tv"
+    "descr": "Expressive middleware for node.js using ES2017 async functions.",
+    "img": "koa.png",
+    "link": "https://koajs.com"
   },
   {
     "title": "MongoDB",
-    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
-    "img": null,
-    "link": "https://www.link-to-the-dummy-tech.org.tv"
+    "descr": "The MongoDB Database.",
+    "img": "mongodb.png",
+    "link": "https://www.mongodb.com/"
   },
   {
     "title": "docker",
-    "descr": "This is an amazing tech. Don't worry, this will be a formal description.",
-    "img": null,
-    "link": "https://www.link-to-the-dummy-tech.org.tv"
+    "descr": "The company driving the container movement and the only container platform provider to address every application across the hybrid cloud.",
+    "img": "docker.png",
+    "link": "https://www.docker.com/"
   }
 ]

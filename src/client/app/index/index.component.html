@@ -115,7 +115,9 @@
             <div class="row cstech">
 
               <div *ngFor="let tech of techs" class="tech col-sm-5 col-md-3 col-lg-2">
-                <div class="icon">img is nownull</div>
+                <div class="icon">
+                  <img [src]="techLogoBase + tech.img" [alt]="tech.title" class="fluid">
+                </div>
                 <p class="title">{{ tech.title }}</p>
                 <small class="descr">{{ tech.descr }}</small>
                 <div class="action">
