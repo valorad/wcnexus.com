@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="slogan">
-            <h2>We choose to live many.</h2>
+            <h2>{{ 'app.slogan' | translate }}</h2>
           </div>
         </main>
       </div>
@@ -32,15 +32,12 @@
   <main class="index">
     <section class="intro">
       <div class="content">
-        <h1>Welcome to wcnexus</h1>
+        <h1>{{ 'app.welcome' | translate }}</h1>
         <div class="row flex-reverse-ltLG">
           <div class="descr flex-right col-lg-6">
             <div class="colHolder">
-              <p class="title">wcnexus is wc's personal website as nexus.</p>
-              <p>I developed this site for the purpose of my interest display, 
-                demostration of front-end (and also maybe some back-end) techniques,
-                but more importantly, to accomplish what wished couple of years ago.
-              </p>
+              <p class="title">{{ 'app.introTitle' | translate }}</p>
+              <p>{{ 'app.introContent' | translate }}</p>
             </div>
           </div>
           <div class="imgHolder col-lg-6 flex-left">
@@ -50,7 +47,7 @@
           </div>
         </div>
         <section class="topics">
-          <h2 class="primary">About me</h2>
+          <h2 class="primary">{{ 'app.aboutMe' | translate }}</h2>
           <div class="row">
             <div class="avatarHolder flex-right col-lg-6">
               <div class="colHolder">
@@ -78,10 +75,8 @@
             </div>
             <div class="descr flex-left col-lg-6">
               <div class="colHolder">
-                <p class="title">单身喵，伪学霸。老滚辐射粉，刺客远哭粉，龙腾质量粉。杯赛路，育碧路，EA黑。</p>
-                <p>Loves CS, video games, installing OS</p>
-                <p>Front-end, GIS</p>
-                <p>Currently working at an IT company.</p>
+                <p class="title">{{ 'app.aboutMeTitle' | translate }}</p>
+                <div [innerHTML]="'app.aboutMeContent' | translate"></div>
               </div>
             </div>
           </div>
@@ -92,12 +87,12 @@
 
     <section class="site">
       <div class="content">
-        <h1>About wcnexus</h1>
+        <h1>{{ 'app.aboutwcnexus' | translate }}</h1>
         <div class="row flex-reverse-ltLG">
           <div class="descr flex-right col-lg-6">
             <div class="colHolder">
-              <p class="title">wcnexus was developed by wc and his xiaomajias.</p>
-              <p>We're currently in version 3 dev stage.</p>
+              <p class="title">{{ 'app.aboutwcnexusTitle' | translate }}</p>
+              <p>{{ 'app.aboutwcnexusContent' | translate }}</p>
             </div>
           </div>
           <div class="imgHolder flex-left col-lg-6">
@@ -111,7 +106,7 @@
 
         <section class="topics">
           <div *ngIf="techs.length > 0">
-            <h2 class="primary">CS technologies we used</h2>
+            <h2 class="primary">{{ 'app.techs' | translate }}</h2>
             <div class="row cstech">
 
               <div *ngFor="let tech of techs" class="tech col-sm-5 col-md-3 col-lg-2">
@@ -121,7 +116,7 @@
                 <p class="title">{{ tech.title }}</p>
                 <small class="descr">{{ tech.descr }}</small>
                 <div class="action">
-                  <a mat-button color="primary" [href]="tech.link">know more</a>
+                  <a mat-button color="primary" [href]="tech.link">{{ 'app.knowMore' | translate }}</a>
                 </div>
               </div>
 
@@ -143,16 +138,16 @@
 
     <section class="tour">
       <div class="content">
-        <h1>Proceed</h1>
+        <h1>{{ 'app.linkNext' | translate }}</h1>
         <section class="topics">
           <div class="row">
             <article class="col-lg-3 col-md-3">
               <div class="colHolder">
                 <a href="https://github.com/valorad">
                   <mat-card>
-                    <img mat-card-image src="" alt="">
+                    <img mat-card-image src="../../assets/images/github-wallpaper.png" [alt]="'app.myGithub' | translate">
                     <mat-card-content>
-                      <p>my github</p>
+                      <p>{{ 'app.myGithub' | translate }}</p>
                     </mat-card-content>
                   </mat-card>
                 </a>
@@ -162,9 +157,9 @@
               <div class="colHolder">
                 <a>
                   <mat-card>
-                    <img mat-card-image src="" alt="">
+                    <img mat-card-image src="../../assets/images/wcn-venture.jpg" [alt]="'app.venturePage' | translate">
                     <mat-card-content>
-                      <p>Venture page</p>
+                      <p>{{ 'app.venturePage' | translate }}</p>
                     </mat-card-content>
                   </mat-card>
                 </a>

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
 // services
+
 import { DataService } from "@xmj-alliance/lib-ngx";
+
 
 import { ThemeService } from '../_services/theme.service';
 

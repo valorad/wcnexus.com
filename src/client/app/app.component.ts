@@ -3,6 +3,8 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 
 // services
+import { TranslateService } from '@ngx-translate/core';
+
 import { ThemeService } from './_services/theme.service';
 
 @Component({
@@ -32,13 +34,22 @@ export class AppComponent implements OnDestroy {
   ];
 
   constructor(
+		private translateService: TranslateService,
     public themeService: ThemeService,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher
   ) {
+    // ng material2 cdk media fetch
     this.mobileQuery = media.matchMedia('(max-width: 992px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+
+    // i18n
+    translateService.addLangs(["en", "zh"]);
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translateService.setDefaultLang('en');
+    let browserLang = translateService.getBrowserLang();
+    translateService.use(browserLang.match(/en|zh/) ? browserLang : 'en');
   }
 
   openSideNav = async () => {

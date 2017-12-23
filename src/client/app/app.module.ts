@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 // mat modules
@@ -10,6 +11,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+
+// ngx-translate
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // site shared modules
 
@@ -30,6 +35,7 @@ const ngModules = [
   BrowserModule,
   BrowserAnimationsModule,
   HttpModule,
+  HttpClientModule,
   FormsModule
 ];
 
@@ -41,10 +47,22 @@ const ngMatModules = [
   MatCardModule
 ]
 
+// AoT requires an exported function for factories
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './statics/i18n/', '.json');
+}
+
 @NgModule({
   imports: [
     ngModules,
     ngMatModules,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+    }),
 
     appRoutes
   ],
