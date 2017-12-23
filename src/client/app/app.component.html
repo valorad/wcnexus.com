@@ -18,10 +18,16 @@
 
           <!-- nav link posibilities -->
           <ng-template #sideNavExt>
-            <a mat-list-item href="{{ nav.link }}">{{ nav.title }}</a>
+            <a mat-list-item href="{{ nav.link }}">
+              <span [innerHTML]="nav.title[currentLang]"></span>
+            </a>
+
           </ng-template>
           <ng-template #sideNavInt>
-            <a mat-list-item routerLink="{{ nav.link }}">{{ nav.title }}</a>
+            <a mat-list-item routerLink="{{ nav.link }}">
+              <span [innerHTML]="nav.title[currentLang]"></span>
+            </a>
+
           </ng-template>
         </ng-template>
         </main>
@@ -72,10 +78,14 @@
 
           <!-- nav link posibilities -->
           <ng-template #topNavExt>
-            <a mat-button href="{{ nav.link }}">{{ nav.title }}</a>
+            <a mat-button href="{{ nav.link }}">
+              <span [innerHTML]="nav.title[currentLang]"></span>
+            </a>
           </ng-template>
           <ng-template #topNavInt>
-            <a mat-button routerLink="{{ nav.link }}">{{ nav.title }}</a>
+            <a mat-button routerLink="{{ nav.link }}">
+              <span [innerHTML]="nav.title[currentLang]"></span>
+            </a>
           </ng-template>
 
         </ng-template>

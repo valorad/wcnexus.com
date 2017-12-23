@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectorRef, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 
@@ -13,22 +13,30 @@ import { ThemeService } from './_services/theme.service';
   styleUrls: ['./app.component.scss'],
   providers: [MediaMatcher]
 })
-export class AppComponent implements OnDestroy { 
+export class AppComponent implements OnInit, OnDestroy { 
 
   @ViewChild('sidenav') sidenav: MatSidenav;
   @ViewChild('sideNavContainer') sideNavContainer: any; // MatSidenavContainer
 
   mobileQuery: MediaQueryList;
   _mobileQueryListener: () => void;
+
+  currentLang = "en";
   navList: any[] = [
     {
-      title: "index",
+      title: {
+        en: "Index",
+        zh: "首页"
+      },
       link: "/index",
       exterior: false // set to true if a use "href=" attr, to false to use "routerLink="
     },
     {
-      title: "venture",
-      link: "/",
+      title: {
+        en: "Venture",
+        zh: "冒险"
+      },
+      link: "/venture",
       exterior: true
     }
   ];
@@ -64,6 +72,7 @@ export class AppComponent implements OnDestroy {
     return new Promise((resolve, reject) => {
       this.translateService.use(toLang).subscribe(
         (next) => {
+          this.currentLang = toLang;
           resolve("OK");
         },
         (err) => {
@@ -75,7 +84,7 @@ export class AppComponent implements OnDestroy {
   };
 
   constructor(
-		private translateService: TranslateService,
+		public translateService: TranslateService,
     public themeService: ThemeService,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher
@@ -104,6 +113,10 @@ export class AppComponent implements OnDestroy {
   //   switchToTop? this.sideNavContainer._element.nativeElement.style.display = 'block':
   //    this.sideNavContainer._element.nativeElement.style.display = 'none';
   // }
+
+  ngOnInit() {
+    this.currentLang = this.translateService.currentLang;
+  }
 
   ngOnDestroy() {
     this.mobileQuery.removeListener(this._mobileQueryListener);

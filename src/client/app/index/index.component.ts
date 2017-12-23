@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
 // services
-
+import { TranslateService } from '@ngx-translate/core';
 import { DataService } from "@xmj-alliance/lib-ngx";
-
 
 import { ThemeService } from '../_services/theme.service';
 
@@ -133,21 +132,13 @@ export class IndexComponent implements OnInit {
 	};
 
 	constructor(
+		public translateService: TranslateService,
 		private dataService: DataService,
 		public themeService: ThemeService
 	) { }
 	
 	ngOnInit() {
-
 		this.main();
-		// fill photowall with dummy
-		// for (let i = 0; i < this.photoNum; i++) {
-		// 	this.dummyAvt.push({
-		// 		title: i,
-		// 		img: null
-		// 	})
-		// }
-
 	}
 
 }

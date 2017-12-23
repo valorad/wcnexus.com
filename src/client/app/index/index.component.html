@@ -114,9 +114,11 @@
                   <img [src]="techLogoBase + tech.img" [alt]="tech.title" class="fluid">
                 </div>
                 <p class="title">{{ tech.title }}</p>
-                <small class="descr">{{ tech.descr }}</small>
+                <small class="descr">
+                  <span [innerHTML]="tech.descr[translateService.currentLang]"></span>
+                </small>
                 <div class="action">
-                  <a mat-button color="primary" [href]="tech.link">{{ 'app.knowMore' | translate }}</a>
+                  <a mat-button color="primary" [href]="tech.link" target="_blank">{{ 'app.knowMore' | translate }}</a>
                 </div>
               </div>
 
