@@ -57,12 +57,6 @@ export class AppComponent implements OnInit, OnDestroy {
     await this.sidenav.open();
   };
 
-  // closeSideNav = async () => {
-  //   await this.sidenav.close();
-  //   console.log('sidenav closed');
-  //   this.sideNavContainer._element.nativeElement.style.display = 'none';
-  // };
-
   closeSideNav = async () => {
     await this.sidenav.close();
     this.sideNavContainer._element.nativeElement.style.display = 'none';
@@ -106,13 +100,6 @@ export class AppComponent implements OnInit, OnDestroy {
     let langRegX = new RegExp(langs.join("|"));
     translateService.use(browserLang.match(langRegX) ? browserLang : 'en');
   }
-
-  // setSideNavToTop = (switchToTop: boolean) => {
-  //   // switchToTop? this.sideNavContainer._element.nativeElement.style.zIndex = '150':
-  //   //  this.sideNavContainer._element.nativeElement.style.zIndex = '0';
-  //   switchToTop? this.sideNavContainer._element.nativeElement.style.display = 'block':
-  //    this.sideNavContainer._element.nativeElement.style.display = 'none';
-  // }
 
   ngOnInit() {
     this.currentLang = this.translateService.currentLang;
