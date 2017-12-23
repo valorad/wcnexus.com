@@ -9,7 +9,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
-const outputPath = root('dist');
+const outputPath = root('dist', 'client');
 const rootPath = root();
 
 module.exports = webpackMerge(commonConfig, {

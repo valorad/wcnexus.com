@@ -1,12 +1,16 @@
 {
   "name": "wcnexus.com",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0",
   "description": "wc's personal website",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server --hot --inline --progress",
+    "start": "node dist/server/wcnexus.com",
+    "serve": "npm run serve:c",
+    "serve:c": "webpack-dev-server --hot --inline --progress",
     "test": "karma start",
-    "build": "webpack --config config/webpack.prod.js --progress --profile --bail"
+    "build": "npm run build:c && npm run build:s",
+    "build:c": "webpack --config config/webpack.prod.js --progress --profile --bail",
+    "build:s": "webpack --config config/webpack.server.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +30,7 @@
     "url": "https://github.com/valorad/wcnexus.com/issues"
   },
   "homepage": "https://github.com/valorad/wcnexus.com#readme",
-  "dependencies": {
+  "optionalDependencies": {
     "@angular/animations": "^5.1.0",
     "@angular/cdk": "^5.0.1",
     "@angular/common": "^5.0.0",
@@ -51,7 +55,14 @@
     "@angular/compiler-cli": "^5.0.2",
     "@ngtools/webpack": "^1.8.2",
     "@types/jasmine": "^2.6.0",
+    "@types/koa": "^2.0.43",
+    "@types/koa-bodyparser": "^3.0.26",
+    "@types/koa-logger": "^3.1.0",
+    "@types/koa-router": "^7.0.27",
+    "@types/koa-send": "^4.1.0",
+    "@types/koa-static": "^3.0.2",
     "@types/node": "^8.0.28",
+    "awesome-typescript-loader": "^3.4.1",
     "clean-webpack-plugin": "^0.1.16",
     "codelyzer": "^4.0.2",
     "copy-webpack-plugin": "^4.2.3",
@@ -77,5 +88,13 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.3.0",
+    "koa-send": "^4.1.2",
+    "koa-static": "^4.0.2"
   }
 }
