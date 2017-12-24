@@ -14,6 +14,8 @@ const distribute = () => {
   writeFileSync('./dist/package.json', JSON.stringify(package, null, 2), {encoding: 'UTF-8'});
   copy("./README.md", "./dist/README.md");
   copy("./LICENSE", "./dist/LICENSE");
+  // docker entrypoint
+  copy("./index.sh", "./dist/index.sh");
 };
 
 const main = () => {
