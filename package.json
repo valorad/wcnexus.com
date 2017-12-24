@@ -2,15 +2,16 @@
   "name": "wcnexus.com",
   "version": "3.0.0",
   "description": "wc's personal website",
-  "main": "index.js",
+  "main": "server/wcnexus.com",
   "scripts": {
     "start": "node dist/server/wcnexus.com",
     "serve": "npm run serve:c",
     "serve:c": "webpack-dev-server --hot --inline --progress",
     "test": "karma start",
-    "build": "npm run build:c && npm run build:s",
+    "build": "npm run build:c && npm run build:s && npm run build:p",
     "build:c": "webpack --config config/webpack.prod.js --progress --profile --bail",
-    "build:s": "webpack --config config/webpack.server.js"
+    "build:s": "webpack --config config/webpack.server.js",
+    "build:p": "node ./postBuild.js"
   },
   "repository": {
     "type": "git",
