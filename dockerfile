@@ -1,4 +1,6 @@
-## TODO
+## example to build and run
+# docker build . -t wcnexus.com --build-arg username=$USER
+# docker run -d -p 3000:3000 --name wcnexus.com-c1 -e EXEC_USER=$USER -v /path/to/your/server/config:/dist/server/config -v /path/to/your/server/static:/dist/server/static wcnexus.com
 
 FROM node:alpine
 LABEL maintainer="Valroad <valorad@outlook.com>"

@@ -10,5 +10,9 @@ username=$EXEC_USER
 # BLOCK
 
 ## dev running as root to see output in teminal
+chmod -R 777 /dist/server/config
+chmod -R 777 /dist/server/static
 npm start
 sudo -u $username /bin/sh
+chmod -R 755 /dist/server/config
+chmod -R 755 /dist/server/static
