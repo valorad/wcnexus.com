@@ -6,8 +6,14 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2015", "dom"],
+    "lib": ["esnext", "dom"],
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "baseUrl": "",
+		"paths": {
+			"*": [
+				"typings/*"
+			]
+		}
   }
 }

@@ -1,0 +1,183 @@
+div.appRoot {
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.isMobile nav.app {
+  width: 100%;
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 100;
+}
+
+mat-sidenav-container.sNavContainer {
+  z-index: 150;
+}
+
+#sidenavContainer {
+  // z-index: 0;
+  display: none;
+}
+
+#sidenav {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+  mat-nav-list {
+    padding: 0px;
+  }
+  header.cover {
+    display: flex;
+    align-items: center;
+    max-width: 25em;
+    position: relative;
+    img {
+      opacity: 0.8;
+      z-index: -1;
+    }
+  }
+  div.action {
+    position: absolute;
+    right: 1em;
+    top: 1em
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 84%;
+    // height: 3em;
+    display: flow-root;
+    padding: 2em;
+    text-align: center;
+    div.social {
+      text-align: center;
+      i {
+        font-size: 24px;
+        margin: 0.5em;
+        padding: 0.4rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      i:hover {
+        border-radius: 10%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+}
+
+.isMobile #sidenav {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.mat-drawer-container {
+  background-color: unset;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 150;
+}
+
+mat-sidenav-content.main {
+  min-height: 100vh;
+}
+
+main.router {
+  margin-top: 4em;
+}
+
+nav.app header, nav.app footer {
+  display: flex;
+}
+
+nav.app {
+  header {
+    .brand {
+      font-size: 2em;
+      position: relative;
+      top: 0.1em;
+      right: 0.3em;
+    }
+    .title {
+      font-size: 1.5em;
+      line-height: 3em;
+    }
+  }
+  footer {
+    .brand {
+      position: relative;
+      right: 0.3em;
+      top: 0.3em;
+      i {
+        font-size: 2em
+      }
+    }
+    .title {
+      line-height: 4em;
+    }
+    .brand.lang {
+      i {
+        font-size: 2.4em;
+      }
+      // top: 0.7em;
+      top: 0.4em;
+    }
+  }
+}
+
+footer.app {
+  display: flex;
+  padding: 2em;
+  color: white;
+  text-align: center;
+  z-index: 10;
+  a {
+    color: white;
+  }
+  div.social {
+    text-align: center;
+    i {
+      font-size: 24px;
+      margin: 0.5em;
+      padding: 0.4rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    i:hover {
+      border-radius: 10%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  main.router {
+    margin-top: 0em;
+  }
+
+  footer.app {
+    padding: 0.25rem;
+  }
+
+  div.copyright {
+    p {
+      margin-left: 1em;
+      font-size: 16px;
+      line-height: 23px;
+    }
+  }
+
+  nav.app {
+    footer {
+      .brand.lang {
+        top: 0.7em;
+      }
+    }
+  }
+
+}

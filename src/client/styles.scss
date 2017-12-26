@@ -1,0 +1,108 @@
+// a md theme
+@import './assets/scss/theme-index';
+
+// Bootstrap 4 grid system
+@import './assets/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+
+// Bootstrap 4 positioning system
+@import '~bootstrap/scss/utilities/position';
+
+body {
+  margin: 0px;
+  font-size: 14px;
+  font-family:Roboto, 'Noto Sans CJK SC', Hack, 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback';
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+div.content {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flexSpacer {
+  flex-grow: 1;
+}
+
+.fluid {
+  max-width: 100%;
+}
+
+.flex-reverse-ltLG {
+  flex-direction: column-reverse;
+}
+
+.showLG {
+  // elements that will be shown only at lg, xl.
+  // "lg", "xl" are Bootstrap 4 default grid tiers.
+  // In other cases, this is hidden
+  display: none;
+}
+
+.hideLG {
+  // elements that will hide once screen reaches lg, xl size.
+  // In other cases, this is shown
+  display: inherit;
+}
+
+.colHolder {
+  // usually used on an element inside a bootstrap col-(md),
+  // in product introduction section.
+  padding: 1em;
+  text-align: center;
+  width: 22rem;
+  margin: 0px auto;
+  display: block;
+}
+
+picture.avatar {
+  display: block;
+  transition: all 0.3s ease-out;
+}
+
+picture.avatar:hover {
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3)
+}
+
+@media only screen and (min-width: 992px) {
+  .showLG {
+    display: inherit;
+  }
+  .hideLG {
+    display: none;
+  }
+
+  .colHolder {
+    margin: 0px;
+    text-align: unset;
+  }
+
+  .flex-reverse-ltLG {
+    flex-direction: unset;
+  }
+
+  .flex-left {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .flex-right {
+    // usage e.g.: div align right.
+    // can also replace Bootstrap col-md-push and col-md-pull back in bootstrap 3
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+}

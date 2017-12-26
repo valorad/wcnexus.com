@@ -1,132 +1,98 @@
-# wcNexus
+[![Docker Stars](https://img.shields.io/docker/stars/_/ubuntu.svg?style=flat-square)](https://hub.docker.com/r/valorad/wcnexus.com/)
+# wcnexus
 
-wcNexus is a nexus of wc worlds. (wc's personal website)
+wcnexus is wc's personal website as nexus.
 
-wcNexus is powered by node, as well as [Angular4](https://github.com/angular/angular), and was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30, having been successfully updated to version 1.0.0.
+wcnexus v3 is powered by nodejs, with [Angular5][ng] at the front, and [koa][koa] at the back. The mighty angular-cli has been substituted by a dedicated webpack since version 3.
 
-## Installation
+## Prerequisites
+- If deploy via docker:
+  - Docker > 17.03
 
-  ### Prerequisites
+- Manually deploy:
+  - node.js > 6.9.0
+  - (optional) nginx
+  - (optional) pm2
 
-  - You may require node ^6.9.0, together with npm ^3.0.0.
+## Production Deployment
+- Download release dist to your server, and head over to that folder you extracted files to.
+- `npm install` or `yarn install` to collect node modules.
+- Firing up.
 
-  - MongoDB distribution of your current system and architecture.
+- If you just would like to try it out, you just simply go with `node server/wcnexus`. You may then navigate to http://localhost:3000.
+- If deploying on a production server is your case, then you have to perform the following steps:
 
-  - A valid [Auth0](https://auth0.com/) account for log-in controls
-
-  ### Distribution
-
-  - Extract dist file
-
-  ### Site config files
-
-  1. `/src/server/wcnexus/wcnexus.json`
-
+  - Via Docker:
+  ``` bash
+  docker run -d -p 3000:3000 \  
+    --name wcnexus.com-c1
+    -e EXEC_USER=$USER -e EXEC_USER=$UID \
+    -v /path/to/your/server/config:/dist/server/config \
+    -v /path/to/your/server/static:/dist/server/static \
+    valorad/wcnexus.com
   ```
-  [{
-      "site": "[Your site name eg. wcnexus.com]",
-      "auth0": {
-          "secret": "[your auth0 secret]",
-          "client": "[your auth0 client]"
-      },
-      "mongo": {
-          "db": "[eg. wcnexus]",
-          "authDB": "[eg. admin]",
-          "user": "[username]",
-          "password": "[password]",
-          "port": [your port]
+  (Optional) Then build and deploy your own `nginx` image.
+
+  - Manually:
+    - Properly configure your nginx.
+    - [pm2][pm2] is recommended to hold up your node.js app. Running `pm2 start server/wcnexus` will do the trick.
+
+  - Visit http://example.com:80 and you are good to go.
+
+## Nginx Example Config:
+
+``` dockerfile
+# Dockerfile
+FROM nginx:alpine
+
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+VOLUME [ "/www" ]
+
+EXPOSE 80
+```
+
+``` conf
+  # default.conf
+  # OS: Alpine Linux 3.7
+  server {
+      listen       80;
+      server_name  www.wcnexus.com;
+      charset utf-8;
+      location / {
+          proxy_pass http://127.0.0.1:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
       }
-  }]
-  ```
-  2. `/src/assets/data/wcnexus.json`
+    ...
+  }
+```
 
+in which xxx being:
 
-  ```
-  [{
-      "site": "[Your site name eg. wcnexus.com]",
-      "caseNumber": "[天朝特色备案号]",
-      "auth0": {
-          "domain": "[Your_auth0_domain.auth0.com]",
-          "client": "[your auth0 client]"
-      }
-  }]
-  ```
+| -        | dev                           | compile            | start                |
+| :------: | :---------------------------: | :----------------: | :------------------: |
+| front    | `serve:c`(Webpack-dev-server) | `build:c`(Webpack) | N/A                  |
+| back     | N/A                           | `build:s`(Webpack) | `start:s` (koa only) |
+| post     | N/A                           | `build:p`(node)    | N/A                  |
+| together | N/A                           | `build`(Webpack)   | `start` (koa)        |
 
-  ### MongoDB data
+## Unit Testing
+To execute the unit tests via [Karma][Karma], run:
+``` bash
+npm run test
+```
+## Code scaffolding
+Copy and paste the `dummy` module.
 
-  - You need to import following json files to mongo, located in `assets/data`.
+## License
+MIT
 
-    `recomSite.json`  (its collection name to be `recomsites`. Note that collection names should all be uncapialized)
-
-    `theme.json`
-
-    `upcoming.json`
-
-  - You may import to mongo with following command:
-
-    `mongoimport --db [dataDB] --collection [colName] --file [fileName].json [--jsonArray] -u [user] -p [password] --authenticationDatabase [authDB]`
-    
-    
-### Collect node modules
-  
-  run `npm install` to collect necessary dependencies.
-  
-  ### You are now good to go
-
-  run `node server/app` to start.
-
-## Development and Compilation
-
-  ### Additional Requirement
-  install [angular-cli](https://github.com/angular/angular-cli) ^1.0.0 **GLOBALLY**.
-
-  ### Receive required node modules
-
-  Enter the directory of this repo and `npm install`.
-
-  ### Front-end Dev server
-  Run `ng serve` for a front-end only dev server. Navigate to `http://localhost:4200/`.
-
-  The app will automatically reload if you change any of the source files.
-
-  ### Express with MongoDB
-
-  To start the back-end for the first time (or have changed front-end code), you may run `npm run initServer`.
-
-  Later times, you can directly run `npm run server` to quickly start it.
-
-  Navigate to `http://localhost:3000/`. 
-
-  Note that this app will NOT automatically reload.
-
-  Should you change any of the back-end source files, run `npm run _serverBuild` to compile via grunt and `npm run server` to start.
-
-  ### Code scaffolding
-
-  Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-  ### Build
-
-  - Front-end
-
-  Run `ng build` to build the front-end project. The build artifacts will be stored in the `dist/client` directory. The `-prod` flag for a production build is currently **Not Supported**!.
-
-  - Back-end
-
-  Run `npm run _serverBuild` to compile via grunt and `npm run server` to start. The dist files of back-end side will be output to `dist/server` directory.
-
-  ### Running unit tests
-
-  Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-  ### Running end-to-end tests
-
-  Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-  Before running the tests make sure you are serving the app via `ng serve`.
-
-  ### Further help
-
-  To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-  And of course you can contact wc (as well as his xiaomajias) directly.
+[ng]:https://github.com/angular/angular
+[koa]:https://github.com/koajs/koa
+[pm2]:https://github.com/Unitech/pm2
+[docker]:https://www.docker.com/
+[Karma]:(https://karma-runner.github.io)

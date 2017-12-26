@@ -1,0 +1,21 @@
+{
+  "github": "Github",
+  "app": {
+    "changeLanguage": "Change Language",
+    "slogan": "We choose to live many.",
+    "welcome": "Welcome to wcnexus",
+    "introTitle": "wcnexus is wc's personal website as nexus.",
+    "introContent": "I developed this site for the purpose of my interest display, demostration of front-end (and also maybe some back-end) techniques, but more importantly, to accomplish what was wished couple of years ago. The site name was inspired by the idea of the famous game mod site - nexusmods.com. Back in those days I was hoping to set up a site so that we xiaomajias can finally find a place called home.",
+    "aboutMe": "About me",
+    "aboutMeTitle": "A still single kitten that has mislabeled as a straight-A student. Fan of TES, Fallout, AC, FC, DA, ME. Loved but once hurt by Bethesda and Ubisoft, hates EA.",
+    "aboutMeContent": "<p>Loves CS, video games, installing OS</p><p>Front-end, GIS</p><p>Currently working at an IT company.</p>",
+    "aboutwcnexus": "About wcnexus",
+    "aboutwcnexusTitle": "wcnexus was developed by wc and his xiaomajias.",
+    "aboutwcnexusContent": "We're currently in version 3 dev stage.",
+    "techs": "CS technologies we used",
+    "knowMore": "Know more",
+    "linkNext": "LinkNext",
+    "myGithub": "My Github",
+    "venturePage": "Venture page (Blogs)"
+  }
+}
