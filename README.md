@@ -1,3 +1,4 @@
+[![Docker Stars](https://img.shields.io/docker/stars/_/ubuntu.svg?style=flat-square)](https://hub.docker.com/r/valorad/wcnexus.com/)
 # wcnexus
 
 wcnexus is wc's personal website as nexus.
@@ -40,39 +41,34 @@ wcnexus v3 is powered by nodejs, with [Angular5][ng] at the front, and [koa][koa
 
 ## Nginx Example Config:
 
-    ``` dockerfile
-    # Dockerfile
-    FROM nginx:alpine
+``` dockerfile
+# Dockerfile
+FROM nginx:alpine
 
-    COPY default.conf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
 
-    VOLUME [ "/www" ]
+VOLUME [ "/www" ]
 
-    EXPOSE 80
-    ```
+EXPOSE 80
+```
 
-    ``` conf
-      # default.conf
-      # OS: Alpine Linux 3.7
-      server {
-          listen       80;
-          server_name  www.wcnexus.com;
-          charset utf-8;
-          location / {
-              proxy_pass http://127.0.0.1:3000;
-              proxy_http_version 1.1;
-              proxy_set_header Upgrade $http_upgrade;
-              proxy_set_header Connection 'upgrade';
-              proxy_set_header Host $host;
-              proxy_cache_bypass $http_upgrade;
-          }
-        ...
+``` conf
+  # default.conf
+  # OS: Alpine Linux 3.7
+  server {
+      listen       80;
+      server_name  www.wcnexus.com;
+      charset utf-8;
+      location / {
+          proxy_pass http://127.0.0.1:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
       }
-    ```
-
-## Development
-``` bash
-npm run xxx
+    ...
+  }
 ```
 
 in which xxx being:
