@@ -9,7 +9,7 @@ const distribute = () => {
   delete package.optionalDependencies;
   delete package.devDependencies;
   package.scripts = {};
-  package.scripts.start = "node dist/server/wcnexus.com";
+  package.scripts.start = "node server/wcnexus.com";
 
   writeFileSync('./dist/package.json', JSON.stringify(package, null, 2), {encoding: 'UTF-8'});
   copy("./README.md", "./dist/README.md");

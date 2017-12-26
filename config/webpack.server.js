@@ -64,7 +64,10 @@ module.exports = {
     new CopyWebpackPlugin([
       { 
         from: resolve(serverpath, "./config"),
-        to: 'config' 
+        to: 'config',
+        ignore: [
+          ".gitkeep"
+        ] 
       },
       { 
         from: resolve(serverpath, "./static"),
