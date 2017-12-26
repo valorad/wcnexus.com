@@ -1,4 +1,4 @@
-[![Docker Stars](https://img.shields.io/docker/stars/_/ubuntu.svg?style=flat-square)](https://hub.docker.com/r/valorad/wcnexus.com/)
+[![Docker Stars](https://img.shields.io/docker/stars/valorad/wcnexus.com.svg?style=flat-square)](https://hub.docker.com/r/valorad/wcnexus.com/)
 # wcnexus
 
 wcnexus is wc's personal website as nexus.
