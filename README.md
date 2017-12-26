@@ -14,15 +14,10 @@ wcnexus v3 is powered by nodejs, with [Angular5][ng] at the front, and [koa][koa
   - (optional) nginx
   - (optional) pm2
 
-## Production Deployment
-- Download release dist to your server, and head over to that folder you extracted files to.
-- `npm install` or `yarn install` to collect node modules.
-- Firing up.
+## Deployment
 
-- If you just would like to try it out, you just simply go with `node server/wcnexus`. You may then navigate to http://localhost:3000.
-- If deploying on a production server is your case, then you have to perform the following steps:
-
-  - Via Docker:
+- Via Docker:
+  - Run the docker container
   ``` bash
   docker run -d -p 3000:3000 \  
     --name wcnexus.com-c1
@@ -31,13 +26,16 @@ wcnexus v3 is powered by nodejs, with [Angular5][ng] at the front, and [koa][koa
     -v /path/to/your/server/static:/dist/server/static \
     valorad/wcnexus.com
   ```
-  (Optional) Then build and deploy your own `nginx` image.
+  - (optional) Then build and deploy your own `nginx` image.
 
-  - Manually:
-    - Properly configure your nginx.
-    - [pm2][pm2] is recommended to hold up your node.js app. Running `pm2 start server/wcnexus` will do the trick.
+- Manually:
+  - Download release dist to your server, and head over to that folder you extracted files to.
+  - `npm install` or `yarn install` to collect node modules.
+  - Fire it up. If you just would like to try it out, you just simply now go with `node server/wcnexus`. You may then navigate to http://localhost:3000. If deploying on a production server is your case, then you may continue.
+  - Properly configure your nginx.
+  - [pm2][pm2] is recommended to hold up your node.js app. Running `pm2 start server/wcnexus` will do the trick.
 
-  - Visit http://example.com:80 and you are good to go.
+- Visit http://example.com:80 and you are good to go.
 
 ## Nginx Example Config:
 
@@ -70,7 +68,10 @@ EXPOSE 80
     ...
   }
 ```
-
+# Development
+``` bash
+npm run xxx
+```
 in which xxx being:
 
 | -        | dev                           | compile            | start                |
