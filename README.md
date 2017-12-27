@@ -39,15 +39,15 @@ wcnexus v3 is powered by nodejs, with [Angular5][ng] at the front, and [koa][koa
 
 ## Nginx Example Config:
 
-``` dockerfile
-# Dockerfile
-FROM nginx:alpine
+``` bash
+# Run in a docker container
+docker run -d \ 
+-p 80:80 -p 443:443 \
+--name nginx-c1 \
+-v /path/to/conf.d:/etc/nginx/conf.d \
+-v /path/to/site/www/:/www \
+nginx:mainline-alpine
 
-COPY default.conf /etc/nginx/conf.d/default.conf
-
-VOLUME [ "/www" ]
-
-EXPOSE 80
 ```
 
 ``` conf
