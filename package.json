@@ -1,6 +1,6 @@
 {
   "name": "wcnexus.com",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "wc's personal website",
   "main": "server/wcnexus.com",
   "scripts": {

@@ -8,28 +8,44 @@
 #  -v /path/to/your/server/static:/dist/server/static \
 #  wcnexus.com
 
-FROM alpine:latest
-LABEL maintainer="Valroad <valorad@outlook.com>"
+# FROM alpine:latest
+# LABEL maintainer="Valroad <valorad@outlook.com>"
 
-RUN echo " --- Software installation starts --- " \
- && apk update \
- && apk add nodejs nodejs-npm su-exec \
- && rm -rf /var/cache/apk/*
+# RUN echo " --- Software installation starts --- " \
+#  && apk update \
+#  && apk add nodejs nodejs-npm su-exec \
+#  && rm -rf /var/cache/apk/*
 
-# ARG username=valorad
-ADD ./dist /dist
+# # ARG username=valorad
+# ADD ./dist /dist
 
-WORKDIR /dist
-RUN echo " --- Node module collection starts --- " \
- # node module collection
+# WORKDIR /dist
+# RUN echo " --- Node module collection starts --- " \
+#  # node module collection
+#  && npm install \
+#  && npm cache clean --force
+
+# VOLUME ["/dist"]
+
+# EXPOSE 3000
+
+# ENV EXEC_USER=valorad
+# ENV EXEC_USER_ID=1000
+# ENTRYPOINT ["/dist/index.sh"]
+# CMD npm start && /bin/sh
+
+FROM node:alpine
+
+ARG BASE_DIR=/www/wcnexus.com
+
+ADD ./dist ${BASE_DIR}/
+
+WORKDIR ${BASE_DIR}/
+
+RUN echo " --- Collecting node modules --- " \
  && npm install \
  && npm cache clean --force
 
-VOLUME ["/dist"]
-
 EXPOSE 3000
 
-ENV EXEC_USER=valorad
-ENV EXEC_USER_ID=1000
-ENTRYPOINT ["/dist/index.sh"]
-CMD npm start && /bin/sh
+CMD [ "node", "server/wcnexus.com" ]
