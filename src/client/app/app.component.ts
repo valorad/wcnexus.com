@@ -25,16 +25,18 @@ export class AppComponent implements OnInit, OnDestroy {
   navList: any[] = [
     {
       title: {
-        en: "Index",
-        zh: "首页"
+        en: "Home",
+        zh: "首页",
+        fr: "Accueil",
       },
       link: "/index",
       exterior: false // set to true if a use "href=" attr, to false to use "routerLink="
     },
     {
       title: {
-        en: "Venture",
-        zh: "冒险"
+        en: "Venture (Not available)",
+        zh: "冒险 （还没弄好）",
+        fr: "Aventure (Indisponible)",
       },
       link: "/venture",
       exterior: true
@@ -49,7 +51,11 @@ export class AppComponent implements OnInit, OnDestroy {
     {
       name: "zh",
       descr: "中文"
-    }
+    },
+    {
+      name: "fr",
+      descr: "Français"
+    },
   ];
 
   openSideNav = async () => {
