@@ -1,5 +1,7 @@
 # wcnexus
 
+![cover](https://i.imgur.com/4X1aCVI.png)
+
 Site wcnexus.com is Chenxuan (Steve)'s personal website.
 
 The original purpose of developing this website was to practice my skills in software development, it was also one of my wish of having my own website a couple of years ago.
