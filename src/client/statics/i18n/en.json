@@ -3,19 +3,19 @@
   "app": {
     "changeLanguage": "Change Language",
     "slogan": "We choose to live many.",
-    "welcome": "Welcome to wcnexus",
-    "introTitle": "wcnexus is wc's personal website as nexus.",
-    "introContent": "I developed this site for the purpose of my interest display, demostration of front-end (and also maybe some back-end) techniques, but more importantly, to accomplish what was wished couple of years ago. The site name was inspired by the idea of the famous game mod site - nexusmods.com. Back in those days I was hoping to set up a site so that we xiaomajias can finally find a place called home.",
+    "welcome": "Welcome to wcnexus!",
+    "introTitle": "wcnexus.com is Chenxuan (Steve)'s personal website.",
+    "introContent": "<p>The original purpose of developing this website was to practice my skills in software development, it was also one of my wish of having my website a couple of years ago.</p> <p>In daily life, I am a gamer who is a crazy fan of video games. The site name was inspired by the idea of the famous game mod site - nexusmods.com, in which hundreds of game mods were shared.</p> <p>Just like how I love game modding, I made this website because I loved front-end development (still do), and wanted to create a display case for what tools I used and what skills I had, and share the experience with others. </p>",
     "aboutMe": "About me",
-    "aboutMeTitle": "A still single kitten that has mislabeled as a straight-A student. Fan of TES, Fallout, AC, FC, DA, ME. Loved but once hurt by Bethesda and Ubisoft, hates EA.",
-    "aboutMeContent": "<p>Loves CS, video games, installing OS</p><p>Front-end, GIS</p><p>Currently working at an IT company.</p>",
+    "aboutMeTitle": "Developer, front-end guy, gamer, modder, creative guy, whatever you call me",
+    "aboutMeContent": "<p>My favorite games are single-player RPGs e.g. The Elder Scrolls, Assassin's Creed, Mass Effect</p><p>My favorite pet is cat!</p><p>Dream of working in the video game industry in the future.</p><p>Have experience in Front-end Development: Angular, Vue, React, etc.</p><p>Familiar with server development: node.js, .Net Core</p><p>Knows how to deploy micro-services: Kubernetes, Docker</p><p><b>Looking for a new family</b>: front-end / full-stack developer",
     "aboutwcnexus": "About wcnexus",
-    "aboutwcnexusTitle": "wcnexus was developed by wc and his xiaomajias.",
-    "aboutwcnexusContent": "We're currently in version 3 dev stage.",
-    "techs": "CS technologies we used",
+    "aboutwcnexusTitle": "4 years of development, new stuff come in (almost) each year",
+    "aboutwcnexusContent": "WCNexus started being developed back in 2016, and almost every year, it was implemented with more beautiful page layouts and built with newer technologies. The online version is v3, which was developed in 2017. The backend is powered by node.js (koa 2), while the front-end is based on Angular 5. The website is hosted on a VPS, and unprecedently, it is deployed via docker and is served with HTTPS enabled. I know it seems nothing fancy nowadays, but hey, it was the first time that I've managed to figure all these things out myself!",
+    "techs": "Technologies And Tools",
     "knowMore": "Know more",
-    "linkNext": "LinkNext",
+    "linkNext": "Where to next",
     "myGithub": "My Github",
-    "venturePage": "Venture page (Blogs)"
+    "venturePage": "Venture page (Blogs) (Not Available)"
   }
 }

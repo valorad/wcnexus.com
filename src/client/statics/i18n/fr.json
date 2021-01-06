@@ -1,0 +1,21 @@
+{
+  "github": "Github",
+  "app": {
+    "changeLanguage": "Choisissez votre langue",
+    "slogan": "Nous choisissons de vivre plusieurs.",
+    "welcome": "Bienvenue à wcnexus!",
+    "introTitle": "wcnexus.com est le site personnel de Chenxuan (Steve, Stéphane).",
+    "introContent": "<p> Le but originel du développement de ce site était de mettre en pratique mes compétences en développement logiciel, c'était aussi l'un de mes souhaits d'avoir mon site il y a quelques années. </p> <p> Dans la vie quotidienne, je suis un joueur passionné de jeux vidéo. Le nom du site a été inspiré par l'idée du célèbre site de mod de jeu - nexusmods.com, dans lequel des centaines de mods de jeu ont été partagés. </p> <p> Tout comme j'aime le modding de jeu, j'ai créé ce site Web parce que j'aimais développement front-end (toujours le faire), et je voulais créer une vitrine pour quels outils j'utilisais et quelles compétences j'avais, et partager l'expérience avec les autres. </p>",
+    "aboutMe": "Sur Moi",
+    "aboutMeTitle": "Développeur, front-end guy, gamer, modder, gars créatif, m'appellez comme vous voulez",
+    "aboutMeContent": "<p>Mes jeux préférés sont les RPG solo e.g. The Elder Scrolls, Assassin's Creed, Mass Effect</p><p>Mon animal préféré est le chat!</p><p>Je rêve de travailler dans l'industrie du jeu vidéo à l'avenir.</p><p>J'ai de l'expérience en développement du Front-end: Angular, Vue, React, etc.</p><p>Je suis familier avec le développement de serveurs: node.js, .Net Core</p><p>Je sais déployer des microservices: Kubernetes, Docker</p><p><b>Je cherche une nouvelle famille</b>: Développeur du front-end / full-stack",
+    "aboutwcnexus": "Sur wcnexus",
+    "aboutwcnexusTitle": "4 ans de développement, les nouvelles choses arrivent (presque) chaque année",
+    "aboutwcnexusContent": "WCNexus a commencé à être développé en 2016, et presque chaque année, il a été mis en œuvre avec de plus belles mises en page et construit avec de nouvelles technologies. La version en ligne est la v3, qui a été développée en 2017. Le backend est propulsé par node.js (koa 2), et le front-end est basé sur Angular 5. Le site Web est hébergé sur un VPS et, sans précédent, il est déployé via docker et est servi avec HTTPS activé. Je sais que ça ne semble pas fancy aujourd'hui, mais bon, c'était la première fois que j'ai réussi à comprendre toutes ces choses moi-même!",
+    "techs": "Technologies et outils",
+    "knowMore": "Sachez plus",
+    "linkNext": "Où aller ensuite",
+    "myGithub": "Mon Github",
+    "venturePage": "Page Aventure (Blogs) (Indisponible)"
+  }
+}

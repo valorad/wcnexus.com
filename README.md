@@ -3,6 +3,8 @@
 
 wcnexus is wc's personal website as nexus.
 
+(==🌟== Check out [v4-dev branch](https://github.com/valorad/wcnexus.com/tree/v4-dev) for the latest wcnexus looks and feels!)
+
 wcnexus v3 is powered by nodejs, with [Angular5][ng] at the front, and [koa][koa] at the back. The mighty angular-cli has been substituted by a dedicated webpack since version 3.
 
 ## Prerequisites

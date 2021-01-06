@@ -3,19 +3,19 @@
   "app": {
     "changeLanguage": "切换语言",
     "slogan": "我们选择多彩人生",
-    "welcome": "欢迎来到wcnexus",
-    "introTitle": "wcnexus是wc的个人网站据点.",
-    "introContent": "这个网站是为了展现我的兴趣爱好，展示前端（或者一些后端）技术经验，但更重要的是实现我多年前一直没有完成的愿望。网站名字灵感来自于国外著名的游戏Mod网站nexusmods.com。之前我一直想建这个网站，这样就终于能给我和我的小马甲一些家的感觉。（如果你不知道什么是mod：mod是单机游戏里面的玩家自定义补充内容。字数限制如果你觉得还是有点模糊请咨询wc和他的小马甲。）",
-    "aboutMe": "关于我",
-    "aboutMeTitle": "单身喵，伪学霸。老滚辐射粉，刺客远哭粉，龙腾质量粉。杯赛路，育碧路，EA黑。",
-    "aboutMeContent": "<p>我爱钻研计算机技术，喜欢玩单机游戏，还喜欢折腾乱装操作系统</p><p>我是前端喵，专业是地理信息科学</p><p>现在正在一家IT公司搬砖。</p>",
+    "welcome": "欢迎来到wcnexus！",
+    "introTitle": "wcnexus.com是Chenxuan(Steve)的个人小网站.",
+    "introContent": "<p>最初，开发这个网站是想练习我的软件开发技能，这也是我多年前的一个心愿：有一个属于自己的网站。</p> <p>平日里，我是一名玩家，非常爱玩游戏。网站名字的灵感来源于一个著名的游戏mod网站：nexusmods.com，上面有很多很多的游戏mod放出。</p> <p>就像我对做游戏mod的爱好一样，我制作了这个网站，因为我热爱前端开发，希望提供一个平台来展示我应用了哪些工具，以及我的水平如何，并且向大家分享一些经验。</p>",
+    "aboutMe": "我啊？",
+    "aboutMeTitle": "程序猿、前端喵、玩家、modder、creative guy，随便你怎么叫我",
+    "aboutMeContent": "<p>我最喜欢的游戏是：单人角色扮演。比方说：《上古卷轴》、《刺客信条》、《质量效应》</p><p>我最喜欢的宠物是 猫猫!</p><p>梦想以后在游戏行业献出自己一份力量。</p><p>有前端工作经验: Angular、Vue、React等.</p><p>熟练后端开发: node.js、.Net Core</p><p>了解部署微服务: Kubernetes、Docker</p><p><b>正在寻找新的family</b>: 前端工程师 / 全栈工程师",
     "aboutwcnexus": "关于wcnexus",
-    "aboutwcnexusTitle": "wcnexus由wc和他的小马甲开发并搭建。",
-    "aboutwcnexusContent": "我们现在正在开发第3版",
-    "techs": "我们用到的CS技术",
-    "knowMore": "没明白，多讲讲",
-    "linkNext": "下一链接",
+    "aboutwcnexusTitle": "开发长达4年，（几乎）每年都有新玩意儿",
+    "aboutwcnexusContent": "WCNexus于2016开始开发，几乎每年都会更新，应用更美观的版面设计和更新的技术。目前的上线版本是v3，于2017年开发。后端基于node.js（koa 2），而前端基于Angular 5。网站部署在一台VPS上，而且史无前例地引入了docker技术和HTTPS。我知道现在看来这没啥大不了的，但是哎呀，这毕竟是我第一次一个人搞懂全部的技术啊！",
+    "techs": "技术和工具",
+    "knowMore": "详情",
+    "linkNext": "接下来请访问",
     "myGithub": "我的给特哈布",
-    "venturePage": "冒险 (博客)"
+    "venturePage": "冒险（博客）（还没弄好）"
   }
 }

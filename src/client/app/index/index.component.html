@@ -37,7 +37,8 @@
           <div class="descr flex-right col-lg-6">
             <div class="colHolder">
               <p class="title">{{ 'app.introTitle' | translate }}</p>
-              <p>{{ 'app.introContent' | translate }}</p>
+              <div [innerHTML]="'app.introContent' | translate"></div>
+              <!-- <p>{{ 'app.introContent' | translate }}</p> -->
             </div>
           </div>
           <div class="imgHolder col-lg-6 flex-left">
