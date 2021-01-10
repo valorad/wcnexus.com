@@ -1,3 +1,6 @@
 [submodule "client"]
 	path = client
 	url = ../wcnexus-client.git
+[submodule "server"]
+	path = server
+	url = ../wcnexus-server.git
