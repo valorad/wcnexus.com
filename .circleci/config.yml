@@ -10,7 +10,7 @@ workflows:
             filters:
               branches:
                 only: master
-            context: context0
+            context: docker-ghcr
             docker-username: GITHUB_LOGIN
             docker-password: GITHUB_TOKEN
             registry: ghcr.io
