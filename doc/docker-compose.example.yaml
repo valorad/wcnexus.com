@@ -3,18 +3,12 @@ version: "3.9"
 services:
 
   wcnexus:
-    image: ghcr.io/valorad/wcnexus.com:latest # Feel free to choose the tag you want
-    container_name: code-server-node-15
+    image: ghcr.io/valorad/wcnexus.com:latest
+    container_name: wcnexus.com-latest
     restart: always
-    environment:
-      - EXEC_USER_ID=1002  # (optional) Your new user ID if needed. This image already has 1 normal user.
-      - EXEC_USER_NAME=node2 # (optional) Your new user name if needed.
-      - EXEC_PASSWD=my-password-for-new-user # (optional) Your new user password.
     volumes:
-      - /workspace/www/code-server/config.yaml:/etc/codeServer/config.yaml # Path to code-server config file to override
-      - /workspace/workbench:/workspace/workbench # Path to your code that you will edit
-      - /workspace/www/code-server/node/15/User/settings.json:/workspace/www/code-server/User/settings.json # (optional) Path to where you store code-server user settings.
-      - /workspace/www/code-server/node/15/extensions:/workspace/www/code-server/extensions # (optional) Path to where you store code-server extensions.
+      - /path/to/appsettings.Production.yaml:/workspace/www/wcnexus.com/appsettings.Production.yaml
+      - /path/to/secrets.yaml:/workspace/www/wcnexus.com/secrets.yaml
     networks:
       - main
 
