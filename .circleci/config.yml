@@ -1,0 +1,25 @@
+---
+
+version: 2.1
+orbs:
+  docker: circleci/docker@1.5.0
+workflows:
+    mainPipe:
+      jobs:
+        - docker/publish:
+            filters:
+              branches:
+                only: master
+            context: context0
+            docker-username: GITHUB_LOGIN
+            docker-password: GITHUB_TOKEN
+            registry: ghcr.io
+            after_checkout:
+              - run:
+                  name: Fetch Submodules
+                  command: |
+                    git submodule sync
+                    git submodule update --init
+            dockerfile: dockerfile
+            image: valorad/wcnexus.com
+            update-description: false
