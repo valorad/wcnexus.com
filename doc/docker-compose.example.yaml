@@ -2,13 +2,13 @@
 version: "3.9"
 services:
 
-  wcnexus:
+  latest:
     image: ghcr.io/valorad/wcnexus.com:latest
-    container_name: wcnexus.com-latest
     restart: always
+    user: "1000"
     volumes:
-      - /path/to/appsettings.Production.yaml:/workspace/www/wcnexus.com/appsettings.Production.yaml
-      - /path/to/secrets.yaml:/workspace/www/wcnexus.com/secrets.yaml
+      - [/path/to/appsettings.Production.yaml]:/workspace/www/wcnexus.com/appsettings.Production.yaml
+      - [/path/to/secrets.yaml]:/workspace/www/wcnexus.com/secrets.yaml
     networks:
       - main
 

@@ -41,8 +41,9 @@ docker network create main
 
 docker run -d \
 --network main \
--v /path/to/appsettings.Production.yaml:/workspace/www/wcnexus.com/appsettings.Production.yaml \
--v /path/to/secrets.yaml:/workspace/www/wcnexus.com/secrets.yaml \
+--user "1000" \
+-v [/path/to/appsettings.Production.yaml]:/workspace/www/wcnexus.com/appsettings.Production.yaml \
+-v [/path/to/secrets.yaml]:/workspace/www/wcnexus.com/secrets.yaml \
 ghcr.io/valorad/wcnexus.com
 
 ```
